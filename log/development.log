@@ -2543,3 +2543,14 @@ Started GET "/assets/application.self-8d6dab31be4a1ead9c72b8267d0966934585ed1031
 =======
 >>>>>>> 8cee19b1a3cbddb49ab28122c127076efb151d91
 >>>>>>> 5a2591eca79dabec4da9cc330c19cdd9a2a424af
+
+
+Started GET "/users/sign_up" for ::1 at 2016-01-08 19:32:49 -0800
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by Devise::RegistrationsController#new as HTML
+  Rendered users/shared/_links.html.erb (1.1ms)
+  Rendered users/registrations/new.html.erb within layouts/application (636.3ms)
+Completed 200 OK in 1159ms (Views: 1110.3ms | ActiveRecord: 2.9ms)
+
+
+Started GET "/assets/application.self-8f7dbd39047669985b36a9a15e6b7e0ed046e8b7ae07e9f35d80935920e787c0.js?body=1" for ::1 at 2016-01-08 19:32:51 -0800
