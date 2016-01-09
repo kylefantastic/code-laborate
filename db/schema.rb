@@ -17,18 +17,33 @@ ActiveRecord::Schema.define(version: 20160108231744) do
   enable_extension "plpgsql"
 
   create_table "organizations", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.string   "name"
+    t.string   "website_url"
+    t.text     "description"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
 
   create_table "projects", force: :cascade do |t|
+    t.string   "title"
+    t.text     "description"
+    t.boolean  "confirmed?",      default: false
+    t.string   "contact_name"
+    t.string   "contact_email"
+    t.string   "contact_phone"
+    t.date     "deadline"
     t.integer  "developer_id"
     t.integer  "organization_id"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
+    t.datetime "created_at",                      null: false
+    t.datetime "updated_at",                      null: false
   end
 
   create_table "users", force: :cascade do |t|
+    t.string   "first_name"
+    t.string   "last_name"
+    t.string   "public_profile_url"
+    t.string   "bootcamp"
+    t.integer  "organization_id"
     t.string   "email",                  default: "", null: false
     t.string   "encrypted_password",     default: "", null: false
     t.string   "reset_password_token"
