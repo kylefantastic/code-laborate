@@ -2554,3 +2554,24 @@ Completed 200 OK in 1159ms (Views: 1110.3ms | ActiveRecord: 2.9ms)
 
 
 Started GET "/assets/application.self-8f7dbd39047669985b36a9a15e6b7e0ed046e8b7ae07e9f35d80935920e787c0.js?body=1" for ::1 at 2016-01-08 19:32:51 -0800
+
+
+Started GET "/users/sign_up" for ::1 at 2016-01-08 19:37:48 -0800
+Processing by Devise::RegistrationsController#new as HTML
+  Rendered users/shared/_links.html.erb (0.2ms)
+  Rendered users/registrations/new.html.erb within layouts/application (4.2ms)
+Completed 200 OK in 81ms (Views: 79.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.self-3f18205fa0e61622345479dfd20f51a3770a175c08dad13fdc98431865ea7493.js?body=1" for ::1 at 2016-01-08 19:37:48 -0800
+
+
+Started GET "/users/sign_up" for ::1 at 2016-01-08 19:42:36 -0800
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by Devise::RegistrationsController#new as HTML
+  Rendered users/shared/_links.html.erb (1.1ms)
+  Rendered users/registrations/new.html.erb within layouts/application (391.2ms)
+Completed 200 OK in 1064ms (Views: 1033.6ms | ActiveRecord: 3.2ms)
+
+
+Started GET "/assets/application.self-0717a2cb0ebb4e0714d75db4e23f66e1b7c2a7e3bdb513f3e5de946d2c7d96ba.js?body=1" for ::1 at 2016-01-08 19:42:37 -0800
