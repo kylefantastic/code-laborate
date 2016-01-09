@@ -1,0 +1,5 @@
+/config/secrets.yml
+/.bundle
+/log/*
+!/log/.keep
+/tmp
