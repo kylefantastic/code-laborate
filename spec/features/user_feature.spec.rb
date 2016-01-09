@@ -1,6 +1,9 @@
 require 'rails_helper'
+Capybara.register_driver :selenium do |app|
+  Capybara::Selenium::Driver.new(app, :browser => :chrome)
+end
 
-describe 'feature testing', :type => :feature do
+describe 'feature testing', :type => :feature, js: true do
 
   feature 'the home page' do
 
@@ -12,7 +15,7 @@ describe 'feature testing', :type => :feature do
     scenario 'a user can redirect to the registration page' do
       visit('/home')
       click_link 'Register'
-      expect(page).to have_content "Please choose what type of user you are"
+      expect(page).to have_content "Welcome to Codellaborate"
     end
   end
 end
