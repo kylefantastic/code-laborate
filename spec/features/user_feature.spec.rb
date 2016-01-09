@@ -62,10 +62,10 @@ describe 'feature testing', :type => :feature, js: true do
     end
   end
 
-  # feature 'organization sign-up' do
-  #   scenario 'an organization representative can create an organization' do
-  #     visit()
-  #   end
-  # end
+  feature 'organization sign-up' do
+    scenario 'an organization representative can create an organization' do
+      visit()
+    end
+  end
 end
 #closes feature testing

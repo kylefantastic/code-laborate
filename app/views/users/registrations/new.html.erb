@@ -1,6 +1,7 @@
 <h2>Register</h2>
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= devise_error_messages! %>
+  <%= @errors %>
   <button type="button" id="dev">Sign Up As Developer</button>
   <button type="button" id="org">Sign Up As Non-Profit</button>
 
@@ -76,7 +77,9 @@
       <%= f.label :password_confirmation %><br />
       <%= f.password_field :password_confirmation, autocomplete: "off" %>
     </div>
-
+    <div class="field">
+    <%= f.hidden_field :org_affiliate, :value=>true %>
+    </div>
     <div class="actions">
       <%= f.submit "Sign up" %>
     </div>
