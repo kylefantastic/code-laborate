@@ -14,11 +14,15 @@ describe 'feature testing', :type => :feature, js: true do
       scenario 'a user can redirect to the registration page' do
         visit('/')
         click_link 'Sign up'
-        expect(page).to have_content "blah"
+        expect(page).to have_content "Sign Up As Non-Profit"
       end
     end
     context 'a user is logged in' do
-      scenario ''
+      before(:each)
+
+      scenario 'can see logout' do
+        expect(page).to have_link('Logout')
+      end
     end
   end
 
