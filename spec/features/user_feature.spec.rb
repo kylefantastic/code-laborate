@@ -18,8 +18,9 @@ describe 'feature testing', :type => :feature, js: true do
       end
     end
     context 'a user is logged in' do
-      before(:each)
-
+      before :each do
+        user_login
+      end
       scenario 'can see logout' do
         expect(page).to have_link('Logout')
       end
