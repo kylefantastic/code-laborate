@@ -3,7 +3,7 @@ class CreateProjects < ActiveRecord::Migration
     create_table :projects do |t|
       t.string :title
       t.text :description
-      t.boolean :confirmed?
+      t.boolean :confirmed?, default: false
       t.string :contact_name
       t.string :contact_email
       t.string :contact_phone
