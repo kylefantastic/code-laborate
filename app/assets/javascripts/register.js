@@ -1,7 +1,6 @@
  $(document).ready(function() {
 
- $('#devform').hide(); //Initially form wil be hidden.
-
+ $('#devform').hide();
   $('#dev').click(function() {
    $('#devform').show();
    });
