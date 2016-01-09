@@ -83,3 +83,43 @@ Processing by HomeController#index as HTML
   Rendered home/index.html.erb within layouts/application (0.1ms)
 Completed 200 OK in 2ms (Views: 2.1ms | ActiveRecord: 0.0ms)
   [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+Started GET "/" for 127.0.0.1 at 2016-01-08 19:36:12 -0800
+Processing by HomeController#index as HTML
+  Rendered home/index.html.erb within layouts/application (1.3ms)
+Completed 200 OK in 363ms (Views: 349.6ms | ActiveRecord: 0.0ms)
+Started GET "/assets/application-2d7968994a750350abb50028e047ed290d63c9bac692117bce66d6c43f178800.js" for 127.0.0.1 at 2016-01-08 19:36:13 -0800
+Started GET "/assets/application-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css" for 127.0.0.1 at 2016-01-08 19:36:13 -0800
+  [1m[36m (0.3ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+Started GET "/" for 127.0.0.1 at 2016-01-08 19:36:13 -0800
+Processing by HomeController#index as HTML
+  Rendered home/index.html.erb within layouts/application (0.1ms)
+Completed 200 OK in 3ms (Views: 2.4ms | ActiveRecord: 0.0ms)
+Started GET "/users/sign_up" for 127.0.0.1 at 2016-01-08 19:36:13 -0800
+Processing by Devise::RegistrationsController#new as HTML
+  [1m[36m (25.4ms)[0m  [1mROLLBACK[0m
+  Rendered users/shared/_links.html.erb (1.3ms)
+  Rendered users/registrations/new.html.erb within layouts/application (574.5ms)
+Completed 200 OK in 608ms (Views: 580.3ms | ActiveRecord: 3.7ms)
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+Started GET "/" for 127.0.0.1 at 2016-01-08 19:37:17 -0800
+Processing by HomeController#index as HTML
+  Rendered home/index.html.erb within layouts/application (1.4ms)
+Completed 200 OK in 370ms (Views: 355.9ms | ActiveRecord: 0.0ms)
+Started GET "/assets/application-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css" for 127.0.0.1 at 2016-01-08 19:37:18 -0800
+Started GET "/assets/application-2d7968994a750350abb50028e047ed290d63c9bac692117bce66d6c43f178800.js" for 127.0.0.1 at 2016-01-08 19:37:18 -0800
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+Started GET "/" for 127.0.0.1 at 2016-01-08 19:37:18 -0800
+Processing by HomeController#index as HTML
+  Rendered home/index.html.erb within layouts/application (0.1ms)
+Completed 200 OK in 3ms (Views: 2.6ms | ActiveRecord: 0.0ms)
+Started GET "/users/sign_up" for 127.0.0.1 at 2016-01-08 19:37:18 -0800
+Processing by Devise::RegistrationsController#new as HTML
+  Rendered users/shared/_links.html.erb (1.2ms)
+  Rendered users/registrations/new.html.erb within layouts/application (528.9ms)
+Completed 200 OK in 559ms (Views: 533.6ms | ActiveRecord: 4.0ms)
+  [1m[36m (0.4ms)[0m  [1mROLLBACK[0m

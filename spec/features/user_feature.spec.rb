@@ -14,11 +14,12 @@ describe 'feature testing', :type => :feature, js: true do
       scenario 'a user can redirect to the registration page' do
         visit('/')
         click_link 'Sign up'
-        expect(page).to have_content ""
+        expect(page).to have_content "blah"
       end
     end
     context 'a user is logged in' do
       scenario ''
+    end
   end
 
   feature 'the '
