@@ -8,7 +8,6 @@ module LoginHelpers
       fill_in 'Password', :with => 'password'
     end
     click_button 'Log in'
-
   end
 
 end
