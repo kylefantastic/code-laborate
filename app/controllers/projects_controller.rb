@@ -4,7 +4,7 @@ class ProjectsController < ApplicationController
   end
 
   def new
-
+    @project = Project.new
   end
 
   def create
@@ -12,8 +12,8 @@ class ProjectsController < ApplicationController
     if @project.save
         redirect_to project_path(@project)
     else
-      p @errors = @project.errors.full_messages
-      redirect_to new_project_path
+      p @project
+      render 'new'
     end
   end
 

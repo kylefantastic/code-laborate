@@ -1,62 +1,66 @@
 <h2>Projects</h2>
   <div id="new_project_form">
 
-    <% if @article.errors.any? %>
-      <div id="error_explanation">
-        <h2>
-          <%= pluralize(@project.errors.count, "error") %> prohibited
-          this project from being saved:
-        </h2>
-        <ul>
-          <% @projects.errors.full_messages.each do |msg| %>
-            <li><%= msg %></li>
-          <% end %>
-        </ul>
-      </div>
-    <% end %>
-
     <%= form_for :project, url: projects_path do |f| %>
+
+      <% if @project.errors.any? %>
+        <div id="error_explanation">
+          <h3>
+            <%= pluralize(@project.errors.count, "error") %> prohibited
+            this project from being saved:
+          </h3>
+        </div>
+      <% end %>
+
       <p>
-        <%= f.label :title, "Project Title " %><br>
+        <%= f.label :title, "Project Title" %>
+        <%= error_show(@project, :title) %>
         <%= f.text_field :title %>
       </p>
 
       <p>
-        <%= f.label :vision, "Vision" %><br>
+        <%= f.label :vision, "Vision" %>
+        <%= error_show(@project, :vision) %>
         <%= f.text_area :vision, placeholder:"Add vision" %>
         <div>A sentence about your organizations goal for this project</div>
       </p>
 
       <p>
-        <%= f.label :need, "Need" %><br>
+        <%= f.label :need, "Need" %>
+        <%= error_show(@project, :need) %>
         <%= f.text_area :need, placeholder: "Add Need" %>
         <div>What need will this project address</div>
       </p>
       <p>
-        <%= f.label :description,"Description" %><br>
+        <%= f.label :description,"Description" %>
+        <%= error_show(@project, :description) %>
         <%= f.text_area :description, placeholder: "Add Description" %>
         <div>Describe proposed project details here.  Include what you want a user to do
           and what functionality you need.  Include any computer languages, if any, required for your project.
         </div>
       </p>
       <p>
-        <%= f.label :benefit,"Benefit" %><br>
+        <%= f.label :benefit,"Benefit" %>
+        <%= error_show(@project, :benefit) %>
         <%= f.text_area :benefit, placeholder: "Add Benefit" %>
         <div>Who will benefit from implementation of this project</div>
       </p>
 
       <p>
         <%= f.label :contact_name,"Contact name" %><br>
+        <%= error_show(@project, :contact_name) %>
         <%= f.text_field :contact_name %>
       </p>
 
       <p>
         <%= f.label :contact_email,"Contact email" %><br>
+        <%= error_show(@project, :contact_email) %>
         <%= f.text_field :contact_email%>
       </p>
       <p>
 
         <%= f.label :contact_phone,"Contact phone number" %><br>
+        <%= error_show(@project, :contact_phone) %>
         <%= f.text_field :contact_phone%>
       </p>
 
