@@ -3,31 +3,39 @@ class ProjectsController < ApplicationController
     @projects = Project.all
   end
 
+  def new
+
+  end
+
   def create
-    p params
+    render plain: params[:project]
     @project = Project.new(project_params)
-    p @project
+    p project_params
     if @project.save
-      if @project
-        redirect_to projects_path
-      else
-        redirect_to projects
-      end
+      p "Printing saved Project"
+      p @project
+        redirect_to project_path(@project)
     else
+      p "Errors should be here"
       @errors = @project.errors
-      redirect_to new_project_registration_path
+      redirect_to new_project_path
     end
+  end
+
+  def show
   end
 
   def project_params
       project_permitted = %i(
         title
+        vision
+        need
         description
+        benefit
         contact_name
         contact_email
         contact_phone
         deadline
-
       )
       params.require(:project).permit(project_permitted)
     end
