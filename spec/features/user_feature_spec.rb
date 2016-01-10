@@ -34,6 +34,7 @@ describe 'feature testing', :type => :feature, js: true do
         fill_in 'Password', :with => 'password'
         fill_in 'Password confirmation', :with => 'password'
         click_button 'Sign up'
+        binding.pry
         expect(page).to have_content('Logged in as user@user.com')
       end
     end
@@ -57,7 +58,7 @@ describe 'feature testing', :type => :feature, js: true do
 
   feature 'login' do
     scenario 'a registered user can log in' do
-      login_user
+      user_login
       expect(page).to have_link('Logout')
     end
   end
