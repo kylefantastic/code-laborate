@@ -7,21 +7,36 @@ class ProjectsController < ApplicationController
   end
 
   def create
-    render plain: params[:project]
+    p params
     @project = Project.new(project_params)
-    p project_params
     if @project.save
-      p "Printing saved Project"
-      p @project
         redirect_to project_path(@project)
     else
-      p "Errors should be here"
-      @errors = @project.errors
+      @errors = @project.errors.full_messages
       redirect_to new_project_path
     end
   end
 
   def show
+    @project = Project.find(params[:id])
+    @organization = Organization.find(@project.organization_id)
+    p @project
+    p @organization
+  end
+  # def edit
+  #   @project = Project.find(params[:id])
+  # end
+  # def update
+  #   p "I got here"
+  #   p params
+  #   @project = Project.find(params[:id])
+  # end
+
+  def destroy
+    @project = Project.find(params[:id])
+    @project.destroy
+    @organization = Organization.find(@project.organization_id)
+    redirect_to organization_path(@organization)
   end
 
   def project_params
@@ -35,6 +50,7 @@ class ProjectsController < ApplicationController
         contact_email
         contact_phone
         deadline
+        organization_id
       )
       params.require(:project).permit(project_permitted)
     end
