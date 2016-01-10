@@ -11,18 +11,18 @@ class ProjectsController < ApplicationController
     p params
     @project = Project.new(project_params)
     if @project.save
-      p "Printing saved Project"
-      p @project
         redirect_to project_path(@project)
     else
-      p "Errors should be here"
       @errors = @project.errors.full_messages
-      p @errors
       redirect_to new_project_path
     end
   end
 
   def show
+    @project = Project.find(params[:id])
+    @organization = Organization.find(@project.organization_id)
+    p @project
+    p @organization
   end
 
   def project_params
