@@ -3,20 +3,27 @@ class OrganizationsController < ApplicationController
 
   end
 
+  def show
+    @organization = Organization.find(params[:id])
+    render 'show'
+  end
   def create
+    p '%%%%%%%%%%%%%%%%%%%%%'
     p params
+    p '%%%%%%%%%%%%%%%%%%%%%'
     @organization = Organization.new(org_params)
-    p @organization
+
     if @organization.save
-      render 'show'
+    p @organization
+    p '****************'
+      redirect_to organization_path(@organization)
+      # render 'show'
     else
       @errors = @organization.errors.messages
       render 'new'
     end
   end
 
-  def show
-  end
 
   def update
   end
