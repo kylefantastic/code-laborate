@@ -4,6 +4,8 @@ module LoginHelpers
     User.create(first_name: 'New',
                 last_name: 'Person',
                 email: 'user@user.com',
+                public_profile_url: 'public.com',
+                bootcamp: 'DBC',
                 password: 'password')
     visit '/users/sign_in'
     within(".new_user") do

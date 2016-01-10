@@ -62,6 +62,7 @@ describe 'feature testing', :type => :feature, js: true do
       click_button 'Save Organization'
       expect(page).to have_content('Rooted in Community')
     end
+
   end
 
   feature 'create project' do
@@ -74,7 +75,7 @@ describe 'feature testing', :type => :feature, js: true do
     end
     scenario 'a user can click the create projects button' do
       visit(organization_path(@organization))
-      sleep(6)
+      # sleep(6)
       expect(page).to have_button('New Project')
     end
 
@@ -92,14 +93,5 @@ describe 'feature testing', :type => :feature, js: true do
 
 
 end
-
-
-
-
-
-
-
-
-
 
 #closes feature testing
