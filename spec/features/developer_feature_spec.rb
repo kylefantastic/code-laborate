@@ -4,9 +4,9 @@ Capybara.register_driver :selenium do |app|
   Capybara::Selenium::Driver.new(app, :browser => :chrome)
 end
 
-describe 'developer feature testing', :type => :feature, js: true do
+describe 'Developer feature testing:', :type => :feature, js: true do
   include LoginHelpers
-  feature 'registration' do
+  feature 'Registration' do
     context 'as a developer' do
       scenario 'a user can sign up' do
         visit(root_path)
@@ -24,7 +24,7 @@ describe 'developer feature testing', :type => :feature, js: true do
     end
   end
 
-  feature 'projects page' do
+  feature 'Projects page' do
     before do
       Organization.create(name: Faker::Company.name, website_url: Faker::Internet.url, description: Faker::Lorem.sentence(3))
       Project.create(title: "Faked Title", description: Faker::Lorem.sentence(2), contact_name: Faker::Name.name, contact_email: Faker::Internet.email, contact_phone: Faker::PhoneNumber.phone_number, organization_id: 1)
@@ -40,6 +40,53 @@ describe 'developer feature testing', :type => :feature, js: true do
         user_login
         visit('/projects')
         expect(page).to have_content "Faked Title"
+      end
+      scenario 'a developer sees a profile button' do
+        user_login
+        visit('/projects')
+        expect(page).to have_link("Profile")
+      end
+    end
+  end
+
+  feature 'Profile page' do
+    context 'When viewing the profile page' do
+      scenario 'a developer can see their first name' do
+        user_login
+        binding.pry
+        # visit('/projects')
+        click_link("Profile")
+        expect(page).to have_content current_user.first_name
+      end
+      scenario 'a developer can see their last name' do
+        user_login
+        # visit('/projects')
+        click_link("Profile")
+        expect(page).to have_content current_user.last_name
+      end
+      scenario 'a developer can see their public profile url' do
+        user_login
+        # visit('/projects')
+        click_link("Profile")
+        expect(page).to have_content current_user.public_profile_url
+      end
+      scenario 'a developer can see their bootcamp' do
+        user_login
+        # visit('/projects')
+        click_link("Profile")
+        expect(page).to have_content current_user.bootcamp
+      end
+      scenario 'a developer can see their email' do
+        user_login
+        # visit('/projects')
+        click_link("Profile")
+        expect(page).to have_content current_user.email
+      end
+      scenario 'a developer can click an edit button' do
+        user_login
+        # visit('/projects')
+        click_link("Profile")
+        expect(page).to have_link("Edit Profile")
       end
     end
   end

@@ -11,7 +11,10 @@
 <p class="navbar-text pull-right">
 <% if current_user %>
   Logged in as <strong><%= current_user.email %></strong>.
-  <%= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link' %> |
+  <%# if !current_user.org_affiliate %>
+  <% if !current_user.org_affiliate %>
+    <%= link_to 'Profile', user_registration_path, :class => 'navbar-link' %> |
+  <% end %>
   <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %>
 <% else %>
   <%= link_to "Sign up", new_user_registration_path, :class => 'navbar-link'  %> |
