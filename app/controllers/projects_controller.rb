@@ -8,12 +8,11 @@ class ProjectsController < ApplicationController
   end
 
   def create
-    p params
     @project = Project.new(project_params)
     if @project.save
         redirect_to project_path(@project)
     else
-      @errors = @project.errors.full_messages
+      p @errors = @project.errors.full_messages
       redirect_to new_project_path
     end
   end
@@ -21,8 +20,6 @@ class ProjectsController < ApplicationController
   def show
     @project = Project.find(params[:id])
     @organization = Organization.find(@project.organization_id)
-    p @project
-    p @organization
   end
 
   def project_params
