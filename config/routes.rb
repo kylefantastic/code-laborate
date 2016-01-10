@@ -1,14 +1,5 @@
 Rails.application.routes.draw do
 
-  get 'organizations/new'
-
-  get 'organizations/create'
-
-  get 'organizations/show'
-
-  get 'organizations/update'
-
-  get 'organizations/destroy'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes"
@@ -16,7 +7,8 @@ Rails.application.routes.draw do
   # You can have the root of your site routed with "root"
   devise_for :users, controllers: { registrations: "users/registrations" }
   root 'home#index'
-  resource :users
+  resources :users
+  resources :organizations
   resources :projects
 
   # Example of regular route:

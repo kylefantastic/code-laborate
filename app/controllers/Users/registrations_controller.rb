@@ -7,7 +7,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
       if @user.save
         sign_in @user
         if @user.org_affiliate
-          redirect_to organizations_new_path
+          redirect_to new_organization_path
         else
           redirect_to projects_path
 
@@ -17,6 +17,8 @@ class Users::RegistrationsController < Devise::RegistrationsController
         redirect_to new_user_registration_path
       end
     end
+
+    private
 
     def user_params
       user_permitted = %i(
