@@ -25,7 +25,6 @@ describe 'feature testing', :type => :feature, js: true do
   feature 'registration' do
     context 'as a developer' do
       scenario 'a user can sign up' do
-        pending
         visit(root_path)
         click_link ('Sign up')
         click_button('Sign Up As Developer')
@@ -35,7 +34,7 @@ describe 'feature testing', :type => :feature, js: true do
         fill_in 'Password', :with => 'password'
         fill_in 'Password confirmation', :with => 'password'
         click_button 'Sign up'
-        binding.pry
+
         expect(page).to have_content('Logged in as user@user.com')
       end
     end

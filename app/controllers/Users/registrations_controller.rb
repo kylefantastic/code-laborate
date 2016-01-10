@@ -5,11 +5,12 @@ class Users::RegistrationsController < Devise::RegistrationsController
     def create
       @user = User.new(user_params)
       if @user.save
+        sign_in @user
         if @user.org_affiliate
           redirect_to organizations_new_path
         else
-
           redirect_to projects_path
+
         end
       else
         p @errors = @user.errors.messages
