@@ -79,7 +79,7 @@ describe 'feature testing', :type => :feature, js: true do
     end
 
     scenario 'a user can enter and submit project' do
-      visit(new_product_path)
+      visit(new_project_path)
       fill_in 'Title', :with => 'Toolshed'
       fill_in 'Description', :with => 'We are looking for someone to create a lesson and resource-sharing website'
       fill_in 'contact_name', :with => 'Kim'

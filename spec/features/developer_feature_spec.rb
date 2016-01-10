@@ -6,7 +6,7 @@ end
 
 describe 'developer feature testing', :type => :feature, js: true do
   include LoginHelpers
-  feature 'registration' do
+  feature 'Registration' do
     context 'as a developer' do
       scenario 'a user can sign up' do
         visit(root_path)
