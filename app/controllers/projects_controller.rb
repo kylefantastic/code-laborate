@@ -24,11 +24,20 @@ class ProjectsController < ApplicationController
     p @project
     p @organization
   end
+  # def edit
+  #   @project = Project.find(params[:id])
+  # end
+  # def update
+  #   p "I got here"
+  #   p params
+  #   @project = Project.find(params[:id])
+  # end
 
-  def update
-    p "I got here"
-    p params
+  def destroy
     @project = Project.find(params[:id])
+    @project.destroy
+    @organization = Organization.find(@project.organization_id)
+    redirect_to organization_path(@organization)
   end
 
   def project_params
