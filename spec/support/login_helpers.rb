@@ -14,11 +14,12 @@ module LoginHelpers
   end
 
   def org_user_login
-    User.create(first_name: 'New',
+    user_org = User.create(first_name: 'New',
                 last_name: 'Person',
                 email: 'person@user.com',
                 password: 'password',
-                org_affiliate: true)
+                org_affiliate: true, organization_id: 1)
+    p user_org
     visit '/users/sign_in'
     within(".new_user") do
       fill_in 'Email', :with => 'person@user.com'
