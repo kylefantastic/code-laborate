@@ -22,25 +22,33 @@ function registerForm(){
 }
 
 function renderEditUserForm(){
-  $('div').on("click", ".render-edit-user-form", function(event){
+  $('body').on("click", ".display-edit-developer-form", function(event){
     event.preventDefault()
-    $('.developer-profile').hide()
-    $('.edit-developer-from').show()
+    userID = $("input").first().val()
+    var request = $.ajax({
+      url: "/users/" + userID + "/edit",
+      type: "GET"
+    })
+    request.done(function(response){
+      $('body').empty()
+      document.body.innerHTML = response
+    })
   })
 }
 
 function editUserInfo(){
-  $('div').on("click", ".edit-profile", function(event){
+  $('body').on("click", ".update-developer-profile", function(event){
     event.preventDefault()
-    var userInfo = $(".edit-profile-form").serialize()
+    var userInfo = $(".edit-developer-form").serialize()
     var request = $.ajax({
       url: "/users/:id",
       type: "PUT",
       data: userInfo
     })
     request.done(function(response){
-      console.log(response)
-      console.log(typeof response)
+      $('.edit-developer-div').hide()
+      $('body').empty()
+      document.body.innerHTML = response
     })
   })
 }
