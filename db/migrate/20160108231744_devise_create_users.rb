@@ -7,7 +7,8 @@ class DeviseCreateUsers < ActiveRecord::Migration
       t.string :public_profile_url
       t.string :bootcamp
       t.integer :organization_id
-      t.string :email,              null: false, default: ""
+      t.boolean :org_affiliate , default: false
+      t.string :email, null: false, default: ""
       t.string :encrypted_password, null: false, default: ""
 
       ## Recoverable

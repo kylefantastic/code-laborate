@@ -14,6 +14,7 @@ gem 'awesome_print'
 gem 'devise'
 
 group :development, :test do
+  gem 'pry-debugger'
   gem 'database_cleaner'
   gem 'rspec-rails'
   gem 'shoulda-matchers'
