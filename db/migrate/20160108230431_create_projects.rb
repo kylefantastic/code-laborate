@@ -2,7 +2,10 @@ class CreateProjects < ActiveRecord::Migration
   def change
     create_table :projects do |t|
       t.string :title
+      t.text :vision
+      t.text :need
       t.text :description
+      t.text :benefit
       t.boolean :confirmed?, default: false
       t.string :contact_name
       t.string :contact_email

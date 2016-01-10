@@ -3,6 +3,9 @@ class ProjectsController < ApplicationController
     @projects = Project.all
   end
 
+  def new
+  end
+
   def create
     p params
     @project = Project.new(project_params)
