@@ -1,14 +1,5 @@
 Rails.application.routes.draw do
 
-  get 'organizations/new'
-
-  get 'organizations/create'
-
-  get 'organizations/show'
-
-  get 'organizations/update'
-
-  get 'organizations/destroy'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes"
@@ -17,6 +8,7 @@ Rails.application.routes.draw do
   devise_for :users, controllers: { registrations: "users/registrations" }
   root 'home#index'
   resource :users
+  resource :organizations
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 
