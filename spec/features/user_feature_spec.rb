@@ -49,13 +49,13 @@ describe 'feature testing', :type => :feature, js: true do
   feature 'organization sign-up' do
     scenario 'a user can see a organization form' do
       org_user_login
-      visit(new_organizations_path)
+      visit(new_organization_path)
       expect(page).to have_selector('#new_org_form')
     end
 
     scenario 'a user can fill out form and see the organization profile' do
       org_user_login
-      visit(new_organizations_path)
+      visit(new_organization_path)
       fill_in 'Organization Name', :with => 'Rooted in Community'
       fill_in 'Website', :with => 'www.rootedincommunity.org'
       fill_in 'Description', :with => 'cool@user.com'
@@ -63,6 +63,34 @@ describe 'feature testing', :type => :feature, js: true do
       expect(page).to have_content('Rooted in Community')
     end
   end
+
+  feature 'create project' do
+    before :each do
+      org_user_login
+      @organization = Organization.create(name:"Fishy", website_url:"www.google.com", description:"I like saving fish")
+     p "This is the organization"
+     p @organization
+
+    end
+    scenario 'a user can click the create projects button' do
+      visit(organization_path(@organization))
+      sleep(6)
+      expect(page).to have_button('New Project')
+    end
+
+    scenario 'a user can enter and submit project' do
+      visit(new_product_path)
+      fill_in 'Title', :with => 'Toolshed'
+      fill_in 'Description', :with => 'We are looking for someone to create a lesson and resource-sharing website'
+      fill_in 'contact_name', :with => 'Kim'
+      fill_in 'contact_email', :with => 'dude@dude.com'
+      fill_in 'contact_phone', :with => '555-555-5555'
+      click_button 'Submit'
+      expect(page).to have_content('Project Page')
+    end
+  end
+
+
 end
 
 
