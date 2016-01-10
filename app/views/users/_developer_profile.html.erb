@@ -1,0 +1,10 @@
+<div class="developer-profile">
+  <input type="hidden" name="user_id" value=<%= @user.id %>>
+  <h1>Profile</h1>
+  <p>first_name: <%= @user.first_name%></p>
+  <p>last_name: <%= @user.last_name%></p>
+  <p>public_profile_url: <%= @user.public_profile_url%></p>
+  <p>bootcamp: <%= @user.bootcamp%></p>
+  <p>email: <%= @user.email%></p>
+  <button class="display-edit-developer-form">Edit Profile</button>
+</div>
