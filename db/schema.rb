@@ -26,7 +26,10 @@ ActiveRecord::Schema.define(version: 20160108231744) do
 
   create_table "projects", force: :cascade do |t|
     t.string   "title"
+    t.text     "vision"
+    t.text     "need"
     t.text     "description"
+    t.text     "benefit"
     t.boolean  "confirmed?",      default: false
     t.string   "contact_name"
     t.string   "contact_email"

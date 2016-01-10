@@ -21,12 +21,17 @@ describe 'Developer feature testing:', :type => :feature, js: true do
     scenario 'a user can enter and submit project' do
       visit(new_project_path)
       fill_in 'Title', :with => 'Toolshed'
+      fill_in 'Vision', :with => 'Share Knowledge'
+      fill_in 'Need', :with => 'People'
       fill_in 'Description', :with => 'We are looking for someone to create a lesson and resource-sharing website'
-      fill_in 'contact_name', :with => 'Kim'
-      fill_in 'contact_email', :with => 'dude@dude.com'
-      fill_in 'contact_phone', :with => '555-555-5555'
-      click_button 'Submit'
-      expect(page).to have_content('Project Page')
+      fill_in 'Benefit', :with => 'Educated People'
+      fill_in 'Contact name', :with => 'Kim'
+      fill_in 'Contact email', :with => 'dude@dude.com'
+      fill_in 'Contact phone', :with => '555-555-5555'
+      fill_in 'Deadline', :with => '12-21-2016'
+      sleep(2)
+      click_button 'Save Project'
+      expect(page).to have_content('Project Proposal')
     end
   end
 end
