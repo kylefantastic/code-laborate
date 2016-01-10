@@ -4,6 +4,7 @@ Capybara.register_driver :selenium do |app|
   Capybara::Selenium::Driver.new(app, :browser => :chrome)
 end
 
+
 describe 'Developer feature testing:', :type => :feature, js: true do
   include LoginHelpers
   feature 'Registration' do
@@ -53,47 +54,88 @@ describe 'Developer feature testing:', :type => :feature, js: true do
     context 'When viewing the profile page' do
       scenario 'a developer can see their first name' do
         user_login
-        binding.pry
-        # visit('/projects')
         click_link("Profile")
-        expect(page).to have_content current_user.first_name
+        expect(page).to have_content "New"
       end
       scenario 'a developer can see their last name' do
         user_login
-        # visit('/projects')
         click_link("Profile")
-        expect(page).to have_content current_user.last_name
+        expect(page).to have_content "Person"
       end
       scenario 'a developer can see their public profile url' do
         user_login
-        # visit('/projects')
         click_link("Profile")
-        expect(page).to have_content current_user.public_profile_url
+        expect(page).to have_content "public.com"
       end
       scenario 'a developer can see their bootcamp' do
         user_login
-        # visit('/projects')
         click_link("Profile")
-        expect(page).to have_content current_user.bootcamp
+        expect(page).to have_content "DBC"
       end
       scenario 'a developer can see their email' do
         user_login
-        # visit('/projects')
         click_link("Profile")
-        expect(page).to have_content current_user.email
+        expect(page).to have_content "user@user.com"
       end
       scenario 'a developer can click an edit button' do
         user_login
-        # visit('/projects')
         click_link("Profile")
         expect(page).to have_link("Edit Profile")
       end
     end
+
+
+    xcontext 'when on the edit profile page' do
+      scenario 'the developer can change their first_name' do
+        user_login
+        click_link("Profile")
+        click_link("Edit Profile")
+        fill_in 'first_name', with: "First"
+        click_button 'Edit'
+        expect(User.first.first_name).to eq "First"
+      end
+      scenario 'the developer can change their last_name' do
+        user_login
+        click_link("Profile")
+        click_link("Edit Profile")
+        fill_in 'last_name', with: "Last"
+        click_button 'Edit'
+        expect(User.first.last_name).to eq "Last"
+      end
+      scenario 'the developer can change their public_profile_url' do
+        user_login
+        click_link("Profile")
+        click_link("Edit Profile")
+        fill_in 'public_profile_url', with: "www.reddit.com"
+        click_button 'Edit'
+        expect(User.first.public_profile_url).to eq "www.reddit.com"
+      end
+      scenario 'the developer can change their bootcamp' do
+        user_login
+        click_link("Profile")
+        click_link("Edit Profile")
+        fill_in 'bootcamp', with: "None"
+        click_button 'Edit'
+        expect(User.first.bootcamp).to eq "None"
+      end
+      scenario 'the developer can change their email' do
+        user_login
+        click_link("Profile")
+        click_link("Edit Profile")
+        fill_in 'email', with: "another@one.com"
+        click_button 'Edit'
+        expect(User.first.email).to eq "another@one.com"
+      end
+      scenario 'the developer can change their password' do
+        user_login
+        click_link("Profile")
+        click_link("Edit Profile")
+        fill_in 'password', with: 'betterpassword'
+        fill_in 'confirm password', with: 'betterpassword'
+        click_button 'Edit'
+        expect(User.first.password).to eq "betterpassword"
+      end
+      scenario 'the developer can change their '
+    end
   end
 end
-
-  # scenario 'a developer can click on a project and be redirected' do
-  #   user_login
-  #   visit('/projects')
-  #   binding.pry
-  #   click_link('Faked Title')
