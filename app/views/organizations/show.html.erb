@@ -1,0 +1,16 @@
+
+<h1><%= @organization.name %></h1>
+<p><%= @organization.website_url %></p>
+<p><%= @organization.description %></p>
+<button>Edit</button>
+
+<p>Projects List</p>
+<ul>
+  <li>I am project</li>
+</ul>
+
+<%= button_to "New Project", new_project_path, :class => "button", :method => :get  %>
+
+
+
+

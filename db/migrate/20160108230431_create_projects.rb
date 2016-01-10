@@ -11,6 +11,7 @@ class CreateProjects < ActiveRecord::Migration
       t.integer :developer_id
       t.integer :organization_id
 
+
       t.timestamps null: false
     end
   end
