@@ -1,0 +1,51 @@
+<h2>Projects</h2>
+  <div id="new_project_form">
+    <%= form_for :project, url: projects_path do |f| %>
+      <p>
+        <%= f.label :title, "Project Title " %><br>
+        <%= f.text_field :title %>
+      </p>
+
+      <p>
+        <%= f.label :vision, "Vision" %><br>
+        <%= f.text_area :vision, placeholder:"Add vision" %>
+      </p>
+
+      <p>
+        <%= f.label :need, "Need" %><br>
+        <%= f.text_area :need, placeholder: "Add Need" %>
+      </p>
+      <p>
+        <%= f.label :description,"Description" %><br>
+        <%= f.text_area :description, placeholder: "Add Description" %>
+      </p>
+      <p>
+        <%= f.label :benefit,"Benefit" %><br>
+        <%= f.text_area :benefit, placeholder: "Add Benefit" %>
+      </p>
+
+      <p>
+        <%= f.label :contact_name,"Contact name" %><br>
+        <%= f.text_field :contact_name %>
+      </p>
+
+      <p>
+        <%= f.label :contact_email,"Contact email" %><br>
+        <%= f.text_field :contact_email%>
+      </p>
+      <p>
+
+        <%= f.label :contact_phone,"Contact phone number" %><br>
+        <%= f.text_field :contact_phone%>
+      </p>
+
+      <p>
+        <%= f.label :deadline,"Deadline" %><br>
+        <%= f.date_field :deadline%>
+      </p>
+
+      <p>
+        <%= f.submit %>
+      </p>
+    <% end %>
+  </div>
