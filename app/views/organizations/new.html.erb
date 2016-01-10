@@ -1,0 +1,23 @@
+<h1>Sign up your organization</h1>
+  <div id="new_org_form">
+    <%= form_for :organization do |f| %>
+      <p>
+        <%= f.label :name, "Organization Name" %><br>
+        <%= f.text_field :name %>
+      </p>
+
+      <p>
+        <%= f.label :website_url, "Website" %><br>
+        <%= f.text_area :website_url %>
+      </p>
+
+      <p>
+        <%= f.label :description %><br>
+        <%= f.text_area :description %>
+      </p>
+
+      <p>
+        <%= f.submit %>
+      </p>
+    <% end %>
+  </div>

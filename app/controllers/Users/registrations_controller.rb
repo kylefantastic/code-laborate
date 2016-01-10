@@ -8,12 +8,12 @@ class Users::RegistrationsController < Devise::RegistrationsController
       p @user
       if @user.save
         if @user.org_affiliate
-            redirect_to new_organization_path
+            redirect_to organizations_new_path
         else
           redirect_to projects_path
         end
       else
-        @errors = @user.errors
+        p @errors = @user.errors.messages
         redirect_to new_user_registration_path
       end
     end
