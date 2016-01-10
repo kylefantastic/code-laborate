@@ -1,6 +1,7 @@
 class OrganizationsController < ApplicationController
-  def new
+  before_action :authenticate_user!
 
+  def new
   end
 
   def show
@@ -8,16 +9,11 @@ class OrganizationsController < ApplicationController
     render 'show'
   end
   def create
-    p '%%%%%%%%%%%%%%%%%%%%%'
-    p params
-    p '%%%%%%%%%%%%%%%%%%%%%'
+    @user= User.find_by(id:current_user.id)
     @organization = Organization.new(org_params)
-
     if @organization.save
-    p @organization
-    p '****************'
-      redirect_to organization_path(@organization)
-      # render 'show'
+        @user.update!(organization_id:@organization.id)
+        redirect_to organization_path(@organization)
     else
       @errors = @organization.errors.messages
       render 'new'

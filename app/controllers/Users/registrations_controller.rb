@@ -8,7 +8,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
       p @user
       if @user.save
         if @user.org_affiliate
-            redirect_to new_organizations_path
+            redirect_to new_organization_path
         else
           redirect_to projects_path
         end
