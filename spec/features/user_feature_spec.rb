@@ -62,11 +62,20 @@ describe 'feature testing', :type => :feature, js: true do
       click_button 'Save Organization'
       expect(page).to have_content('Rooted in Community')
     end
-
   end
-
-
-
+  feature 'logged in' do
+    scenario 'a user call view its profile from the projects page' do
+      org_user_login
+      visit(new_organization_path)
+        fill_in 'Organization Name', :with => 'Rooted in Community'
+        fill_in 'Website', :with => 'www.rootedincommunity.org'
+        fill_in 'Description', :with => 'cool@user.com'
+        click_button 'Save Organization'
+      add_project
+      click_link 'Profile'
+      expect(page).to have_content('Rooted in Community')
+    end
+  end
 end
 
 #closes feature testing

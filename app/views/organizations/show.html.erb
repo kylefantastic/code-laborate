@@ -3,7 +3,7 @@
 <p><%= @organization.website_url %></p>
 <p><%= @organization.description %></p>
 <button>Edit</button>
-
+<%= button_to "Delete Account", organization_path(@organization), :class => "button", :method => :delete %>
 <p>Projects List</p>
 <ul>
   <% @organization.projects.each do |project| %>
