@@ -23,22 +23,6 @@ describe 'feature testing', :type => :feature, js: true do
   end
 
   feature 'registration' do
-    context 'as a developer' do
-      scenario 'a user can sign up' do
-        pending
-        visit(root_path)
-        click_link ('Sign up')
-        click_button('Sign Up As Developer')
-        fill_in 'First name', :with => 'Kim'
-        fill_in 'Last name', :with => 'Doe'
-        fill_in 'Email', :with => 'user@user.com'
-        fill_in 'Password', :with => 'password'
-        fill_in 'Password confirmation', :with => 'password'
-        click_button 'Sign up'
-        expect(page).to have_content('Logged in as user@user.com')
-      end
-    end
-
     context 'as an organization representative' do
       scenario 'a user can sign up' do
         visit(root_path)
@@ -68,7 +52,7 @@ describe 'feature testing', :type => :feature, js: true do
       visit(new_organizations_path)
       expect(page).to have_selector('#new_org_form')
     end
-  end
+
     scenario 'a user can fill out form and see the organization profile' do
       org_user_login
       visit(new_organizations_path)
@@ -76,9 +60,9 @@ describe 'feature testing', :type => :feature, js: true do
       fill_in 'Website', :with => 'www.rootedincommunity.org'
       fill_in 'Description', :with => 'cool@user.com'
       click_button 'Save Organization'
-      sleep(7)
       expect(page).to have_content('Rooted in Community')
     end
+  end
 end
 
 
