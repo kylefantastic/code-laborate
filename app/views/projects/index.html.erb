@@ -1,1 +1,10 @@
-index.html.erb
+<div>
+  <h1>Projects</h1>
+  <ul>
+    <% @projects.each do |project| %>
+      <li><%= link_to project.title, project %></li>
+    <% end %>
+  </ul>
+</div>
+
+
