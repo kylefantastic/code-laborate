@@ -25,6 +25,12 @@ class ProjectsController < ApplicationController
     p @organization
   end
 
+  def update
+    p "I got here"
+    p params
+    @project = Project.find(params[:id])
+  end
+
   def project_params
       project_permitted = %i(
         title
