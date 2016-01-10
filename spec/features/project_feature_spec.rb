@@ -5,7 +5,7 @@ Capybara.register_driver :selenium do |app|
 end
 
 
-describe 'Developer feature testing:', :type => :feature, js: true do
+describe 'Project feature testing:', :type => :feature, js: true do
   include LoginHelpers
 
   feature 'create project' do
@@ -31,7 +31,6 @@ describe 'Developer feature testing:', :type => :feature, js: true do
     scenario 'a user can delete a project' do
       add_project
       click_button 'Delete Project'
-      # expect{li}.to change{li.count}.by(-1)
       expect(page).to have_selector('li', count:0)
     end
     scenario 'a user can click the edit projects button' do
