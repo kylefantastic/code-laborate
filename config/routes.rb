@@ -1,5 +1,15 @@
 Rails.application.routes.draw do
 
+  get 'organizations/new'
+
+  get 'organizations/create'
+
+  get 'organizations/show'
+
+  get 'organizations/update'
+
+  get 'organizations/destroy'
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes"
 

@@ -25,6 +25,7 @@ describe 'feature testing', :type => :feature, js: true do
   feature 'registration' do
     context 'as a developer' do
       scenario 'a user can sign up' do
+        pending
         visit(root_path)
         click_link ('Sign up')
         click_button('Sign Up As Developer')
@@ -55,18 +56,28 @@ describe 'feature testing', :type => :feature, js: true do
     end
   end
 
-
   feature 'login' do
     scenario 'a registered user can log in' do
-      user_login
+      org_user_login
+user_feature_spec.rb
       expect(page).to have_link('Logout')
     end
   end
 
   feature 'organization sign-up' do
-    scenario 'an organization representative can create an organization' do
-      visit()
+    scenario 'a user can see a organization form' do
+      org_user_login
+      visit(organizations_new_path)
+      expect(page).to have_selector('#new_org_form')
     end
   end
+    scenario 'a user can fill out form and see the organization profile' do
+      org_user_login
+      visit(organizations_new_path)
+      fill_in 'Organization Name', :with => 'Rooted in Community'
+      fill_in 'Website', :with => 'www.rootedincommunity.org'
+      fill_in 'Description', :with => 'cool@user.com'
+
+    end
 end
 #closes feature testing
