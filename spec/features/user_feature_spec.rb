@@ -49,13 +49,13 @@ describe 'feature testing', :type => :feature, js: true do
   feature 'organization sign-up' do
     scenario 'a user can see a organization form' do
       org_user_login
-      visit(new_organizations_path)
+      visit(new_organization_path)
       expect(page).to have_selector('#new_org_form')
     end
 
     scenario 'a user can fill out form and see the organization profile' do
       org_user_login
-      visit(new_organizations_path)
+      visit(new_organization_path)
       fill_in 'Organization Name', :with => 'Rooted in Community'
       fill_in 'Website', :with => 'www.rootedincommunity.org'
       fill_in 'Description', :with => 'cool@user.com'
