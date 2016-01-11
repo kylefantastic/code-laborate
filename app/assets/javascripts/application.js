@@ -81,6 +81,9 @@ function editOrganizationInfo(){
     })
     request.done(function(response){
       document.body.innerHTML = response
+     })
+    })
+  }
 
 function renderEditProjectForm(){
   $('#project-container').on("click", "#get-project-edit", function(e){
