@@ -78,17 +78,16 @@ describe 'feature testing', :type => :feature, js: true do
   end
   feature 'user delete' do
     scenario 'can delete their account and by deleting organization' do
-      pending
-      #finish test after merging
       org_user_login
       visit(new_organization_path)
       fill_in 'Organization Name', :with => 'Rooted in Community'
       fill_in 'Website', :with => 'www.rootedincommunity.org'
       fill_in 'Description', :with => 'cool@user.com'
       click_button 'Save Organization'
+      click_button 'Delete Account'
+      expect(page).to have_content("Welcome To Code-laborate")
     end
   end
-
 end
 
 #closes feature testing
