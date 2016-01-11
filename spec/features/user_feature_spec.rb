@@ -92,7 +92,7 @@ describe 'feature testing', :type => :feature, js: true do
       org_user_login
       new_org
       click_button 'Delete Account'
-      expect(page).to have_content("Welcome To Code-laborate")
+      expect(page).to have_content("Welcome To <code>laborate")
     end
   end
 end
