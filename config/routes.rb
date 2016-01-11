@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   # See how all your routes lay out with "rake routes"
 
   # You can have the root of your site routed with "root"
-  devise_for :users, controllers: { registrations: "users/registrations", users: "users" }
+  devise_for :users, controllers: { registrations: "users/registrations"}
   root 'home#index'
   resources :users
   resources :organizations
