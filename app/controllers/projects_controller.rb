@@ -24,15 +24,19 @@ class ProjectsController < ApplicationController
 
   def edit
     @project = Project.find(params[:id])
-    render 'projects/_edit_form'
+    render 'projects/_edit_form', :layout => false
   end
 
   def update
-    @project = Project.find(params[:id])
-    if @project = Project.update(project_params)
-      render template: "projects/_edit_form"
+    p 'in update'
+    p '*******************'
+    @project = Project.find(params[:project][:id])
+    @organization = Organization.find(@project.organization_id)
+    if @project.update(project_params)
+      p 'in if statement'
+      render template: "projects/_show_project"#, :layout => false
     else
-
+      p "didn't update-errors"
     end
   end
 

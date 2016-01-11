@@ -73,7 +73,19 @@ function renderEditProjectForm(){
 }
 
 function editProjectInfo(){
-
+  $('#project-container').on("click", "#submit-project-update", function(e){
+    e.preventDefault();
+    var projectInfo = $("#project-edit-form").serialize()
+    var projectID = $('#project_id').val()
+    var request = $.ajax({
+      url: "/projects/" + projectID,
+      type: "PUT",
+      data: projectInfo
+    })
+    request.done(function(response){
+      $('#project-container').html(response)
+    })
+  })
 }
 
 
