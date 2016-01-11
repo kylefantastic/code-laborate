@@ -18,6 +18,7 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
+
 <body>
    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
    <div class="jumbotron">
@@ -29,26 +30,26 @@
   <div class="container">
 
   <p class="navbar-text pull-right"></p>
-  <ul id='nav-bar'>
+  <ul id='nav-bar' class="nav nav-pills">
   <% if current_user %>
-    Logged in as <strong><%= current_user.email %></strong>.
     <% if current_user.org_affiliate %>
-      <li><%= link_to 'Profile', current_user.organization, :class => 'navbar-link' %> | </li>
+      <li role="presentation" class="active"><%= link_to 'Profile', current_user.organization, :class => 'navbar-link' %> </li>
     <% else %>
-      <li><%= link_to 'Profile', current_user, :class => 'navbar-link' %> | </li>
-      <li><%= link_to 'Projects', projects_path, :class => 'navbar-link' %> | </li>
+      <li role="presentation" class="active"><%= link_to 'Profile', current_user, :class => 'navbar-link' %> </li>
+      <li role="presentation" class="active"><%= link_to 'Projects', projects_path, :class => 'navbar-link' %> </li>
     <% end %>
-    <li><%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %> </li>
+    <li role="presentation" class="active"><%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %> </li>
 
   <% else %>
-    <li><%= link_to "Sign up", new_user_registration_path, :class => 'navbar-link'  %> | </li>
-    <li><%= link_to "Login", new_user_session_path, :class => 'navbar-link'  %> | </li>
+    <li role="presentation" class="active"><%= link_to "Sign up", new_user_registration_path, :class => 'navbar-link'  %> </li>
+    <li role="presentation" class="active"><%= link_to "Login", new_user_session_path, :class => 'navbar-link'  %> </li>
   <% end %>
-     <li><%= link_to " Home", "/", :class => 'navbar-link' %> | </li>
-     <li><%= link_to " About", "/about", :class => 'navbar-link' %> | </li>
-     <li><%= link_to " FAQ", "/FAQ", :class => 'navbar-link' %> | </li>
-     <li><%= link_to " Past Projects", "/past_projects", :class => 'navbar-link' %> | </li>
+     <li role="presentation" class="active"><%= link_to " Home", "/", :class => 'navbar-link' %> </li>
+     <li role="presentation" class="active"><%= link_to " About", "/about", :class => 'navbar-link' %> </li>
+     <li role="presentation" class="active"><%= link_to " FAQ", "/FAQ", :class => 'navbar-link' %> </li>
+     <li role="presentation" class="active"><%= link_to " Past Projects", "/past_projects", :class => 'navbar-link' %> </li>
   </ul>
+    <p class="navbar-text navbar-right">Logged in as <a href '#'class="navbar-link"><%= current_user.email %></a></p>
 
     <% if notice %>
       <p class="alert alert-success"><%= notice %></p>

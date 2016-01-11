@@ -1,5 +1,5 @@
-
 <h1><%= @organization.name %></h1>
+<dl class="dl-horizontal">
 <p><%= @organization.website_url %></p>
 <p><%= @organization.description %></p>
 <%= button_to "Edit Account", edit_organization_path(@organization), :class => "button edit-account", :method => :get %>
@@ -10,6 +10,6 @@
   <% @organization.projects.each do |project| %>
     <li><%= link_to project.title, project_path(project) %></li>
   <% end %>
-</ul>
+</dl>
 
 <%= button_to "New Project", new_project_path, :class => "button", :method => :get  %>
