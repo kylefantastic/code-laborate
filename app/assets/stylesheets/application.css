@@ -22,3 +22,10 @@
   color: red;
 }
 
+#nav-bar {
+  list-style: none;
+}
+
+#nav-bar li {
+  display: inline;
+}

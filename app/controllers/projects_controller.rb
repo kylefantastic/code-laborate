@@ -28,15 +28,12 @@ class ProjectsController < ApplicationController
   end
 
   def update
-    p 'in update'
-    p '*******************'
     @project = Project.find(params[:project][:id])
     @organization = Organization.find(@project.organization_id)
     if @project.update(project_params)
-      p 'in if statement'
       render template: "projects/_show_project"#, :layout => false
     else
-      p "didn't update-errors"
+      p 'in else, need error'
     end
   end
 
