@@ -26,7 +26,7 @@ class OrganizationsController < ApplicationController
   end
 
   def destroy
-    @user = User.find(params[:id])
+    @user = User.find(current_user.id)
     @organization = Organization.find(@user.organization_id)
     @organization.destroy
     @user.destroy

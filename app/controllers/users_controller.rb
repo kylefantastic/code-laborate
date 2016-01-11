@@ -4,8 +4,10 @@ class UsersController < ApplicationController
     @user = current_user
   end
 
-  def delete
-
+  def destroy
+    @user = current_user
+    @user.destroy
+    redirect_to root_path
   end
 
   def edit
