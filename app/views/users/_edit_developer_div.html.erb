@@ -1,0 +1,27 @@
+
+<div class="edit-developer-div">
+  <%= form_for @user, html: {class: "edit-developer-form"} do |f| %>
+    <div class="field">
+      <%= f.label :first_name %><br />
+      <%= f.text_field :first_name, autofocus: true %>
+    </div>
+    <div class="field">
+      <%= f.label :last_name %><br />
+      <%= f.text_field :last_name, autofocus: true %>
+    </div>
+    <div class="field">
+      <%= f.label :email %><br />
+      <%= f.email_field :email, autofocus: true %>
+    </div>
+    <div class="field">
+      <%= f.label :public_profile_url %><br />
+      <%= f.text_field :public_profile_url, autofocus: true %>
+    </div>
+    <div class="field">
+      <%= f.label :bootcamp %><br />
+      <%= f.text_field :bootcamp, autofocus: true %>
+    </div>
+    <div class="actions"><%= f.submit "Update", class: "update-developer-profile" %></div>
+  <% end %>
+</div>
+<%= link_to "Change your password", edit_user_registration_path %>

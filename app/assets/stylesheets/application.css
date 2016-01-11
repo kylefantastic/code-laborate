@@ -5,3 +5,27 @@
 #orgform{
   display: none;
 }
+
+
+.field_with_errors input{
+  border: 1px solid red;
+}
+.field_with_errors textarea{
+  border: 1px solid red;
+}
+
+#error_explanation{
+  color: red;
+}
+
+.error_message {
+  color: red;
+}
+
+#nav-bar {
+  list-style: none;
+}
+
+#nav-bar li {
+  display: inline;
+}

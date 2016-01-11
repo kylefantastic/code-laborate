@@ -1,0 +1,11 @@
+<div class="developer-profile">
+  <input type="hidden" name="user_id" value=<%= @user.id %>>
+  <h1>Profile</h1>
+  <div>first_name: <%= @user.first_name%></div>
+  <div>last_name: <%= @user.last_name%></div>
+  <div>public_profile_url: <%= @user.public_profile_url%></div>
+  <div>bootcamp: <%= @user.bootcamp%></div>
+  <div>email: <%= @user.email%></div>
+  <button class="display-edit-developer-form">Edit Profile</button>
+  <%= button_to "Delete Account", user_path(current_user), :class => "button", :method => :delete, data: { confirm: "Are you sure?" } %>
+</div>

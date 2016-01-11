@@ -1,0 +1,33 @@
+  <div id="update_org_form">
+    <%= form_for :organization, url: organizations_path, html: {id:"edit-org-form"} do |f| %>
+      <% if @organization.errors.any? %>
+        <div id="error_explanation">
+          <h3>
+            <%= pluralize(@organization.errors.count, "error") %> prohibited
+            this project from being saved:
+          </h3>
+        </div>
+      <% end %>
+
+      <p>
+        <%= f.label :name, "Organization Name" %><br>
+        <%= error_show(@organization, :name) %>
+        <%= f.text_field :name %>
+      </p>
+
+      <p>
+        <%= f.label :website_url, "Website" %><br>
+        <%= error_show(@organization, :website_url) %>
+        <%= f.text_field :website_url %>
+      </p>
+
+      <p>
+        <%= f.label :description %><br>
+        <%= error_show(@organization, :description) %>
+        <%= f.text_area :description, placeholder: "Add your mission or description here" %>
+      </p>
+      <%= button_to "Update Account", organization_path(@organization), :class => "button update-org", :method => :put %>
+      <%= hidden_field(:organization, :id) %>
+    <% end %>
+  </div>
+
