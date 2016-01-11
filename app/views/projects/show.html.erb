@@ -6,5 +6,5 @@
 <div><%= @project.need %></div>
 <div><%= @project.description %></div>
 <div><%= @project.benefit %></div>
-<%= button_to "Update Project", project_path(@project), :class => "button", :method => :patch  %>
+<%= button_to "Update Project", project_path(@project), :class => "button", :id => "get-project-edit", :method => :get  %>
 <%= button_to "Delete Project", project_path(@project), :class => "button", :method => :delete  %>

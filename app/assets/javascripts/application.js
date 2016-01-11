@@ -8,6 +8,7 @@ $(document).ready(function() {
   registerForm()
   renderEditUserForm()
   editUserInfo()
+  renderEditProjectForm()
 });
 
 
@@ -55,4 +56,11 @@ function editUserInfo(){
     })
   })
 }
+
+  function renderEditProjectForm(){
+    $('#new_project_form').on("click", "#get-project-edit", function(e){
+      preventDefault();
+      var userID =
+    })
+  }
 

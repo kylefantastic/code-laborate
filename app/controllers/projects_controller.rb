@@ -21,14 +21,19 @@ class ProjectsController < ApplicationController
     @project = Project.find(params[:id])
     @organization = Organization.find(@project.organization_id)
   end
-  # def edit
-  #   @project = Project.find(params[:id])
-  # end
-  # def update
-  #   p "I got here"
-  #   p params
-  #   @project = Project.find(params[:id])
-  # end
+
+  def edit
+    @project = Project(project_params)
+  end
+
+  def update
+    @project = Project.find(params[:id])
+    if @project = Project.update(project_params)
+      render template: "projects/_edit_form"
+    else
+
+    end
+  end
 
   def destroy
     @project = Project.find(params[:id])

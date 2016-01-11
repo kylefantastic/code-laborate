@@ -19,6 +19,7 @@ class UsersController < ApplicationController
     p "Update success"
     render template: "users/_developer_profile"
     # return partial for developer-profile
+    #add if statement for errors
   end
 
   def user_params
