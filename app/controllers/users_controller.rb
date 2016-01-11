@@ -1,6 +1,8 @@
 class UsersController < ApplicationController
 
   def show
+    p '*' * 80
+    p current_user
     @user = current_user
   end
 
