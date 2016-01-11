@@ -23,7 +23,8 @@ class ProjectsController < ApplicationController
   end
 
   def edit
-    @project = Project(project_params)
+    @project = Project.find(params[:id])
+    render 'projects/_edit_form'
   end
 
   def update

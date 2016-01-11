@@ -9,6 +9,7 @@ $(document).ready(function() {
   renderEditUserForm()
   editUserInfo()
   renderEditProjectForm()
+  editProjectInfo()
 });
 
 
@@ -27,7 +28,7 @@ function registerForm(){
 function renderEditUserForm(){
   $('body').on("click", ".display-edit-developer-form", function(event){
     event.preventDefault()
-    userID = $("input").first().val()
+    var userID = $("input").first().val()
     var request = $.ajax({
       url: "/users/" + userID + "/edit",
       type: "GET"
@@ -57,10 +58,22 @@ function editUserInfo(){
   })
 }
 
-  function renderEditProjectForm(){
-    $('#new_project_form').on("click", "#get-project-edit", function(e){
-      preventDefault();
-      var userID =
+function renderEditProjectForm(){
+  $('#project-container').on("click", "#get-project-edit", function(e){
+    e.preventDefault();
+    var projectID = $('#project_id').val()
+    var request = $.ajax({
+      url: "/projects/" + projectID + "/edit",
+      type: "GET"
     })
-  }
+    request.done(function(response){
+      $('#project-container').html(response)
+    })
+  })
+}
+
+function editProjectInfo(){
+
+}
+
 

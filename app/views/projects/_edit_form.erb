@@ -65,8 +65,8 @@
         <%= f.label :deadline,"Deadline" %><br>
         <%= f.date_field :deadline%>
       </p>
-      <%= f.hidden_field :organization_id, :value=> current_user.organization_id %>
+      <%= f.hidden_field :organization_id, :value=> current_user.organization_id, :id => "project-org-user" %>
       <p>
-        <%= f.submit, id: 'update-project-button' %>
+        <%= f.submit "Update project", id: "submit-project-update" %>
       </p>
     <% end %>
