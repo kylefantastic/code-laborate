@@ -79,7 +79,7 @@ describe 'feature testing', :type => :feature, js: true do
   feature 'user delete' do
     scenario 'can delete their account and by deleting organization' do
       pending
-      #finish test after merging
+    #finish test after merging
       org_user_login
       visit(new_organization_path)
       fill_in 'Organization Name', :with => 'Rooted in Community'
