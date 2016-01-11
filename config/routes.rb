@@ -10,6 +10,9 @@ Rails.application.routes.draw do
   resources :users
   resources :organizations
   resources :projects
+  get '/about', to: 'home#about'
+  get '/FAQ', to: 'home#FAQ'
+  get '/past_projects', to: 'home#past-projects'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
