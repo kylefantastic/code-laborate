@@ -3,6 +3,7 @@
 //= require turbolinks
 //= require_tree .
 
+
 $(document).ready(function() {
   registerForm()
   renderEditUserForm()
@@ -21,6 +22,7 @@ function registerForm(){
   })
 }
 
+
 function renderEditUserForm(){
   $('body').on("click", ".display-edit-developer-form", function(event){
     event.preventDefault()
@@ -35,6 +37,7 @@ function renderEditUserForm(){
     })
   })
 }
+
 
 function editUserInfo(){
   $('body').on("click", ".update-developer-profile", function(event){
@@ -52,3 +55,4 @@ function editUserInfo(){
     })
   })
 }
+
