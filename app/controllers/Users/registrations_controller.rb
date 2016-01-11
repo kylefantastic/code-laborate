@@ -11,7 +11,6 @@ class Users::RegistrationsController < Devise::RegistrationsController
           redirect_to new_organization_path
         else
           redirect_to projects_path
-
         end
       else
         p @errors = @user.errors.messages
