@@ -8,6 +8,8 @@ $(document).ready(function() {
   registerForm()
   renderEditUserForm()
   editUserInfo()
+  renderEditOrgInfo()
+  editOrganizationInfo()
 });
 
 
@@ -46,6 +48,35 @@ function editUserInfo(){
       url: "/users/:id",
       type: "PUT",
       data: userInfo
+    })
+    request.done(function(response){
+      document.body.innerHTML = response
+    })
+  })
+}
+
+function renderEditOrgInfo(){
+  $('body').on('click', '.edit-account', function(event){
+    event.preventDefault()
+    var orgId = $("#organization_id").val()
+    var request = $.ajax({
+      url: '/organizations/' + orgId + "/edit",
+      type: "GET",
+    })
+    request.done(function(response){
+      document.body.innerHTML = response
+    })
+  })
+}
+function editOrganizationInfo(){
+  $('body').on("click", ".update-org", function(event){
+    event.preventDefault()
+    var orgInfo = $("#edit-org-form").serialize()
+    var orgId = $("#organization_id").val()
+    var request = $.ajax({
+      url: "/organizations/" + orgId,
+      type: "PUT",
+      data: orgInfo
     })
     request.done(function(response){
       document.body.innerHTML = response

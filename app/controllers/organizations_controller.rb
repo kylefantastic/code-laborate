@@ -17,12 +17,22 @@ class OrganizationsController < ApplicationController
     end
   end
 
+  def edit
+    p params
+    @organization = Organization.find(current_user.organization_id)
+    p @organization
+    render template: "organizations/_edit_organization"
+  end
+
   def show
     @organization = Organization.find(params[:id])
     render 'show'
   end
 
   def update
+    @organization = Organization.find(current_user.organization_id)
+    @organization.update(org_params)
+    render template: "organizations/_display_organization"
   end
 
   def destroy
