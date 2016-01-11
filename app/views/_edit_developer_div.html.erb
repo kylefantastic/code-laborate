@@ -1,0 +1,11 @@
+
+<div class="edit-developer-div">
+  <%= form_for @user, html: {class: "edit-developer-form"} do |f| %>
+    <p>first_name<%= f.text_field :first_name %></p>
+    <p>last_name<%= f.text_field :last_name %></p>
+    <p>public_profile_url<%= f.text_field :public_profile_url %></p>
+    <p>bootcamp<%= f.text_field :bootcamp %></p>
+    <p>email<%= f.text_field :email %></p>
+    <p><%= f.submit "Update", class: "update-developer-profile" %></p>
+  <% end %>
+</div>
