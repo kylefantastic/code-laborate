@@ -28,7 +28,6 @@ describe 'feature testing', :type => :feature, js: true do
         visit(root_path)
         click_link ('Sign up')
         click_button('Sign Up As Non-Profit')
-        sleep(2)
         fill_in 'First name', :with => 'Danielle'
         fill_in 'Last name', :with => 'Cameron'
         fill_in 'Email', :with => 'dc@user.com'
@@ -92,7 +91,7 @@ describe 'feature testing', :type => :feature, js: true do
       org_user_login
       new_org
       click_button 'Delete Account'
-      expect(page).to have_content("Welcome To Code-laborate")
+      expect(page).to have_content("Welcome To <code>laborate")
     end
   end
 end

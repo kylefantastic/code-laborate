@@ -1,5 +1,5 @@
 <h1>Sign up your organization</h1>
-  <div id="new_org_form">
+  <div id="new_org_form" >
     <%= form_for :organization, url: organizations_path do |f| %>
 
       <% if @organization.errors.any? %>
@@ -34,3 +34,4 @@
       </p>
     <% end %>
   </div>
+

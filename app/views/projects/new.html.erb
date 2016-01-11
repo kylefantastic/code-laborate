@@ -2,7 +2,7 @@
   <div id="new_project_form">
 
     <%= form_for :project, url: projects_path do |f| %>
-
+    <div class="form-group">
       <% if @project.errors.any? %>
         <div id="error_explanation">
           <h3>
@@ -69,6 +69,7 @@
         <%= f.date_field :deadline%>
       </p>
       <%= f.hidden_field :organization_id, :value=> current_user.organization_id %>
+      </div>
       <p>
         <%= f.submit %>
       </p>

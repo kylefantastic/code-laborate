@@ -1,15 +1,18 @@
 
-<h1><%= @organization.name %></h1>
+
+<h1><%= @organization.name %> Profile</h1>
+
 <p><%= @organization.website_url %></p>
+<p>Description/Mission:</p>
 <p><%= @organization.description %></p>
 <%= button_to "Edit Account", edit_organization_path(@organization), :class => "button edit-account", :method => :get %>
 <%= hidden_field(:organization, :id) %>
-<%= button_to "Delete Account", organization_path(@organization), :class => "button", :method => :delete %>
+<%= button_to "Delete Account", organization_path(@organization), :class => "button org-delete", :method => :delete %>
 <p>Projects List</p>
 <ul>
   <% @organization.projects.each do |project| %>
     <li><%= link_to project.title, project_path(project) %></li>
   <% end %>
-</ul>
+</dl>
 
 <%= button_to "New Project", new_project_path, :class => "button", :method => :get  %>
