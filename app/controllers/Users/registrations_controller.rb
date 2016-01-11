@@ -1,8 +1,5 @@
 class Users::RegistrationsController < Devise::RegistrationsController
 
-    def index
-    end
-
     def create
       @user = User.new(user_params)
       if @user.save
@@ -11,7 +8,6 @@ class Users::RegistrationsController < Devise::RegistrationsController
           redirect_to new_organization_path
         else
           redirect_to projects_path
-
         end
       else
         p @errors = @user.errors.messages
