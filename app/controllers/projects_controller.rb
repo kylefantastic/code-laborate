@@ -21,14 +21,24 @@ class ProjectsController < ApplicationController
     @project = Project.find(params[:id])
     @organization = Organization.find(@project.organization_id)
   end
-  # def edit
-  #   @project = Project.find(params[:id])
-  # end
-  # def update
-  #   p "I got here"
-  #   p params
-  #   @project = Project.find(params[:id])
-  # end
+
+  def edit
+    @project = Project.find(params[:id])
+    render 'projects/_edit_form', :layout => false
+  end
+
+  def update
+    p 'in update'
+    p '*******************'
+    @project = Project.find(params[:project][:id])
+    @organization = Organization.find(@project.organization_id)
+    if @project.update(project_params)
+      p 'in if statement'
+      render template: "projects/_show_project"#, :layout => false
+    else
+      p "didn't update-errors"
+    end
+  end
 
   def destroy
     @project = Project.find(params[:id])
