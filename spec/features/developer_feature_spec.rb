@@ -80,64 +80,63 @@ describe 'Developer feature testing:', :type => :feature, js: true do
       scenario 'a developer can click an edit button' do
         user_login
         click_link("Profile")
-        expect(page).to have_link("Edit Profile")
+        expect(page).to have_button("Edit Profile")
       end
     end
 
 
-    xcontext 'when on the edit profile page' do
+    context 'when on the edit profile page' do
       scenario 'the developer can change their first_name' do
         user_login
         click_link("Profile")
-        click_link("Edit Profile")
-        fill_in 'first_name', with: "First"
-        click_button 'Edit'
-        expect(User.first.first_name).to eq "First"
+        click_button("Edit Profile")
+        fill_in 'user[first_name]', with: "First"
+        click_button 'Update'
+        expect(page).to have_content "First"
       end
       scenario 'the developer can change their last_name' do
         user_login
         click_link("Profile")
-        click_link("Edit Profile")
-        fill_in 'last_name', with: "Last"
-        click_button 'Edit'
-        expect(User.first.last_name).to eq "Last"
+        click_button("Edit Profile")
+        fill_in 'user[last_name]', with: "Last"
+        click_button 'Update'
+        expect(page).to have_content "Last"
       end
       scenario 'the developer can change their public_profile_url' do
         user_login
         click_link("Profile")
-        click_link("Edit Profile")
-        fill_in 'public_profile_url', with: "www.reddit.com"
-        click_button 'Edit'
-        expect(User.first.public_profile_url).to eq "www.reddit.com"
+        click_button("Edit Profile")
+        fill_in 'user[public_profile_url]', with: "www.reddit.com"
+        click_button 'Update'
+        expect(page).to have_content "www.reddit.com"
       end
       scenario 'the developer can change their bootcamp' do
         user_login
         click_link("Profile")
-        click_link("Edit Profile")
-        fill_in 'bootcamp', with: "None"
-        click_button 'Edit'
-        expect(User.first.bootcamp).to eq "None"
+        click_button("Edit Profile")
+        fill_in 'user[bootcamp]', with: "Crazy Camp"
+        click_button 'Update'
+        expect(page).to have_content "Crazy Camp"
       end
       scenario 'the developer can change their email' do
         user_login
         click_link("Profile")
-        click_link("Edit Profile")
-        fill_in 'email', with: "another@one.com"
-        click_button 'Edit'
-        expect(User.first.email).to eq "another@one.com"
+        click_button("Edit Profile")
+        fill_in 'user[email]', with: "another@one.com"
+        click_button 'Update'
+        expect(page).to have_content "another@one.com"
       end
-      scenario 'the developer can change their password' do
+      xscenario 'the developer can change their password' do
         user_login
         click_link("Profile")
-        click_link("Edit Profile")
+        click_button("Edit Profile")
         fill_in 'password', with: 'betterpassword'
         fill_in 'confirm password', with: 'betterpassword'
-        click_button 'Edit'
+        click_button 'Update'
         click_button 'Logout'
         user_login
         expect(page).to have_content("Invalid password")
       end
-      scenario 'the developer can change their '
     end
   end
 end

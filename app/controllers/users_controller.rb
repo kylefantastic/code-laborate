@@ -4,8 +4,10 @@ class UsersController < ApplicationController
     @user = current_user
   end
 
-  def delete
-
+  def destroy
+    @user = current_user
+    @user.destroy
+    redirect_to root_path
   end
 
   def edit
@@ -16,7 +18,6 @@ class UsersController < ApplicationController
   def update
     @user = current_user
     @user.update(user_params)
-    p "Update success"
     render template: "users/_developer_profile"
     # return partial for developer-profile
     #add if statement for errors

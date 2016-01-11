@@ -34,7 +34,6 @@ function renderEditUserForm(){
       type: "GET"
     })
     request.done(function(response){
-      $('body').empty()
       document.body.innerHTML = response
     })
   })
@@ -51,8 +50,6 @@ function editUserInfo(){
       data: userInfo
     })
     request.done(function(response){
-      $('.edit-developer-div').hide()
-      $('body').empty()
       document.body.innerHTML = response
     })
   })
