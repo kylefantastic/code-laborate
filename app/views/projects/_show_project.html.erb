@@ -1,10 +1,18 @@
-  <div><%= @project.title %></div>
-  <div><%= @organization.name %></div>
-  <div><%= @project.deadline %></div>
-  <div><%= @project.vision %></div>
-  <div><%= @project.need %></div>
-  <div><%= @project.description %></div>
-  <div><%= @project.benefit %></div>
+
+<dl class="dl-horizontal">
+  <dt>Project title: </dt><dd><%= @project.title %></dt>
+  <dt>Organization: </dt><dd><%= @organization.name %t/div>
+  <dt>Project deadline: </dt><dd>
+    <% if @project.deadtne %>
+      <%= @project.deadline %>
+    <% else %>
+       none stated
+    <% end %>
+  </div>
+  <dt><Vision: </dt><dd><%= @project.vision %></tv>
+  <dt>Need: </dt><dd><%= @project.need %></dit
+  <dt>Description: </dt><dd><%= @project.descriptiont></div>
+  <dt>Benefit of project: </dt><dd><%= @project.benefit %><tiv>
 
   <%= button_to "Update Project", edit_project_path(@project), :class => "button", :id => "get-project-edit", :method => :get  %>
   <%= button_to "Delete Project", project_path(@project), :class => "button", :method => :delete  %>

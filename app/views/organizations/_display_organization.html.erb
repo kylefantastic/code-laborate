@@ -1,6 +1,7 @@
 
-<h1><%= @organization.name %></h1>
+<h1><%= @organization.name %> Profile</h1>
 <p><%= @organization.website_url %></p>
+<p>Description/Mission:</p>
 <p><%= @organization.description %></p>
 <%= button_to "Edit Account", edit_organization_path(@organization), :class => "button edit-account", :method => :get %>
 <%= hidden_field(:organization, :id) %>
