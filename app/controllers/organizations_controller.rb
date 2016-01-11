@@ -3,7 +3,7 @@ class OrganizationsController < ApplicationController
   before_action :authorize_user, only: [:new, :show, :update, :destroy]
 
   def new
-
+    @organization = Organization.new
   end
 
   def create
@@ -13,7 +13,6 @@ class OrganizationsController < ApplicationController
         @user.update!(organization_id:@organization.id)
         redirect_to organization_path(@organization)
     else
-      @errors = @organization.errors.messages
       render 'new'
     end
   end
