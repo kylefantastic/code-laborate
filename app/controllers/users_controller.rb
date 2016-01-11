@@ -16,7 +16,6 @@ class UsersController < ApplicationController
   def update
     @user = current_user
     @user.update(user_params)
-    p "Update success"
     render template: "users/_developer_profile"
     # return partial for developer-profile
   end
