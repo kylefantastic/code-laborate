@@ -47,6 +47,30 @@ describe 'Developer feature testing:', :type => :feature, js: true do
     end
   end
 
+  feature 'Project show page' do
+    before do
+      user_login
+      new_org
+      add_project
+      add_second_project
+      visit(projects_path)
+      click_button(project)
+    end
+
+    context 'When viewing the projects show page' do
+      scenario 'a developer can see the project information' do
+        expect(page).to have_content ""
+        expect(page).to have_content ""
+        expect(page).to have_content ""
+        expect(page).to have_content ""
+        expect(page).to have_content ""
+      end
+      scenario 'a developer can choose the project'
+      scenario 'a developer cannot choose the project if they have already chosen a different project'
+      scenario 'a developer can "un-choose" a project'
+    end
+  end
+
   feature 'Profile page' do
     before do
       user_login

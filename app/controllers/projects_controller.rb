@@ -19,6 +19,7 @@ class ProjectsController < ApplicationController
 
   def show
     @project = Project.find(params[:id])
+    debugger
     @organization = Organization.find(@project.organization_id)
   end
 

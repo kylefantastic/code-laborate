@@ -22,4 +22,18 @@ module FillInHelpers
     click_button 'Save Project'
   end
 
+  def add_second_project
+    visit(new_project_path)
+    fill_in 'Project Title', :with => 'Selfie-Distributor'
+    fill_in 'Vision', :with => 'Share Beauty'
+    fill_in 'Need', :with => 'Attention'
+    fill_in 'Description', :with => 'We are looking for someone to look at me'
+    fill_in 'Benefit', :with => 'Those with eyes'
+    fill_in 'Contact name', :with => 'Narcissus'
+    fill_in 'Contact email', :with => 'beauty@ful.com'
+    fill_in 'Contact phone', :with => '555-555-5551'
+    fill_in 'Deadline', :with => '12-25-2016'
+    click_button 'Save Project'
+  end
+
 end
