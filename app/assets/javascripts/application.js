@@ -10,6 +10,8 @@ $(document).ready(function() {
   editUserInfo()
   renderEditOrgInfo()
   editOrganizationInfo()
+  renderEditProjectForm()
+  editProjectInfo()
 });
 
 
@@ -28,7 +30,7 @@ function registerForm(){
 function renderEditUserForm(){
   $('body').on("click", ".display-edit-developer-form", function(event){
     event.preventDefault()
-    userID = $("input").first().val()
+    var userID = $("input").first().val()
     var request = $.ajax({
       url: "/users/" + userID + "/edit",
       type: "GET"
@@ -54,7 +56,6 @@ function editUserInfo(){
     })
   })
 }
-
 function renderEditOrgInfo(){
   $('body').on('click', '.edit-account', function(event){
     event.preventDefault()
@@ -80,6 +81,34 @@ function editOrganizationInfo(){
     })
     request.done(function(response){
       document.body.innerHTML = response
+
+function renderEditProjectForm(){
+  $('#project-container').on("click", "#get-project-edit", function(e){
+    e.preventDefault();
+    var projectID = $('#project_id').val()
+    var request = $.ajax({
+      url: "/projects/" + projectID + "/edit",
+      type: "GET"
+    })
+    request.done(function(response){
+      $('#project-container').html(response)
+    })
+  })
+}
+
+function editProjectInfo(){
+  $('#project-container').on("click", "#submit-project-update", function(e){
+    e.preventDefault();
+    var projectInfo = $("#project-edit-form").serialize()
+    var projectID = $('#project_id').val()
+    var request = $.ajax({
+      url: "/projects/" + projectID,
+      type: "PUT",
+      data: projectInfo
+    })
+    request.done(function(response){
+      $('#project-container').html(response)
+
     })
   })
 }

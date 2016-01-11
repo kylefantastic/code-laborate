@@ -1,0 +1,10 @@
+  <div><%= @project.title %></div>
+  <div><%= @organization.name %></div>
+  <div><%= @project.deadline %></div>
+  <div><%= @project.vision %></div>
+  <div><%= @project.need %></div>
+  <div><%= @project.description %></div>
+  <div><%= @project.benefit %></div>
+
+  <%= button_to "Update Project", edit_project_path(@project), :class => "button", :id => "get-project-edit", :method => :get  %>
+  <%= button_to "Delete Project", project_path(@project), :class => "button", :method => :delete  %>
