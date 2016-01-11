@@ -3,10 +3,12 @@
 <p><%= @organization.website_url %></p>
 <p><%= @organization.description %></p>
 <button>Edit</button>
-
+<%= button_to "Delete Account", organization_path(@organization), :class => "button", :method => :delete %>
 <p>Projects List</p>
 <ul>
-  <li>I am project</li>
+  <% @organization.projects.each do |project| %>
+    <li><%= link_to project.title, project_path(project) %></li>
+  <% end %>
 </ul>
 
 <%= button_to "New Project", new_project_path, :class => "button", :method => :get  %>

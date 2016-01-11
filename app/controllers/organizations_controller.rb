@@ -26,6 +26,11 @@ class OrganizationsController < ApplicationController
   end
 
   def destroy
+    @user = User.find(params[:id])
+    @organization = Organization.find(@user.organization_id)
+    @organization.destroy
+    @user.destroy
+    redirect_to root_path
   end
 
   private

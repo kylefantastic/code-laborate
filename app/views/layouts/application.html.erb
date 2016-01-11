@@ -1,9 +1,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Codellaborate</title>
+  <title>Code-laborate</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
@@ -11,9 +10,11 @@
 <p class="navbar-text pull-right">
 <% if current_user %>
   Logged in as <strong><%= current_user.email %></strong>.
-  <%# if !current_user.org_affiliate %>
   <% if !current_user.org_affiliate %>
     <%= link_to 'Profile', current_user, :class => 'navbar-link' %> |
+  <% end %>
+  <% if current_user.org_affiliate %>
+    <%= link_to 'Profile', current_user.organization, :class => 'navbar-link' %> |
   <% end %>
   <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %>
 <% else %>

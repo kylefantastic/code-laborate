@@ -6,6 +6,7 @@
   display: none;
 }
 
+
 .field_with_errors input{
   border: 1px solid red;
 }
@@ -20,3 +21,4 @@
 .error_message {
   color: red;
 }
+

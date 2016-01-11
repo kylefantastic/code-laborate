@@ -29,6 +29,8 @@ class Users::RegistrationsController < Devise::RegistrationsController
         password
         org_affiliate
         password_confirmation
+        public_profile_url
+        bootcamp
       )
       params.require(:user).permit(user_permitted)
     end

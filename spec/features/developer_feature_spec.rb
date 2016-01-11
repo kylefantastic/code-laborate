@@ -133,7 +133,9 @@ describe 'Developer feature testing:', :type => :feature, js: true do
         fill_in 'password', with: 'betterpassword'
         fill_in 'confirm password', with: 'betterpassword'
         click_button 'Edit'
-        expect(User.first.password).to eq "betterpassword"
+        click_button 'Logout'
+        user_login
+        expect(page).to have_content("Invalid password")
       end
       scenario 'the developer can change their '
     end
