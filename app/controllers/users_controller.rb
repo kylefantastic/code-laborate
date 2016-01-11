@@ -20,6 +20,7 @@ class UsersController < ApplicationController
     @user.update(user_params)
     render template: "users/_developer_profile"
     # return partial for developer-profile
+    #add if statement for errors
   end
 
   def user_params
