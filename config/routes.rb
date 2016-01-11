@@ -5,7 +5,8 @@ Rails.application.routes.draw do
   # See how all your routes lay out with "rake routes"
 
   # You can have the root of your site routed with "root"
-  devise_for :users, controllers: { :registrations => "users/registrations" , :omniauth_callbacks => "users/callbacks"}
+
+  devise_for :users, controllers: { :registrations => "registrations" , :omniauth_callbacks => "callbacks"}
   root 'home#index'
   resources :users
   resources :organizations
