@@ -47,7 +47,8 @@ describe 'Project feature testing:', :type => :feature, js: true do
     scenario 'a user can delete a project' do
       add_project
       click_button 'Delete Project'
-      expect(page).to have_selector('li', count:0)
+      expect(page).to have_selector('li', count:6)
+      # Count should be 6 because 6 are in layout
     end
 
     scenario 'a user can click the edit projects button' do
