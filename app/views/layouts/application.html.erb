@@ -19,6 +19,23 @@
 
 <body>
    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+<<<<<<< HEAD
+   <div class="jumbotron">
+    <div class="container">
+      <h1> &lt;code&gt;laborate </h1>
+    </div>
+    <!-- logged in/out and link to user -->
+  <% if current_user %>
+     <% if current_user.org_affiliate %>
+      <p class="navbar-text navbar-right">Logged in as <a href= '/organizations/<%= current_user.organization_id %>' class="navbar-link" id="profile-link"><%= current_user.email %></a></p>
+      <% else %>
+        <p class="navbar-text navbar-right">Logged in as <a href= "/users/<%= current_user.id %>" class="navbar-link"><%= current_user.email %></a></p>
+      <% end %>
+    <p class="navbar-text navbar-right"><%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %> </p>
+  <% end %>
+  </div>
+
+=======
   <div class="jumbotron">
     <div class="container">
       <!-- Wrapper for carousel slides -->
@@ -57,6 +74,7 @@
 
 
 
+>>>>>>> f3cf1d3647c009ca69fd18cd10132a92556a2e5f
   <% if notice %>
     <p class="alert alert-success"><%= notice %></p>
   <% end %>
@@ -84,6 +102,9 @@
 
     <% end %>
     </ul>
+<<<<<<< HEAD
+    <nav>
+=======
   <nav>
     <% if current_user %>
       <% if !current_user.org_affiliate %>
@@ -100,6 +121,7 @@
          </div>
        <% end %>
      <% end %>
+>>>>>>> f3cf1d3647c009ca69fd18cd10132a92556a2e5f
 
 
 

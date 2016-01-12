@@ -22,7 +22,11 @@ class User < ActiveRecord::Base
         user.org_affiliate = true
       end
   end
+<<<<<<< HEAD
+
+=======
   def self.search(query)
     where("name like ?", "%#{query}%")
   end
+>>>>>>> f3cf1d3647c009ca69fd18cd10132a92556a2e5f
 end
