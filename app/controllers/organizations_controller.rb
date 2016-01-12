@@ -55,4 +55,15 @@ class OrganizationsController < ApplicationController
         redirect_to root_path
       end
     end
+
+    def seek
+      if params[:search]
+
+        @organizations = Organization.search(params[:search]).order("created_at DESC")
+
+      else
+        @organizations = Organization.order("created_at DESC")
+
+      end
+    end
 end
