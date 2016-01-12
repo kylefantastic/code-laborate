@@ -31,7 +31,8 @@
 
 <% if !current_user.org_affiliate && current_user.current_project == @project %>
   <h3>You have chosen this project<h3>
-    <!-- COMPLETE PROJECT BUTTON -->
+  <%= button_to "Complete", project_path(@project), :class => "button", class: "btn btn-default", id: "complete-project", :method => :put %>
+  <%= button_to "Abandon Project", project_path(@project), :class => "button", class: "btn btn-default", id: "abandon-project", :method => :put %>
 <% end %>
 <%= hidden_field(:project, :id) %>
 <input type="hidden" name="current_user[id]" id="current_user_id" value="<%= current_user.id %>">
