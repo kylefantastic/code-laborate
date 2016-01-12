@@ -6,6 +6,20 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.firs
 
+#developer user
+User.create(first_name: "Don",
+            last_name: "Duck",
+            email: "don@donaldduck.com",
+            password: "password")
+
+#organization admin user
+User.create(first_name: "Minney",
+             last_name: "Mouse",
+             email: "minney@mickeymouse.com",
+             password: "password",
+             organization_id: 1,
+             org_affiliate: true)
+
 20.times do
   Organization.create(name: Faker::App.name, website_url: Faker::Internet.url, description:Faker::Hipster.paragraphs)
 end
