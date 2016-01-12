@@ -1,5 +1,5 @@
 class OrganizationsController < ApplicationController
-  before_action :authenticate_user!
+  # before_action :authenticate_user!
   before_action :authorize_user, only: [:new, :show, :update, :destroy]
 
   def new
