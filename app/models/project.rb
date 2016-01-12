@@ -4,4 +4,9 @@ class Project < ActiveRecord::Base
   belongs_to :organization
   belongs_to :developer, class_name: "User"
   has_one :org_admin, through: :organization
+
+  # def project_notification(record)
+  #   @record = record
+  #    mail to: "danyell85@gmail.com", subject: "You project got selected."
+  # end
 end

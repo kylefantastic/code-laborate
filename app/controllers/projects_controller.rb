@@ -10,6 +10,7 @@ class ProjectsController < ApplicationController
   def create
     @project = Project.new(project_params)
     if @project.save
+        # @project.project_notification(@project)
         redirect_to project_path(@project)
     else
       p @project

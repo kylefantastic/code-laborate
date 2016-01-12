@@ -259,6 +259,7 @@ DEPENDENCIES
   figaro
   jbuilder (~> 2.0)
   jquery-rails
+  mail
   omniauth-facebook
   pg
   pry-debugger
