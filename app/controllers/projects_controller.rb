@@ -1,6 +1,10 @@
 class ProjectsController < ApplicationController
   def index
     @projects = Project.all
+    @organizations = Organization.all
+    if !current_user.org_affiliate
+      seek
+    end
   end
 
   def new
@@ -59,6 +63,17 @@ class ProjectsController < ApplicationController
         organization_id
       )
       params.require(:project).permit(project_permitted)
+    end
+
+    def seek
+      if params[:search]
+        @projects = Project.search(params[:search]).order("created_at DESC")
+        @organizations = Organization.search(params[:search]).order("created_at DESC")
+        @project = Project.new
+      else
+        @projects = Project.order("created_at DESC")
+        @project = Project.new
+      end
     end
 
 end

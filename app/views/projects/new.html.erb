@@ -23,50 +23,66 @@
         <%= f.label :vision, "Vision" %>
         <%= error_show(@project, :vision) %>
         <%= f.text_area :vision, placeholder:"Add vision", class: "form-control" %>
+<<<<<<< HEAD
         <div>A sentence about your organizations goal for this project</div>
+=======
+        <span id="helpBlock" class="help-block">A sentence about your organizations goal for this project</span>
+>>>>>>> f3cf1d3647c009ca69fd18cd10132a92556a2e5f
       </p>
 
       <p>
         <%= f.label :need, "Need" %>
         <%= error_show(@project, :need) %>
         <%= f.text_area :need, placeholder: "Add Need", class: "form-control" %>
+<<<<<<< HEAD
         <div>What need will this project address</div>
+=======
+        <span id="helpBlock" class="help-block">What need will this project address</span>
+>>>>>>> f3cf1d3647c009ca69fd18cd10132a92556a2e5f
       </p>
       <p>
         <%= f.label :description,"Description" %>
         <%= error_show(@project, :description) %>
         <%= f.text_area :description, placeholder: "Add Description", class: "form-control" %>
+<<<<<<< HEAD
         <div>Describe proposed project details here.  Include what you want a user to do
+=======
+        <span id="helpBlock" class="help-block">Describe proposed project details here.  Include what you want a user to do
+>>>>>>> f3cf1d3647c009ca69fd18cd10132a92556a2e5f
           and what functionality you need.  Include any computer languages, if any, required for your project.
-        </div>
+        </span>
       </p>
       <p>
         <%= f.label :benefit,"Benefit" %>
         <%= error_show(@project, :benefit) %>
         <%= f.text_area :benefit, placeholder: "Add Benefit", class: "form-control" %>
+<<<<<<< HEAD
         <div>Who will benefit from implementation of this project</div>
+=======
+        <span id="helpBlock" class="help-block">Who will benefit from implementation of this project</span>
+>>>>>>> f3cf1d3647c009ca69fd18cd10132a92556a2e5f
       </p>
 
       <p>
-        <%= f.label :contact_name,"Contact name" %><br>
+        <%= f.label :contact_name,"Contact name" %>
         <%= error_show(@project, :contact_name) %>
         <%= f.text_field :contact_name, class: "form-control" %>
       </p>
 
       <p>
-        <%= f.label :contact_email,"Contact email" %><br>
+        <%= f.label :contact_email,"Contact email" %>
         <%= error_show(@project, :contact_email) %>
         <%= f.text_field :contact_email, class: "form-control" %>
       </p>
       <p>
 
-        <%= f.label :contact_phone,"Contact phone number" %><br>
+        <%= f.label :contact_phone,"Contact phone number" %>
         <%= error_show(@project, :contact_phone) %>
         <%= f.text_field :contact_phone, class: "form-control" %>
       </p>
 
       <p>
-        <%= f.label :deadline,"Deadline" %><br>
+        <%= f.label :deadline,"Deadline" %>
         <%= f.date_field :deadline%>
       </p>
       <%= f.hidden_field :organization_id, :value=> current_user.organization_id, class: "form-control" %>

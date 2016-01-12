@@ -1,8 +1,17 @@
 <div>
   <h1>Projects</h1>
   <ul>
-    <% @projects.each do |project| %>
-      <li><%= link_to project.title, project %></li>
+    <% if !current_user.org_affiliate %>
+      <% @projects.each do |project| %>
+        <li><%= link_to project.title, project %></li>
+      <% end %>
+      <% @organizations.each do |organization| %>
+        <% if organization.projects.first %>
+          <li><%= link_to organization.projects.first.title, organization.projects.first %></li>
+        <% end %>
+      <% end %>
+    <%else%>
+      <li><% @project %></li>
     <% end %>
   </ul>
 </div>
