@@ -17,7 +17,7 @@ gem 'figaro'
 
 
 group :development, :test do
-  gem 'pry-debugger'
+  # gem 'pry-debugger'
   gem 'database_cleaner'
   gem 'rspec-rails'
   gem 'shoulda-matchers'

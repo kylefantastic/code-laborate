@@ -4,6 +4,7 @@ class RegistrationsController < Devise::RegistrationsController
     @user = User.new(user_params)
     if @user.save
       sign_in @user
+      UserMailer.welcome_email(@user).deliver_later
       if @user.org_affiliate
         redirect_to new_organization_path
       else

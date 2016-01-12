@@ -30,12 +30,15 @@
         <%= f.label :need, "Need" %>
         <%= error_show(@project, :need) %>
         <%= f.text_area :need, placeholder: "Add Need", class: "form-control" %>
+
         <span id="helpBlock" class="help-block">What need will this project address</span>
+
       </p>
       <p>
         <%= f.label :description,"Description" %>
         <%= error_show(@project, :description) %>
         <%= f.text_area :description, placeholder: "Add Description", class: "form-control" %>
+
         <span id="helpBlock" class="help-block">Describe proposed project details here.  Include what you want a user to do
           and what functionality you need.  Include any computer languages, if any, required for your project.
         </span>
@@ -44,6 +47,7 @@
         <%= f.label :benefit,"Benefit" %>
         <%= error_show(@project, :benefit) %>
         <%= f.text_area :benefit, placeholder: "Add Benefit", class: "form-control" %>
+
         <span id="helpBlock" class="help-block">Who will benefit from implementation of this project</span>
       </p>
 
