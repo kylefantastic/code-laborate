@@ -24,6 +24,7 @@ function registerForm(){
   })
 }
 
+
 function renderEditUserForm(){
   $('#developer-container').on("click", ".display-edit-developer-form", function(event){
     event.preventDefault()
