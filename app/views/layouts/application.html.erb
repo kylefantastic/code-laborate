@@ -23,41 +23,53 @@
     <div class="container">
       <h1> &lt;code&gt;laborate </h1>
     </div>
+    <!-- logged in/out and link to user -->
+  <% if current_user %>
+     <% if current_user.org_affiliate %>
+      <p class="navbar-text navbar-right">Logged in as <a href= '/organizations/<%= current_user.organization_id %>' class="navbar-link" id="profile-link"><%= current_user.email %></a></p>
+      <% else %>
+        <p class="navbar-text navbar-right">Logged in as <a href= "/users/<%= current_user.id %>" class="navbar-link"><%= current_user.email %></a></p>
+      <% end %>
+    <p class="navbar-text navbar-right"><%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %> </p>
+  <% end %>
   </div>
 
-  <div class="container">
-
-  <p class="navbar-text pull-right"></p>
-  <ul id='nav-bar' class="nav nav-pills">
-  <% if current_user %>
-    <% if current_user.org_affiliate %>
-      <li role="presentation" class="active"><%= link_to 'Profile', current_user.organization, :class => 'navbar-link' %> </li>
-    <% else %>
-      <li role="presentation" class="active"><%= link_to 'Profile', current_user, :class => 'navbar-link' %> </li>
-      <li role="presentation" class="active"><%= link_to 'Projects', projects_path, :class => 'navbar-link' %> </li>
-    <% end %>
-    <li role="presentation" class="active"><%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %> </li>
-
-  <% else %>
-    <li role="presentation" class="active"><%= link_to "Sign up", new_user_registration_path, :class => 'navbar-link'  %> </li>
-    <li role="presentation" class="active"><%= link_to "Login", new_user_session_path, :class => 'navbar-link'  %> </li>
+  <% if notice %>
+    <p class="alert alert-success"><%= notice %></p>
   <% end %>
+  <% if alert %>
+    <p class="alert alert-danger"><%= alert %></p>
+  <% end %>
+
+  <div class="container wrapper">
+
+    <nav>
+    <ul id='nav-bar' class="nav nav-pills">
      <li role="presentation" class="active"><%= link_to " Home", "/", :class => 'navbar-link' %> </li>
      <li role="presentation" class="active"><%= link_to " About", "/about", :class => 'navbar-link' %> </li>
      <li role="presentation" class="active"><%= link_to " FAQ", "/FAQ", :class => 'navbar-link' %> </li>
      <li role="presentation" class="active"><%= link_to " Past Projects", "/past_projects", :class => 'navbar-link' %> </li>
-  </ul>
-  <% if current_user %>
-    <p class="navbar-text navbar-right">Logged in as <a href '#'class="navbar-link"><%= current_user.email %></a></p>
-  <% end %>
-    <% if notice %>
-      <p class="alert alert-success"><%= notice %></p>
+
+    <% if current_user %>
+      <% if !current_user.org_affiliate %>
+        <li role="presentation" class="active"><%= link_to 'Projects', projects_path, :class => 'navbar-link' %> </li>
+      <% end %>
+
+    <% else %>
+      <li role="presentation" class="active"><%= link_to "Sign up", new_user_registration_path, :class => 'navbar-link nav-bar-right'  %> </li>
+      <li role="presentation" class="active"><%= link_to "Login", new_user_session_path, :class => 'navbar-link nav-bar-right'  %> </li>
+
     <% end %>
-    <% if alert %>
-      <p class="alert alert-danger"><%= alert %></p>
-    <% end %>
+    </ul>
+    <nav>
+
+
+
     <%= yield %>
+    <div class="push"></div>
   </div>
-  <footer><h1>&lt;&#47;code&gt;</h1></footer>
+  <div class="footer">
+    <footer><h1>&lt;&#47;code&gt;</h1></footer>
+  </div>
 </body>
 </html>

@@ -1,18 +1,23 @@
 
+<div class="col-md-6">
+  <h2>Your organization's profile</h2>
+  <h1><%= @organization.name %> </h1>
+  <dl class="dl-horizontal">
+    <p><a href='<%= @organization.website_url %>'><%= @organization.website_url %></a></p>
+    <dt>Description/Mission:</dt>
+    <dd><%= @organization.description %></dd>
+    <%= button_to "Edit Account", edit_organization_path(@organization), :class => "button edit-account", class: "btn btn-default", :method => :get %>
+    <%= hidden_field(:organization, :id) %>
+    <div class="btn-group"><%= button_to "Delete Account", organization_path(@organization), :class => "button", class: "btn btn-default", :method => :delete %>
+  </dl>
+  </div>
+<div class="col-md-6">
+  <h3>Projects List</h3>
+  <ul>
+    <% @organization.projects.each do |project| %>
+      <li><%= link_to project.title, project_path(project) %></li>
+    <% end %>
+  </ul>
+    <%= button_to "New Project", new_project_path, :class => "button", class: "btn btn-default", :method => :get  %>
+</div>
 
-<h1><%= @organization.name %> Profile</h1>
-
-<p><%= @organization.website_url %></p>
-<p>Description/Mission:</p>
-<p><%= @organization.description %></p>
-<%= button_to "Edit Account", edit_organization_path(@organization), :class => "button edit-account", :method => :get %>
-<%= hidden_field(:organization, :id) %>
-<%= button_to "Delete Account", organization_path(@organization), :class => "button org-delete", :method => :delete %>
-<p>Projects List</p>
-<ul>
-  <% @organization.projects.each do |project| %>
-    <li><%= link_to project.title, project_path(project) %></li>
-  <% end %>
-</dl>
-
-<%= button_to "New Project", new_project_path, :class => "button", :method => :get  %>
