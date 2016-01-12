@@ -20,5 +20,5 @@
   <dt>Benefit of project: </dt><dd><%= @project.benefit %><dd>
 
 
-  <%= button_to "Update Project", edit_project_path(@project), :class => "button", :id => "get-project-edit", :method => :get  %>
-  <%= button_to "Delete Project", project_path(@project), :class => "button", :method => :delete  %>
+  <%= button_to "Update Project", edit_project_path(@project), :class => "button", class: "btn btn-default", :id => "get-project-edit", :method => :get  %>
+  <%= button_to "Delete Project", project_path(@project), :class => "button", class: "btn btn-default",  :method => :delete  %>

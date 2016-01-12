@@ -31,7 +31,7 @@ class ProjectsController < ApplicationController
     @project = Project.find(params[:project][:id])
     @organization = Organization.find(@project.organization_id)
     if @project.update(project_params)
-      render template: "projects/_show_project"#, :layout => false
+      render template: "projects/_show_project", :layout => false
     else
       p 'in else, need error'
     end
