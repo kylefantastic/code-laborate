@@ -12,6 +12,8 @@ $(document).ready(function() {
   renderEditProjectForm()
   editProjectInfo()
   chooseProject()
+  completeProject()
+  abandonProject()
 });
 
 
@@ -123,6 +125,7 @@ function chooseProject(){
     event.preventDefault();
     var projectID = $("#project_id").val()
     var currentUserID = $("#current_user_id").val()
+    console.log({project: { id: projectID, developer_id: "" } })
     var request = $.ajax({
       url: "/projects/" + projectID,
       type: "PUT",
@@ -142,7 +145,7 @@ function completeProject(){
     var request = $.ajax({
       url: "/projects/" + projectID,
       type: "PUT",
-      data: {project: { id: projectID, developer_id: nil}}
+      data: {project: { id: projectID, developer_id: ""}}
     })
     request.done(function(response){
       $('#project-container').html(response)
