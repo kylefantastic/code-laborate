@@ -28,7 +28,6 @@ describe 'feature testing', :type => :feature, js: true do
         visit(root_path)
         click_link ('Sign up')
         click_button('Sign Up As Non-Profit')
-        sleep(2)
         fill_in 'First name', :with => 'Danielle'
         fill_in 'Last name', :with => 'Cameron'
         fill_in 'Email', :with => 'dc@user.com'
@@ -48,7 +47,7 @@ describe 'feature testing', :type => :feature, js: true do
   end
 
   feature 'organization sign-up' do
-    scenario 'a user can see a organization form' do
+    scenario 'a user can see an organization form' do
       org_user_login
       visit(new_organization_path)
       expect(page).to have_selector('#new_org_form')
@@ -78,11 +77,12 @@ describe 'feature testing', :type => :feature, js: true do
   end
 
   feature 'logged in' do
-    scenario 'a user call view its profile from the projects page' do
+    scenario 'a user can link to their profile from the projects page' do
       org_user_login
       new_org
       add_project
-      click_link 'Profile'
+      click_link "person@user.com"
+      sleep(5)
       expect(page).to have_content('Rooted in Community')
     end
   end
@@ -92,7 +92,7 @@ describe 'feature testing', :type => :feature, js: true do
       org_user_login
       new_org
       click_button 'Delete Account'
-      expect(page).to have_content("Welcome To Code-laborate")
+      expect(page).to have_content("Welcome!")
     end
   end
 end

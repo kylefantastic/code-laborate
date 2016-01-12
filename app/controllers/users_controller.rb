@@ -12,13 +12,13 @@ class UsersController < ApplicationController
 
   def edit
     @user = current_user
-    render template: "users/_edit_developer_div"
+    render template: "users/_edit_developer_div", layout: false
   end
 
   def update
     @user = current_user
     @user.update(user_params)
-    render template: "users/_developer_profile"
+    render template: "users/_developer_profile", layout: false
     # return partial for developer-profile
     #add if statement for errors
   end

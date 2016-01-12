@@ -24,7 +24,7 @@ describe 'Project feature testing:', :type => :feature, js: true do
       expect(page).to have_content('Project Proposal')
     end
 
-    scenario 'if a user doesnt fill out all forms it will show 8 error messages' do
+    scenario "if a user doesn't fill out all forms it will show 8 error messages" do
       visit(new_project_path)
       click_button 'Save Project'
       expect(page).to have_content("8 errors prohibited this project from being saved:")
@@ -47,7 +47,8 @@ describe 'Project feature testing:', :type => :feature, js: true do
     scenario 'a user can delete a project' do
       add_project
       click_button 'Delete Project'
-      expect(page).to have_selector('li', count:0)
+      expect(page).to have_selector('li', count:4)
+      # Count should be 4 because 4 are in layout
     end
 
     scenario 'a user can click the edit projects button' do
