@@ -3,6 +3,9 @@
 
   <dt>Project title: </dt><dd><%= @project.title %></dd>
   <dt>Organization: </dt><dd><%= @organization.name %></dd>
+  <dt>Contact Name: </dt><dd><%= @project.contact_name %></dd>
+  <dt>Contact Phone: </dt><dd><%= @project.contact_phone %></dd>
+  <dt>Contact Email: </dt><dd><%=mail_to "#{@project.contact_email}", "Email me" %></dd>
   <dt>Project deadline: </dt><dd>
     <% if @project.deadline %>
       <%= @project.deadline %>

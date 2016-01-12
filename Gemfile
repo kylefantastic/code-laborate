@@ -14,6 +14,7 @@ gem 'awesome_print'
 gem 'devise'
 gem 'omniauth-facebook'
 gem 'figaro'
+
 group :development, :test do
   gem 'pry-debugger'
   gem 'database_cleaner'
