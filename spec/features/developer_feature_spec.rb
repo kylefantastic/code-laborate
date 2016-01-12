@@ -47,6 +47,40 @@ describe 'Developer feature testing:', :type => :feature, js: true do
     end
   end
 
+  feature 'Project show page' do
+    before do
+      org_user_login
+      new_org
+      add_project
+      add_second_project
+      click_link("Logout")
+      user_login
+      visit(projects_path)
+      click_link("Selfie-Distributor")
+      # Link to project "Selfie-Distributor"
+    end
+
+    context 'When viewing the projects show page' do
+      scenario 'a developer can see the project information' do
+        expect(page).to have_content "Selfie-Distributor"
+        expect(page).to have_content "Narcissus"
+        expect(page).to have_content "555-555-5551"
+        expect(page).to have_content "2016-12-25"
+        expect(page).to have_content "Share Beauty"
+        expect(page).to have_content "We are looking for someone to look at me"
+        expect(page).to have_content "Those with eyes"
+        # Organization name is not showing correctly
+      end
+      scenario 'a developer can choose the project' do
+        click_button("Choose Project")
+        expect(page).to have_content "You have chosen this project"
+      end
+      scenario 'a developer cannot choose the project if they have already chosen a different project'
+      scenario 'a developer can complete a project'
+      scenario 'a developer can "un-choose" a project'
+    end
+  end
+
   feature 'Profile page' do
     before do
       user_login

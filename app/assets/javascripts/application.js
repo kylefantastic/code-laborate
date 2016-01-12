@@ -11,6 +11,7 @@ $(document).ready(function() {
   editOrganizationInfo()
   renderEditProjectForm()
   editProjectInfo()
+  chooseProject()
 });
 
 
@@ -104,6 +105,7 @@ function editProjectInfo(){
     e.preventDefault();
     var projectInfo = $("#project-edit-form").serialize()
     var projectID = $('#project_id').val()
+    console.log("Got to editProjectInfo")
     var request = $.ajax({
       url: "/projects/" + projectID,
       type: "PUT",
@@ -115,4 +117,21 @@ function editProjectInfo(){
     })
   })
 }
+
+function chooseProject(){
+  $('#project-container').on("click", "#choose-project", function(event){
+    event.preventDefault();
+    var projectID = $("#project_id").val()
+    var currentUserID = $("#current_user_id").val()
+    var request = $.ajax({
+      url: "/projects/" + projectID,
+      type: "PUT",
+      data: {project: { id: projectID, developer_id: currentUserID}}
+    })
+    request.done(function(response){
+      $('#project-container').html(response)
+    })
+  })
+}
+// Possible to refactor chooseProject and editProjectInfo to use the same ajax and such. Identical except for click and projectInfo
 
