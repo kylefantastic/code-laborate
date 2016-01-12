@@ -6,8 +6,14 @@ class UserMailer < ApplicationMailer
   end
 
   def dev_project(project)
-    @product = project
-    @url = ''
-    mail(to: @project.contact_mail, subject: "Your project was selected")
+    @project = project
+    p "Project in USER MAILER"
+    p @project
+    @url = "http://localhost:3000/projects/#{@project.id}"
+    p "URL"
+    p @url
+    p "PROJECT EMAIL CONTANCT"
+    p @project.contact_email
+    mail(to: @project.contact_email, subject: "Your project was selected")
   end
 end
