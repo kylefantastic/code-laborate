@@ -34,8 +34,6 @@ class ProjectsController < ApplicationController
   end
 
   def update
-    # debugger
-    p params
     @project = Project.find(params[:project][:id])
     @organization = Organization.find(@project.organization_id)
     @user = current_user
