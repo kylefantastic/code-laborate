@@ -16,7 +16,6 @@ $(document).ready(function() {
   abandonProject()
 });
 
-
 function registerForm(){
   $('#dev').click(function() {
     $('#devform').show();
@@ -27,7 +26,6 @@ function registerForm(){
     $('#devform').hide();
   })
 }
-
 
 function renderEditUserForm(){
   $('#developer-container').on("click", ".display-edit-developer-form", function(event){
