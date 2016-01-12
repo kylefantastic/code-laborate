@@ -8,7 +8,7 @@ module LoginHelpers
                 bootcamp: 'DBC',
                 password: 'password')
     visit '/users/sign_in'
-    within(".new_user") do
+    within("#new_user") do
       fill_in 'Email', :with => 'user@user.com'
       fill_in 'Password', :with => 'password'
     end
@@ -22,7 +22,7 @@ module LoginHelpers
                 password: 'password',
                 org_affiliate: true, organization_id: 1)
     visit '/users/sign_in'
-    within(".new_user") do
+    within("#new_user") do
       fill_in 'Email', :with => 'person@user.com'
       fill_in 'Password', :with => 'password'
     end

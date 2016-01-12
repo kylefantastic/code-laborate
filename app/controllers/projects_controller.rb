@@ -14,10 +14,8 @@ class ProjectsController < ApplicationController
   def create
     @project = Project.new(project_params)
     if @project.save
-        # @project.project_notification(@project)
-        redirect_to project_path(@project)
+      redirect_to project_path(@project)
     else
-      p @project
       render 'new'
     end
   end
@@ -61,6 +59,7 @@ class ProjectsController < ApplicationController
         contact_phone
         deadline
         organization_id
+        developer_id
       )
       params.require(:project).permit(project_permitted)
     end

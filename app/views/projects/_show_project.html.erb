@@ -1,24 +1,39 @@
 
 <dl class="dl-horizontal">
 
-  <dt>Project title: </dt><dd><%= @project.title %></dd>
-  <dt>Organization: </dt><dd><%= @organization.name %></dd>
-  <dt>Contact Name: </dt><dd><%= @project.contact_name %></dd>
-  <dt>Contact Phone: </dt><dd><%= @project.contact_phone %></dd>
-  <dt>Contact Email: </dt><dd><%=mail_to "#{@project.contact_email}", "Email me" %></dd>
-  <dt>Project deadline: </dt><dd>
-    <% if @project.deadline %>
-      <%= @project.deadline %>
-    <% else %>
-       none stated
-    <% end %>
+<dt>Project title: </dt><dd><%= @project.title %></dd>
+<dt>Organization: </dt><dd><%= @organization.name %></dd>
+<dt>Contact Name: </dt><dd><%= @project.contact_name %></dd>
+<dt>Contact Phone: </dt><dd><%= @project.contact_phone %></dd>
+<dt>Contact Email: </dt><dd><%=mail_to "#{@project.contact_email}", "Email me" %></dd>
+<dt>Project deadline: </dt>
+<dd>
+  <% if @project.deadline %>
+    <%= @project.deadline %>
+  <% else %>
+     none stated
+  <% end %>
+</dd>
+<dt>Vision: </dt><dd><%= @project.vision %></dd>
+<dt>Need: </dt><dd><%= @project.need %></dd>
+<dt>Description: </dt><dd><%= @project.description %></dt>
+<dt>Benefit of project: </dt><dd><%= @project.benefit %><dd>
 
-  </dd>
-  <dt>Vision: </dt><dd><%= @project.vision %></dd>
-  <dt>Need: </dt><dd><%= @project.need %></dd>
-  <dt>Description: </dt><dd><%= @project.description %></dt>
-  <dt>Benefit of project: </dt><dd><%= @project.benefit %><dd>
-
-
+<% if current_user.organization == @organization %>
   <%= button_to "Update Project", edit_project_path(@project), :class => "button", class: "btn btn-default", :id => "get-project-edit", :method => :get  %>
+
   <%= button_to "Delete Project", project_path(@project), :class => "button", class: "btn btn-default",  :method => :delete  %>
+<% end %>
+
+<% if !current_user.org_affiliate && current_user.current_project == nil && !@project.confirmed? %>
+  <%= button_to "Choose Project", project_path(@project), :class => "button", class: "btn btn-default", id: "choose-project", :method => :put %>
+<% end %>
+
+<% if !current_user.org_affiliate && current_user.current_project == @project %>
+  <h3>You have chosen this project<h3>
+    <!-- COMPLETE PROJECT BUTTON -->
+<% end %>
+<%= hidden_field(:project, :id) %>
+<input type="hidden" name="current_user[id]" id="current_user_id" value="<%= current_user.id %>">
+
+
