@@ -12,7 +12,14 @@ $(document).ready(function() {
   renderEditProjectForm()
   editProjectInfo()
   chooseProject()
+  appendHover()
 });
+
+function appendHover(){
+  $( "a" ).hover(function() {
+    $( this ).toggleClass( "red" );
+  })
+}
 
 
 function registerForm(){

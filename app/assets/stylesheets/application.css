@@ -6,7 +6,6 @@
   display: none;
 }
 
-
 .field_with_errors input{
   border: 1px solid red;
 }
@@ -22,6 +21,28 @@
   color: red;
 }
 
+.blue {
+  color: #fff;
+  background-color: #337ab7;
+  border-radius: 4px
+}
+
+.carousel-fade .carousel-inner > .item {
+  opacity: 0;
+  -webkit-transition-property: opacity;
+  -moz-transition-property: opacity;
+  -o-transition-property: opacity;
+  transition-property: opacity;
+}
+
+.carousel-fade .carousel-inner .active {
+  opacity: .5;
+}
+
+.red {
+  color: red;
+}
+
 #nav-bar {
   list-style: none;
 }
@@ -30,9 +51,6 @@
   display: inline;
 }
 
-/** {
-    margin: 0;
-}*/
 html, body {
     height: 100%;
 }
