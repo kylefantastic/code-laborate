@@ -31,10 +31,18 @@ class ProjectsController < ApplicationController
   end
 
   def update
+    # debugger
+    p params
     @project = Project.find(params[:project][:id])
     @organization = Organization.find(@project.organization_id)
+    @user = current_user
     if @project.update(project_params)
-      render template: "projects/_show_project", :layout => false
+      if @project.developer_id
+        UserMailer.dev_project(@project,@user).deliver_later
+        render template: "projects/_show_project", :layout => false
+      else
+        render template: "projects/_show_project", :layout => false
+      end
     else
       p 'in else, need error'
     end
