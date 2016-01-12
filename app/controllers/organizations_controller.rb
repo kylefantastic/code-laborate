@@ -18,7 +18,6 @@ class OrganizationsController < ApplicationController
   end
 
   def edit
-    p params
     @organization = Organization.find(current_user.organization_id)
     p @organization
     render template: "organizations/_edit_organization", layout: false
