@@ -19,6 +19,7 @@
 
 <body>
    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+
   <div class="jumbotron">
     <div class="container">
       <!-- Wrapper for carousel slides -->
@@ -53,10 +54,6 @@
   </div>
 
 
-
-
-
-
   <% if notice %>
     <p class="alert alert-success"><%= notice %></p>
   <% end %>
@@ -84,6 +81,7 @@
 
     <% end %>
     </ul>
+
   <nav>
     <% if current_user %>
       <% if !current_user.org_affiliate %>
