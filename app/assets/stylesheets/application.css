@@ -52,3 +52,7 @@ footer {
   height: 80%;
   padding-top: 1%;
 }
+.required:after{
+   content:"*";
+   color:red;
+}

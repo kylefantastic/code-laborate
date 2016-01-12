@@ -12,6 +12,8 @@ $(document).ready(function() {
   renderEditProjectForm()
   editProjectInfo()
   chooseProject()
+  completeProject()
+  abandonProject()
 });
 
 
@@ -123,10 +125,44 @@ function chooseProject(){
     event.preventDefault();
     var projectID = $("#project_id").val()
     var currentUserID = $("#current_user_id").val()
+    console.log({project: { id: projectID, developer_id: "" } })
     var request = $.ajax({
       url: "/projects/" + projectID,
       type: "PUT",
       data: {project: { id: projectID, developer_id: currentUserID}}
+    })
+    request.done(function(response){
+      $('#project-container').html(response)
+    })
+  })
+}
+
+function completeProject(){
+  $('#project-container').on("click", "#complete-project", function(event){
+    event.preventDefault();
+    var projectID = $("#project_id").val()
+    var currentUserID = $("#current_user_id").val()
+    var request = $.ajax({
+      url: "/projects/" + projectID,
+      type: "PUT",
+      data: {project: { id: projectID, developer_id: ""}}
+    })
+    request.done(function(response){
+      $('#project-container').html(response)
+    })
+  })
+}
+
+// Not yet sure how this will be different from complete project
+function abandonProject(){
+  $('#project-container').on("click", "#abandon-project", function(event){
+    event.preventDefault();
+    var projectID = $("#project_id").val()
+    var currentUserID = $("#current_user_id").val()
+    var request = $.ajax({
+      url: "/projects/" + projectID,
+      type: "PUT",
+      data: {project: { id: projectID, developer_id: ""}}
     })
     request.done(function(response){
       $('#project-container').html(response)
