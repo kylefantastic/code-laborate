@@ -6,6 +6,6 @@ class Project < ActiveRecord::Base
   has_one :org_admin, through: :organization
 
   def self.search(query)
-    where("title like ?", "%#{query}%")
+    where("description like ? or title like ?" , "%#{query}%", "%#{query}%")
   end
 end
