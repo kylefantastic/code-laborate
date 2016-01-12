@@ -1,6 +1,6 @@
 
 <div class="edit-developer-div">
-  <%= form_for @user, html: {class: "edit-developer-form"} do |f| %>
+  <%= form_for @user, html: {class: "edit-developer-form", role: "form"} do |f| %>
     <div class="field">
       <%= f.label :first_name %><br />
       <%= f.text_field :first_name, autofocus: true %>

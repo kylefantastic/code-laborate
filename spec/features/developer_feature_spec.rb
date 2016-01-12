@@ -42,7 +42,7 @@ describe 'Developer feature testing:', :type => :feature, js: true do
         expect(page).to have_content "Toolshed"
       end
       scenario 'a developer sees a profile button' do
-        expect(page).to have_link("Profile")
+        expect(page).to have_link("user@user.com")
       end
     end
   end
@@ -74,7 +74,7 @@ describe 'Developer feature testing:', :type => :feature, js: true do
   feature 'Profile page' do
     before do
       user_login
-      click_link("Profile")
+      click_link("user@user.com")
     end
     context 'When viewing the profile page' do
       scenario 'a developer can see their first name' do

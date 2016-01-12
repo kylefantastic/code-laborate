@@ -10,28 +10,29 @@
           </h3>
         </div>
       <% end %>
-
+    <div class="form-group">
       <p>
         <%= f.label :name, "Organization Name" %><br>
         <%= error_show(@organization, :name) %>
-        <%= f.text_field :name %>
+        <%= f.text_field :name, class: "form-control" %>
       </p>
 
       <p>
         <%= f.label :website_url, "Website" %><br>
         <%= error_show(@organization, :website_url) %>
-        <%= f.text_field :website_url %>
+        <%= f.text_field :website_url, class: "form-control" %>
       </p>
 
       <p>
         <%= f.label :description %><br>
         <%= error_show(@organization, :description) %>
-        <%= f.text_area :description, placeholder: "Add your mission or description here" %>
+        <%= f.text_area :description, placeholder: "Add your mission or description here", class: "form-control" %>
       </p>
 
       <p>
         <%= f.submit %>
       </p>
+    <div class="form-group">
     <% end %>
   </div>
 
