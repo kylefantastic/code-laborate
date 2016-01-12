@@ -21,6 +21,6 @@ until Project.all.count >= 50 do
     contact_email:Faker::Internet.email,
     contact_phone:Faker::PhoneNumber.cell_phone,
     deadline:Faker::Time.between(DateTime.now-1, DateTime.now),
-    organization_id: rand(20)
+    organization_id: rand(21)
     )
 end
