@@ -4,6 +4,7 @@ class CallbacksController < Devise::OmniauthCallbacksController
       @user = User.from_omniauth(request.env["omniauth.auth"])
       sign_in @user, :event => :authentication
         if !(@user.organization_id)
+          UserMailer.welcome_email(@user).deliver_later
           redirect_to new_organization_path
         else
           @organization = Organization.find(current_user.organization_id)
