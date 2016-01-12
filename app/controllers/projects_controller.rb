@@ -1,7 +1,7 @@
 class ProjectsController < ApplicationController
   def index
     @projects = Project.all
-    @User = User.all
+    @organizations = Organization.all
     if !current_user.org_affiliate
       seek
     end
