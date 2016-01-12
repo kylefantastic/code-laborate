@@ -1,5 +1,4 @@
 module FillInHelpers
-
   def new_org
     visit(new_organization_path)
     fill_in 'Organization Name', :with => 'Rooted in Community'
@@ -35,5 +34,6 @@ module FillInHelpers
     fill_in 'Deadline', :with => '12-25-2016'
     click_button 'Save Project'
   end
+
 
 end

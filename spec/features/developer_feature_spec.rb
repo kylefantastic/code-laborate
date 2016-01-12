@@ -49,10 +49,12 @@ describe 'Developer feature testing:', :type => :feature, js: true do
 
   feature 'Project show page' do
     before do
-      user_login
+      org_user_login
       new_org
       add_project
       add_second_project
+      click_link("Logout")
+      user_login
       visit(projects_path)
       click_link("Selfie-Distributor")
       # Link to project "Selfie-Distributor"
@@ -67,10 +69,11 @@ describe 'Developer feature testing:', :type => :feature, js: true do
         expect(page).to have_content "Share Beauty"
         expect(page).to have_content "We are looking for someone to look at me"
         expect(page).to have_content "Those with eyes"
+        # Organization name is not showing correctly
       end
-      scenario 'a developer can choose the project' do
+      scenario 'a enddeveloper can choose the project' do
         click_button("Choose Project")
-        expect(current_user.current_project.nil?).to be false
+        expect(User.last.current_project.nil?).to be false
       end
       scenario 'a developer cannot choose the project if they have already chosen a different project'
       scenario 'a developer can "un-choose" a project'
