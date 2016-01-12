@@ -4,6 +4,8 @@
     <% if !current_user.org_affiliate %>
       <% @projects.each do |project| %>
         <li><%= link_to project.title, project %></li>
+          <p>Vision: <%= project.vision %></p>
+          <p><%= project.organization.name %></p>
       <% end %>
       <% @organizations.each do |organization| %>
         <% if organization.projects.first %>
