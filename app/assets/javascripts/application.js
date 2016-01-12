@@ -13,6 +13,11 @@ $(document).ready(function() {
   editProjectInfo()
 });
 
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> 701f10f1d2f159b2498a1b877440aa4ef27033f7
 function registerForm(){
   $('#dev').click(function() {
     $('#devform').show();
