@@ -71,11 +71,12 @@ describe 'Developer feature testing:', :type => :feature, js: true do
         expect(page).to have_content "Those with eyes"
         # Organization name is not showing correctly
       end
-      scenario 'a enddeveloper can choose the project' do
+      scenario 'a developer can choose the project' do
         click_button("Choose Project")
-        expect(User.last.current_project.nil?).to be false
+        expect(page).to have_content "You have chosen this project"
       end
       scenario 'a developer cannot choose the project if they have already chosen a different project'
+      scenario 'a developer can complete a project'
       scenario 'a developer can "un-choose" a project'
     end
   end

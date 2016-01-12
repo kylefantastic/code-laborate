@@ -33,3 +33,7 @@
   <h3>You have chosen this project<h3>
     <!-- COMPLETE PROJECT BUTTON -->
 <% end %>
+<%= hidden_field(:project, :id) %>
+<input type="hidden" name="current_user[id]" id="current_user_id" value="<%= current_user.id %>">
+
+

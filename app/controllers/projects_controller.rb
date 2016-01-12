@@ -55,6 +55,7 @@ class ProjectsController < ApplicationController
         contact_phone
         deadline
         organization_id
+        developer_id
       )
       params.require(:project).permit(project_permitted)
     end
