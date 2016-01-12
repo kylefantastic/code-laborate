@@ -7,15 +7,15 @@
 
 <div id="devform">
   <div class="field">
-    <%= f.label :first_name %><br />
+   <div class="required"> <%= f.label :first_name %></div>
     <%= f.text_field :first_name, autofocus: true %>
   </div>
   <div class="field">
-    <%= f.label :last_name %><br />
+    <div class="required"><%= f.label :last_name %></div>
     <%= f.text_field :last_name, autofocus: true %>
   </div>
   <div class="field">
-    <%= f.label :email %><br />
+    <div class="required"><%= f.label :email %></div>
     <%= f.email_field :email, autofocus: true %>
   </div>
   <div class="field">
@@ -28,7 +28,7 @@
   </div>
 
   <div class="field">
-    <%= f.label :password %>
+    <div class="required"><%= f.label :password %></div>
     <% if @minimum_password_length %>
     <em>(<%= @minimum_password_length %> characters minimum)</em>
     <% end %><br />
@@ -36,7 +36,7 @@
   </div>
 
   <div class="field">
-    <%= f.label :password_confirmation %><br />
+    <div class="required"><%= f.label :password_confirmation %></div>
     <%= f.password_field :password_confirmation, autocomplete: "off" %>
   </div>
 
@@ -49,15 +49,15 @@
   <%= devise_error_messages! %>
   <div id="orgform">
     <div class="field">
-      <%= f.label :first_name %><br />
+      <div class="required"><%= f.label :first_name %></div>
       <%= f.text_field :first_name, autofocus: true %>
     </div>
     <div class="field">
-      <%= f.label :last_name %><br />
+     <div class="required"><%= f.label :last_name %></div>
       <%= f.text_field :last_name, autofocus: true %>
     </div>
     <div class="field">
-      <%= f.label :email %><br />
+      <div class="required"><%= f.label :email %></div>
       <%= f.email_field :email, autofocus: true %>
     </div>
     <div class="field">
@@ -66,7 +66,7 @@
     </div>
 
     <div class="field">
-      <%= f.label :password %>
+     <div class="required"><%= f.label :password %></div>
       <% if @minimum_password_length %>
       <em>(<%= @minimum_password_length %> characters minimum)</em>
       <% end %><br />
@@ -74,7 +74,7 @@
     </div>
 
     <div class="field">
-      <%= f.label :password_confirmation %><br />
+      <div class="required"><%= f.label :password_confirmation %></div>
       <%= f.password_field :password_confirmation, autocomplete: "off" %>
     </div>
     <div class="field">
