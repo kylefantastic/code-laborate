@@ -26,7 +26,7 @@
     <!-- logged in/out and link to user -->
   <% if current_user %>
      <% if current_user.org_affiliate %>
-      <p class="navbar-text navbar-right">Logged in as <a href= '/organizations/<%= current_user.organization_id %>' class="navbar-link"><%= current_user.email %></a></p>
+      <p class="navbar-text navbar-right">Logged in as <a href= '/organizations/<%= current_user.organization_id %>' class="navbar-link" id="profile-link"><%= current_user.email %></a></p>
       <% else %>
         <p class="navbar-text navbar-right">Logged in as <a href= "/users/<%= current_user.id %>" class="navbar-link"><%= current_user.email %></a></p>
       <% end %>
