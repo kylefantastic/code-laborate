@@ -1,5 +1,5 @@
   <div id="update_org_form">
-    <%= form_for :organization, url: organizations_path, html: {id:"edit-org-form"} do |f| %>
+    <%= form_for :organization, url: organizations_path, html: {id:"edit-org-form", role: "form"} do |f| %>
       <% if @organization.errors.any? %>
         <div id="error_explanation">
           <h3>
@@ -9,25 +9,27 @@
         </div>
       <% end %>
 
-      <p>
-        <%= f.label :name, "Organization Name" %><br>
-        <%= error_show(@organization, :name) %>
-        <%= f.text_field :name %>
-      </p>
+      <div class="form-group">
+        <p>
+          <%= f.label :name, "Organization Name" %>
+          <%= error_show(@organization, :name) %>
+          <%= f.text_field :name, class: "form-control" %>
+        </p>
 
-      <p>
-        <%= f.label :website_url, "Website" %><br>
-        <%= error_show(@organization, :website_url) %>
-        <%= f.text_field :website_url %>
-      </p>
+        <p>
+          <%= f.label :website_url, "Website" %>
+          <%= error_show(@organization, :website_url) %>
+          <%= f.text_field :website_url, class: "form-control" %>
+        </p>
 
-      <p>
-        <%= f.label :description %><br>
-        <%= error_show(@organization, :description) %>
-        <%= f.text_area :description, placeholder: "Add your mission or description here" %>
-      </p>
-      <%= button_to "Update Account", organization_path(@organization), :class => "button update-org", :method => :put %>
-      <%= hidden_field(:organization, :id) %>
+        <p>
+          <%= f.label :description %><br>
+          <%= error_show(@organization, :description) %>
+          <%= f.text_area :description, placeholder: "Add your mission or description here", class: "form-control" %>
+        </p>
+        <%= button_to "Update Account", organization_path(@organization), :class => "button update-org", class: "btn btn-default", :method => :put %>
+        <%= hidden_field(:organization, :id) %>
+    </div>
     <% end %>
   </div>
 
