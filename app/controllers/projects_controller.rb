@@ -10,16 +10,14 @@ class ProjectsController < ApplicationController
   def create
     @project = Project.new(project_params)
     if @project.save
-        redirect_to project_path(@project)
+      redirect_to project_path(@project)
     else
-      p @project
       render 'new'
     end
   end
 
   def show
     @project = Project.find(params[:id])
-    debugger
     @organization = Organization.find(@project.organization_id)
   end
 

@@ -54,18 +54,24 @@ describe 'Developer feature testing:', :type => :feature, js: true do
       add_project
       add_second_project
       visit(projects_path)
-      click_button(project)
+      click_link("Selfie-Distributor")
+      # Link to project "Selfie-Distributor"
     end
 
     context 'When viewing the projects show page' do
       scenario 'a developer can see the project information' do
-        expect(page).to have_content ""
-        expect(page).to have_content ""
-        expect(page).to have_content ""
-        expect(page).to have_content ""
-        expect(page).to have_content ""
+        expect(page).to have_content "Selfie-Distributor"
+        expect(page).to have_content "Narcissus"
+        expect(page).to have_content "555-555-5551"
+        expect(page).to have_content "2016-12-25"
+        expect(page).to have_content "Share Beauty"
+        expect(page).to have_content "We are looking for someone to look at me"
+        expect(page).to have_content "Those with eyes"
       end
-      scenario 'a developer can choose the project'
+      scenario 'a developer can choose the project' do
+        click_button("Choose Project")
+        expect(current_user.current_project.nil?).to be false
+      end
       scenario 'a developer cannot choose the project if they have already chosen a different project'
       scenario 'a developer can "un-choose" a project'
     end
