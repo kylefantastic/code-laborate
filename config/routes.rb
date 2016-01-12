@@ -5,7 +5,10 @@ Rails.application.routes.draw do
   # See how all your routes lay out with "rake routes"
 
   # You can have the root of your site routed with "root"
-  devise_for :users, controllers: { registrations: "users/registrations" }
+
+  devise_for :users, controllers: { :registrations => "registrations" , :omniauth_callbacks => "callbacks"} do
+  delete 'sign_out', :to => 'devise/sessions#destroy', :as => :destroy_user_session
+end
   root 'home#index'
   resources :users
   resources :organizations

@@ -12,9 +12,12 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'faker'
 gem 'awesome_print'
 gem 'devise'
+gem 'omniauth-facebook'
+gem 'figaro'
+
 
 group :development, :test do
-  gem 'pry-debugger'
+  # gem 'pry-debugger'
   gem 'database_cleaner'
   gem 'rspec-rails'
   gem 'shoulda-matchers'
