@@ -21,7 +21,7 @@ class OrganizationsController < ApplicationController
     p params
     @organization = Organization.find(current_user.organization_id)
     p @organization
-    render template: "organizations/_edit_organization"
+    render template: "organizations/_edit_organization", layout: false
   end
 
   def show
@@ -32,7 +32,7 @@ class OrganizationsController < ApplicationController
   def update
     @organization = Organization.find(current_user.organization_id)
     @organization.update(org_params)
-    render template: "organizations/_display_organization"
+    render template: "organizations/_display_organization", layout: false
   end
 
   def destroy
