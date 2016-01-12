@@ -3,7 +3,6 @@
 //= require turbolinks
 //= require_tree .
 
-
 $(document).ready(function() {
   registerForm()
   renderEditUserForm()
@@ -13,7 +12,6 @@ $(document).ready(function() {
   renderEditProjectForm()
   editProjectInfo()
 });
-
 
 function registerForm(){
   $('#dev').click(function() {
@@ -26,9 +24,8 @@ function registerForm(){
   })
 }
 
-
 function renderEditUserForm(){
-  $('body').on("click", ".display-edit-developer-form", function(event){
+  $('#developer-container').on("click", ".display-edit-developer-form", function(event){
     event.preventDefault()
     var userID = $("input").first().val()
     var request = $.ajax({
@@ -36,14 +33,13 @@ function renderEditUserForm(){
       type: "GET"
     })
     request.done(function(response){
-      document.body.innerHTML = response
+      $('#developer-container').html(response)
     })
   })
 }
 
-
 function editUserInfo(){
-  $('body').on("click", ".update-developer-profile", function(event){
+  $('#developer-container').on("click", ".update-developer-profile", function(event){
     event.preventDefault()
     var userInfo = $(".edit-developer-form").serialize()
     var request = $.ajax({
@@ -52,12 +48,13 @@ function editUserInfo(){
       data: userInfo
     })
     request.done(function(response){
-      document.body.innerHTML = response
+      $('#developer-container').html(response)
     })
   })
 }
+
 function renderEditOrgInfo(){
-  $('body').on('click', '.edit-account', function(event){
+  $('#organization-container').on('click', '.edit-account', function(event){
     event.preventDefault()
     var orgId = $("#organization_id").val()
     var request = $.ajax({
@@ -65,12 +62,13 @@ function renderEditOrgInfo(){
       type: "GET",
     })
     request.done(function(response){
-      document.body.innerHTML = response
+      $('#organization-container').html(response)
     })
   })
 }
+
 function editOrganizationInfo(){
-  $('body').on("click", ".update-org", function(event){
+  $('#organization-container').on("click", ".update-org", function(event){
     event.preventDefault()
     var orgInfo = $("#edit-org-form").serialize()
     var orgId = $("#organization_id").val()
@@ -80,7 +78,7 @@ function editOrganizationInfo(){
       data: orgInfo
     })
     request.done(function(response){
-      document.body.innerHTML = response
+      $('#organization-container').html(response)
      })
     })
   }
