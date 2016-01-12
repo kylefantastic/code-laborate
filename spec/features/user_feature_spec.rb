@@ -28,7 +28,6 @@ describe 'feature testing', :type => :feature, js: true do
         visit(root_path)
         click_link ('Sign up')
         click_button('Sign Up As Non-Profit')
-        sleep(2)
         fill_in 'First name', :with => 'Danielle'
         fill_in 'Last name', :with => 'Cameron'
         fill_in 'Email', :with => 'dc@user.com'
