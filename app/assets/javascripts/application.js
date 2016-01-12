@@ -133,5 +133,38 @@ function chooseProject(){
     })
   })
 }
+
+function completeProject(){
+  $('#project-container').on("click", "#complete-project", function(event){
+    event.preventDefault();
+    var projectID = $("#project_id").val()
+    var currentUserID = $("#current_user_id").val()
+    var request = $.ajax({
+      url: "/projects/" + projectID,
+      type: "PUT",
+      data: {project: { id: projectID, developer_id: nil}}
+    })
+    request.done(function(response){
+      $('#project-container').html(response)
+    })
+  })
+}
+
+// Not yet sure how this will be different from complete project
+function abandonProject(){
+  $('#project-container').on("click", "#abandon-project", function(event){
+    event.preventDefault();
+    var projectID = $("#project_id").val()
+    var currentUserID = $("#current_user_id").val()
+    var request = $.ajax({
+      url: "/projects/" + projectID,
+      type: "PUT",
+      data: {project: { id: projectID, developer_id: ""}}
+    })
+    request.done(function(response){
+      $('#project-container').html(response)
+    })
+  })
+}
 // Possible to refactor chooseProject and editProjectInfo to use the same ajax and such. Identical except for click and projectInfo
 
