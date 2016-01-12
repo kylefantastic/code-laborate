@@ -13,7 +13,6 @@ class User < ActiveRecord::Base
 
   def self.from_omniauth(auth)
       where(provider: auth.provider, uid: auth.uid).first_or_create! do |user|
-    #add bang to make sure validations throw error
         namesplit = auth.info.name.split(" ")
         user.provider = auth.provider
         user.uid = auth.uid
