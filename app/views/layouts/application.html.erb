@@ -19,19 +19,37 @@
 
 <body>
    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-   <div class="jumbotron">
+  <div class="jumbotron">
     <div class="container">
-      <h1> &lt;code&gt;laborate </h1>
+      <!-- Wrapper for carousel slides -->
+      <div id="mycarousel" class="carousel slide" data-ride="carousel">
+        <div class="carousel-inner" role="listbox">
+          <div class="item active">
+            <%= image_tag('sanfrancisco.jpg', alt: "Image of San Francisco skyline") %>
+            <div class="carousel-caption">
+              <h1> &lt;code&gt;laborate </h1>
+            </div>
+          </div>
+
+          <!-- <div class="item">
+            <img src="#" alt="image of Chicago skyline">
+          </div>
+
+          <div class="item">
+            <img src="#" alt="image of New York skyline">
+          </div> -->
+        </div>
+      </div>
     </div>
     <!-- logged in/out and link to user -->
-  <% if current_user %>
-     <% if current_user.org_affiliate %>
-      <p class="navbar-text navbar-right">Logged in as <a href= '/organizations/<%= current_user.organization_id %>' class="navbar-link" id="profile-link"><%= current_user.email %></a></p>
-      <% else %>
-        <p class="navbar-text navbar-right">Logged in as <a href= "/users/<%= current_user.id %>" class="navbar-link"><%= current_user.email %></a></p>
-      <% end %>
-    <p class="navbar-text navbar-right"><%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %> </p>
-  <% end %>
+    <% if current_user %>
+       <% if current_user.org_affiliate %>
+        <p class="navbar-text navbar-right">Logged in as <a href= '/organizations/<%= current_user.organization_id %>' class="navbar-link" id="profile-link"><%= current_user.email %></a></p>
+        <% else %>
+          <p class="navbar-text navbar-right">Logged in as <a href= "/users/<%= current_user.id %>" class="navbar-link"><%= current_user.email %></a></p>
+        <% end %>
+      <p class="navbar-text navbar-right"><%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %> </p>
+    <% end %>
   </div>
 
 
