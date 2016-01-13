@@ -14,6 +14,9 @@ gem 'awesome_print'
 gem 'devise'
 gem 'omniauth-facebook'
 gem 'figaro'
+gem 'carrierwave'
+gem 'mini_magick'
+gem 'remotipart', '~> 1.2'
 
 
 group :development, :test do

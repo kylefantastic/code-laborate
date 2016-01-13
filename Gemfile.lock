@@ -51,6 +51,11 @@ GEM
       rack (>= 1.0.0)
       rack-test (>= 0.5.4)
       xpath (~> 2.0)
+    carrierwave (0.10.0)
+      activemodel (>= 3.2.0)
+      activesupport (>= 3.2.0)
+      json (>= 1.7)
+      mime-types (>= 1.16)
     childprocess (0.5.9)
       ffi (~> 1.0, >= 1.0.11)
     chromedriver-helper (1.0.0)
@@ -107,6 +112,7 @@ GEM
     mail (2.6.3)
       mime-types (>= 1.16, < 3)
     mime-types (2.99)
+    mini_magick (4.3.6)
     mini_portile2 (2.0.0)
     minitest (5.8.3)
     multi_json (1.11.2)
@@ -160,6 +166,7 @@ GEM
     rake (10.4.2)
     rdoc (4.2.1)
       json (~> 1.4)
+    remotipart (1.2.1)
     responders (2.1.1)
       railties (>= 4.2.0, < 5.1)
     rspec-core (3.4.1)
@@ -233,6 +240,7 @@ DEPENDENCIES
   awesome_print
   byebug
   capybara
+  carrierwave
   chromedriver-helper
   coffee-rails (~> 4.1.0)
   database_cleaner
@@ -242,9 +250,11 @@ DEPENDENCIES
   figaro
   jbuilder (~> 2.0)
   jquery-rails
+  mini_magick
   omniauth-facebook
   pg
   rails (= 4.2.4)
+  remotipart (~> 1.2)
   rspec-rails
   sass-rails (~> 5.0)
   sdoc (~> 0.4.0)

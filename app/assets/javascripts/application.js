@@ -2,6 +2,7 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
+//= require jquery.remotipart
 
 $(document).ready(function() {
   registerForm()
