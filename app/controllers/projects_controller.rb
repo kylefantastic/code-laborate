@@ -1,6 +1,6 @@
 class ProjectsController < ApplicationController
   def index
-    @project = Project.new
+    @project = Project.new #Do we need this?
     @projects = Project.all
     @organizations = Organization.all
 
@@ -14,6 +14,7 @@ class ProjectsController < ApplicationController
   end
 
   def create
+    p params
     @project = Project.new(project_params)
     if @project.save
       redirect_to project_path(@project)
@@ -33,6 +34,7 @@ class ProjectsController < ApplicationController
   end
 
   def update
+    p params
     @project = Project.find(params[:project][:id])
     @organization = Organization.find(@project.organization_id)
     @user = current_user
