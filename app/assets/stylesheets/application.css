@@ -140,5 +140,11 @@ footer {
 #new-logo-h1{
   margin-top: 0
 }
+.org-name{
+  text-align: center;
+  font-weight: bold;
+  font-family:Arial, Helvetica, sans-serif;
+}
+
 
 

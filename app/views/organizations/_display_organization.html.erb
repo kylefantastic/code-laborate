@@ -39,41 +39,61 @@
          </ul>
       </nav>
       <div class="jumbotron row">
-        <div class="container col-md-12">
-    <div id="mycarousel" class="carousel-fade" data-ride="carousel">
-      <div class="carousel-inner" role="listbox">
-        <div class="item active">
-          <%= image_tag('sanfrancisco-header.jpg', alt: "Image of San Francisco skyline") %>
-          <div class="carousel-caption">
-            <h1> &lt;code&gt;laborate </h1>
-          </div>
-        </div>
+         <div class="container col-md-12">
+            <div id="mycarousel" class="carousel-fade" data-ride="carousel">
+               <div class="carousel-inner" role="listbox">
+                  <div class="item active">
+                     <%= image_tag('sanfrancisco-header.jpg', alt: "Image of San Francisco skyline") %>
+                     <div class="carousel-caption">
+                        <h1> &lt;code&gt;laborate </h1>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
       </div>
-    </div>
-   </div>
- </div>
-
-      <div class="col-md-6">
-      <h2>Your organization's profile</h2>
-      <h1><%= @organization.name %> </h1>
-      <dl class="dl-horizontal">
-         <p><a href='<%= @organization.website_url %>'><%= @organization.website_url %></a></p>
-         <dt>Description/Mission:</dt>
-         <dd><%= @organization.description %></dd>
-         <%= button_to "Edit Account", edit_organization_path(@organization), :class => "button edit-account", class: "btn btn-default", :method => :get %>
+      <div class="container">
+         <div class="row">
+               <div class="panel panel-info">
+                  <div class="panel-heading">
+                     <h3 class="panel-title"><%=@organization.name%></h3>
+                  </div>
+                  <div class="panel-body">
+                     <div class="row">
+                        <div class="col-md-3 col-lg-3 " align="center"> <%= image_tag('company-profile-default-logo.jpg', alt: "Organization Image")%> </div>
+                        <div class=" col-md-9 col-lg-9 ">
+                           <table class="table table-user-information">
+                              <tbody>
+                                 <tr>
+                                    <td>Mission:</td>
+                                    <td><%= @organization.description %></td>
+                                 </tr>
+                                 <tr>
+                                    <td>Project List:</td>
+                                    <td><% @organization.projects.each do |project| %>
+                                      <%= link_to project.title, project_path(project) %><br>
+                                    <% end %><%= button_to "New Project", new_project_path, :class => "button", class: "btn btn-default", :method => :get  %></td>
+                                 </tr>
+                                 <tr>
+                                    <td>Email</td>
+                                    <td><%= @user.email %></td>
+                                  </tr>
+                              </tbody>
+                           </table>
+                              <div class="btn-group"><%= button_to "Delete Account", organization_path(@organization), :class => "button", class: "btn btn-default", :method => :delete %>
+                                       <%= button_to "Edit Account", edit_organization_path(@organization), :class => "button edit-account", class: "btn btn-default", :method => :get %>
          <%= hidden_field(:organization, :id) %>
-         <div class="btn-group"><%= button_to "Delete Account", organization_path(@organization), :class => "button", class: "btn btn-default", :method => :delete %>
-      </dl>
-      </div>
-      <div class="col-md-6">
-         <h3>Projects List</h3>
-         <ul>
-            <% @organization.projects.each do |project| %>
-            <li><%= link_to project.title, project_path(project) %></li>
-            <% end %>
-         </ul>
-         <%= button_to "New Project", new_project_path, :class => "button", class: "btn btn-default", :method => :get  %>
-      </div>
-   </body>
-</html>
+                             </dl>
+                          </div>
+                        </div>
+                     </div>
+                  </div>
 
+               </div>
+            </div>
+         </div>
+      </div>
+         <div class="footer">
+         <footer>
+            <h1>&lt;&#47;code&gt;</h1>
+         </footer>
