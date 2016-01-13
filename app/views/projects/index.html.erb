@@ -1,11 +1,11 @@
-<div>
+<div id='projects-container'>
   <h1>Projects</h1>
-  <ul>
+  <ul id='user<%=current_user.id%>'>
     <% if !current_user.org_affiliate %>
       <% @projects.each do |project| %>
-        <li><%= link_to project.title, project %></li>
+        <li id='project<%= project.id %>'><i class="fa fa-bookmark-o" id='project<%= project.id %>'></i> <%= link_to project.title, project %></li>
           <p>Vision: <%= project.vision %></p>
-          <p><%= project.organization.name %></p>
+          <p>For: <%= link_to project.organization.name, project.organization.website_url %></p>
       <% end %>
     <%else%>
       <li><% @project %></li>

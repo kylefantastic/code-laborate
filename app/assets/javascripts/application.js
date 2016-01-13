@@ -12,6 +12,8 @@ $(document).ready(function() {
   renderEditProjectForm()
   editProjectInfo()
   chooseProject()
+  bookmarkProject()
+  unbookmarkProject()
 });
 
 
@@ -167,4 +169,78 @@ function abandonProject(){
   })
 }
 // Possible to refactor chooseProject and editProjectInfo to use the same ajax and such. Identical except for click and projectInfo
+
+function bookmarkProject(){
+  $('#projects-container').on('click', '.fa-bookmark-o', function(e){
+    e.preventDefault();
+    // debugger
+    var projectId = $(this).attr('id')
+    projectId = projectId.match(/\d+/).join()
+
+    var userId = $(this).parent().parent().attr('id')
+    userId = userId.match(/\d+/).join()
+
+    var data = {bookmark: {project_id: projectId, developer_id: userId}}
+
+    var request = $.ajax({
+      url: "/bookmarks",
+      type: "POST",
+      data: data
+    })
+    request.done(function(response){
+      console.log(response)
+      var numId = $(response).attr('id')
+      $(numId).first
+      debugger
+    })
+  })
+}
+
+
+function unbookmarkProject(){
+  $('#projects-container').on('click', '.fa-bookmark', function(e){
+    e.preventDefault();
+    // debugger
+    var projectId = $(this).attr('id')
+    projectId = projectId.match(/\d+/).join()
+
+    var userId = $(this).parent().parent().attr('id')
+    userId = userId.match(/\d+/).join()
+
+    var bookmarkId = $(this).attr('class') //third class listed
+    var data = {bookmark: {project_id: projectId, developer_id: userId}}
+
+    // var bookmarkId = $(this).attr("?")
+
+    var request = $.ajax({
+      url: "/bookmarks/" + bookmarkId,
+      type: "POST",
+      data: data
+    })
+    request.done(function(response){
+      var numId = $(response).attr('id')
+      // now target the <li> with id project(numId)
+    })
+  })
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

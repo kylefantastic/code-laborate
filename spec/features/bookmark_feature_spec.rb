@@ -26,7 +26,8 @@ describe 'Bookmark feature testing:', :type => :feature, js: true do
       scenario 'the user can mark a project with a bookmark' do
         pending
         visit(projects_path)
-        click_link ("bookmark")
+        click_link ('#project1')
+        expect()
       end
 
       scenario 'the user can remove a bookmark' do

@@ -1,9 +1,6 @@
 Rails.application.routes.draw do
 
 
-  get 'bookmarks/create'
-
-  get 'bookmarks/destroy'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes"
@@ -14,6 +11,7 @@ Rails.application.routes.draw do
   delete 'sign_out', :to => 'devise/sessions#destroy', :as => :destroy_user_session
 end
   root 'home#index'
+  resources :bookmarks
   resources :users
   resources :organizations
   resources :projects
