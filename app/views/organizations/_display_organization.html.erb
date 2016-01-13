@@ -1,76 +1,79 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+   <head>
+      <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
+      <title>&lt;code&gt;laborate</title>
+      <%= csrf_meta_tags %>
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+      <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+   </head>
+   <body>
+      <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+      <nav class="nav navbar-nav navbar-right">
+         <ul id='nav-bar' class="nav nav-pills">
+            <li role="presentation"><%= link_to " Home", "/" %> </li>
+            <li role="presentation"><%= link_to " About", "/about" %></li>
+            <li role="presentation"><%= link_to " FAQ", "/FAQ" %></li>
+            <li role="presentation"><%= link_to " Past Projects", "/past_projects"%> </li>
+            <% if current_user %>
+            <% if !current_user.org_affiliate %>
+            <li role="presentation" class="active"><%= link_to 'Projects', projects_path, :class => 'navbar-link' %> </li>
+            <% end %>
+            <% else %>
+            <li role="presentation"><%= link_to "Sign up", new_user_registration_path(anchor: "dev"), :class => 'navbar-link nav-bar-right' %></li>
+            <li role="presentation"><%= link_to "Login", new_user_session_path(anchor: "org"), :class => 'navbar-link nav-bar-right'  %> </li>
+            <% end %>
+            <% if current_user %>
+            <% if current_user.org_affiliate %>
+            <li role="presentation"><%=link_to "Profile", new_organization_path%></li>
+            <% else %>
+            <li role="presentation"><a href= "/users/<%= current_user.id %>">Profile</a></li>
+            <% end %>
+            <li role="presentation"><%= link_to "Logout", destroy_user_session_path, method: :delete %> </li>
+            <% end %>
+         </ul>
+      </nav>
+      <div class="jumbotron row">
+        <div class="container col-md-12">
+    <div id="mycarousel" class="carousel-fade" data-ride="carousel">
+      <div class="carousel-inner" role="listbox">
+        <div class="item active">
+          <%= image_tag('sanfrancisco-header.jpg', alt: "Image of San Francisco skyline") %>
+          <div class="carousel-caption">
+            <h1> &lt;code&gt;laborate </h1>
+          </div>
+        </div>
+      </div>
+    </div>
+   </div>
+ </div>
 
-  <title>&lt;code&gt;laborate</title>
-  <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>
-
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
-
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
-
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-</head>
-
-<body>
- <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-
- <nav class="nav navbar-nav navbar-right">
-  <ul id='nav-bar' class="nav nav-pills">
-    <li role="presentation"><%= link_to " Home", "/" %> </li>
-   <li role="presentation"><%= link_to " About", "/about" %></li>
-   <li role="presentation"><%= link_to " FAQ", "/FAQ" %></li>
-   <li role="presentation"><%= link_to " Past Projects", "/past_projects"%> </li>
-
-   <% if current_user %>
-   <% if !current_user.org_affiliate %>
-   <li role="presentation" class="active"><%= link_to 'Projects', projects_path, :class => 'navbar-link' %> </li>
-   <% end %>
-
-   <% else %>
-   <li role="presentation"><%= link_to "Sign up", new_user_registration_path(anchor: "dev"), :class => 'navbar-link nav-bar-right' %></li>
-   <li role="presentation"><%= link_to "Login", new_user_session_path(anchor: "org"), :class => 'navbar-link nav-bar-right'  %> </li>
-   <% end %>
-    <% if current_user %>
-      <% if current_user.org_affiliate %>
-        <li role="presentation"><%=link_to "Profile", new_organization_path%></li>
-    <% else %>
-    <li role="presentation"><a href= "/users/<%= current_user.id %>">Profile</a></li>
-    <% end %>
-    <li role="presentation"><%= link_to "Logout", destroy_user_session_path, method: :delete %> </li>
-    <% end %>
- </ul>
-</nav>
-<div class="page-header">
-  <h1><%= image_tag('header-logo.jpg', alt: "Image Chicago skyline") %></h1>
-</div>
-
-<div class="col-md-6">
-  <h2>Your organization's profile</h2>
-  <h1><%= @organization.name %> </h1>
-  <dl class="dl-horizontal">
-    <p><a href='<%= @organization.website_url %>'><%= @organization.website_url %></a></p>
-    <dt>Description/Mission:</dt>
-    <dd><%= @organization.description %></dd>
-    <%= button_to "Edit Account", edit_organization_path(@organization), :class => "button edit-account", class: "btn btn-default", :method => :get %>
-    <%= hidden_field(:organization, :id) %>
-    <div class="btn-group"><%= button_to "Delete Account", organization_path(@organization), :class => "button", class: "btn btn-default", :method => :delete %>
-  </dl>
-  </div>
-<div class="col-md-6">
-  <h3>Projects List</h3>
-  <ul>
-    <% @organization.projects.each do |project| %>
-      <li><%= link_to project.title, project_path(project) %></li>
-    <% end %>
-  </ul>
-    <%= button_to "New Project", new_project_path, :class => "button", class: "btn btn-default", :method => :get  %>
-</div>
-</body>
+      <div class="col-md-6">
+      <h2>Your organization's profile</h2>
+      <h1><%= @organization.name %> </h1>
+      <dl class="dl-horizontal">
+         <p><a href='<%= @organization.website_url %>'><%= @organization.website_url %></a></p>
+         <dt>Description/Mission:</dt>
+         <dd><%= @organization.description %></dd>
+         <%= button_to "Edit Account", edit_organization_path(@organization), :class => "button edit-account", class: "btn btn-default", :method => :get %>
+         <%= hidden_field(:organization, :id) %>
+         <div class="btn-group"><%= button_to "Delete Account", organization_path(@organization), :class => "button", class: "btn btn-default", :method => :delete %>
+      </dl>
+      </div>
+      <div class="col-md-6">
+         <h3>Projects List</h3>
+         <ul>
+            <% @organization.projects.each do |project| %>
+            <li><%= link_to project.title, project_path(project) %></li>
+            <% end %>
+         </ul>
+         <%= button_to "New Project", new_project_path, :class => "button", class: "btn btn-default", :method => :get  %>
+      </div>
+   </body>
 </html>
 
