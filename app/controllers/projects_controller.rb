@@ -38,6 +38,7 @@ class ProjectsController < ApplicationController
 
   def edit
     @project = Project.find(params[:id])
+    @categories = Category.all
     render 'projects/_edit_form', :layout => false
   end
 
