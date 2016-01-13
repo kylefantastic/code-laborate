@@ -7,14 +7,14 @@ class BookmarksController < ApplicationController
     @project = Project.find(@project_id)
     @bookmark = Bookmark.create(params)
 
-    render partial: "bookmarks/_bookmark", locals: {project: @project, bookmark: @bookmark}, :layout => false
+    render partial: "bookmarks/_bookmark_selected", locals: {project: @project, bookmark: @bookmark}, :layout => false
   end
 
   # def destroy
   #   @bookmark = Bookmark.find(params[:id])
   #   @project = Project.find(@bookmark.developer_id)
   #   @bookmark.destroy
-  #   render partial: "bookmarks/_unbookmark_selected", locals: {project: @project}, :layout => false
+  #   render partial: "bookmarks/_unbookmark", locals: {project: @project}, :layout => false
   # end
 
 end
