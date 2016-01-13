@@ -1,8 +1,10 @@
 class ProjectsController < ApplicationController
   def index
+    @project = Project.new
     @projects = Project.all
     @organizations = Organization.all
-    if !current_user.org_affiliate
+
+    if current_user && !current_user.org_affiliate
       seek
     end
   end
@@ -31,8 +33,6 @@ class ProjectsController < ApplicationController
   end
 
   def update
-    # debugger
-    p params
     @project = Project.find(params[:project][:id])
     @organization = Organization.find(@project.organization_id)
     @user = current_user
@@ -76,10 +76,9 @@ class ProjectsController < ApplicationController
       if params[:search]
         @projects = Project.search(params[:search]).order("created_at DESC")
         @organizations = Organization.search(params[:search]).order("created_at DESC")
-        @project = Project.new
+        render template: "projects/_search_results"
       else
         @projects = Project.order("created_at DESC")
-        @project = Project.new
       end
     end
 

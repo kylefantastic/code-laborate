@@ -17,7 +17,6 @@ class OrganizationsController < ApplicationController
   end
 
   def edit
-    p params
     @organization = Organization.find(current_user.organization_id)
     p @organization
     render template: "organizations/_edit_organization", layout: false
@@ -52,17 +51,6 @@ class OrganizationsController < ApplicationController
       @user = User.find_by(id:current_user.id)
       unless @user.id == current_user.id
         redirect_to root_path
-      end
-    end
-
-    def seek
-      if params[:search]
-
-        @organizations = Organization.search(params[:search]).order("created_at DESC")
-
-      else
-        @organizations = Organization.order("created_at DESC")
-
       end
     end
 end

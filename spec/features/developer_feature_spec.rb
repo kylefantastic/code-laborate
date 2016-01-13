@@ -75,9 +75,22 @@ describe 'Developer feature testing:', :type => :feature, js: true do
         click_button("Choose Project")
         expect(page).to have_content "You have chosen this project"
       end
-      scenario 'a developer cannot choose the project if they have already chosen a different project'
-      scenario 'a developer can complete a project'
-      scenario 'a developer can "un-choose" a project'
+      scenario 'a developer cannot choose the project if they have already chosen a different project' do
+        click_button("Choose Project")
+        click_link("Projects")
+        click_link("Toolshed")
+        expect(page).to have_no_content("Choose Project")
+      end
+      scenario 'a developer can complete a project' do
+        click_button("Choose Project")
+        click_button("Complete")
+        expect(page).to have_button("Choose Project")
+      end
+      scenario 'a developer can abandon a project' do
+        click_button("Choose Project")
+        click_button("Abandon Project")
+        expect(page).to have_button("Choose Project")
+      end
     end
   end
 
