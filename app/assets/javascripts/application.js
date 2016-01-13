@@ -191,7 +191,6 @@ function abandonProject(){
 function bookmarkProject(){
   $('#projects-container').on('click', '.fa-bookmark-o', function(e){
     e.preventDefault();
-    // debugger
     var projectId = $(this).attr('id')
     projectId = projectId.match(/\d+/).join()
     var userId = $(this).parent().parent().attr('id')
