@@ -21,7 +21,7 @@ describe 'Developer feature testing:', :type => :feature, js: true do
         fill_in 'Password confirmation', :with => 'password'
         click_button 'Sign up'
 
-        expect(page).to have_content('Logged in as user@user.com')
+        expect(page).to have_content('Logout')
       end
     end
   end
@@ -42,7 +42,7 @@ describe 'Developer feature testing:', :type => :feature, js: true do
         expect(page).to have_content "Toolshed"
       end
       scenario 'a developer sees a profile button' do
-        expect(page).to have_link("user@user.com")
+        expect(page).to have_link("Profile")
       end
     end
   end
@@ -97,7 +97,7 @@ describe 'Developer feature testing:', :type => :feature, js: true do
   feature 'Profile page' do
     before do
       user_login
-      click_link("user@user.com")
+      click_link("Profile")
     end
     context 'When viewing the profile page' do
       scenario 'a developer can see their first name' do

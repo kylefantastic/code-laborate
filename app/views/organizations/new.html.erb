@@ -1,7 +1,7 @@
 <html>
 <head></head>
 <body>
-  <h1>Sign up your organization</h1>
+  <h1 class="org-sign-up">Sign Up Your Organization</h1>
   <div id="new_org_form" >
     <%= form_for :organization, url: organizations_path do |f| %>
 
@@ -13,30 +13,30 @@
       </h3>
     </div>
     <% end %>
-    <div class="form-group">
-      <p>
-       <div class="required"><%= f.label :name, "Organization Name" %></div>
-       <%= error_show(@organization, :name) %>
-       <%= f.text_field :name, class: "form-control" %>
-     </p>
+    <div class="form-group" id="org-sign-up-form">
+     <div class="required">
+      <%= f.label :name, "Organization Name" %>
+      </div>
+      <%= error_show(@organization, :name) %>
+      <%= f.text_field :name, class: "form-control" %>
 
-     <p>
-      <div class="required"><%= f.label :website_url, "Website" %></div>
+      <div class="required">
+        <%= f.label :website_url, "Website" %>
+      </div>
       <%= error_show(@organization, :website_url) %>
       <%= f.url_field :website_url, class: "form-control", value: "http://" %>
-    </p>
-
-    <p>
-      <div class="required"><%= f.label :description %></div>
+      <div class="required">
+        <%= f.label :description %>
+      </div>
       <%= error_show(@organization, :description) %>
       <%= f.text_area :description, placeholder: "Add your mission or description here", class: "form-control" %>
-    </p>
+      <div>
+        <%= f.submit %>
+      </div>
 
-    <p>
-      <%= f.submit %>
-    </p>
-    <div class="form-group">
-      <% end %>
+    <% end %>
+
     </div>
-  </body>
-  </html>
+  </div>
+</body>
+</html>

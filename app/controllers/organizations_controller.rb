@@ -1,7 +1,7 @@
 class OrganizationsController < ApplicationController
   # before_action :authenticate_user!
   before_action :authorize_user, only: [:new, :show, :update, :destroy]
-  # layout false, only: [:new]
+  layout false, only: [:show]
   def new
     @organization = Organization.new
   end
