@@ -22,7 +22,7 @@
             <li role="presentation"><%= link_to " Past Projects", "/past_projects"%> </li>
             <% if current_user %>
             <% if !current_user.org_affiliate %>
-            <li role="presentation" class="active"><%= link_to 'Projects', projects_path, :class => 'navbar-link' %> </li>
+            <li role="presentation"><%= link_to 'Projects', projects_path, :class => 'navbar-link' %> </li>
             <% end %>
             <% else %>
             <li role="presentation"><%= link_to "Sign up", new_user_registration_path(anchor: "dev"), :class => 'navbar-link nav-bar-right' %></li>
@@ -97,4 +97,4 @@
          <div class="footer">
          <footer>
             <h1>&lt;&#47;code&gt;</h1>
-         </footer>
+</footer>
