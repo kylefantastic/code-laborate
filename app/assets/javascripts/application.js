@@ -222,8 +222,6 @@ function unbookmarkProject(){
     bookmarkId = bookmarkId.split(" ")[2].slice(-2)
     var data = {bookmark: {project_id: projectId, developer_id: userId}}
 
-    // var bookmarkId = $(this).attr("?")
-
     var request = $.ajax({
       url: "/bookmarks/" + bookmarkId,
       type: "DELETE",
