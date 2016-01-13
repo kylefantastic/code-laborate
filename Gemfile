@@ -14,6 +14,7 @@ gem 'awesome_print'
 gem 'devise'
 gem 'omniauth-facebook'
 gem 'figaro'
+gem 'paperclip', "~> 4.3"
 
 
 group :development, :test do

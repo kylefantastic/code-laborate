@@ -66,6 +66,7 @@ class ProjectsController < ApplicationController
         contact_email
         contact_phone
         deadline
+        project_image
         organization_id
         developer_id
       )

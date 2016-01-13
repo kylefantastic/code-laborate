@@ -61,6 +61,9 @@
         <%= f.text_field :contact_phone, class: "form-control" %>
       </p>
 
+      <!-- For Paperclip -->
+      <%= f.file_field :project_image, as: :file %>
+
       <p>
         <%= f.label :deadline,"Deadline" %><br>
         <%= f.date_field :deadline, class: "form-control" %>
