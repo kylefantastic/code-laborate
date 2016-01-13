@@ -23,7 +23,7 @@
      <p>
       <div class="required"><%= f.label :website_url, "Website" %></div>
       <%= error_show(@organization, :website_url) %>
-      <%= f.text_field :website_url, class: "form-control" %>
+      <%= f.url_field :website_url, class: "form-control", value: "http://" %>
     </p>
 
     <p>

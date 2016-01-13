@@ -60,7 +60,7 @@
       <p>
         <div class="required"><%= f.label :contact_email,"Contact email" %></div>
         <%= error_show(@project, :contact_email) %>
-        <%= f.text_field :contact_email, class: "form-control" %>
+        <%= f.email_field :contact_email, class: "form-control" %>
       </p>
       <p>
 

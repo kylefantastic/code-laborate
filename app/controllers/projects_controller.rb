@@ -14,13 +14,12 @@ class ProjectsController < ApplicationController
   end
 
   def create
-    p "XO" * 22
-    p params
-    p "O.O " * 14
     @project = Project.new(project_params)
-    @project.validatePhoneNumber
     if @project.save
+      p "#" * 44
+      p @project.errors
       redirect_to project_path(@project)
+      p "#" * 44
     else
       render 'new'
     end
