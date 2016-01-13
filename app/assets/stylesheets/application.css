@@ -101,3 +101,8 @@ footer {
 .footer{
   clear:both;
 }
+.register{
+  text-align: center;
+  font-weight: bold;
+  font-family:Arial, Helvetica, sans-serif;
+}
