@@ -200,40 +200,42 @@ function bookmarkProject(){
     })
     request.done(function(response){
       console.log(response)
-      var numId = $(response).attr('id')
-      $(numId).first
-      debugger
+      newBookmark = $.parseHTML(response)
+      bookmarkID = $(newBookmark).attr('id')
+      $('#' + bookmarkID).children().first().replaceWith(newBookmark)
     })
   })
 }
 
 
-function unbookmarkProject(){
-  $('#projects-container').on('click', '.fa-bookmark', function(e){
-    e.preventDefault();
-    // debugger
-    var projectId = $(this).attr('id')
-    projectId = projectId.match(/\d+/).join()
+// function unbookmarkProject(){
+//   $('#projects-container').on('click', '.fa-bookmark', function(e){
+//     e.preventDefault();
 
-    var userId = $(this).parent().parent().attr('id')
-    userId = userId.match(/\d+/).join()
+//     var projectId = $(this).attr('id')
+//     projectId = projectId.match(/\d+/).join()
 
-    var bookmarkId = $(this).attr('class') //third class listed
-    var data = {bookmark: {project_id: projectId, developer_id: userId}}
+//     var userId = $(this).parent().parent().attr('id')
+//     userId = userId.match(/\d+/).join()
 
-    // var bookmarkId = $(this).attr("?")
+//     var bookmarkId = $(this).attr('class') //third class listed
+//     var data = {bookmark: {project_id: projectId, developer_id: userId}}
 
-    var request = $.ajax({
-      url: "/bookmarks/" + bookmarkId,
-      type: "POST",
-      data: data
-    })
-    request.done(function(response){
-      var numId = $(response).attr('id')
-      // now target the <li> with id project(numId)
-    })
-  })
-}
+//     // var bookmarkId = $(this).attr("?")
+
+//     var request = $.ajax({
+//       url: "/bookmarks/" + bookmarkId,
+//       type: "POST",
+//       data: data
+//     })
+//     request.done(function(response){
+//       newBookmark = $.parseHTML(response)
+//       bookmarkID = $(newBookmark).attr('id')
+//       $('#' + bookmarkID).children().first().replaceWith(newBookmark)
+//       // now target the <li> with id project(numId)
+//     })
+//   })
+// }
 
 
 
