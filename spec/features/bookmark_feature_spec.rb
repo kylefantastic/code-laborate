@@ -4,7 +4,7 @@ Capybara.register_driver :selenium do |app|
   Capybara::Selenium::Driver.new(app, :browser => :chrome)
 end
 
-describe 'Bookmark feature testing:', :type => :feature, js: true do
+xdescribe 'Bookmark feature testing:', :type => :feature, js: true do
   include LoginHelpers
   include FillInHelpers
 
