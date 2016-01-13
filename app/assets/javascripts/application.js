@@ -5,10 +5,13 @@
 
 $(document).ready(function() {
   registerForm()
+
   renderEditUserForm()
   editUserInfo()
+
   renderEditOrgInfo()
   editOrganizationInfo()
+
   renderEditProjectForm()
   editProjectInfo()
   chooseProject()
@@ -18,11 +21,8 @@ $(document).ready(function() {
 
   completeProject()
   abandonProject()
-<<<<<<< HEAD
 
-=======
   orgForm()
->>>>>>> dc51423c3d9bb894735d4135cd0c75e3c8157d21
 });
 
 function registerForm(){
@@ -194,10 +194,8 @@ function abandonProject(){
 function bookmarkProject(){
   $('#projects-container').on('click', '.fa-bookmark-o', function(e){
     e.preventDefault();
-    // debugger
     var projectId = $(this).attr('id')
     projectId = projectId.match(/\d+/).join()
-
     var userId = $(this).parent().parent().attr('id')
     userId = userId.match(/\d+/).join()
 
@@ -210,9 +208,9 @@ function bookmarkProject(){
     })
     request.done(function(response){
       console.log(response)
-      var numId = $(response).attr('id')
-      $(numId).first
-      debugger
+      var newBookmark = $.parseHTML(response)
+      var bookmarkID = $(newBookmark).attr('id')
+      $('#' + bookmarkID).children().first().replaceWith(newBookmark)
     })
   })
 }
@@ -221,7 +219,7 @@ function bookmarkProject(){
 function unbookmarkProject(){
   $('#projects-container').on('click', '.fa-bookmark', function(e){
     e.preventDefault();
-    // debugger
+
     var projectId = $(this).attr('id')
     projectId = projectId.match(/\d+/).join()
 
@@ -229,17 +227,18 @@ function unbookmarkProject(){
     userId = userId.match(/\d+/).join()
 
     var bookmarkId = $(this).attr('class') //third class listed
+    bookmarkId = bookmarkId.split(" ")[2].slice(-2)
     var data = {bookmark: {project_id: projectId, developer_id: userId}}
-
-    // var bookmarkId = $(this).attr("?")
 
     var request = $.ajax({
       url: "/bookmarks/" + bookmarkId,
-      type: "POST",
+      type: "DELETE",
       data: data
     })
     request.done(function(response){
-      var numId = $(response).attr('id')
+      newBookmark = $.parseHTML(response)
+      bookmarkID = $(newBookmark).attr('id')
+      $('#' + bookmarkID).children().first().replaceWith(newBookmark)
       // now target the <li> with id project(numId)
     })
   })
