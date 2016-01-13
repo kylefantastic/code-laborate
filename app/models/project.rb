@@ -6,7 +6,8 @@ class Project < ActiveRecord::Base
   has_one :org_admin, through: :organization
   has_many :bookmarks
   has_many :interested_developers, through: :bookmarks, source: :developer
-
+  has_many :category_projects
+  has_many :categories, through: :category_projects
 
 
   def self.search(query)

@@ -11,11 +11,19 @@ class ProjectsController < ApplicationController
 
   def new
     @project = Project.new
+    @categories = Category.all
   end
 
   def create
+
+    @categories= Category.all
     @project = Project.new(project_params)
     if @project.save
+      @project_category_names = params[:category].keys
+      @project_category_names.each do |name|
+        category = Category.find_by(name: name)
+        @project.categories << category
+      end
       redirect_to project_path(@project)
     else
       render 'new'
@@ -25,6 +33,7 @@ class ProjectsController < ApplicationController
   def show
     @project = Project.find(params[:id])
     @organization = Organization.find(@project.organization_id)
+    @categories = @project.categories
   end
 
   def edit

@@ -42,3 +42,13 @@ end
     organization_id: rand(1..20)
     )
 end
+
+categories = ["animals", "arts", "education", "equality", "government", "health", "international", "recreation", "religion", "research", "science", "social", "youth/children", "other"]
+
+categories.each do |category|
+    Category.create(name: category)
+end
+
+
+
+
