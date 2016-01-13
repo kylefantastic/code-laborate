@@ -19,10 +19,17 @@ $(document).ready(function() {
 function registerForm(){
   $('#dev').click(function() {
     $('#devform').show();
+    // $('#panel-dev').css('background-color','blue')
+    // $('#devform').css('border-color','red')
+    $("body").animate({ scrollTop: $('.jumbotron').height() }, "slow");
     $('#orgform').hide();
   })
   $('#org').click(function() {
     $('#orgform').show();
+    // $('#orgform').css('border-style','solid')
+    // $('#orgform').css('border-color','blue')
+    // $(this).css('color','black');
+    $("body").animate({ scrollTop: $('.jumbotron').height() }, "slow");
     $('#devform').hide();
   })
 }

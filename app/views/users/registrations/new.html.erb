@@ -1,30 +1,44 @@
-<h2>Register</h2>
+
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
 
   <%= @errors %>
-  <button type="button" id="dev">Sign Up As Developer</button>
-  <button type="button" id="org">Sign Up As Non-Profit</button>
+  <div class="panel panel-default mission">
+  <div class="panel-heading" id="dbc">
+    <h3 class="panel-title" id="panel-dev"><button type="button" id="dev">Sign Up As Developer</button></h3>
+  </div>
+  <div class="panel-body">
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla ornare erat nec est pharetra consectetur. Mauris et erat et turpis egestas finibus eleifend tincidunt nisi. Nulla commodo nisi at fermentum consequat. Mauris ac blandit dolor, sed maximus erat. Praesent nec sollicitudin magna. Vivamus id arcu tempor, volutpat est non, bibendum tellus. Fusce facilisis est
+  </div>
+</div>
+<div class="panel panel-default purpose">
+  <div class="panel-heading">
+    <h3 class="panel-title" id="panel-org" ><button type="button" id="org">Sign Up As Organization</button></h3>
+  </div>
+  <div class="panel-body">
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla ornare erat nec est pharetra consectetur. Mauris et erat et turpis egestas finibus eleifend tincidunt nisi. Nulla commodo nisi at fermentum consequat. Mauris ac blandit dolor, sed maximus erat. Praesent nec sollicitudin magna. Vivamus id arcu tempor, volutpat est non, bibendum tellus. Fusce facilisis est f
+  </div>
+</div>
 
 <div id="devform">
   <div class="field">
    <div class="required"> <%= f.label :first_name %></div>
-    <%= f.text_field :first_name, autofocus: true %>
+    <%= f.text_field :first_name, autofocus: true, class: "form-control" %>
   </div>
   <div class="field">
     <div class="required"><%= f.label :last_name %></div>
-    <%= f.text_field :last_name, autofocus: true %>
+    <%= f.text_field :last_name, autofocus: true,class: "form-control" %>
   </div>
   <div class="field">
     <div class="required"><%= f.label :email %></div>
-    <%= f.email_field :email, autofocus: true %>
+    <%= f.email_field :email, autofocus: true,class: "form-control" %>
   </div>
   <div class="field">
     <%= f.label :public_profile_url %><br />
-    <%= f.text_field :public_profile_url, autofocus: true %>
+    <%= f.text_field :public_profile_url, autofocus: true,class: "form-control" %>
   </div>
   <div class="field">
     <%= f.label :bootcamp %><br />
-    <%= f.text_field :bootcamp, autofocus: true %>
+    <%= f.text_field :bootcamp, autofocus: true,class: "form-control" %>
   </div>
 
   <div class="field">
@@ -32,12 +46,12 @@
     <% if @minimum_password_length %>
     <em>(<%= @minimum_password_length %> characters minimum)</em>
     <% end %><br />
-    <%= f.password_field :password, autocomplete: "off" %>
+    <%= f.password_field :password, autocomplete: "off",class: "form-control" %>
   </div>
 
   <div class="field">
     <div class="required"><%= f.label :password_confirmation %></div>
-    <%= f.password_field :password_confirmation, autocomplete: "off" %>
+    <%= f.password_field :password_confirmation, autocomplete: "off",class: "form-control" %>
   </div>
 
   <div class="actions">
@@ -50,19 +64,19 @@
   <div id="orgform">
     <div class="field">
       <div class="required"><%= f.label :first_name %></div>
-      <%= f.text_field :first_name, autofocus: true %>
+      <%= f.text_field :first_name, autofocus: true,class: "form-control" %>
     </div>
     <div class="field">
      <div class="required"><%= f.label :last_name %></div>
-      <%= f.text_field :last_name, autofocus: true %>
+      <%= f.text_field :last_name, autofocus: true ,class: "form-control"%>
     </div>
     <div class="field">
       <div class="required"><%= f.label :email %></div>
-      <%= f.email_field :email, autofocus: true %>
+      <%= f.email_field :email, autofocus: true,class: "form-control" %>
     </div>
     <div class="field">
       <%= f.label :public_profile_url %><br />
-      <%= f.text_field :public_profile_url, autofocus: true %>
+      <%= f.text_field :public_profile_url, autofocus: true,class: "form-control" %>
     </div>
 
     <div class="field">
@@ -70,12 +84,12 @@
       <% if @minimum_password_length %>
       <em>(<%= @minimum_password_length %> characters minimum)</em>
       <% end %><br />
-      <%= f.password_field :password, autocomplete: "off" %>
+      <%= f.password_field :password, autocomplete: "off",class: "form-control" %>
     </div>
 
     <div class="field">
       <div class="required"><%= f.label :password_confirmation %></div>
-      <%= f.password_field :password_confirmation, autocomplete: "off" %>
+      <%= f.password_field :password_confirmation, autocomplete: "off",class: "form-control" %>
     </div>
     <div class="field">
     <%= f.hidden_field :org_affiliate, :value=>true %>
