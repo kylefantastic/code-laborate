@@ -145,6 +145,26 @@ footer {
   font-weight: bold;
   font-family:Arial, Helvetica, sans-serif;
 }
+#new-project{
+  float: right;
+  top: 0;
+}
+#delete-account{
+  display: inline-block;
+  float:right;
+  bottom: 0;
+  margin: .5%;
+}
+#edit-account{
+  display: inline-block;
+  float:right;
+  bottom: 0;
+  margin: .5%
+}
+.clearFloat{
+  clear:both;
+}
+
 
 
 

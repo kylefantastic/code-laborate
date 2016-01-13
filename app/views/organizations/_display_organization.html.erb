@@ -72,19 +72,20 @@
                                     <td>Project List:</td>
                                     <td><% @organization.projects.each do |project| %>
                                       <%= link_to project.title, project_path(project) %><br>
-                                    <% end %><%= button_to "New Project", new_project_path, :class => "button", class: "btn btn-default", :method => :get  %></td>
+                                    <% end %><%= button_to "New Project", new_project_path, class: "btn btn-default" ,id:"new-project", :method => :get  %></td>
                                  </tr>
                                  <tr>
                                     <td>Email</td>
                                     <td><%= @user.email %></td>
                                   </tr>
-                              </tbody>
+                               </tbody>
                            </table>
-                              <div class="btn-group"><%= button_to "Delete Account", organization_path(@organization), :class => "button", class: "btn btn-default", :method => :delete %>
-                                       <%= button_to "Edit Account", edit_organization_path(@organization), :class => "button edit-account", class: "btn btn-default", :method => :get %>
-         <%= hidden_field(:organization, :id) %>
-                             </dl>
                           </div>
+                        </div>
+                        <div class="clearFloat">
+                         <%= button_to "Delete Account", organization_path(@organization), class: "btn btn-default", id:"delete-account", :method => :delete %>
+                         <%= button_to "Edit Account", edit_organization_path(@organization), class: "btn btn-default", id:"edit-account", :method => :get %>
+                          <%= hidden_field(:organization, :id) %>
                         </div>
                      </div>
                   </div>
