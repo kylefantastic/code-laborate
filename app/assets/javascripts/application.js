@@ -14,6 +14,7 @@ $(document).ready(function() {
   chooseProject()
   completeProject()
   abandonProject()
+  orgForm()
 });
 
 function registerForm(){
@@ -21,7 +22,7 @@ function registerForm(){
     $('#devform').show();
     // $('#panel-dev').css('background-color','blue')
     // $('#devform').css('border-color','red')
-    $("body").animate({ scrollTop: $('.jumbotron').height() }, "slow");
+    $("html,body").animate({ scrollTop: $('.jumbotron').height() }, "slow");
     $('#orgform').hide();
   })
   $('#org').click(function() {
@@ -29,10 +30,16 @@ function registerForm(){
     // $('#orgform').css('border-style','solid')
     // $('#orgform').css('border-color','blue')
     // $(this).css('color','black');
-    $("body").animate({ scrollTop: $('.jumbotron').height() }, "slow");
+    $("html,body").animate({ scrollTop: $('.jumbotron').height() }, "slow");
     $('#devform').hide();
   })
 }
+
+function orgForm(){
+    $('html,body').animate({scrollTop: $('#new_org_form').height()}, "slow")
+  }
+
+
 
 function renderEditUserForm(){
   $('#developer-container').on("click", ".display-edit-developer-form", function(event){
