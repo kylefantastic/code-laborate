@@ -4,13 +4,12 @@
     <% if !current_user.org_affiliate %>
       <% @projects.each do |project| %>
         <li id='project<%= project.id %>'>
-          <i class="fa fa-bookmark-o project" id='project<%= @project.id %>'></i>
-
-          <%# if Bookmark.find_by(project_id: project.id, developer_id: current_user.id) %>
-            <%# render partial: "/bookmarks/_bookmark_selected", locals: {@project: project} %>
-          <%# else %>
-            <%# render partial: "/bookmarks/_unbookmark", locals: {@project: project} %>
-          <%# end %>
+          <% bookmark = Bookmark.find_by(project_id: project.id, developer_id: current_user.id) %>
+          <% if bookmark %>
+            <%= render partial: "/bookmarks/bookmark_selected", locals: {project: project, bookmark: bookmark} %>
+          <% else %>
+            <%= render partial: "/bookmarks/unbookmark", :locals => {project: project} %>
+          <% end %>
           <%= link_to project.title, project %></li>
           <p>Vision: <%= project.vision %></p>
           <p>For: <%= link_to project.organization.name, project.organization.website_url %></p>

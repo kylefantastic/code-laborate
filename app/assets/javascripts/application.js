@@ -187,7 +187,6 @@ function bookmarkProject(){
     // debugger
     var projectId = $(this).attr('id')
     projectId = projectId.match(/\d+/).join()
-
     var userId = $(this).parent().parent().attr('id')
     userId = userId.match(/\d+/).join()
 
