@@ -11,7 +11,6 @@ class Project < ActiveRecord::Base
     where("description like ? or title like ?" , "%#{query}%", "%#{query}%")
   end
 
-
   # def project_notification(record)
   #   @record = record
   #    mail to: "danyell85@gmail.com", subject: "You project got selected."
