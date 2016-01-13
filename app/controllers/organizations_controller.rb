@@ -1,7 +1,7 @@
 class OrganizationsController < ApplicationController
   # before_action :authenticate_user!
   before_action :authorize_user, only: [:new, :show, :update, :destroy]
-
+  # layout false, only: [:new]
   def new
     @organization = Organization.new
   end
@@ -13,7 +13,7 @@ class OrganizationsController < ApplicationController
         @user.update!(organization_id:@organization.id)
         redirect_to organization_path(@organization)
     else
-      render 'new'
+      render :new
     end
   end
 
