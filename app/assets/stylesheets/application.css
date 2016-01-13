@@ -79,7 +79,7 @@ footer {
   width: 40%;
   border-radius: 20px;
   float: left !important;
-  margin-left: 5%;
+  margin-left: 8%;
 }
 .purpose{
   margin: auto;
@@ -87,7 +87,7 @@ footer {
   border-radius: 20px;
   margin-bottom: 25%;
   float: right !important;
-  margin-right: 5%;
+  margin-right: 8%;
 }
 .panel-title{
   text-align: center;
@@ -95,14 +95,28 @@ footer {
   font-family:Arial, Helvetica, sans-serif;
 }
 .panel-heading{
-  background-color:   #C48189  !important;
+  background-color: #C48189  !important;
   opacity: 0.8
 }
 .footer{
   clear:both;
 }
-.register{
-  text-align: center;
-  font-weight: bold;
-  font-family:Arial, Helvetica, sans-serif;
+#devform{
+  clear:both;
+  width: 84%;
+  border-radius: 5px;
+  margin-bottom: 5%;
+  float: left !important;
+  margin-left: 8%;
 }
+#orgform{
+  clear:both;
+  width: 84%;
+  border-radius: 5px;
+  margin-bottom: 5%;
+  float: left !important;
+  margin-left: 8%;
+}
+
+
+
