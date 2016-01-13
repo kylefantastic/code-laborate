@@ -12,22 +12,32 @@ $(document).ready(function() {
   renderEditProjectForm()
   editProjectInfo()
   chooseProject()
+
   bookmarkProject()
   unbookmarkProject()
-});
 
+  completeProject()
+  abandonProject()
+
+});
 
 function registerForm(){
   $('#dev').click(function() {
     $('#devform').show();
+    // $('#panel-dev').css('background-color','blue')
+    // $('#devform').css('border-color','red')
+    $("body").animate({ scrollTop: $('.jumbotron').height() }, "slow");
     $('#orgform').hide();
   })
   $('#org').click(function() {
     $('#orgform').show();
+    // $('#orgform').css('border-style','solid')
+    // $('#orgform').css('border-color','blue')
+    // $(this).css('color','black');
+    $("body").animate({ scrollTop: $('.jumbotron').height() }, "slow");
     $('#devform').hide();
   })
 }
-
 
 function renderEditUserForm(){
   $('#developer-container').on("click", ".display-edit-developer-form", function(event){
@@ -125,6 +135,7 @@ function chooseProject(){
     event.preventDefault();
     var projectID = $("#project_id").val()
     var currentUserID = $("#current_user_id").val()
+    console.log({project: { id: projectID, developer_id: "" } })
     var request = $.ajax({
       url: "/projects/" + projectID,
       type: "PUT",
@@ -144,7 +155,7 @@ function completeProject(){
     var request = $.ajax({
       url: "/projects/" + projectID,
       type: "PUT",
-      data: {project: { id: projectID, developer_id: nil}}
+      data: {project: { id: projectID, developer_id: ""}}
     })
     request.done(function(response){
       $('#project-container').html(response)

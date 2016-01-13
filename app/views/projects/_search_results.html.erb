@@ -1,0 +1,16 @@
+<% if !@projects.empty? %>
+    <h4>Your search was found in the title or description of these projects</h4>
+  <% @projects.each do |project| %>
+    <li><%= link_to project.title, project %></li>
+  <% end %>
+<% end %>
+<% if !@organizations.empty? %>
+  <h4>Your search was found in the organization name of these projects</h4>
+  <% @organizations.each do |organization| %>
+    <% if !organization.projects.empty? %>
+      <% organization.projects.each do |project| %>
+        <li><%= link_to project.title, project %></li>
+      <% end %>
+    <% end %>
+  <% end %>
+<% end %>
