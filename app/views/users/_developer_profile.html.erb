@@ -68,18 +68,18 @@
                               <tbody>
                                  <tr>
                                     <td>Name:</td>
-                                    <td><%= @user.first_name%><%= @user.last_name %></td>
+                                    <td><%= @user.first_name%> <%= @user.last_name %></td>
                                  </tr>
                                  <tr>
                                     <td>Public Profile:</td>
                                     <td><%= @user.public_profile_url%></td>
                                  </tr>
                                  <tr>
-                                    <td>Bootcamp</td>
+                                    <td>Bootcamp:</td>
                                     <td><%= @user.bootcamp %></td>
                                   </tr>
                                   <tr>
-                                    <td>Email</td>
+                                    <td>Email:</td>
                                     <td><%= @user.email%></td>
                                   </tr>
                                </tbody>
@@ -87,8 +87,8 @@
                           </div>
                         </div>
                         <div class="clearFloat">
-                         <button class="display-edit-developer-form btn btn-default", id:"edit-account">Edit Profile</button>
-                        <%= button_to "Delete Account", user_path(current_user), class: "btn btn-default", id:"delete-account", :method => :delete, data: { confirm: "Are you sure?" } %>
+                           <%= button_to "Delete Account", user_path(current_user), class: "btn btn-default", id:"delete-account", :method => :delete, data: { confirm: "Are you sure?" } %>
+                             <%= button_to "Edit Account", edit_user_path(@user), class: "btn btn-default display-edit-developer", id:"edit-account", :method => :get %>
                         </div>
                      </div>
                   </div>
