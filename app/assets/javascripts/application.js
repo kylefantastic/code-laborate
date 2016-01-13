@@ -19,10 +19,12 @@ $(document).ready(function() {
 function registerForm(){
   $('#dev').click(function() {
     $('#devform').show();
+    $("html, body").animate({ scrollTop: $(document).height() }, "slow");
     $('#orgform').hide();
   })
   $('#org').click(function() {
     $('#orgform').show();
+    $("html, body").animate({ scrollTop: $(document).height() }, "slow");
     $('#devform').hide();
   })
 }
