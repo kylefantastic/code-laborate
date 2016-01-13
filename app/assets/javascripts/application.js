@@ -12,19 +12,38 @@ $(document).ready(function() {
   renderEditProjectForm()
   editProjectInfo()
   chooseProject()
-});
 
+  bookmarkProject()
+  unbookmarkProject()
+
+  completeProject()
+  abandonProject()
+
+  orgForm()
+});
 
 function registerForm(){
   $('#dev').click(function() {
     $('#devform').show();
+    // $('#panel-dev').css('background-color','blue')
+    // $('#devform').css('border-color','red')
+    $("html,body").animate({ scrollTop: $('.jumbotron').height() }, "slow");
     $('#orgform').hide();
   })
   $('#org').click(function() {
     $('#orgform').show();
+    // $('#orgform').css('border-style','solid')
+    // $('#orgform').css('border-color','blue')
+    // $(this).css('color','black');
+    $("html,body").animate({ scrollTop: $('.jumbotron').height() }, "slow");
     $('#devform').hide();
   })
 }
+
+function orgForm(){
+    $('html,body').animate({scrollTop: $('#new_org_form').height()}, "slow")
+  }
+
 
 
 function renderEditUserForm(){
@@ -123,6 +142,7 @@ function chooseProject(){
     event.preventDefault();
     var projectID = $("#project_id").val()
     var currentUserID = $("#current_user_id").val()
+    console.log({project: { id: projectID, developer_id: "" } })
     var request = $.ajax({
       url: "/projects/" + projectID,
       type: "PUT",
@@ -133,5 +153,111 @@ function chooseProject(){
     })
   })
 }
+
+function completeProject(){
+  $('#project-container').on("click", "#complete-project", function(event){
+    event.preventDefault();
+    var projectID = $("#project_id").val()
+    var currentUserID = $("#current_user_id").val()
+    var request = $.ajax({
+      url: "/projects/" + projectID,
+      type: "PUT",
+      data: {project: { id: projectID, developer_id: ""}}
+    })
+    request.done(function(response){
+      $('#project-container').html(response)
+    })
+  })
+}
+
+// Not yet sure how this will be different from complete project
+function abandonProject(){
+  $('#project-container').on("click", "#abandon-project", function(event){
+    event.preventDefault();
+    var projectID = $("#project_id").val()
+    var currentUserID = $("#current_user_id").val()
+    var request = $.ajax({
+      url: "/projects/" + projectID,
+      type: "PUT",
+      data: {project: { id: projectID, developer_id: ""}}
+    })
+    request.done(function(response){
+      $('#project-container').html(response)
+    })
+  })
+}
 // Possible to refactor chooseProject and editProjectInfo to use the same ajax and such. Identical except for click and projectInfo
+
+function bookmarkProject(){
+  $('#projects-container').on('click', '.fa-bookmark-o', function(e){
+    e.preventDefault();
+    var projectId = $(this).attr('id')
+    projectId = projectId.match(/\d+/).join()
+    var userId = $(this).parent().parent().attr('id')
+    userId = userId.match(/\d+/).join()
+
+    var data = {bookmark: {project_id: projectId, developer_id: userId}}
+
+    var request = $.ajax({
+      url: "/bookmarks",
+      type: "POST",
+      data: data
+    })
+    request.done(function(response){
+      console.log(response)
+      var newBookmark = $.parseHTML(response)
+      var bookmarkID = $(newBookmark).attr('id')
+      $('#' + bookmarkID).children().first().replaceWith(newBookmark)
+    })
+  })
+}
+
+
+function unbookmarkProject(){
+  $('#projects-container').on('click', '.fa-bookmark', function(e){
+    e.preventDefault();
+
+    var projectId = $(this).attr('id')
+    projectId = projectId.match(/\d+/).join()
+
+    var userId = $(this).parent().parent().attr('id')
+    userId = userId.match(/\d+/).join()
+
+    var bookmarkId = $(this).attr('class') //third class listed
+    bookmarkId = bookmarkId.split(" ")[2].slice(-2)
+    var data = {bookmark: {project_id: projectId, developer_id: userId}}
+
+    var request = $.ajax({
+      url: "/bookmarks/" + bookmarkId,
+      type: "DELETE",
+      data: data
+    })
+    request.done(function(response){
+      newBookmark = $.parseHTML(response)
+      bookmarkID = $(newBookmark).attr('id')
+      $('#' + bookmarkID).children().first().replaceWith(newBookmark)
+      // now target the <li> with id project(numId)
+    })
+  })
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

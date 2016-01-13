@@ -1,7 +1,7 @@
 class OrganizationsController < ApplicationController
   # before_action :authenticate_user!
   before_action :authorize_user, only: [:new, :show, :update, :destroy]
-
+  layout false, only: [:show]
   def new
     @organization = Organization.new
   end
@@ -13,12 +13,11 @@ class OrganizationsController < ApplicationController
         @user.update!(organization_id:@organization.id)
         redirect_to organization_path(@organization)
     else
-      render 'new'
+      render :new
     end
   end
 
   def edit
-    p params
     @organization = Organization.find(current_user.organization_id)
     p @organization
     render template: "organizations/_edit_organization", layout: false
@@ -53,17 +52,6 @@ class OrganizationsController < ApplicationController
       @user = User.find_by(id:current_user.id)
       unless @user.id == current_user.id
         redirect_to root_path
-      end
-    end
-
-    def seek
-      if params[:search]
-
-        @organizations = Organization.search(params[:search]).order("created_at DESC")
-
-      else
-        @organizations = Organization.order("created_at DESC")
-
       end
     end
 end

@@ -3,6 +3,8 @@ class User < ActiveRecord::Base
   validates :email, :uniqueness => true
   has_one :current_project, class_name: "Project", foreign_key: :developer_id
   belongs_to :organization
+  has_many :bookmarks, foreign_key: "developer_id"
+  has_many :bookmarked_projects, through: :bookmarks, source: :project
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,

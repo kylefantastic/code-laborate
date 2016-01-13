@@ -21,7 +21,7 @@ describe 'Developer feature testing:', :type => :feature, js: true do
         fill_in 'Password confirmation', :with => 'password'
         click_button 'Sign up'
 
-        expect(page).to have_content('Logged in as user@user.com')
+        expect(page).to have_content('Logout')
       end
     end
   end
@@ -42,7 +42,7 @@ describe 'Developer feature testing:', :type => :feature, js: true do
         expect(page).to have_content "Toolshed"
       end
       scenario 'a developer sees a profile button' do
-        expect(page).to have_link("user@user.com")
+        expect(page).to have_link("Profile")
       end
     end
   end
@@ -75,16 +75,29 @@ describe 'Developer feature testing:', :type => :feature, js: true do
         click_button("Choose Project")
         expect(page).to have_content "You have chosen this project"
       end
-      scenario 'a developer cannot choose the project if they have already chosen a different project'
-      scenario 'a developer can complete a project'
-      scenario 'a developer can "un-choose" a project'
+      scenario 'a developer cannot choose the project if they have already chosen a different project' do
+        click_button("Choose Project")
+        click_link("Projects")
+        click_link("Toolshed")
+        expect(page).to have_no_content("Choose Project")
+      end
+      scenario 'a developer can complete a project' do
+        click_button("Choose Project")
+        click_button("Complete")
+        expect(page).to have_button("Choose Project")
+      end
+      scenario 'a developer can abandon a project' do
+        click_button("Choose Project")
+        click_button("Abandon Project")
+        expect(page).to have_button("Choose Project")
+      end
     end
   end
 
   feature 'Profile page' do
     before do
       user_login
-      click_link("user@user.com")
+      click_link("Profile")
     end
     context 'When viewing the profile page' do
       scenario 'a developer can see their first name' do

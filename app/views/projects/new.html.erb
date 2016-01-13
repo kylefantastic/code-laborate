@@ -14,20 +14,20 @@
 
     <div class="form-group">
       <p>
-        <%= f.label :title, "Project Title" %>
+        <div class="required"><%= f.label :title, "Project Title" %></div>
         <%= error_show(@project, :title) %>
         <%= f.text_field :title, class: "form-control" %>
       </p>
 
       <p>
-        <%= f.label :vision, "Vision" %>
+        <div class="required"><%= f.label :vision, "Vision" %></div>
         <%= error_show(@project, :vision) %>
         <%= f.text_area :vision, placeholder:"Add vision", class: "form-control" %>
         <span id="helpBlock" class="help-block">A sentence about your organizations goal for this project</span>
       </p>
 
       <p>
-        <%= f.label :need, "Need" %>
+        <div class="required"><%= f.label :need, "Need" %></div>
         <%= error_show(@project, :need) %>
         <%= f.text_area :need, placeholder: "Add Need", class: "form-control" %>
 
@@ -35,7 +35,7 @@
 
       </p>
       <p>
-        <%= f.label :description,"Description" %>
+        <div class="required"><%= f.label :description,"Description"%></div>
         <%= error_show(@project, :description) %>
         <%= f.text_area :description, placeholder: "Add Description", class: "form-control" %>
 
@@ -44,7 +44,7 @@
         </span>
       </p>
       <p>
-        <%= f.label :benefit,"Benefit" %>
+        <div class="required"><%= f.label :benefit,"Benefit" %></div>
         <%= error_show(@project, :benefit) %>
         <%= f.text_area :benefit, placeholder: "Add Benefit", class: "form-control" %>
 
@@ -52,19 +52,19 @@
       </p>
 
       <p>
-        <%= f.label :contact_name,"Contact name" %>
+        <div class="required"><%= f.label :contact_name,"Contact name" %></div>
         <%= error_show(@project, :contact_name) %>
         <%= f.text_field :contact_name, class: "form-control" %>
       </p>
 
       <p>
-        <%= f.label :contact_email,"Contact email" %>
+        <div class="required"><%= f.label :contact_email,"Contact email" %></div>
         <%= error_show(@project, :contact_email) %>
         <%= f.text_field :contact_email, class: "form-control" %>
       </p>
       <p>
 
-        <%= f.label :contact_phone,"Contact phone number" %>
+        <div class="required"><%= f.label :contact_phone,"Contact phone number" %></div>
         <%= error_show(@project, :contact_phone) %>
         <%= f.text_field :contact_phone, class: "form-control" %>
       </p>
