@@ -134,6 +134,10 @@ footer {
   width: 80%;
   margin: auto
 }
+#update_org_form{
+  width: 80%;
+  margin: auto
+}
 #new-logo{
   margin-top: 0 !important
 }
