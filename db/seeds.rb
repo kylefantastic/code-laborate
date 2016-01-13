@@ -6,11 +6,29 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.firs
 
-until Organization.all.count >= 20 do
+
+#developer user
+User.create(first_name: "Don",
+            last_name: "Duck",
+            email: "don@donaldduck.com",
+            password: "password")
+
+#organization admin user
+User.create(first_name: "Minney",
+             last_name: "Mouse",
+             email: "minney@mickeymouse.com",
+             password: "password",
+             organization_id: 1,
+             org_affiliate: true)
+
+
+# until Organization.all.count >= 20 do
+20.times do
   Organization.create(name: Faker::App.name, website_url: Faker::Internet.url, description:Faker::Hipster.paragraphs)
 end
 
-until Project.all.count >= 50 do
+# until Project.all.count >= 50 do
+50.times do
   Project.create(
     title: Faker::App.name,
     vision: Faker::Hipster.sentence,
@@ -21,6 +39,6 @@ until Project.all.count >= 50 do
     contact_email:Faker::Internet.email,
     contact_phone:Faker::PhoneNumber.cell_phone,
     deadline:Faker::Time.between(DateTime.now-1, DateTime.now),
-    organization_id: rand(21)
+    organization_id: rand(1..20)
     )
 end
