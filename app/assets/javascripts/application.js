@@ -14,6 +14,7 @@ $(document).ready(function() {
 
   renderEditProjectForm()
   editProjectInfo()
+
   chooseProject()
 
   bookmarkProject()

@@ -45,9 +45,9 @@ class ProjectsController < ApplicationController
   end
 
   def update
-    p params
     @project = Project.find(params[:project][:id])
     @organization = Organization.find(@project.organization_id)
+    @categories = @project.categories
     @user = current_user
     if @project.update(project_params)
       if @project.developer_id
