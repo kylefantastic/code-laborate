@@ -1,4 +1,6 @@
-<h2>Projects</h2>
+
+<%= render template: "layouts/other" %>
+<h2 class="new-project-header">Add A New Project</h2>
   <div id="new_project_form">
 
     <%= form_for :project, url: projects_path do |f| %>
@@ -35,7 +37,6 @@
 
       </p>
       <p>
-
         <div class="required"><%= f.label :description, "Description" %></div>
         <%= error_show(@project, :description) %>
         <%= f.text_area :description, placeholder: "Add Description", class: "form-control" %>
@@ -60,8 +61,6 @@
         <%= label_tag("category[#{category.name}]", "#{category.name}") %></li>
       <% end %>
     </ul>
-
-
 
       <p>
         <div class="required"><%= f.label :contact_name,"Contact name" %></div>
