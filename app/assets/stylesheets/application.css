@@ -136,6 +136,10 @@ footer {
   width: 80%;
   margin: auto
 }
+#sign-in-form{
+  width: 50%;
+  margin: auto
+}
 #update_org_form{
   width: 80%;
   margin: auto
