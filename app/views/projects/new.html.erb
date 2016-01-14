@@ -60,13 +60,17 @@
       <p>
         <div class="required"><%= f.label :contact_email,"Contact email" %></div>
         <%= error_show(@project, :contact_email) %>
-        <%= f.text_field :contact_email, class: "form-control" %>
+        <%= f.email_field :contact_email, class: "form-control" %>
       </p>
       <p>
 
-        <div class="required"><%= f.label :contact_phone,"Contact phone number" %></div>
-        <%= error_show(@project, :contact_phone) %>
-        <%= f.text_field :contact_phone, class: "form-control" %>
+        <div class="required">
+
+          <%= f.label :contact_phone,"Contact phone number" %></div>
+          <div class="phone_number">
+            <%= f.text_field :contact_phone, class: "form-control" %>
+            <%= error_show(@project, :contact_phone) %>
+          </div>
       </p>
 
       <p>

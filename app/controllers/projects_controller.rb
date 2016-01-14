@@ -17,7 +17,10 @@ class ProjectsController < ApplicationController
     p params
     @project = Project.new(project_params)
     if @project.save
+      p "#" * 44
+      p @project.errors
       redirect_to project_path(@project)
+      p "#" * 44
     else
       render 'new'
     end
