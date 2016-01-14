@@ -10,6 +10,12 @@ class Project < ActiveRecord::Base
   has_many :category_projects
   has_many :categories, through: :category_projects
 
+  # Paperclip
+  has_attached_file :project_image, styles: { medium: "300x300>", thumb: "100x100>" }, default_url: "/images/:style/missing.png"
+  validates_attachment_content_type :project_image, content_type: /\Aimage\/.*\Z/
+  # Not sure if this will break everything
+  # validates_with AttachmentSizeValidator, attributes: :project_image, less_than: 1.megabytes
+
   def self.search(query)
     where("description like ? or title like ?" , "%#{query}%", "%#{query}%")
   end

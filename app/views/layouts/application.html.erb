@@ -38,7 +38,7 @@
    <% end %>
     <% if current_user %>
       <% if current_user.org_affiliate %>
-        <li role="presentation"><%=link_to "Profile", new_organization_path%></li>
+        <li role="presentation"><%=link_to "Profile", organization_path(current_user.id)%></li>
     <% else %>
     <li role="presentation"><a href= "/users/<%= current_user.id %>">Profile</a></li>
     <% end %>
