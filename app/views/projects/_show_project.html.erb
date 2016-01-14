@@ -9,7 +9,7 @@
             </div>
             <div class="panel-body">
                <div class="row">
-                  <div class="col-md-3 col-lg-3 " align="center"> <%= image_tag('company-profile-default-logo.jpg', alt: "Project Image")%> </div>
+                  <div class="col-md-3 col-lg-3 " align="center"> <%= image_tag @project.project_image.url(:medium) , :class => "img-responsive img-rounded" %> </div>
                   <div class=" col-md-9 col-lg-9 ">
                      <table class="table table-project-information">
                         <tbody>
@@ -65,6 +65,7 @@
                      </table>
                   </div>
                </div>
+             <div class="clearFloat">
                <% if current_user.organization == @organization %>
                <%= button_to "Update Project", edit_project_path(@project), :class => "button", class: "btn btn-default", :id => "get-project-edit", :method => :get  %>
                <%= button_to "Delete Project", project_path(@project), :class => "button", class: "btn btn-default", :id=>"delete-project", :method => :delete  %>
@@ -81,6 +82,7 @@
                <% end %>
                <%= hidden_field(:project, :id) %>
                <input type="hidden" name="current_user[id]" id="current_user_id" value="<%= current_user.id %>">
+              </div>
             </div>
          </div>
       </div>

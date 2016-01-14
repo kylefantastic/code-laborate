@@ -193,6 +193,11 @@ footer {
   font-weight: bold;
   font-family:Arial, Helvetica, sans-serif;
 }
+.new-project-header{
+  text-align: center;
+  font-weight: bold;
+  font-family:Arial, Helvetica, sans-serif;
+}
 #abandon-project{
   display: inline-block;
   float:right;
