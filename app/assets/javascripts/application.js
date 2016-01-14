@@ -25,6 +25,7 @@ $(document).ready(function() {
   orgForm()
 
   agreementConfirm()
+  agreementAlert()
 });
 
 function registerForm(){
@@ -252,9 +253,19 @@ function unbookmarkProject(){
 
 
 function agreementConfirm(){
-  $('.container')on('submit', '.sign-up-form', function(e){
-    e.preventDefault();
-    })
+  $('.container').on('submit', '.sign-up-form', function(){
+    // e.preventDefault();
+    if(document.getElementById('agree').checked)
+      { return true;
+       }
+    else { alert('Please indicate that you have read and agree to the Terms and Conditions and Privacy Policy'); return false; }
+    });
+}
+
+function agreementAlert(){
+  $('.container').on('click', '.agreement-alert', function(){
+    alert("asdfl;ksadfsadlfkas;dlf;alksdf;lkadsfl;sadfjasdfjas")
+  })
 }
 
 
