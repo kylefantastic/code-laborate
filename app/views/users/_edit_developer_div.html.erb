@@ -1,4 +1,4 @@
-
+<%= render template: "layouts/other" %>
 <div class="edit-developer-div">
   <%= form_for @user, html: {class: "edit-developer-form", role: "form"} do |f| %>
     <div class="field">
@@ -25,3 +25,23 @@
   <% end %>
 </div>
 <%= link_to "Change your password", edit_user_registration_path %>
+      <div class="form-group">
+          <%= f.label :first_name, "First Name" %>
+            <%= f.text_field :name, class: "form-control" %>
+          <%= f.label :last_name, "Last Name" %>
+
+            <%= f.text_field :website_url, class: "form-control" %>
+        <%= f.label :description %>
+            <%= error_show(@organization, :description) %>
+            <%= f.text_area :description, placeholder: "Add your mission or description here", class: "form-control" %><br>
+              <%= hidden_field(:organization, :id) %>
+        <%= f.submit "Update organization", class: "button update-org" %>
+
+    </div>
+  </div>
+    <% end %>
+    </body>
+             <div class="footer">
+         <footer>
+            <h1>&lt;&#47;code&gt;</h1>
+</footer>
