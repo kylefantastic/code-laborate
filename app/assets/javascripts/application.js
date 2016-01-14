@@ -149,7 +149,12 @@ function editProjectInfo(){
       data: projectInfo
     })
     request.done(function(response){
-      $('#project-container').html(response)
+      console.log(response)
+      console.log(response.search('<div class="footer">'))
+      var here = response.search('<div class="footer">')
+      console.log(response.slice(0, here))
+      var x = response.slice(0, here)
+      $('#project-container').html(x)
 
     })
   })
