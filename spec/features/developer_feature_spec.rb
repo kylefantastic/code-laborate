@@ -35,10 +35,13 @@ describe 'Developer feature testing:', :type => :feature, js: true do
       click_link("Logout")
       re_login
       click_link("Projects")
+      # sleep(1)
     end
 
     context 'When viewing the projects page' do
       scenario 'a developer can see an unordered list that should contain projects' do
+        # Do not remove this sleep(.05), without it the test breaks
+        sleep(0.5)
         expect(page.html).to have_css("ul")
       end
       scenario 'a developer can see the title of the project' do
