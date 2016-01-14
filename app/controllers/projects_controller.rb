@@ -16,7 +16,6 @@ class ProjectsController < ApplicationController
   end
 
   def create
-    debugger
     @categories= Category.all
     @project = Project.new(project_params)
     if @project.save

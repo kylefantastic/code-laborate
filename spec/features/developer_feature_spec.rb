@@ -32,7 +32,9 @@ describe 'Developer feature testing:', :type => :feature, js: true do
       user_login
       new_org
       add_project
-      visit(projects_path)
+      click_link("Logout")
+      re_login
+      click_link("Projects")
     end
 
     context 'When viewing the projects page' do
