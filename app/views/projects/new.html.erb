@@ -35,7 +35,7 @@
 
       </p>
       <p>
-        <div class="required"><%= f.label :description,"Description"%></div>
+
         <%= error_show(@project, :description) %>
         <%= f.text_area :description, placeholder: "Add Description", class: "form-control" %>
 
@@ -51,6 +51,17 @@
         <span id="helpBlock" class="help-block">Who will benefit from implementation of this project</span>
       </p>
 
+<!-- Dropdown categories here -->
+    <div><%= f.label :category,"Category" %></div>
+    <ul>
+      <% @categories.each do |category| %>
+        <li><%= check_box_tag "category[#{category.name}]" %>
+        <%= label_tag("category[#{category.name}]", "#{category.name}") %></li>
+      <% end %>
+    </ul>
+
+
+
       <p>
         <div class="required"><%= f.label :contact_name,"Contact name" %></div>
         <%= error_show(@project, :contact_name) %>
@@ -60,13 +71,17 @@
       <p>
         <div class="required"><%= f.label :contact_email,"Contact email" %></div>
         <%= error_show(@project, :contact_email) %>
-        <%= f.text_field :contact_email, class: "form-control" %>
+        <%= f.email_field :contact_email, class: "form-control" %>
       </p>
       <p>
 
-        <div class="required"><%= f.label :contact_phone,"Contact phone number" %></div>
-        <%= error_show(@project, :contact_phone) %>
-        <%= f.text_field :contact_phone, class: "form-control" %>
+        <div class="required">
+
+          <%= f.label :contact_phone,"Contact phone number" %></div>
+          <div class="phone_number">
+            <%= f.text_field :contact_phone, class: "form-control" %>
+            <%= error_show(@project, :contact_phone) %>
+          </div>
       </p>
 
       <p>

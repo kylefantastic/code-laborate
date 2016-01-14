@@ -43,6 +43,15 @@
         <div>Who will benefit from implementation of this project</div>
       </p>
 
+<!-- Dropdown categories here -->
+      <div><%= f.label :category,"Category" %></div>
+      <ul>
+        <% @categories.each do |category| %>
+          <li><%= check_box_tag "category[#{category.name}]" %>
+          <%= label_tag("category[#{category.name}]", "#{category.name}") %></li>
+        <% end %>
+      </ul>
+
       <p>
         <%= f.label :contact_name,"Contact name" %><br>
         <%= error_show(@project, :contact_name) %>
@@ -52,7 +61,7 @@
       <p>
         <%= f.label :contact_email,"Contact email" %><br>
         <%= error_show(@project, :contact_email) %>
-        <%= f.text_field :contact_email, class: "form-control" %>
+        <%= f.email_field :contact_email, class: "form-control" %>
       </p>
       <p>
 

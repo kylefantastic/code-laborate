@@ -1,5 +1,6 @@
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+<!-- Developer's form -->
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: {class: 'sign-up-form'}) do |f| %>
 
   <%= @errors %>
   <div class="panel panel-default mission">
@@ -34,7 +35,7 @@
   </div>
   <div class="field">
     <%= f.label :public_profile_url %><br />
-    <%= f.text_field :public_profile_url, autofocus: true,class: "form-control" %>
+    <%= f.url_field :public_profile_url, autofocus: true,class: "form-control", value: "http://" %>
   </div>
   <div class="field">
     <%= f.label :bootcamp %><br />
@@ -53,14 +54,24 @@
     <div class="required"><%= f.label :password_confirmation %></div>
     <%= f.password_field :password_confirmation, autocomplete: "off",class: "form-control" %>
   </div>
-
+  <!-- <div>Please read participant <span id='guidelines'>guidelines and expectations </span>before continuing.</div>
   <div class="actions">
-    <%= f.submit "Sign up" %>
+ -->
+
+
+    <input type="checkbox" name="checkbox" value="check" id="agree" /> I have read and agree to the Terms and Conditions and Privacy Policy
+    <input type="submit" name="submit" value="submit" />
+
+    <%= f.submit "Sign up"%>
   </div>
 </div>
 <% end %>
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+
+<!-- Organization affiliated user's signup form -->
+
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: {class: 'sign-up-form'}) do |f| %>
   <%= devise_error_messages! %>
+
   <div id="orgform">
     <div class="field">
       <div class="required"><%= f.label :first_name %></div>
