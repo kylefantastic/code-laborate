@@ -1,34 +1,70 @@
-
-<dl class="dl-horizontal">
-
-<dt>Project title: </dt><dd><%= @project.title %></dd>
-<dt>Organization: </dt><dd><%= @organization.name %></dd>
-<dt>Contact Name: </dt><dd><%= @project.contact_name %></dd>
-<dt>Contact Phone: </dt><dd><%= @project.contact_phone %></dd>
-<dt>Contact Email: </dt><dd><%=mail_to "#{@project.contact_email}", "Email me" %></dd>
-<dt>Project deadline: </dt>
-<dd>
-  <% if @project.deadline %>
-    <%= @project.deadline %>
-  <% else %>
-     none stated
-  <% end %>
-</dd>
-<dt>Vision: </dt><dd><%= @project.vision %></dd>
-<dt>Need: </dt><dd><%= @project.need %></dd>
-<dt>Description: </dt><dd><%= @project.description %></dt>
-<dt>Benefit of project: </dt><dd><%= @project.benefit %><dd>
-<dt>Categories: </dt>
-<% @categories.each do |category| %>
-  <dd><%= category.name %> </dd>
-<% end %>
-
-<%= image_tag @project.project_image.url %>
-<%= image_tag @project.project_image.url(:medium) %>
-<%= image_tag @project.project_image.url(:thumb) %>
-
-
-<% if current_user.organization == @organization %>
+<%= render template: "layouts/other" %>
+      <div class="project-profile">
+      <div class="container">
+         <div class="row">
+               <div class="panel panel-info">
+                  <div class="panel-heading">
+                     <h3 class="panel-title"><%=@project.title%></h3>
+                  </div>
+                  <dt>Project deadline: </dt>
+                  <div class="panel-body">
+                     <div class="row">
+                        <div class="col-md-3 col-lg-3 " align="center"> <%= image_tag('company-profile-default-logo.jpg', alt: "Project Image")%> </div>
+                        <div class=" col-md-9 col-lg-9 ">
+                           <table class="table table-project-information">
+                              <tbody>
+                                 <tr>
+                                    <td>Organization:</td>
+                                    <td><%= @organization.name%></td>
+                                 </tr>
+                                 <tr>
+                                    <td>Contact Name:</td>
+                                    <td><%= @project.contact_name%></td>
+                                 </tr>
+                                 <tr>
+                                    <td>Contact Phone:</td>
+                                    <td><%= @project.contact_phone %></td>
+                                  </tr>
+                                  <tr>
+                                    <td>Contact Email:</td>
+                                    <td><%=mail_to "#{@project.contact_email}", "Email me" %></td>
+                                  </tr>
+                                  <tr>
+                                      <td>Project Deadline:</td>
+                                    <td> <% if @project.deadline %>
+                                         <%= @project.deadline %>
+                                          <% else %>
+                                             none stated
+                                          <% end %></td>
+                                  </tr>
+                                  <tr>
+                                    <td>Need:</td>
+                                    <td><%= @project.need %></td>
+                                  </tr>
+                                     <tr>
+                                    <td>Vision:</td>
+                                    <td><%=@project.vision %></td>
+                                  </tr>
+                                  <tr>
+                                    <td>Description:</td>
+                                    <td><%= @project.description %></td>
+                                  </tr>
+                                    <tr>
+                                    <td>Benefit of project:</td>
+                                    <td><%=@project.benefit %></td>
+                                  </tr>
+                                      <tr>
+                                    <td>Categories:</td>
+                                    <td><% @categories.each do |category| %>
+                                          <%= category.name %>
+                                        <% end %>
+                                    </td>
+                                  </tr>
+                               </tbody>
+                           </table>
+                          </div>
+                        </div>
+                        <% if current_user.organization == @organization %>
   <%= button_to "Update Project", edit_project_path(@project), :class => "button", class: "btn btn-default", :id => "get-project-edit", :method => :get  %>
 
   <%= button_to "Delete Project", project_path(@project), :class => "button", class: "btn btn-default",  :method => :delete  %>
@@ -45,5 +81,19 @@
 <% end %>
 <%= hidden_field(:project, :id) %>
 <input type="hidden" name="current_user[id]" id="current_user_id" value="<%= current_user.id %>">
+                     </div>
+                  </div>
+
+               </div>
+            </div>
+         </div>
+      </div>
+    </div>
+         <div class="footer">
+         <footer>
+            <h1>&lt;&#47;code&gt;</h1>
+</footer>
+
+
 
 
