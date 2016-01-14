@@ -1,6 +1,7 @@
 class Organization < ActiveRecord::Base
-  validates :name, :website_url, :description, :presence => true
-  validates :name, :website_url, :uniqueness => true
+  # Removed validations for website_url
+  validates :name, :description, :presence => true
+  validates :name, :uniqueness => true
   has_one :org_admin, class_name: "User", foreign_key: :organization_id
   has_many :projects, dependent: :destroy
 

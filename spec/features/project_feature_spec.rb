@@ -11,6 +11,7 @@ describe 'Project feature testing:', :type => :feature, js: true do
 
   feature 'create project' do
     before :each do
+      seed_categories
       org_user_login
       @organization = Organization.create(name:"Fishy", website_url:"www.google.com", description:"I like saving fish")
     end
@@ -40,6 +41,7 @@ describe 'Project feature testing:', :type => :feature, js: true do
 
   feature 'edit project' do
     before :each do
+      seed_categories
       org_user_login
       @organization = Organization.create(name:"Fishy", website_url:"www.google.com", description:"I like saving fish")
     end
