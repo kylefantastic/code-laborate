@@ -1,5 +1,5 @@
 class ProjectsController < ApplicationController
-  layout false, only: [:index , :show]
+  layout false, only: [:index , :show, :new]
   def index
     @project = Project.new #Do we need this?
     @projects = Project.all

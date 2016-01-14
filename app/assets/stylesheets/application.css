@@ -136,6 +136,10 @@ footer {
   width: 80%;
   margin: auto
 }
+#new_project_form{
+  width: 80%;
+  margin: auto
+}
 #sign-in-form{
   width: 50%;
   margin: auto
@@ -177,6 +181,35 @@ footer {
 }
 .clearFloat{
   clear:both;
+}
+#choose-project{
+  display: inline-block;
+  float:right;
+  bottom: 0;
+  margin: .5%;
+}
+.project-proposal{
+  text-align: center;
+  font-weight: bold;
+  font-family:Arial, Helvetica, sans-serif;
+}
+#abandon-project{
+  display: inline-block;
+  float:right;
+  bottom: 0;
+  margin: .5%;
+}
+#get-project-edit{
+  display: inline-block;
+  float:right;
+  bottom: 0;
+  margin: .5%;
+}
+#delete-project{
+  display: inline-block;
+  float:right;
+  bottom: 0;
+  margin: .5%;
 }
 
 
