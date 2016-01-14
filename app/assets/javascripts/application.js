@@ -136,7 +136,7 @@ function editProjectInfo(){
     e.preventDefault();
     var projectInfo = $("#project-edit-form").serialize()
     var projectID = $('#project_id').val()
-    console.log("Got to editProjectInfo")
+
     var request = $.ajax({
       url: "/projects/" + projectID,
       type: "PUT",
@@ -255,7 +255,7 @@ function unbookmarkProject(){
   // onsubmit="if(document.getElementById('agree').checked) { return true; } else { alert('Please indicate that you have read and agree to the Terms and Conditions and Privacy Policy'); return false; }
 
 function agreementConfirmDev(){
-  $('.container').on('submit', '.sign-up-form', function(){
+  $('#sign-up-container').on('submit', '.sign-up-form', function(){
     // e.preventDefault();
     if(document.getElementById('agree').checked)
       { return true;
@@ -267,8 +267,7 @@ function agreementConfirmDev(){
 }
 
 function agreementConfirmOrg(){
-  $('.container').on('submit', '#org-signup-form', function(){
-
+  $('#sign-up-container').on('submit', '#org-signup-form', function(){
     if(document.getElementById('org-agree').checked)
       { return true;
        }
@@ -278,9 +277,11 @@ function agreementConfirmOrg(){
     });
 }
 
+
 function agreementAlert(){
-  $('.container').on('click', '.agreement-alert', function(e){
+  $('#sign-up-container').on('click', '.agreement-alert', function(e){
     e.preventDefault();
+    console.log("agreement")
     alert("Guidelines and Agreements\n \n Please be aware that it is up to organizations and developers to communicate about the proposed projects, needs, and expectations.\n There is no guarantee that projects will get chosen.\n  If your project is chosen, it is the responsibility of both parties to communicate about needs and expectations.\n  Be aware that there are no guarantees of a finished product and no guarantee that an organization will choose to utilize a finished product.\n The code for any project that is adopted by an organization should be available to the developer(s).")
   })
 }
