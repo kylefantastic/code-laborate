@@ -23,6 +23,9 @@
      <div class="required"><%= f.label :description %></div>
        <%= error_show(@organization, :description) %>
        <%= f.text_area :description, placeholder: "Add your mission or description here", class: "form-control" %>
+      <div class="required"><%= f.label :logo %></div>
+       <%= error_show(@organization, :logo) %>
+       <%= f.file_field :logo, as: :file %>
       <p></p>
      <div><%= f.submit %></div>
     <% end %>
