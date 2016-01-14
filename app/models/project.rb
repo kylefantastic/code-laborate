@@ -1,12 +1,14 @@
 class Project < ActiveRecord::Base
   validates :title, :vision, :need, :benefit, :description, :contact_name, :contact_email, :contact_phone, :organization_id, :presence => true
   validates :title, :description, :uniqueness => true
-  validate :validatePhoneNumber, on: :create
+  # validate :validatePhoneNumber, on: :create
   belongs_to :organization
   belongs_to :developer, class_name: "User"
   has_one :org_admin, through: :organization
   has_many :bookmarks
   has_many :interested_developers, through: :bookmarks, source: :developer
+  has_many :category_projects
+  has_many :categories, through: :category_projects
 
   # Paperclip
   has_attached_file :project_image, styles: { medium: "300x300>", thumb: "100x100>" }, default_url: "/images/:style/missing.png"

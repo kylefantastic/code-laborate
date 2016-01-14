@@ -11,16 +11,19 @@ class ProjectsController < ApplicationController
 
   def new
     @project = Project.new
+    @categories = Category.all
   end
 
   def create
-    p params
+    @categories= Category.all
     @project = Project.new(project_params)
     if @project.save
-      p "#" * 44
-      p @project.errors
+      @project_category_names = params[:category].keys
+      @project_category_names.each do |name|
+        category = Category.find_by(name: name)
+        @project.categories << category
+      end
       redirect_to project_path(@project)
-      p "#" * 44
     else
       render 'new'
     end
@@ -29,10 +32,12 @@ class ProjectsController < ApplicationController
   def show
     @project = Project.find(params[:id])
     @organization = Organization.find(@project.organization_id)
+    @categories = @project.categories
   end
 
   def edit
     @project = Project.find(params[:id])
+    @categories = Category.all
     render 'projects/_edit_form', :layout => false
   end
 
@@ -43,7 +48,7 @@ class ProjectsController < ApplicationController
     @user = current_user
     if @project.update(project_params)
       if @project.developer_id
-        UserMailer.dev_project(@project,@user).deliver_later
+        # UserMailer.dev_project(@project,@user).deliver_later
         render template: "projects/_show_project", :layout => false
       else
         render template: "projects/_show_project", :layout => false

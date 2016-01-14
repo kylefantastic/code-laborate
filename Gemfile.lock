@@ -95,6 +95,7 @@ GEM
     globalid (0.3.6)
       activesupport (>= 4.1.0)
     hashie (3.4.3)
+    hirb (0.7.3)
     i18n (0.7.0)
     io-like (0.3.0)
     jbuilder (2.4.0)
@@ -251,6 +252,7 @@ DEPENDENCIES
   factory_girl_rails
   faker
   figaro
+  hirb
   jbuilder (~> 2.0)
   jquery-rails
   omniauth-facebook
