@@ -1,42 +1,20 @@
 <%= render template: "layouts/other" %>
 <div class="edit-developer-div">
+  <h2>Update Information For <%=@user.first_name%></h2>
   <%= form_for @user, html: {class: "edit-developer-form", role: "form"} do |f| %>
-    <div class="field">
-      <%= f.label :first_name %><br />
-      <%= f.text_field :first_name, autofocus: true %>
-    </div>
-    <div class="field">
-      <%= f.label :last_name %><br />
-      <%= f.text_field :last_name, autofocus: true %>
-    </div>
-    <div class="field">
-      <%= f.label :email %><br />
-      <%= f.email_field :email, autofocus: true %>
-    </div>
-    <div class="field">
-      <%= f.label :public_profile_url %><br />
-      <%= f.text_field :public_profile_url, autofocus: true %>
-    </div>
-    <div class="field">
-      <%= f.label :bootcamp %><br />
-      <%= f.text_field :bootcamp, autofocus: true %>
-    </div>
-    <div class="actions"><%= f.submit "Update", class: "update-developer-profile" %></div>
-  <% end %>
-</div>
-<%= link_to "Change your password", edit_user_registration_path %>
       <div class="form-group">
           <%= f.label :first_name, "First Name" %>
-            <%= f.text_field :name, class: "form-control" %>
+            <%= f.text_field :first_name, class: "form-control" %>
           <%= f.label :last_name, "Last Name" %>
-
-            <%= f.text_field :website_url, class: "form-control" %>
-        <%= f.label :description %>
-            <%= error_show(@organization, :description) %>
-            <%= f.text_area :description, placeholder: "Add your mission or description here", class: "form-control" %><br>
-              <%= hidden_field(:organization, :id) %>
-        <%= f.submit "Update organization", class: "button update-org" %>
-
+            <%= f.text_field :last_name, class: "form-control" %>
+        <%= f.label :email %>
+            <%= f.text_area :email, class: "form-control" %>
+          <%= f.label :public_profile_url %>
+            <%= f.text_area :public_profile_url, class: "form-control" %>
+          <%= f.label :bootcamp %>
+            <%= f.text_area :bootcamp, class: "form-control" %><br>
+        <div class="actions"><%= f.submit "Update", class: "update-developer-profile" %></div>
+        <%= link_to "Change your password", edit_user_registration_path %>
     </div>
   </div>
     <% end %>
@@ -45,3 +23,4 @@
          <footer>
             <h1>&lt;&#47;code&gt;</h1>
 </footer>
+</div>
