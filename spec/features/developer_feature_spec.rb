@@ -124,7 +124,7 @@ describe 'Developer feature testing:', :type => :feature, js: true do
         expect(page).to have_content "user@user.com"
       end
       scenario 'a developer can click an edit button' do
-        expect(page).to have_button("Edit Profile")
+        expect(page).to have_button("Edit Account")
       end
     end
 
@@ -132,7 +132,7 @@ describe 'Developer feature testing:', :type => :feature, js: true do
     context 'when on the edit profile page' do
       before do
         seed_categories
-        click_button("Edit Profile")
+        click_button("Edit Account")
       end
 
       scenario 'the developer can change their first_name' do
