@@ -18,6 +18,10 @@
 <dt>Need: </dt><dd><%= @project.need %></dd>
 <dt>Description: </dt><dd><%= @project.description %></dt>
 <dt>Benefit of project: </dt><dd><%= @project.benefit %><dd>
+<dt>Categories: </dt>
+<% @categories.each do |category| %>
+  <dd><%= category.name %> </dd>
+<% end %>
 
 <% if current_user.organization == @organization %>
   <%= button_to "Update Project", edit_project_path(@project), :class => "button", class: "btn btn-default", :id => "get-project-edit", :method => :get  %>

@@ -35,7 +35,7 @@
 
       </p>
       <p>
-        <div class="required"><%= f.label :description,"Description"%></div>
+
         <%= error_show(@project, :description) %>
         <%= f.text_area :description, placeholder: "Add Description", class: "form-control" %>
 
@@ -50,6 +50,17 @@
 
         <span id="helpBlock" class="help-block">Who will benefit from implementation of this project</span>
       </p>
+
+<!-- Dropdown categories here -->
+    <div><%= f.label :category,"Category" %></div>
+    <ul>
+      <% @categories.each do |category| %>
+        <li><%= check_box_tag "category[#{category.name}]" %>
+        <%= label_tag("category[#{category.name}]", "#{category.name}") %></li>
+      <% end %>
+    </ul>
+
+
 
       <p>
         <div class="required"><%= f.label :contact_name,"Contact name" %></div>
