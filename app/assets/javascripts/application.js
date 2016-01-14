@@ -48,8 +48,8 @@ function registerForm(){
 
 
 function orgForm(){
-    $('html,body').animate({scrollTop: $('#new_org_form').height()}, "slow")
-  }
+  $('html,body').animate({scrollTop: $('#new_org_form').height()}, "slow")
+}
 
 
 
@@ -252,9 +252,9 @@ function unbookmarkProject(){
 
 
 function agreementConfirm(){
-  $('.container')on('submit', '.sign-up-form', function(e){
+  $('.container').on('submit', '.sign-up-form', function(e){
     e.preventDefault();
-    })
+  })
 }
 
 
