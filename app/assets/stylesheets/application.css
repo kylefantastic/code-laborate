@@ -198,6 +198,11 @@ footer {
   font-weight: bold;
   font-family:Arial, Helvetica, sans-serif;
 }
+.chosen{
+  text-align: center;
+  font-weight: bold;
+  font-family:Arial, Helvetica, sans-serif;
+}
 #abandon-project{
   display: inline-block;
   float:right;
@@ -211,6 +216,12 @@ footer {
   margin: .5%;
 }
 #delete-project{
+  display: inline-block;
+  float:right;
+  bottom: 0;
+  margin: .5%;
+}
+#complete-project{
   display: inline-block;
   float:right;
   bottom: 0;

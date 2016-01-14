@@ -4,6 +4,8 @@
 //= require_tree .
 
 $(document).ready(function() {
+  signUp()
+
   registerForm()
 
   renderEditUserForm()
@@ -31,7 +33,11 @@ $(document).ready(function() {
   agreementAlert()
 
 });
-
+function signUp(){
+  $(".sign-up").click(function(e){
+    $("html,body").animate({ scrollTop: $('.jumbotron').height() }, "slow");
+})
+}
 function registerForm(){
   $('#dev').click(function() {
     $('#devform').show();
