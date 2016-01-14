@@ -23,11 +23,12 @@
             <%= f.text_area :description, placeholder: "Add your mission or description here", class: "form-control" %><br>
               <%= hidden_field(:organization, :id) %>
         <%= f.submit "Update organization", class: "button update-org" %>
-        <!-- <p> refactor Currently not updatable
-          <%# f.label :logo %><br>
-          <%# error_show(@organization, :logo) %>
-          <%# f.file_field :logo, as: :file %>
-        </p> -->
+        <!-- refactor Currently not updatable -->
+        <p>
+          <%= f.label :logo %><br>
+          <%= error_show(@organization, :logo) %>
+          <%= f.file_field :logo, as: :file %>
+        </p>
     </div>
   </div>
     <% end %>

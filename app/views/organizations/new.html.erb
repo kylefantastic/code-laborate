@@ -21,11 +21,13 @@
       <%= error_show(@organization, :name) %>
       <%= f.text_field :name, class: "form-control" %>
 
-      <div class="required">
+      <!-- removed class="required" -->
+      <div>
         <%= f.label :website_url, "Website" %>
       </div>
-      <%= error_show(@organization, :website_url) %>
-      <%= f.url_field :website_url, class: "form-control", value: "http://" %>
+      <% error_show(@organization, :website_url) %>
+      <!-- Removed , value: "http://" it was breaking tests -->
+      <%= f.text_field :website_url, class: "form-control" %>
       <div class="required">
         <%= f.label :description, "Mission/Description" %>
       </div>

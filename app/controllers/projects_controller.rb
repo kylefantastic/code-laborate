@@ -4,7 +4,7 @@ class ProjectsController < ApplicationController
     @project = Project.new #Do we need this?
     @projects = Project.all
     @organizations = Organization.all
-
+    # debugger
     if current_user && !current_user.org_affiliate
       seek
     end
@@ -19,10 +19,12 @@ class ProjectsController < ApplicationController
     @categories= Category.all
     @project = Project.new(project_params)
     if @project.save
-      @project_category_names = params[:category].keys
-      @project_category_names.each do |name|
-        category = Category.find_by(name: name)
-        @project.categories << category
+      if params[:category]
+        @project_category_names = params[:category].keys
+        @project_category_names.each do |name|
+          category = Category.find_by(name: name)
+          @project.categories << category
+        end
       end
       redirect_to project_path(@project)
     else
@@ -43,9 +45,9 @@ class ProjectsController < ApplicationController
   end
 
   def update
-    p params
     @project = Project.find(params[:project][:id])
     @organization = Organization.find(@project.organization_id)
+    @categories = @project.categories
     @user = current_user
     if @project.update(project_params)
       if @project.developer_id

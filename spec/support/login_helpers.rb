@@ -15,6 +15,15 @@ module LoginHelpers
     click_button 'Log in'
   end
 
+  def re_login
+    visit '/users/sign_in'
+    within("#new_user") do
+      fill_in 'Email', :with => 'user@user.com'
+      fill_in 'Password', :with => 'password'
+    end
+    click_button 'Log in'
+  end
+
   def org_user_login
     user_org = User.create(first_name: 'New',
                 last_name: 'Person',
