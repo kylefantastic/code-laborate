@@ -252,27 +252,7 @@ function unbookmarkProject(){
 
 
 function agreementConfirm(){
-  $('.container')on('submit', '.sign-up-form', function(e){
+  $('.container').on('submit', '.sign-up-form', function(e){
     e.preventDefault();
     })
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
