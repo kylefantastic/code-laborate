@@ -5,10 +5,10 @@
     <div class="form-group">
       <% if @project.errors.any? %>
         <div id="error_explanation">
-          <h3>
+          <p>
             <%= pluralize(@project.errors.count, "error") %> prohibited
             this project from being saved:
-          </h3>
+          </p>
         </div>
       <% end %>
 
@@ -53,14 +53,12 @@
 
 <!-- Dropdown categories here -->
     <div><%= f.label :category,"Category" %></div>
-    <ul>
-      <% @categories.each do |category| %>
-        <li><%= check_box_tag "category[#{category.name}]" %>
-        <%= label_tag("category[#{category.name}]", "#{category.name}") %></li>
-      <% end %>
-    </ul>
-
-
+      <ul>
+        <% @categories.each do |category| %>
+          <li><%= check_box_tag "category[#{category.name}]" %>
+          <%= label_tag("category[#{category.name}]", "#{category.name}") %></li>
+        <% end %>
+      </ul>
 
       <p>
         <div class="required"><%= f.label :contact_name,"Contact name" %></div>

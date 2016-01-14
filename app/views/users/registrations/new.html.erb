@@ -1,94 +1,49 @@
-
+<div id='sign-up-container'>
 <!-- Developer's form -->
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: {class: 'sign-up-form'}) do |f| %>
+  <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: {class: 'sign-up-form'}) do |f| %>
 
-  <%= @errors %>
-  <div class="panel panel-default mission">
-  <div class="panel-heading" id="dbc">
-    <h3 class="panel-title" id="panel-dev"><button type="button" id="dev">Sign Up As Developer</button></h3>
+    <%= @errors %>
+    <div class="panel panel-default mission">
+    <div class="panel-heading" id="dbc">
+      <h3 class="panel-title" id="panel-dev"><button type="button" id="dev">Sign Up As Developer</button></h3>
+    </div>
+    <div class="panel-body">
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla ornare erat nec est pharetra consectetur. Mauris et erat et turpis egestas finibus eleifend tincidunt nisi. Nulla commodo nisi at fermentum consequat. Mauris ac blandit dolor, sed maximus erat. Praesent nec sollicitudin magna. Vivamus id arcu tempor, volutpat est non, bibendum tellus. Fusce facilisis est
+    </div>
   </div>
-  <div class="panel-body">
-    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla ornare erat nec est pharetra consectetur. Mauris et erat et turpis egestas finibus eleifend tincidunt nisi. Nulla commodo nisi at fermentum consequat. Mauris ac blandit dolor, sed maximus erat. Praesent nec sollicitudin magna. Vivamus id arcu tempor, volutpat est non, bibendum tellus. Fusce facilisis est
-  </div>
-</div>
-<div class="panel panel-default purpose">
-  <div class="panel-heading">
-    <h3 class="panel-title" id="panel-org" ><button type="button" id="org">Sign Up As Organization</button></h3>
-  </div>
-  <div class="panel-body">
-    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla ornare erat nec est pharetra consectetur. Mauris et erat et turpis egestas finibus eleifend tincidunt nisi. Nulla commodo nisi at fermentum consequat. Mauris ac blandit dolor, sed maximus erat. Praesent nec sollicitudin magna. Vivamus id arcu tempor, volutpat est non, bibendum tellus. Fusce facilisis est f
-  </div>
-</div>
-
-<div id="devform">
-  <div class="field">
-   <div class="required"> <%= f.label :first_name %></div>
-    <%= f.text_field :first_name, autofocus: true, class: "form-control" %>
-  </div>
-  <div class="field">
-    <div class="required"><%= f.label :last_name %></div>
-    <%= f.text_field :last_name, autofocus: true,class: "form-control" %>
-  </div>
-  <div class="field">
-    <div class="required"><%= f.label :email %></div>
-    <%= f.email_field :email, autofocus: true,class: "form-control" %>
-  </div>
-  <div class="field">
-    <%= f.label :public_profile_url, "Website or Github url" %><br />
-    <%= f.url_field :public_profile_url, autofocus: true,class: "form-control", value: "http://" %>
-  </div>
-  <div class="field">
-    <%= f.label :bootcamp %><br />
-    <%= f.text_field :bootcamp, autofocus: true,class: "form-control" %>
+  <div class="panel panel-default purpose">
+    <div class="panel-heading">
+      <h3 class="panel-title" id="panel-org" ><button type="button" id="org">Sign Up As Organization</button></h3>
+    </div>
+    <div class="panel-body">
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla ornare erat nec est pharetra consectetur. Mauris et erat et turpis egestas finibus eleifend tincidunt nisi. Nulla commodo nisi at fermentum consequat. Mauris ac blandit dolor, sed maximus erat. Praesent nec sollicitudin magna. Vivamus id arcu tempor, volutpat est non, bibendum tellus. Fusce facilisis est f
+    </div>
   </div>
 
-  <div class="field">
-    <div class="required"><%= f.label :password %></div>
-    <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "off",class: "form-control" %>
-  </div>
-
-  <div class="field">
-    <div class="required"><%= f.label :password_confirmation %></div>
-    <%= f.password_field :password_confirmation, autocomplete: "off",class: "form-control" %>
-  </div>
-
-    <input type="checkbox" name="checkbox" value="check" id="agree" /> I have read and agree to <a href='#' class='agreement-alert'>Guidelines and Expectations</a>
-    <!-- <input type="submit" name="submit" value="submit" /> -->
-
-  <div class="actions">
-    <%= f.submit "Sign up"%>
-  </div>
-</div>
-<% end %>
-
-<!-- Organization affiliated user's signup form -->
-
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: {id: 'org-signup-form'}) do |f| %>
-  <%= devise_error_messages! %>
-
-  <div id="orgform">
+  <div id="devform">
     <div class="field">
-      <div class="required"><%= f.label :first_name %></div>
-      <%= f.text_field :first_name, autofocus: true,class: "form-control" %>
+     <div class="required"> <%= f.label :first_name %></div>
+      <%= f.text_field :first_name, autofocus: true, class: "form-control" %>
     </div>
     <div class="field">
-     <div class="required"><%= f.label :last_name %></div>
-      <%= f.text_field :last_name, autofocus: true ,class: "form-control"%>
+      <div class="required"><%= f.label :last_name %></div>
+      <%= f.text_field :last_name, autofocus: true,class: "form-control" %>
     </div>
     <div class="field">
       <div class="required"><%= f.label :email %></div>
       <%= f.email_field :email, autofocus: true,class: "form-control" %>
     </div>
     <div class="field">
-      <%= f.label :public_profile_url %><br />
-      <%= f.text_field :public_profile_url, autofocus: true,class: "form-control" %>
+      <%= f.label :public_profile_url, "Website or Github url" %><br />
+      <%= f.url_field :public_profile_url, autofocus: true,class: "form-control", value: "http://" %>
+    </div>
+    <div class="field">
+      <%= f.label :bootcamp %><br />
+      <%= f.text_field :bootcamp, autofocus: true,class: "form-control" %>
     </div>
 
     <div class="field">
-     <div class="required"><%= f.label :password %></div>
+      <div class="required"><%= f.label :password %></div>
       <% if @minimum_password_length %>
       <em>(<%= @minimum_password_length %> characters minimum)</em>
       <% end %><br />
@@ -99,19 +54,64 @@
       <div class="required"><%= f.label :password_confirmation %></div>
       <%= f.password_field :password_confirmation, autocomplete: "off",class: "form-control" %>
     </div>
-    <div class="field">
-    <%= f.hidden_field :org_affiliate, :value=>true %>
+
+      <input type="checkbox" name="checkbox" value="check" id="agree" /> I have read and agree to <a href='#' class='agreement-alert'>Guidelines and Expectations</a>
+      <!-- <input type="submit" name="submit" value="submit" /> -->
+
+    <div class="actions">
+      <%= f.submit "Sign up"%>
     </div>
-
-    <input type="checkbox" name="checkbox" value="check" id="org-agree" /> I have read and agree to <a href='#' class='agreement-alert'>Guidelines and Expectations</a>
-
-    <div class="actions" id="org-actions">
-      <%= f.submit "Sign up" %>
-    </div>
-
-    <%= link_to "Sign in with Facebook", user_omniauth_authorize_path(:facebook) %>
+  </div>
   <% end %>
-</div>
 
+  <!-- Organization affiliated user's signup form -->
+
+  <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: {id: 'org-signup-form'}) do |f| %>
+    <%= devise_error_messages! %>
+
+    <div id="orgform">
+      <div class="field">
+        <div class="required"><%= f.label :first_name %></div>
+        <%= f.text_field :first_name, autofocus: true,class: "form-control" %>
+      </div>
+      <div class="field">
+       <div class="required"><%= f.label :last_name %></div>
+        <%= f.text_field :last_name, autofocus: true ,class: "form-control"%>
+      </div>
+      <div class="field">
+        <div class="required"><%= f.label :email %></div>
+        <%= f.email_field :email, autofocus: true,class: "form-control" %>
+      </div>
+      <div class="field">
+        <%= f.label :public_profile_url %><br />
+        <%= f.text_field :public_profile_url, autofocus: true,class: "form-control" %>
+      </div>
+
+      <div class="field">
+       <div class="required"><%= f.label :password %></div>
+        <% if @minimum_password_length %>
+        <em>(<%= @minimum_password_length %> characters minimum)</em>
+        <% end %><br />
+        <%= f.password_field :password, autocomplete: "off",class: "form-control" %>
+      </div>
+
+      <div class="field">
+        <div class="required"><%= f.label :password_confirmation %></div>
+        <%= f.password_field :password_confirmation, autocomplete: "off",class: "form-control" %>
+      </div>
+      <div class="field">
+      <%= f.hidden_field :org_affiliate, :value=>true %>
+      </div>
+
+      <input type="checkbox" name="checkbox" value="check" id="org-agree" /> I have read and agree to <a href='#' class='agreement-alert'>Guidelines and Expectations</a>
+
+      <div class="actions" id="org-actions">
+        <%= f.submit "Sign up" %>
+      </div>
+
+      <%= link_to "Sign in with Facebook", user_omniauth_authorize_path(:facebook) %>
+    <% end %>
+  </div>
+</div>
 
 

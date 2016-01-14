@@ -47,7 +47,8 @@
       <div><%= f.label :category,"Category" %></div>
       <ul>
         <% @categories.each do |category| %>
-          <li><%= check_box_tag "category[#{category.name}]" %>
+          <li><%= check_box_tag "category[#{category.name}]", checked:true %>
+
           <%= label_tag("category[#{category.name}]", "#{category.name}") %></li>
         <% end %>
       </ul>
