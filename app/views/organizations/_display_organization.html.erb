@@ -69,6 +69,9 @@
       <li><%= link_to project.title, project_path(project) %></li>
     <% end %>
   </ul>
+  <%= image_tag @organization.logo.url %>
+  <%= image_tag @organization.logo.url(:medium) %>
+  <%= image_tag @organization.logo.url(:thumb) %>
     <%= button_to "New Project", new_project_path, :class => "button", class: "btn btn-default", :method => :get  %>
 </div>
 </body>

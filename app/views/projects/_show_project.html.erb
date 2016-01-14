@@ -23,6 +23,11 @@
   <dd><%= category.name %> </dd>
 <% end %>
 
+<%= image_tag @project.project_image.url %>
+<%= image_tag @project.project_image.url(:medium) %>
+<%= image_tag @project.project_image.url(:thumb) %>
+
+
 <% if current_user.organization == @organization %>
   <%= button_to "Update Project", edit_project_path(@project), :class => "button", class: "btn btn-default", :id => "get-project-edit", :method => :get  %>
 
