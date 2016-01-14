@@ -90,9 +90,6 @@ class ProjectsController < ApplicationController
       if params[:search]
         @projects = Project.search(params[:search]).order("created_at DESC")
         @organizations = Organization.search(params[:search]).order("created_at DESC")
-        p "#O" * 20
-        p @organizations
-        p "O#" * 20
         render template: "projects/_search_results"
       else
         @projects = Project.order("created_at DESC")
