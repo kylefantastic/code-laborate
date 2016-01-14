@@ -47,10 +47,16 @@
       <div><%= f.label :category,"Category" %></div>
       <ul>
         <% @categories.each do |category| %>
-          <li><%= check_box_tag "category[#{category.name}]", checked:true %>
+            <li>
+            <% #if @project.categories.include?(category) %>
+              <%#= check_box_tag "category[#{category.name}]", 'yes', true %>
+            <%# else %>
+              <%= check_box_tag "category[#{category.name}]" %>
+            <%# end %>
 
           <%= label_tag("category[#{category.name}]", "#{category.name}") %></li>
         <% end %>
+        <!-- <li><%#= check_box_tag (:category), 'yes', true %></li> -->
       </ul>
 
       <p>
