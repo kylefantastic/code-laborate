@@ -1,6 +1,6 @@
 <%= render template: "layouts/other" %>
 <div id='projects-container'>
-  <h1>Projects</h1>
+  <h1 id="projects-page">Projects</h1><br>
         <nav>
          <% if current_user %>
             <% if !current_user.org_affiliate %>
@@ -17,34 +17,31 @@
             <% end %>
          <% end %>
       </nav>
-  <ul id='user<%=current_user.id%>'>
+<ul class="media-list">
+  <div id='user<%=current_user.id%>'></div>
     <% if !current_user.org_affiliate %>
+    <div class="media">
+  <div class="media">
       <% @projects.each do |project| %>
-        <li id='project<%= project.id %>'>
+          <% project.id %>
           <% bookmark = Bookmark.find_by(project_id: project.id, developer_id: current_user.id) %>
           <% if bookmark %>
             <%= render partial: "/bookmarks/bookmark_selected", locals: {project: project, bookmark: bookmark} %>
           <% else %>
             <%= render partial: "/bookmarks/unbookmark", :locals => {project: project} %>
           <% end %>
-          <%= link_to project.title, project %></li>
-          <p>Vision: <%= project.vision %></p>
-          <p>For: <%= link_to project.organization.name, project.organization.website_url %></p>
-      <% end %>
-    <%else%>
-      <li><% @project %></li>
-    <% end %>
-  </ul>
-</div>
-
-<!-- <div class="media">
-  <div class="media-left">
-    <a href="#">
-      <img class="media-object" src="..." alt="...">
-    </a>
-  </div>
+      <img class="media-object" <%= image_tag @project.project_image.url(:thumb) %>
   <div class="media-body">
-    <h4 class="media-heading">Media heading</h4>
-    ...
+    <h4 class="media-heading">Vision: <%= project.vision %> </h4>
+      <p>Project Link: <%= link_to project.title, project %><p>
+      <p>For: <%= link_to project.organization.name, project.organization.website_url %></p><br>
   </div>
-</div> -->
+   <% end %>
+      <%else%>
+        <% @project %>
+    <% end %>
+</div>
+</div>
+</ul>
+
+

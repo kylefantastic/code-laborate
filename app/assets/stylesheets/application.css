@@ -231,6 +231,15 @@ footer {
   bottom: 0;
   margin: .5%;
 }
+#search-form{
+float:right;
+}
+#projects-page{
+  text-align: center
+}
+.media-move{
+
+}
 
 
 
