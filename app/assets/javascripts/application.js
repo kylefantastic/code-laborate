@@ -52,8 +52,8 @@ function registerForm(){
 
 
 function orgForm(){
-    $('html,body').animate({scrollTop: $('#new_org_form').height()}, "slow")
-  }
+  $('html,body').animate({scrollTop: $('#new_org_form').height()}, "slow")
+}
 
 
 
@@ -135,7 +135,6 @@ function editProjectInfo(){
     e.preventDefault();
     var projectInfo = $("#project-edit-form").serialize()
     var projectID = $('#project_id').val()
-    debugger
     console.log("Got to editProjectInfo")
     var request = $.ajax({
       url: "/projects/" + projectID,

@@ -27,15 +27,21 @@ describe 'Developer feature testing:', :type => :feature, js: true do
   end
 
   feature 'Projects page' do
-    before do
+    before :each do
+      seed_categories
       user_login
       new_org
       add_project
-      visit(projects_path)
+      click_link("Logout")
+      re_login
+      click_link("Projects")
+      # sleep(1)
     end
 
     context 'When viewing the projects page' do
       scenario 'a developer can see an unordered list that should contain projects' do
+        # Do not remove this sleep(.05), without it the test breaks
+        sleep(0.5)
         expect(page.html).to have_css("ul")
       end
       scenario 'a developer can see the title of the project' do
@@ -49,6 +55,7 @@ describe 'Developer feature testing:', :type => :feature, js: true do
 
   feature 'Project show page' do
     before do
+      seed_categories
       org_user_login
       new_org
       add_project
@@ -96,6 +103,7 @@ describe 'Developer feature testing:', :type => :feature, js: true do
 
   feature 'Profile page' do
     before do
+      seed_categories
       user_login
       click_link("Profile")
     end
@@ -123,6 +131,7 @@ describe 'Developer feature testing:', :type => :feature, js: true do
 
     context 'when on the edit profile page' do
       before do
+        seed_categories
         click_button("Edit Profile")
       end
 
