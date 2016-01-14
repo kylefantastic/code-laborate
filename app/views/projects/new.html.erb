@@ -85,6 +85,12 @@
       </p>
 
       <p>
+        <!-- For Paperclip -->
+        <%= f.label :project_image, "Project Image" %><br>
+        <%= f.file_field :project_image, as: :file %>
+      </p>
+
+      <p>
         <%= f.label :deadline,"Deadline" %>
         <%= f.date_field :deadline%>
       </p>
