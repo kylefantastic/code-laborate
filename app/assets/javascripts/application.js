@@ -264,7 +264,7 @@ function agreementConfirm(){
 
 function agreementAlert(){
   $('.container').on('click', '.agreement-alert', function(){
-    alert("asdfl;ksadfsadlfkas;dlf;alksdf;lkadsfl;sadfjasdfjas")
+    alert("For organizations that post projects, there are no guarantees that your project will get chosen.  If your project is chosen, it is the responsibility of both parties to communicate about needs and expectations.  Be aware that there are no guarantees of a finished product and no guarantee that an organization will choose to utilize a finished product")
   })
 }
 
