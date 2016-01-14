@@ -13,9 +13,9 @@ xdescribe 'Bookmark feature testing:', :type => :feature, js: true do
       before :each do
         user_login
         Project.create(title: 'Toolshed',
-           vision: 'Share knowledge',
-            need: "People",
-           description: 'We are looking for someone to create a lesson and resource-sharing website',
+          vision: 'Share knowledge',
+          need: "People",
+          description: 'We are looking for someone to create a lesson and resource-sharing website',
           benefit: "Educate youth",
           contact_name: "Tamaya",
           contact_email: "Jones",

@@ -43,7 +43,7 @@ class OrganizationsController < ApplicationController
 
   private
     def org_params
-      org_permitted = %i(name description website_url)
+      org_permitted = %i(name description website_url logo)
       params.require(:organization).permit(org_permitted)
     end
 

@@ -70,6 +70,12 @@
         <%= f.text_field :contact_phone, class: "form-control" %>
       </p>
 
+      <!--<p> refactor This is currently not editable.
+         For Paperclip
+        <%# f.label :project_image, "Project Image" %><br>
+        <%# f.file_field :project_image, as: :file %>
+      </p> -->
+
       <p>
         <%= f.label :deadline,"Deadline" %><br>
         <%= f.date_field :deadline, class: "form-control" %>
@@ -78,5 +84,6 @@
       <p>
         <%= f.submit "Update project", id: "submit-project-update", class: "btn btn-default" %>
       </p>
-    <div class="form-group">
     <% end %>
+    <div class="form-group">
+      <!-- refactor what is this? -->

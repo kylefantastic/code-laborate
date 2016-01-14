@@ -1,7 +1,7 @@
 class ProjectsController < ApplicationController
   layout false, only: [:index]
   def index
-    @project = Project.new
+    @project = Project.new #Do we need this?
     @projects = Project.all
     @organizations = Organization.all
 
@@ -16,7 +16,6 @@ class ProjectsController < ApplicationController
   end
 
   def create
-
     @categories= Category.all
     @project = Project.new(project_params)
     if @project.save
@@ -44,12 +43,13 @@ class ProjectsController < ApplicationController
   end
 
   def update
+    p params
     @project = Project.find(params[:project][:id])
     @organization = Organization.find(@project.organization_id)
     @user = current_user
     if @project.update(project_params)
       if @project.developer_id
-        # UserMailer.dev_project(@project,@user).deliver_later
+        UserMailer.dev_project(@project,@user).deliver_later
         render template: "projects/_show_project", :layout => false
       else
         render template: "projects/_show_project", :layout => false
@@ -77,6 +77,7 @@ class ProjectsController < ApplicationController
         contact_email
         contact_phone
         deadline
+        project_image
         organization_id
         developer_id
       )

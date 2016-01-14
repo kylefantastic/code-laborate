@@ -1,3 +1,4 @@
+
 <%= render template: "layouts/other" %>
 <div class="container org-partial">
    <div class="row">
@@ -19,6 +20,9 @@
                            <td>Project List:</td>
                            <td><% @organization.projects.each do |project| %>
                               <%= link_to project.title, project_path(project) %><br>
+                                <%= image_tag @organization.logo.url %>
+                                <%= image_tag @organization.logo.url(:medium) %>
+                                <%= image_tag @organization.logo.url(:thumb) %>
                               <% end %><%= button_to "New Project", new_project_path, class: "btn btn-default" ,id:"new-project", :method => :get  %>
                            </td>
                         </tr>

@@ -24,6 +24,23 @@
               <%= hidden_field(:organization, :id) %>
         <%= f.submit "Update organization", class: "button update-org" %>
 
+<<<<<<< HEAD
+=======
+        <p>
+          <%= f.label :description %><br>
+          <%= error_show(@organization, :description) %>
+          <%= f.text_area :description, placeholder: "Add your mission or description here", class: "form-control" %>
+        </p>
+
+        <!-- <p> refactor Currently not updatable
+          <%# f.label :logo %><br>
+          <%# error_show(@organization, :logo) %>
+          <%# f.file_field :logo, as: :file %>
+        </p> -->
+
+        <%= button_to "Update Account", organization_path(@organization), :class => "button update-org", class: "btn btn-default", :method => :put %>
+        <%= hidden_field(:organization, :id) %>
+>>>>>>> a67e1850cd737f0488f85dc8bcef79008bbf2797
     </div>
   </div>
     <% end %>
