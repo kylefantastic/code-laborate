@@ -63,7 +63,7 @@ describe 'feature testing', :type => :feature, js: true do
       org_user_login
       visit(new_organization_path)
       click_button 'Save Organization'
-      expect(page).to have_content('3 errors prohibited this project from being saved:')
+      expect(page).to have_content('2 errors prohibited this project from being saved:')
     end
 
      scenario 'if user doesnt fill out the Organization Name error message is raise' do
