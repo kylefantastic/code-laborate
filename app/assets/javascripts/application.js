@@ -131,6 +131,7 @@ function editProjectInfo(){
     e.preventDefault();
     var projectInfo = $("#project-edit-form").serialize()
     var projectID = $('#project_id').val()
+    debugger
     console.log("Got to editProjectInfo")
     var request = $.ajax({
       url: "/projects/" + projectID,
