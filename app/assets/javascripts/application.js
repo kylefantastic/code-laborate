@@ -5,10 +5,13 @@
 
 $(document).ready(function() {
   registerForm()
+
   renderEditUserForm()
   editUserInfo()
+
   renderEditOrgInfo()
   editOrganizationInfo()
+
   renderEditProjectForm()
   editProjectInfo()
   chooseProject()
@@ -20,6 +23,8 @@ $(document).ready(function() {
   abandonProject()
 
   orgForm()
+
+  agreementConfirm()
 });
 
 function registerForm(){
@@ -39,6 +44,8 @@ function registerForm(){
     $('#devform').hide();
   })
 }
+
+
 
 function orgForm(){
     $('html,body').animate({scrollTop: $('#new_org_form').height()}, "slow")
@@ -240,7 +247,14 @@ function unbookmarkProject(){
     })
   })
 }
+  // onsubmit="if(document.getElementById('agree').checked) { return true; } else { alert('Please indicate that you have read and agree to the Terms and Conditions and Privacy Policy'); return false; }
 
+
+function agreementConfirm(){
+  $('.container')on('submit', '.sign-up-form', function(e){
+    e.preventDefault();
+    })
+}
 
 
 
