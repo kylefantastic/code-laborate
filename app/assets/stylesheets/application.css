@@ -26,12 +26,20 @@
   background-color: #337ab7;
   border-radius: 4px
 }
+.carousel-inner > .item > img{
+  width: 100%;
+  border: 30px #eee solid
+}
 
-.carousel-fade .carousel-inner > .item {
+/*.carousel-fade .carousel-inner > .item {
   -webkit-transition-property: opacity .2s;
   -moz-transition-property: opacity .2s;
   -o-transition-property: opacity .2s;
   transition-property: opacity .2s;
+}*/
+.jumbotron .container {
+  /*margin-left: 2em !important;*/
+  /*margin-right: 2em !important;*/
 }
 
 .red {
@@ -128,5 +136,45 @@ footer {
   width: 80%;
   margin: auto
 }
+#update_org_form{
+  width: 80%;
+  margin: auto
+}
+.edit-developer-div{
+  width: 80%;
+  margin: auto
+}
+#new-logo{
+  margin-top: 0 !important
+}
+#new-logo-h1{
+  margin-top: 0
+}
+.org-name{
+  text-align: center;
+  font-weight: bold;
+  font-family:Arial, Helvetica, sans-serif;
+}
+#new-project{
+  float: right;
+  top: 0;
+}
+#delete-account{
+  display: inline-block;
+  float:right;
+  bottom: 0;
+  margin: .5%;
+}
+#edit-account{
+  display: inline-block;
+  float:right;
+  bottom: 0;
+  margin: .5%
+}
+.clearFloat{
+  clear:both;
+}
+
+
 
 
