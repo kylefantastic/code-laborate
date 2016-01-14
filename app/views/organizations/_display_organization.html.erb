@@ -22,7 +22,7 @@
 
  <nav class="nav navbar-nav navbar-right">
   <ul id='nav-bar' class="nav nav-pills">
-    <li role="presentation"><%= link_to " Home", "/" %> </li>
+   <li role="presentation"><%= link_to " Home", "/" %> </li>
    <li role="presentation"><%= link_to " About", "/about" %></li>
    <li role="presentation"><%= link_to " FAQ", "/FAQ" %></li>
    <li role="presentation"><%= link_to " Past Projects", "/past_projects"%> </li>
@@ -38,7 +38,7 @@
    <% end %>
     <% if current_user %>
       <% if current_user.org_affiliate %>
-        <li role="presentation"><%=link_to "Profile", new_organization_path%></li>
+        <li role="presentation"><%=link_to "Profile", organization_path(@organization)%></li>
     <% else %>
     <li role="presentation"><a href= "/users/<%= current_user.id %>">Profile</a></li>
     <% end %>
@@ -59,7 +59,7 @@
     <dd><%= @organization.description %></dd>
     <%= button_to "Edit Account", edit_organization_path(@organization), :class => "button edit-account", class: "btn btn-default", :method => :get %>
     <%= hidden_field(:organization, :id) %>
-    <div class="btn-group"><%= button_to "Delete Account", organization_path(@organization), :class => "button", class: "btn btn-default", :method => :delete %>
+    <div class="btn-group"><%= button_to "Delete Account", organization_path(@organization), :class => "button", class: "btn btn-default", data: { confirm: "Are you sure?" }, :method => :delete %>
   </dl>
   </div>
 <div class="col-md-6">
