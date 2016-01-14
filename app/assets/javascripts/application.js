@@ -22,10 +22,10 @@ $(document).ready(function() {
   completeProject()
   abandonProject()
 
-  orgForm()
-
   agreementConfirm()
+
   agreementAlert()
+
 });
 
 function registerForm(){
@@ -78,7 +78,7 @@ function editUserInfo(){
       data: userInfo
     })
     request.done(function(response){
-      $('#developer-container').html(response)
+      $('body').html(response)
     })
   })
 }
@@ -98,7 +98,7 @@ function renderEditOrgInfo(){
 }
 
 function editOrganizationInfo(){
-  $('#organization-container').on("click", ".update-org", function(event){
+  $(document).on("click", ".update-org", function(event){
     event.preventDefault()
     var orgInfo = $("#edit-org-form").serialize()
     var orgId = $("#organization_id").val()
@@ -108,7 +108,7 @@ function editOrganizationInfo(){
       data: orgInfo
     })
     request.done(function(response){
-      $('#organization-container').html(response)
+      $('body').html(response)
      })
     })
   }
