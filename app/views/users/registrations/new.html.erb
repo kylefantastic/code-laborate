@@ -34,8 +34,10 @@
     <%= f.email_field :email, autofocus: true,class: "form-control" %>
   </div>
   <div class="field">
+    <!-- removed , value: "http://", it was breaking tests -->
     <%= f.label :public_profile_url %><br />
-    <%= f.url_field :public_profile_url, autofocus: true,class: "form-control", value: "http://" %>
+    <!-- changed url_field to text_field -->
+    <%= f.text_field :public_profile_url, autofocus: true,class: "form-control" %>
   </div>
   <div class="field">
     <%= f.label :bootcamp %><br />

@@ -27,7 +27,8 @@ describe 'Developer feature testing:', :type => :feature, js: true do
   end
 
   feature 'Projects page' do
-    before do
+    before :each do
+      seed_categories
       user_login
       new_org
       add_project
@@ -49,6 +50,7 @@ describe 'Developer feature testing:', :type => :feature, js: true do
 
   feature 'Project show page' do
     before do
+      seed_categories
       org_user_login
       new_org
       add_project
@@ -96,6 +98,7 @@ describe 'Developer feature testing:', :type => :feature, js: true do
 
   feature 'Profile page' do
     before do
+      seed_categories
       user_login
       click_link("Profile")
     end
@@ -123,6 +126,7 @@ describe 'Developer feature testing:', :type => :feature, js: true do
 
     context 'when on the edit profile page' do
       before do
+        seed_categories
         click_button("Edit Profile")
       end
 

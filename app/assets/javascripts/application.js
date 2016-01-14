@@ -22,7 +22,7 @@ $(document).ready(function() {
   completeProject()
   abandonProject()
 
-  agreementConfirm()
+  // agreementConfirm()
 
   agreementAlert()
 
@@ -132,7 +132,6 @@ function editProjectInfo(){
     e.preventDefault();
     var projectInfo = $("#project-edit-form").serialize()
     var projectID = $('#project_id').val()
-    debugger
     console.log("Got to editProjectInfo")
     var request = $.ajax({
       url: "/projects/" + projectID,
@@ -252,24 +251,24 @@ function unbookmarkProject(){
   // onsubmit="if(document.getElementById('agree').checked) { return true; } else { alert('Please indicate that you have read and agree to the Terms and Conditions and Privacy Policy'); return false; }
 
 
-function agreementConfirm(){
-<<<<<<< HEAD
-  $('.container').on('submit', '.sign-up-form', function(e){
-    e.preventDefault();
-=======
-  $('.container').on('submit', '.sign-up-form', function(){
-    // e.preventDefault();
-    if(document.getElementById('agree').checked)
-      { return true;
-       }
-    else { alert('Please indicate that you have read and agree to the Terms and Conditions and Privacy Policy'); return false; }
-    });
-}
+// function agreementConfirm(){
+//   $('.container').on('submit', '.sign-up-form', function(e){
+//     e.preventDefault();
+//     console.log("got to agreementConfirm")
+//     if(document.getElementById('agree').checked) {
+//       return true;
+//     } else {
+//       alert('Please indicate that you have read and agree to the Terms and Conditions and Privacy Policy');
+//       return false;
+//     }
+//   })
+// }
+
 
 function agreementAlert(){
   $('.container').on('click', '.agreement-alert', function(){
+    console.log("Got to agreementAlert")
     alert("asdfl;ksadfsadlfkas;dlf;alksdf;lkadsfl;sadfjasdfjas")
->>>>>>> 126557fd98e9d066ff82feb78fd3a1641f91704a
   })
 }
 

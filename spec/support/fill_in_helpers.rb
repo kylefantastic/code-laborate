@@ -35,5 +35,11 @@ module FillInHelpers
     click_button 'Save Project'
   end
 
+  def seed_categories
+    categories = ["animals", "arts", "education", "equality", "government", "health", "international", "recreation", "religion", "research", "science", "social", "youth/children", "other"]
 
+    categories.each do |category|
+        Category.create(name: category)
+    end
+  end
 end
