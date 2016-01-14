@@ -48,7 +48,7 @@ class ProjectsController < ApplicationController
     @user = current_user
     if @project.update(project_params)
       if @project.developer_id
-        UserMailer.dev_project(@project,@user).deliver_later
+        # UserMailer.dev_project(@project,@user).deliver_later
         render template: "projects/_show_project", :layout => false
       else
         render template: "projects/_show_project", :layout => false
