@@ -82,6 +82,18 @@
                                     <td>Email:</td>
                                     <td><%= @user.email%></td>
                                   </tr>
+                                  <tr>
+                                    <% if !@user.bookmarked_projects.empty? %>
+                                    <td>Bookmarks:</td>
+                                    <td>
+                                       <ul>
+                                       <% @user.bookmarked_projects.each do |project| %>
+                                       <li><a href="/projects/<%= project.id %>"><%= project.title %></a></li>
+                                       <% end %>
+                                       </ul>
+                                    </td>
+                                    <% end %>
+                                  </tr>
                                </tbody>
                            </table>
                           </div>
@@ -98,8 +110,8 @@
          </div>
       </div>
     </div>
-         <div class="footer">
+        <div class="footer">
          <footer>
-            <h1>&lt;&#47;code&gt;</h1>
-</footer>
+            <h1 id="footer-code">&lt;&#47;code&gt;</h1>
+         </footer>
 

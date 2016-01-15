@@ -2,6 +2,7 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
+//= require jquery.remotipart
 
 $(document).ready(function() {
   signUp()
@@ -25,7 +26,6 @@ $(document).ready(function() {
   completeProject()
   abandonProject()
 
-  orgForm()
 
   agreementConfirmDev()
   agreementConfirmOrg()
@@ -55,14 +55,6 @@ function registerForm(){
     $('#devform').hide();
   })
 }
-
-
-
-function orgForm(){
-  $('html,body').animate({scrollTop: $('#new_org_form').height()}, "slow")
-}
-
-
 
 function renderEditUserForm(){
   $('#developer-container').on("click", ".display-edit-developer-form", function(event){
