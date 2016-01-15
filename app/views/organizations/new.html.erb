@@ -33,6 +33,11 @@ $(document).ready(function(){
       </div>
       <%= error_show(@organization, :description) %>
       <%= f.text_area :description, class: "form-control" %>
+
+      <%= f.label :logo %><br>
+      <%= error_show(@organization, :logo) %>
+      <%= f.file_field :logo, as: :file %><br>
+
       <div>
       <%= f.submit %>
       </div>

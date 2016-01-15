@@ -15,6 +15,7 @@ end
   resources :users
   resources :organizations
   resources :projects
+  resources :project_images
   resources :categories
 
   get '/about', to: 'home#about'
