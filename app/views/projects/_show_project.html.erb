@@ -74,7 +74,7 @@
                <%= button_to "Choose Project", project_path(@project), :class => "button", class: "btn btn-default", id: "choose-project", :method => :put %>
                <% end %>
                <% if !current_user.org_affiliate && current_user.current_project == @project %>
-               <h3>
+               <h3 class="chosen">
                You have chosen this project
                <h3>
                <%= button_to "Complete", project_path(@project), :class => "button", class: "btn btn-default", id: "complete-project", :method => :put %>

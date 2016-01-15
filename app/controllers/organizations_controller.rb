@@ -2,6 +2,7 @@ class OrganizationsController < ApplicationController
   # before_action :authenticate_user!
   before_action :authorize_user, only: [:new, :show, :update, :destroy]
   layout false, only: [:show,:update]
+
   def new
     @organization = Organization.new
   end
@@ -16,8 +17,9 @@ class OrganizationsController < ApplicationController
       render :new
     end
   end
+
   def show
-    @organization = Organization.find(params[:id])
+    @organization = current_user.organization
     render 'show'
   end
 

@@ -1,8 +1,8 @@
 
 <%= render template: "layouts/other" %>
-<h2 class="new-project-header">Add A New Project</h2>
-  <div id="new_project_form">
 
+  <div id="new_project_form">
+<h2 class="new-project-header">Add A New Project</h2>
     <%= form_for :project, url: projects_path do |f| %>
     <div class="form-group">
       <% if @project.errors.any? %>
@@ -58,7 +58,7 @@
 
     <ul>
       <% @categories.each do |category| %>
-        <li><%= check_box_tag "category[#{category.name}]" %>
+        <li id="check-box"><%= check_box_tag "category[#{category.name}]" %>
         <%= label_tag("category[#{category.name}]", "#{category.name}") %></li>
       <% end %>
     </ul>
@@ -98,7 +98,7 @@
       <%= f.hidden_field :organization_id, :value=> current_user.organization_id, class: "form-control" %>
       </div>
       <p>
-        <%= f.submit class: "btn btn-default"%>
+        <%= f.submit class: "btn btn-default", id:"add-project-btn"%>
       </p>
     </div>
     <% end %>

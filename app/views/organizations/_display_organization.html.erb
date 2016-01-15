@@ -6,7 +6,7 @@
          <div class="panel-heading">
             <h3 class="panel-title"><%=@organization.name%></h3>
          </div>
-         <div class="panel-body">
+         <div class="panel-body" id="panel-body-dev">
             <div class="row">
                <div class="col-md-3 col-lg-3 " align="center">
                   <%# if @organization.logo.url="/images/original/missing.png" %>
@@ -39,7 +39,7 @@
                </div>
             </div>
             <div class="clearFloat">
-               <%= button_to "Delete Account", organization_path(@organization), class: "btn btn-default", id:"delete-account", :method => :delete %>
+               <%= button_to "Delete Account", organization_path(@organization), class: "btn btn-default", id:"delete-account", :method => :delete, :data => {confirm: "Are you sure?"} %>
                <%= button_to "Edit Account", edit_organization_path(@organization), class: "btn btn-default", id:"edit-account", :method => :get %>
                <%= hidden_field(:organization, :id) %>
             </div>
@@ -49,8 +49,8 @@
 </div>
 </div>
 </div>
-<div class="footer">
-<footer>
-   <h1>&lt;&#47;code&gt;</h1>
-</footer>
+ <div class="footer">
+         <footer>
+            <h1 id="footer-code">&lt;&#47;code&gt;</h1>
+         </footer>
 </html>

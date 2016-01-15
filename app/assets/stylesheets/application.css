@@ -5,6 +5,9 @@
 #orgform{
   display: none;
 }
+#panel-dev{
+  color: black !important;
+}
 
 .field_with_errors input{
   border: 1px solid red;
@@ -81,7 +84,7 @@ html, body {
 
 footer {
   text-align: right;
-  background-color: gray;
+  background-color: #20324f ;
   height: 80%;
   padding-top: 1%;
 }
@@ -107,14 +110,27 @@ footer {
 .panel-title{
   text-align: center;
   font-weight: bold;
+  color: white !important;
   font-family:Arial, Helvetica, sans-serif;
 }
 .panel-heading{
-  background-color: #C48189  !important;
+  background-color: #4d0019  !important;
   opacity: 0.8
+}
+#panel-body-dev{
+  background-color:#f0f0f5
 }
 .footer{
   clear:both;
+  height: 8%;
+  bottom: 0;
+  background-color: #20324f
+}
+
+#footer-code{
+  margin-top: auto;
+  margin-bottom: auto;
+  color: white;
 }
 #devform{
   clear:both;
@@ -139,21 +155,43 @@ footer {
 }
 #org-sign-up-form{
   width: 80%;
-  margin: auto
+  margin: auto;
+  border: solid 2px #4d0019;
+  padding: 2%;
+  background-color:#f0f0f5
 }
 #new_project_form{
   width: 80%;
-  margin: auto
+  margin: auto;
+  border: solid 2px #4d0019;
+  padding: 2%;
+  background-color:#f0f0f5
+
+}
+#add-project-btn{
+  float:right;
 }
 #sign-in-form{
   width: 50%;
-  margin: auto
+  margin: auto;
+  padding: 2%;
+  border: solid 2px #4d0019
+}
+#welcome{
+  float: left;
 }
 #update_org_form{
   width: 80%;
-  margin: auto
+  margin: auto;
+  border: solid 2px #4d0019;
+  padding: 1.5%;
+  background-color:#f0f0f5
 }
 .edit-developer-div{
+  width: 80%;
+  margin: auto
+}
+.edit-project-form{
   width: 80%;
   margin: auto
 }
@@ -203,6 +241,11 @@ footer {
   font-weight: bold;
   font-family:Arial, Helvetica, sans-serif;
 }
+.chosen{
+  text-align: center;
+  font-weight: bold;
+  font-family:Arial, Helvetica, sans-serif;
+}
 #abandon-project{
   display: inline-block;
   float:right;
@@ -221,6 +264,29 @@ footer {
   bottom: 0;
   margin: .5%;
 }
+#complete-project{
+  display: inline-block;
+  float:right;
+  bottom: 0;
+  margin: .5%;
+}
+#search-form{
+float:right;
+}
+#projects-page{
+  text-align: center
+}
+#check-box{
+  list-style-type: none;
+}
+#past-projects{
+  background-color: #4d0019;
+  text-align: center;
+}
+#past-projects-head{
+  color: white;
+}
+
 
 
 
