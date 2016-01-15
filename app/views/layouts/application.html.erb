@@ -13,6 +13,11 @@
    </head>
    <body>
       <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+        <script type="text/javascript">
+            $('.sign').click(function(){
+            $('html,body').animate({scrollTop: $('.jumbotron').height()}, "slow")
+            });
+         </script>
 
       <nav class="nav navbar-nav navbar-right">
 
@@ -23,11 +28,13 @@
             <li role="presentation"><%= link_to " Past Projects", "/past_projects"%> </li>
             <% if current_user %>
                <% if !current_user.org_affiliate %>
+             
+
                   <li role="presentation"><%= link_to 'Projects', projects_path, :class => 'navbar-link' %> </li>
                <% end %>
             <% else %>
                <li role="presentation"><%= link_to "Sign up", new_user_registration_path(anchor: "dev"), :class => 'navbar-link nav-bar-right' %></li>
-               <li role="presentation"><%= link_to "Login", new_user_session_path(anchor: "org"), :class => 'navbar-link nav-bar-right'  %> </li>
+               <li role="presentation"><%= link_to "Login", new_user_session_path(anchor: "org"), :class => 'navbar-link nav-bar-right sign'  %> </li>
             <% end %>
             <% if current_user %>
                <% if current_user.org_affiliate && current_user.organization.nil? %>
