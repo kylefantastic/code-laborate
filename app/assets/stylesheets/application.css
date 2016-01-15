@@ -1,9 +1,13 @@
 #devform{
   display: none;
+  border: solid 2px blue;
+  padding: 2%;
 }
 
 #orgform{
   display: none;
+  border: solid 2px orange;
+  padding: 2%;
 }
 #panel-dev{
   color: black !important;

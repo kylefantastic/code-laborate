@@ -43,13 +43,16 @@ function registerForm(){
   $('#dev').click(function() {
     $('#devform').show();
     // $('#panel-dev').css('background-color','blue')
-    // $('#devform').css('border-color','red')
+    $('.mission').css('border','solid 2px blue')
+    $('.purpose').css('border','solid 1px gray')
     $("html,body").animate({ scrollTop: $('.jumbotron').height() }, "slow");
     $('#orgform').hide();
   })
   $('#org').click(function() {
     $('#orgform').show();
-    // $('#orgform').css('border-style','solid')
+    $('.mission').css('border','solid 1px gray')
+    $('.purpose').css('border','solid 2px orange')
+
     // $('#orgform').css('border-color','blue')
     // $(this).css('color','black');
     $("html,body").animate({ scrollTop: $('.jumbotron').height() }, "slow");
