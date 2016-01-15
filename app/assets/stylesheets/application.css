@@ -252,6 +252,13 @@ float:right;
 /*#check-box{
   list-style-type: none;
 }*/
+#past-projects{
+  background-color: #4d0019;
+  text-align: center;
+}
+#past-projects-head{
+  color: white;
+}
 
 
 
