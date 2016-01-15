@@ -17,13 +17,16 @@
             $('.sign').click(function(){
             $('html,body').animate({scrollTop: $('.jumbotron').height()}, "slow")
             });
+            $('.about').click(function(){
+            $('html,body').animate({scrollTop: $('.jumbotron').height()}, "slow")
+            });
          </script>
 
       <nav class="nav navbar-nav navbar-right">
 
          <ul id='nav-bar' class="nav nav-pills">
             <li role="presentation"><%= link_to " Home", "/" %> </li>
-            <li role="presentation"><%= link_to " About", "/about" %></li>
+            <li role="presentation"><%= link_to " About", "/about" , :class =>"about" %></li>
             <li role="presentation"><%= link_to " FAQ", "/FAQ" %></li>
             <li role="presentation"><%= link_to " Past Projects", "/past_projects"%> </li>
             <% if current_user %>
