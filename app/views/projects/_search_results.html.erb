@@ -1,16 +1,36 @@
-<% if !@projects.empty? %>
-    <h4>Your search was found in the title or description of these projects</h4>
-  <% @projects.each do |project| %>
-    <li><%= link_to project.title, project %></li>
-  <% end %>
-<% end %>
-<% if !@organizations.empty? %>
-  <h4>Your search was found in the organization name of these projects</h4>
-  <% @organizations.each do |organization| %>
-    <% if !organization.projects.empty? %>
-      <% organization.projects.each do |project| %>
-        <li><%= link_to project.title, project %></li>
+<%= render template: "layouts/other" %>
+<div id='projects-container'>
+  <% if @projects.any? || @organizations.any? %>
+    <% if @projects.any? %>
+      <h4>Your search was found in the title or description of these projects</h4>
+      <% @projects.each do |project| %>
+        <div class="project_list">
+          <li id='project<%= project.id %>'>
+            <% bookmark = Bookmark.find_by(project_id: project.id, developer_id: current_user.id) %>
+            <% if bookmark %>
+              <%= render partial: "/bookmarks/bookmark_selected", locals: {project: project, bookmark: bookmark} %>
+            <% else %>
+              <%= render partial: "/bookmarks/unbookmark", :locals => {project: project} %>
+            <% end %>
+          <%= link_to project.title, project %></li>
+          <p>Vision: <%= project.vision %></p>
+          <p>For: <%= link_to project.organization.name, project.organization.website_url %></p>
+        </div>
       <% end %>
     <% end %>
+    <% if @organizations.any? %>
+      <h4>Your search was found in the organization name of these projects</h4>
+      <% @organizations.each do |organization| %>
+        <% if organization.projects.any? %>
+          <% organization.projects.each do |project| %>
+            <div class="project_list">
+              <li><%= link_to project.title, project %></li>
+            </div>
+          <% end %>
+        <% end %>
+      <% end %>
+    <% end %>
+    <% else %>
+      <h2>Your search was not found in any projects :(</h2>
   <% end %>
-<% end %>
+</div>
