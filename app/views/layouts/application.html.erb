@@ -9,6 +9,8 @@
       <%= csrf_meta_tags %>
       <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
       <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+        <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
       <meta name="viewport" content="width=device-width, initial-scale=1">
    </head>
    <body>
@@ -20,6 +22,9 @@
             $('.about').click(function(){
             $('html,body').animate({scrollTop: $('.jumbotron').height()}, "slow")
             });
+            $('.faq').click(function(){
+            $('html,body').animate({scrollTop: $('.jumbotron').height()}, "slow")
+            });
          </script>
 
       <nav class="nav navbar-nav navbar-right">
@@ -27,7 +32,7 @@
          <ul id='nav-bar' class="nav nav-pills">
             <li role="presentation"><%= link_to " Home", "/" %> </li>
             <li role="presentation"><%= link_to " About", "/about" , :class =>"about" %></li>
-            <li role="presentation"><%= link_to " FAQ", "/FAQ" %></li>
+            <li role="presentation"><%= link_to " FAQ", "/FAQ", :class => "faq" %></li>
             <li role="presentation"><%= link_to " Past Projects", "/past_projects"%> </li>
             <% if current_user %>
                <% if !current_user.org_affiliate %>
