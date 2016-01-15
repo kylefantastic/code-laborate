@@ -4,6 +4,8 @@
 //= require_tree .
 
 $(document).ready(function() {
+  signUp()
+
   registerForm()
 
   renderEditUserForm()
@@ -31,7 +33,11 @@ $(document).ready(function() {
   agreementAlert()
 
 });
-
+function signUp(){
+  $(".sign-up").click(function(e){
+    $("html,body").animate({ scrollTop: $('.jumbotron').height() }, "slow");
+})
+}
 function registerForm(){
   $('#dev').click(function() {
     $('#devform').show();
@@ -143,7 +149,12 @@ function editProjectInfo(){
       data: projectInfo
     })
     request.done(function(response){
-      $('#project-container').html(response)
+      console.log(response)
+      console.log(response.search('<div class="footer">'))
+      var here = response.search('<div class="footer">')
+      console.log(response.slice(0, here))
+      var x = response.slice(0, here)
+      $('#project-container').html(x)
 
     })
   })
