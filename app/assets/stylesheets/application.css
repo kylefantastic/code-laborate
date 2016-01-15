@@ -151,10 +151,13 @@ footer {
 #new_project_form{
   width: 80%;
   margin: auto
+
 }
 #sign-in-form{
   width: 50%;
-  margin: auto
+  margin: auto;
+  padding: 2%;
+  border: solid 2px #4d0019
 }
 #update_org_form{
   width: 80%;
