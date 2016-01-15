@@ -17,6 +17,7 @@ gem 'figaro'
 gem 'carrierwave'
 gem 'mini_magick'
 gem 'remotipart', '~> 1.2'
+gem 'paperclip', "~> 4.3"
 
 
 group :development, :test do
@@ -34,5 +35,6 @@ end
 group :development do
   gem 'web-console', '~> 2.0'
   gem 'spring'
+  gem 'hirb'
 end
 

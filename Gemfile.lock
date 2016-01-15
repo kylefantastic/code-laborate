@@ -61,6 +61,10 @@ GEM
     chromedriver-helper (1.0.0)
       archive-zip (~> 0.7.0)
       nokogiri (~> 1.6)
+    climate_control (0.0.3)
+      activesupport (>= 3.0)
+    cocaine (0.5.8)
+      climate_control (>= 0.0.3, < 1.0)
     coffee-rails (4.1.1)
       coffee-script (>= 2.2.0)
       railties (>= 4.0.0, < 5.1.x)
@@ -96,6 +100,7 @@ GEM
     globalid (0.3.6)
       activesupport (>= 4.1.0)
     hashie (3.4.3)
+    hirb (0.7.3)
     i18n (0.7.0)
     io-like (0.3.0)
     jbuilder (2.4.0)
@@ -112,7 +117,11 @@ GEM
     mail (2.6.3)
       mime-types (>= 1.16, < 3)
     mime-types (2.99)
+
     mini_magick (4.3.6)
+
+    mimemagic (0.3.0)
+
     mini_portile2 (2.0.0)
     minitest (5.8.3)
     multi_json (1.11.2)
@@ -135,6 +144,12 @@ GEM
       oauth2 (~> 1.0)
       omniauth (~> 1.2)
     orm_adapter (0.5.0)
+    paperclip (4.3.2)
+      activemodel (>= 3.2.0)
+      activesupport (>= 3.2.0)
+      cocaine (~> 0.5.5)
+      mime-types
+      mimemagic (= 0.3.0)
     pg (0.18.4)
     rack (1.6.4)
     rack-test (0.6.3)
@@ -248,10 +263,12 @@ DEPENDENCIES
   factory_girl_rails
   faker
   figaro
+  hirb
   jbuilder (~> 2.0)
   jquery-rails
   mini_magick
   omniauth-facebook
+  paperclip (~> 4.3)
   pg
   rails (= 4.2.4)
   remotipart (~> 1.2)

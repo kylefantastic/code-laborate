@@ -15,7 +15,10 @@ end
   resources :users
   resources :organizations
   resources :projects
+  resources :projects
   resources :project_images
+  resources :categories
+
   get '/about', to: 'home#about'
   get '/FAQ', to: 'home#FAQ'
   get '/past_projects', to: 'home#past-projects'
