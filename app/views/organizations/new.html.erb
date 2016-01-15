@@ -2,7 +2,6 @@
 <html>
 <head></head>
 <body>
-  <h1 class="org-sign-up">Sign Up Your Organization</h1>
   <div id="new_org_form" >
     <%= form_for :organization, url: organizations_path, html: {id: 'new_org'} do |f| %>
 
@@ -49,10 +48,12 @@ $(document).ready(function(){
       <%= f.file_field :logo, as: :file %><br>
 
       <div>
+      <% end %>
       <%= f.submit %>
       </div>
    </div>
    <% end %>
+
 </div>
 
 
