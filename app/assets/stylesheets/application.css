@@ -207,6 +207,9 @@ footer {
 .project.fa-bookmark-o {
   position: absolute;
 }
+.project.fa.fa-bookmark.bookmark{
+  position: absolute;
+}
 
 #add-project-btn{
   float:right;
