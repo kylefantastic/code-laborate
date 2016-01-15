@@ -84,7 +84,7 @@ html, body {
 
 footer {
   text-align: right;
-  background-color: gray;
+  background-color: #20324f ;
   height: 80%;
   padding-top: 1%;
 }
@@ -122,6 +122,15 @@ footer {
 }
 .footer{
   clear:both;
+  height: 8%;
+  bottom: 0;
+  background-color: #20324f
+}
+
+#footer-code{
+  margin-top: auto;
+  margin-bottom: auto;
+  color: white;
 }
 #devform{
   clear:both;
@@ -168,9 +177,15 @@ footer {
   padding: 2%;
   border: solid 2px #4d0019
 }
+#welcome{
+  float: left;
+}
 #update_org_form{
   width: 80%;
-  margin: auto
+  margin: auto;
+  border: solid 2px #4d0019;
+  padding: 1.5%;
+  background-color:#f0f0f5
 }
 .edit-developer-div{
   width: 80%;
