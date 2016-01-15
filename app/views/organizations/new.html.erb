@@ -7,10 +7,10 @@
 
     <% if @organization.errors.any? %>
     <div id="error_explanation">
-      <h3>
+      <p>
         <%= pluralize(@organization.errors.count, "error") %> prohibited
         this project from being saved:
-      </h3>
+      </p>
     </div>
     <% end %>
     <div class="form-group" id="org-sign-up-form">
@@ -29,10 +29,10 @@
       <!-- Removed , value: "http://" it was breaking tests -->
       <%= f.text_field :website_url, class: "form-control" %>
       <div class="required">
-        <%= f.label :description %>
+        <%= f.label :description, "Mission/Description" %>
       </div>
       <%= error_show(@organization, :description) %>
-      <%= f.text_area :description, placeholder: "Add your mission or description here", class: "form-control" %>
+      <%= f.text_area :description, class: "form-control" %>
       <div>
         <%= f.submit %>
       </div>
