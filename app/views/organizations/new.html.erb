@@ -3,7 +3,7 @@
 <body>
   <h1 class="org-sign-up">Sign Up Your Organization</h1>
   <div id="new_org_form" >
-    <%= form_for :organization, url: organizations_path do |f| %>
+    <%= form_for :organization, url: organizations_path, html: {id: 'new_org'} do |f| %>
 
     <% if @organization.errors.any? %>
     <div id="error_explanation">
@@ -33,6 +33,9 @@
       </div>
       <%= error_show(@organization, :description) %>
       <%= f.text_area :description, class: "form-control" %>
+
+      <input type="checkbox" name="checkbox" value="check" id="org-agree" /> I have read and agree to <a href='#' class='agreement-alert'>Guidelines and Expectations</a>
+
       <div>
         <%= f.submit %>
       </div>
