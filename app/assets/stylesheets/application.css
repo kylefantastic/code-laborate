@@ -189,7 +189,11 @@ footer {
 }
 .edit-developer-div{
   width: 80%;
-  margin: auto
+  margin: auto;
+  border: solid 2px #4d0019;
+  padding: 1.5%;
+  background-color:#f0f0f5;
+  margin-bottom: 3%;
 }
 .edit-project-form{
   width: 80%;
