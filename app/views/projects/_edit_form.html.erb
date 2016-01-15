@@ -1,3 +1,4 @@
+<%= render template: "layouts/other" %>
 <%= form_for :project, url: projects_path, html: {id: "project-edit-form", role: "form"} do |f| %>
   <%= hidden_field(:project, :id) %>
       <% if @project.errors.any? %>
@@ -8,7 +9,7 @@
           </h3>
         </div>
       <% end %>
-    <div class="form-group">
+    <div class="form-group edit-project-form">
       <p>
         <%= f.label :title, "Project Title" %>
         <%= error_show(@project, :title) %>
@@ -47,10 +48,16 @@
       <div><%= f.label :category,"Category" %></div>
       <ul>
         <% @categories.each do |category| %>
-          <li><%= check_box_tag "category[#{category.name}]", checked:true %>
+            <li>
+            <% #if @project.categories.include?(category) %>
+              <%#= check_box_tag "category[#{category.name}]", 'yes', true %>
+            <%# else %>
+              <%= check_box_tag "category[#{category.name}]" %>
+            <%# end %>
 
           <%= label_tag("category[#{category.name}]", "#{category.name}") %></li>
         <% end %>
+        <!-- <li><%#= check_box_tag (:category), 'yes', true %></li> -->
       </ul>
 
       <p>
