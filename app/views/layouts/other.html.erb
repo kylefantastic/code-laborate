@@ -13,27 +13,30 @@
    </head>
    <body>
       <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-      <nav class="nav navbar-nav navbar-right">
+    <nav class="nav navbar-nav navbar-right">
          <ul id='nav-bar' class="nav nav-pills">
             <li role="presentation"><%= link_to " Home", "/" %> </li>
             <li role="presentation"><%= link_to " About", "/about" %></li>
             <li role="presentation"><%= link_to " FAQ", "/FAQ" %></li>
             <li role="presentation"><%= link_to " Past Projects", "/past_projects"%> </li>
             <% if current_user %>
-            <% if !current_user.org_affiliate %>
-            <li role="presentation"><%= link_to 'Projects', projects_path, :class => 'navbar-link' %> </li>
-            <% end %>
+               <% if !current_user.org_affiliate %>
+                  <li role="presentation"><%= link_to 'Projects', projects_path, :class => 'navbar-link' %> </li>
+               <% end %>
             <% else %>
-            <li role="presentation"><%= link_to "Sign up", new_user_registration_path(anchor: "dev"), :class => 'navbar-link nav-bar-right' %></li>
-            <li role="presentation"><%= link_to "Login", new_user_session_path(anchor: "org"), :class => 'navbar-link nav-bar-right'  %> </li>
+               <li role="presentation"><%= link_to "Sign up", new_user_registration_path(anchor: "dev"), :class => 'navbar-link nav-bar-right' %></li>
+               <li role="presentation"><%= link_to "Login", new_user_session_path(anchor: "org"), :class => 'navbar-link nav-bar-right'  %> </li>
             <% end %>
             <% if current_user %>
-            <% if current_user.org_affiliate %>
-            <li role="presentation"><%=link_to "Profile", new_organization_path%></li>
-            <% else %>
-            <li role="presentation"><a href= "/users/<%= current_user.id %>">Profile</a></li>
-            <% end %>
-            <li role="presentation"><%= link_to "Logout", destroy_user_session_path, method: :delete %> </li>
+               <% if current_user.org_affiliate && current_user.organization.nil? %>
+                  <li role="presentation"><%=link_to "Profile", new_organization_path(current_user.organization) %></li>
+               <%elsif current_user.org_affiliate && current_user.organization %>
+                     <li role="presentation"><%=link_to "Profile", organization_path(current_user.organization) %></li>
+               <% else %>
+                        <li role="presentation"><%=link_to "Profile", user_path(current_user.id) %></li>
+               <% end %>
+
+               <li role="presentation"><%= link_to "Logout", destroy_user_session_path, method: :delete %> </li>
             <% end %>
          </ul>
       </nav>
