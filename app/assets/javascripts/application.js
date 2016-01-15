@@ -227,7 +227,7 @@ function bookmarkProject(){
       console.log(response)
       var newBookmark = $.parseHTML(response)
       var bookmarkID = $(newBookmark).attr('id')
-      $('#' + bookmarkID).children().first().replaceWith(newBookmark)
+      $('#' + bookmarkID).replaceWith(newBookmark)
     })
   })
 }
@@ -255,7 +255,7 @@ function unbookmarkProject(){
     request.done(function(response){
       newBookmark = $.parseHTML(response)
       bookmarkID = $(newBookmark).attr('id')
-      $('#' + bookmarkID).children().first().replaceWith(newBookmark)
+      $('#' + bookmarkID).replaceWith(newBookmark)
       // now target the <li> with id project(numId)
     })
   })
