@@ -168,6 +168,13 @@ footer {
   background-color:#f0f0f5
 
 }
+
+.projects-list{
+  border: solid 1px #4d0019 !important;
+  background-color:#f0f0f5;
+  width: 80%;
+  margin: auto;
+}
 #add-project-btn{
   float:right;
 }

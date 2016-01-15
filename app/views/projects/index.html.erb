@@ -21,7 +21,7 @@
   <li id='user<%=current_user.id%>'></li>
     <% if !current_user.org_affiliate %>
       <% @projects.each do |project| %>
-          <li class="media">
+          <li class="media projects-list">
     <div class="media-left">
           <% project.id %>
           <% bookmark = Bookmark.find_by(project_id: project.id, developer_id: current_user.id) %>
