@@ -205,11 +205,16 @@ function abandonProject(){
 
 function bookmarkProject(){
   $('#projects-container').on('click', '.fa-bookmark-o', function(e){
+    console.log("HI MARK")
     e.preventDefault();
     var projectId = $(this).attr('id')
+    console.log(projectId)
     projectId = projectId.match(/\d+/).join()
-    var userId = $(this).parent().parent().attr('id')
+    console.log(projectId)
+    var userId = $(this).parent().parent().parent().children().first().attr('id')
+    console.log(userId)
     userId = userId.match(/\d+/).join()
+    console.log(userId)
 
     var data = {bookmark: {project_id: projectId, developer_id: userId}}
 
@@ -222,7 +227,7 @@ function bookmarkProject(){
       console.log(response)
       var newBookmark = $.parseHTML(response)
       var bookmarkID = $(newBookmark).attr('id')
-      $('#' + bookmarkID).children().first().replaceWith(newBookmark)
+      $('#' + bookmarkID).replaceWith(newBookmark)
     })
   })
 }
@@ -235,7 +240,7 @@ function unbookmarkProject(){
     var projectId = $(this).attr('id')
     projectId = projectId.match(/\d+/).join()
 
-    var userId = $(this).parent().parent().attr('id')
+    var userId = $(this).parent().parent().parent().children().first().attr('id')
     userId = userId.match(/\d+/).join()
 
     var bookmarkId = $(this).attr('class') //third class listed
@@ -250,7 +255,7 @@ function unbookmarkProject(){
     request.done(function(response){
       newBookmark = $.parseHTML(response)
       bookmarkID = $(newBookmark).attr('id')
-      $('#' + bookmarkID).children().first().replaceWith(newBookmark)
+      $('#' + bookmarkID).replaceWith(newBookmark)
       // now target the <li> with id project(numId)
     })
   })
