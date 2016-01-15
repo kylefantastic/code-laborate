@@ -13,7 +13,9 @@
    </head>
    <body>
       <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+
       <nav class="nav navbar-nav navbar-right">
+
          <ul id='nav-bar' class="nav nav-pills">
             <li role="presentation"><%= link_to " Home", "/" %> </li>
             <li role="presentation"><%= link_to " About", "/about" %></li>
@@ -82,7 +84,7 @@
       </div>
       <div class="footer">
          <footer>
-            <h1>&lt;&#47;code&gt;</h1>
+            <h1 id="footer-code">&lt;&#47;code&gt;</h1>
          </footer>
       </div>
    </body>
