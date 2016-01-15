@@ -18,11 +18,11 @@
          <% end %>
       </nav>
 <ul class="media-list">
-  <div id='user<%=current_user.id%>'></div>
+  <li id='user<%=current_user.id%>'></li>
     <% if !current_user.org_affiliate %>
-    <div class="media">
-  <div class="media">
       <% @projects.each do |project| %>
+          <li class="media">
+    <div class="media-left">
           <% project.id %>
           <% bookmark = Bookmark.find_by(project_id: project.id, developer_id: current_user.id) %>
           <% if bookmark %>
@@ -30,12 +30,13 @@
           <% else %>
             <%= render partial: "/bookmarks/unbookmark", :locals => {project: project} %>
           <% end %>
-      <img class="media-object" <%= image_tag @project.project_image.url(:thumb) %>
+      <%= image_tag @project.project_image.url(:thumb), :class =>"media-object" %>
+      </div>
   <div class="media-body">
     <h4 class="media-heading">Vision: <%= project.vision %> </h4>
       <p>Project Link: <%= link_to project.title, project %><p>
       <p>For: <%= link_to project.organization.name, project.organization.website_url %></p><br>
-  </div>
+  </div></li>
    <% end %>
       <%else%>
         <% @project %>
