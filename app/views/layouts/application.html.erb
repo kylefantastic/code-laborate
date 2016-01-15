@@ -9,25 +9,40 @@
       <%= csrf_meta_tags %>
       <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
       <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+        <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
       <meta name="viewport" content="width=device-width, initial-scale=1">
    </head>
    <body>
       <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+        <script type="text/javascript">
+            $('.sign').click(function(){
+            $('html,body').animate({scrollTop: $('.jumbotron').height()}, "slow")
+            });
+            $('.about').click(function(){
+            $('html,body').animate({scrollTop: $('.jumbotron').height()}, "slow")
+            });
+            $('.faq').click(function(){
+            $('html,body').animate({scrollTop: $('.jumbotron').height()}, "slow")
+            });
+         </script>
 
       <nav class="nav navbar-nav navbar-right">
 
          <ul id='nav-bar' class="nav nav-pills">
             <li role="presentation"><%= link_to " Home", "/" %> </li>
-            <li role="presentation"><%= link_to " About", "/about" %></li>
-            <li role="presentation"><%= link_to " FAQ", "/FAQ" %></li>
+            <li role="presentation"><%= link_to " About", "/about" , :class =>"about" %></li>
+            <li role="presentation"><%= link_to " FAQ", "/FAQ", :class => "faq" %></li>
             <li role="presentation"><%= link_to " Past Projects", "/past_projects"%> </li>
             <% if current_user %>
                <% if !current_user.org_affiliate %>
+             
+
                   <li role="presentation"><%= link_to 'Projects', projects_path, :class => 'navbar-link' %> </li>
                <% end %>
             <% else %>
                <li role="presentation"><%= link_to "Sign up", new_user_registration_path(anchor: "dev"), :class => 'navbar-link nav-bar-right' %></li>
-               <li role="presentation"><%= link_to "Login", new_user_session_path(anchor: "org"), :class => 'navbar-link nav-bar-right'  %> </li>
+               <li role="presentation"><%= link_to "Login", new_user_session_path(anchor: "org"), :class => 'navbar-link nav-bar-right sign'  %> </li>
             <% end %>
             <% if current_user %>
                <% if current_user.org_affiliate && current_user.organization.nil? %>
@@ -53,18 +68,6 @@
                         <h1> &lt;code&gt;laborate </h1>
                      </div>
                   </div>
-                  <div class="item">
-                     <img src="https://upload.wikimedia.org/wikipedia/commons/7/77/Vista_del_Skyline_de_Chicago_desde_el_Planetario,_Illinois,_Estados_Unidos,_2012-10-20,_DD_15.jpg" alt="image of Chicago skyline">
-                     <div class="carousel-caption">
-                        <h1> &lt;code&gt;laborate </h1>
-                     </div>
-                  </div>
-                  <div class="item">
-                     <img src="https://static.pexels.com/photos/1139/black-and-white-city-skyline-buildings.jpg">
-                     <div class="carousel-caption">
-                        <h1> &lt;code&gt;laborate </h1>
-                     </div>
-                  </div>
                </div>
             </div>
          </div>
@@ -81,7 +84,6 @@
 
      <!-- <div id="scroll-here"></div> -->
       <div class="push"></div>
-      </div>
       <div class="footer">
          <footer>
             <h1 id="footer-code">&lt;&#47;code&gt;</h1>

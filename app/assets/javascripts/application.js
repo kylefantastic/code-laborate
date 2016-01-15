@@ -26,7 +26,6 @@ $(document).ready(function() {
   completeProject()
   abandonProject()
 
-  orgForm()
 
   agreementConfirmDev()
   agreementConfirmOrg()
@@ -56,14 +55,6 @@ function registerForm(){
     $('#devform').hide();
   })
 }
-
-
-
-function orgForm(){
-  $('html,body').animate({scrollTop: $('#new_org_form').height()}, "slow")
-}
-
-
 
 function renderEditUserForm(){
   $('#developer-container').on("click", ".display-edit-developer-form", function(event){

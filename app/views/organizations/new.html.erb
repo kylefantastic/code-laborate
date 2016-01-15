@@ -1,35 +1,35 @@
-<html>
-<head></head>
-<body>
-  <h1 class="org-sign-up">Sign Up Your Organization</h1>
-  <div id="new_org_form" >
-    <%= form_for :organization, url: organizations_path do |f| %>
 
-    <% if @organization.errors.any? %>
-    <div id="error_explanation">
+<script type="text/javascript">
+$(document).ready(function(){
+   $('html,body').animate({scrollTop: $('.jumbotron').height()}, "slow")
+   });
+</script>
+<h1 class="org-sign-up">Sign Up Your Organization</h1>
+<div id="new_org_form" >
+   <%= form_for :organization, url: organizations_path do |f| %>
+   <% if @organization.errors.any? %>
+   <div id="error_explanation">
       <p>
-        <%= pluralize(@organization.errors.count, "error") %> prohibited
-        this project from being saved:
+         <%= pluralize(@organization.errors.count, "error") %> prohibited
+         this project from being saved:
       </p>
-    </div>
-    <% end %>
-    <div class="form-group" id="org-sign-up-form">
-
-     <div class="required">
-      <%= f.label :name, "Organization Name" %>
+   </div>
+   <% end %>
+   <div class="form-group" id="org-sign-up-form">
+      <div class="required">
+         <%= f.label :name, "Organization Name" %>
       </div>
       <%= error_show(@organization, :name) %>
       <%= f.text_field :name, class: "form-control" %>
-
       <!-- removed class="required" -->
       <div>
-        <%= f.label :website_url, "Website" %>
+         <%= f.label :website_url, "Website" %>
       </div>
       <% error_show(@organization, :website_url) %>
       <!-- Removed , value: "http://" it was breaking tests -->
       <%= f.text_field :website_url, class: "form-control" %>
       <div class="required">
-        <%= f.label :description, "Mission/Description" %>
+         <%= f.label :description, "Mission/Description" %>
       </div>
       <%= error_show(@organization, :description) %>
       <%= f.text_area :description, class: "form-control" %>
@@ -39,12 +39,10 @@
       <%= f.file_field :logo, as: :file %><br>
 
       <div>
-        <%= f.submit %>
+      <%= f.submit %>
       </div>
+   </div>
+   <% end %>
+</div>
 
-    <% end %>
 
-    </div>
-  </div>
-</body>
-</html>
