@@ -1,5 +1,5 @@
 class ProjectsController < ApplicationController
-  layout false, only: [:index , :show, :new]
+  layout false, only: [:index , :show, :new, :edit]
   def index
     @project = Project.new #Do we need this?
     @projects = Project.all
@@ -52,10 +52,17 @@ class ProjectsController < ApplicationController
     if @project.update(project_params)
       if @project.developer_id
         UserMailer.dev_project(@project,@user).deliver_later
-        render template: "projects/_show_project", :layout => false
-      else
-        render template: "projects/_show_project", :layout => false
       end
+        if params[:category]
+
+          @project_category_names = params[:category].keys
+          @project.categories = []
+          @project_category_names.each do |name|
+            category = Category.find_by(name: name)
+            @project.categories << category
+          end
+        end
+        render template: "projects/_show_project", :layout => false
     else
       p 'in else, need error'
     end

@@ -5,6 +5,9 @@
 #orgform{
   display: none;
 }
+#panel-dev{
+  color: black !important;
+}
 
 .field_with_errors input{
   border: 1px solid red;
@@ -107,11 +110,15 @@ footer {
 .panel-title{
   text-align: center;
   font-weight: bold;
+  color: white !important;
   font-family:Arial, Helvetica, sans-serif;
 }
 .panel-heading{
-  background-color: #C48189  !important;
+  background-color: #4d0019  !important;
   opacity: 0.8
+}
+#panel-body-dev{
+  background-color:#f0f0f5
 }
 .footer{
   clear:both;
@@ -154,6 +161,10 @@ footer {
   margin: auto
 }
 .edit-developer-div{
+  width: 80%;
+  margin: auto
+}
+.edit-project-form{
   width: 80%;
   margin: auto
 }
@@ -203,6 +214,11 @@ footer {
   font-weight: bold;
   font-family:Arial, Helvetica, sans-serif;
 }
+.chosen{
+  text-align: center;
+  font-weight: bold;
+  font-family:Arial, Helvetica, sans-serif;
+}
 #abandon-project{
   display: inline-block;
   float:right;
@@ -221,6 +237,22 @@ footer {
   bottom: 0;
   margin: .5%;
 }
+#complete-project{
+  display: inline-block;
+  float:right;
+  bottom: 0;
+  margin: .5%;
+}
+#search-form{
+float:right;
+}
+#projects-page{
+  text-align: center
+}
+/*#check-box{
+  list-style-type: none;
+}*/
+
 
 
 
