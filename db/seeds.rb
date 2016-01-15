@@ -22,13 +22,12 @@ User.create(first_name: "Minney",
              org_affiliate: true)
 
 
-# until Organization.all.count >= 20 do
-20.times do
+until Organization.all.count >= 20 do
+
   Organization.create(name: Faker::App.name, website_url: Faker::Internet.url, description:Faker::Hipster.paragraphs)
 end
 
-# until Project.all.count >= 50 do
-50.times do
+until Project.all.count >= 50 do
   Project.create(
     title: Faker::App.name,
     vision: Faker::Hipster.sentence,
@@ -42,3 +41,13 @@ end
     organization_id: rand(1..20)
     )
 end
+
+categories = ["activism", "animals", "arts", "education", "equality", "government", "health", "international", "recreation", "religion", "research", "science", "social", "youth/children", "other"]
+
+categories.each do |category|
+    Category.create(name: category)
+end
+
+
+
+

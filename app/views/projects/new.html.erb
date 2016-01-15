@@ -1,14 +1,16 @@
-<h2>Projects</h2>
-  <div id="new_project_form">
 
+<%= render template: "layouts/other" %>
+
+  <div id="new_project_form">
+<h2 class="new-project-header">Add A New Project</h2>
     <%= form_for :project, url: projects_path do |f| %>
     <div class="form-group">
       <% if @project.errors.any? %>
         <div id="error_explanation">
-          <h3>
+          <p>
             <%= pluralize(@project.errors.count, "error") %> prohibited
             this project from being saved:
-          </h3>
+          </p>
         </div>
       <% end %>
 
@@ -35,7 +37,7 @@
 
       </p>
       <p>
-        <div class="required"><%= f.label :description,"Description"%></div>
+        <div class="required"><%= f.label :description, "Description" %></div>
         <%= error_show(@project, :description) %>
         <%= f.text_area :description, placeholder: "Add Description", class: "form-control" %>
 
@@ -51,6 +53,16 @@
         <span id="helpBlock" class="help-block">Who will benefit from implementation of this project</span>
       </p>
 
+<!-- Dropdown categories here -->
+    <div><%= f.label :category,"Category" %></div>
+
+    <ul>
+      <% @categories.each do |category| %>
+        <li id="check-box"><%= check_box_tag "category[#{category.name}]" %>
+        <%= label_tag("category[#{category.name}]", "#{category.name}") %></li>
+      <% end %>
+    </ul>
+
       <p>
         <div class="required"><%= f.label :contact_name,"Contact name" %></div>
         <%= error_show(@project, :contact_name) %>
@@ -60,13 +72,23 @@
       <p>
         <div class="required"><%= f.label :contact_email,"Contact email" %></div>
         <%= error_show(@project, :contact_email) %>
-        <%= f.text_field :contact_email, class: "form-control" %>
+        <%= f.email_field :contact_email, class: "form-control" %>
       </p>
       <p>
 
-        <div class="required"><%= f.label :contact_phone,"Contact phone number" %></div>
-        <%= error_show(@project, :contact_phone) %>
-        <%= f.text_field :contact_phone, class: "form-control" %>
+        <div class="required">
+
+          <%= f.label :contact_phone,"Contact phone number" %></div>
+          <div class="phone_number">
+            <%= f.text_field :contact_phone, class: "form-control" %>
+            <%= error_show(@project, :contact_phone) %>
+          </div>
+      </p>
+
+      <p>
+        <!-- For Paperclip -->
+        <%= f.label :project_image, "Project Image" %><br>
+        <%= f.file_field :project_image, as: :file %>
       </p>
 
       <p>
@@ -76,7 +98,7 @@
       <%= f.hidden_field :organization_id, :value=> current_user.organization_id, class: "form-control" %>
       </div>
       <p>
-        <%= f.submit class: "btn btn-default"%>
+        <%= f.submit class: "btn btn-default", id:"add-project-btn"%>
       </p>
     </div>
     <% end %>
