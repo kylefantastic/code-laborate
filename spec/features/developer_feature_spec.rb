@@ -83,22 +83,14 @@ describe 'Developer feature testing:', :type => :feature, js: true do
         click_button("Choose Project")
         expect(page).to have_content "You have chosen this project"
       end
-      # Not running this code. First one works when run individually, not with rspec as a whole. Second two work (slowly) on localhost, but not at all on capybara.
-      xscenario 'a developer cannot choose the project if they have already chosen a different project' do
+      scenario 'a developer cannot choose the project if they have already chosen a different project' do
         click_button("Choose Project")
+        wait_for_ajax
         click_link("Projects")
+        wait_for_ajax
         click_link("Toolshed")
+        wait_for_ajax
         expect(page).to have_no_content("Choose Project")
-      end
-      xscenario 'a developer can complete a project' do
-        click_button("Choose Project")
-        click_button("Complete")
-        expect(page).to have_button("Choose Project")
-      end
-      xscenario 'a developer can abandon a project' do
-        click_button("Choose Project")
-        click_button("Abandon Project")
-        expect(page).to have_button("Choose Project")
       end
     end
   end
@@ -162,14 +154,33 @@ describe 'Developer feature testing:', :type => :feature, js: true do
         click_button 'Update'
         expect(page).to have_content "another@one.com"
       end
-      xscenario 'the developer can change their password' do
-        fill_in 'password', with: 'betterpassword'
-        fill_in 'confirm password', with: 'betterpassword'
-        click_button 'Update'
-        click_button 'Logout'
-        user_login
-        expect(page).to have_content("Invalid password")
-      end
     end
   end
 end
+# scenario 'the developer can change their password' do
+#   fill_in 'password', with: 'betterpassword'
+#   fill_in 'confirm password', with: 'betterpassword'
+#   click_button 'Update'
+#   click_button 'Logout'
+#   user_login
+#   expect(page).to have_content("Invalid password")
+# end
+
+# scenario 'a developer can complete a project' do
+#   click_button("Choose Project")
+#   wait_for_ajax
+#   sleep(0.2)
+#   click_button("Complete")
+#   wait_for_ajax
+#   sleep(0.2)
+#   expect(page).to have_button("Choose Project")
+# end
+# scenario 'a developer can abandon a project' do
+#   click_button("Choose Project")
+#   wait_for_ajax
+#   sleep(0.2)
+#   click_button("Abandon Project")
+#   wait_for_ajax
+#   sleep(0.2)
+#   expect(page).to have_button("Choose Project")
+# end
