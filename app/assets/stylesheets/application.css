@@ -150,8 +150,13 @@ footer {
 }
 #new_project_form{
   width: 80%;
-  margin: auto
+  margin: auto;
+  border: solid 2px #4d0019;
+  padding: 2%;
 
+}
+#add-project-btn{
+  float:right;
 }
 #sign-in-form{
   width: 50%;
@@ -252,9 +257,9 @@ float:right;
 #projects-page{
   text-align: center
 }
-/*#check-box{
+#check-box{
   list-style-type: none;
-}*/
+}
 #past-projects{
   background-color: #4d0019;
   text-align: center;
