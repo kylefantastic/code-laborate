@@ -1,5 +1,8 @@
 source 'https://rubygems.org'
 
+# Specify Ruby version
+ruby '2.0.0'
+
 gem 'rails', '4.2.4'
 gem 'pg'
 gem 'sass-rails', '~> 5.0'
