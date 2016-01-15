@@ -204,7 +204,10 @@ footer {
 .projects-list .media-left {
 }
 
-.project.fa-bookmark-o {
+.fa-bookmark-o {
+  position: absolute;
+}
+.fa-bookmark{
   position: absolute;
 }
 
