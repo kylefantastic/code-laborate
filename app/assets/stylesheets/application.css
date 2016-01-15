@@ -169,12 +169,33 @@ footer {
 
 }
 
-.projects-list{
-  border: solid 1px #4d0019 !important;
-  background-color:#f0f0f5;
-  width: 80%;
-  margin: auto;
+.media.projects-list{
+  margin-bottom: 40px;
 }
+
+.project-list-vision {
+  text-transform: uppercase;
+  font-size: 12px;
+  font-weight: bold;
+  color: #777;
+  vertical-align: middle;
+}
+
+.projects-list p {
+  margin-bottom: 5px;
+}
+
+.projects-list .project-title {
+  font-weight: bold;
+}
+
+.projects-list .media-left {
+}
+
+.project.fa-bookmark-o {
+  position: absolute;
+}
+
 #add-project-btn{
   float:right;
 }

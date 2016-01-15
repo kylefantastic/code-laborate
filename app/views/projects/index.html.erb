@@ -1,5 +1,6 @@
 <%= render template: "layouts/other" %>
-<div id='projects-container'>
+<div id='projects-container' class="container">
+  <div class="col-sm-12">
   <h1 id="projects-page">Projects</h1><br>
         <nav>
          <% if current_user %>
@@ -17,7 +18,7 @@
             <% end %>
          <% end %>
       </nav>
-<ul class="media-list">
+<ul class="media-list" id="projects">
   <li id='user<%=current_user.id%>'></li>
     <% if !current_user.org_affiliate %>
       <% @projects.each do |project| %>
@@ -30,12 +31,12 @@
           <% else %>
             <%= render partial: "/bookmarks/unbookmark", :locals => {project: project} %>
           <% end %>
-      <%= image_tag @project.project_image.url(:thumb), :class =>"media-object" %>
+          <img src="http://placehold.it/64x64" />
+    <!--  <%= image_tag @project.project_image.url(:thumb), :class =>"media-object" %> -->
       </div>
   <div class="media-body">
-    <h4 class="media-heading">Vision: <%= project.vision %> </h4>
-      <p>Project Link: <%= link_to project.title, project %><p>
-      <p>For: <%= link_to project.organization.name, project.organization.website_url %></p><br>
+    <h4 class="media-heading"><span class="project-list-vision">Vision</span> <%= project.vision %> </h4>
+      <p><span class="project-title"><%= link_to project.title, project %></span>, for <%= link_to project.organization.name, project.organization.website_url %></p>
   </div></li>
    <% end %>
       <%else%>
@@ -44,4 +45,5 @@
 </div>
 </div>
 </ul>
-
+</div>
+</div>
