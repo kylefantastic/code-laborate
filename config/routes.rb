@@ -15,7 +15,6 @@ end
   resources :users
   resources :organizations
   resources :projects
-  resources :projects
   resources :project_images
   resources :categories
 
