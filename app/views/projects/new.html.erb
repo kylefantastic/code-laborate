@@ -58,7 +58,7 @@
 
     <ul>
       <% @categories.each do |category| %>
-        <li><%= check_box_tag "category[#{category.name}]" %>
+        <li id="check-box"><%= check_box_tag "category[#{category.name}]" %>
         <%= label_tag("category[#{category.name}]", "#{category.name}") %></li>
       <% end %>
     </ul>

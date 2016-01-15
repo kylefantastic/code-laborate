@@ -18,18 +18,18 @@
           <%= f.label :website_url, "Website" %>
             <%= error_show(@organization, :website_url) %>
             <%= f.text_field :website_url, class: "form-control" %>
-        <%= f.label :description %>
+        <%= f.label :description,"Mission/Description" %>
             <%= error_show(@organization, :description) %>
-            <%= f.text_area :description, placeholder: "Add your mission or description here", class: "form-control" %><br>
-              <%= hidden_field(:organization, :id) %>
-        <%= f.submit "Update organization", class: "button update-org" %>
-        <!-- refactor Currently not updatable -->
-        <p>
+            <%= f.text_area :description,  class: "form-control" %>
+
+          <!-- refactor Currently not updatable -->
           <%= f.label :logo %><br>
           <%= error_show(@organization, :logo) %>
-          <%= f.file_field :logo, as: :file %>
-        </p>
-    </div>
+          <%= f.file_field :logo, as: :file %><br>
+              <%= hidden_field(:organization, :id) %>
+        <%= f.submit "Update organization", class: "btn btn-default button update-org" %>
+
+      </div>
   </div>
     <% end %>
     </body>

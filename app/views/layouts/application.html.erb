@@ -24,8 +24,8 @@
               <li role="presentation"><%= link_to 'Projects', projects_path, :class => 'navbar-link' %> </li>
             <% end %>
             <% else %>
-            <li role="presentation"><%= link_to "Sign up", new_user_registration_path(anchor: "dev"), :class => 'navbar-link nav-bar-right' %></li>
-            <li role="presentation"><%= link_to "Login", new_user_session_path(anchor: "org"), :class => 'navbar-link nav-bar-right'  %> </li>
+            <li role="presentation"><%= link_to "Sign up", new_user_registration_path, :class => 'navbar-link nav-bar-right sign-up' %></li>
+            <li role="presentation"><%= link_to "Login", new_user_session_path, :class => 'navbar-link nav-bar-right'  %> </li>
             <% end %>
             <% if current_user %>
             <% if current_user.org_affiliate %>
@@ -73,6 +73,7 @@
       <!-- <div class="container wrapper"> -->
 
       <%= yield %>
+      <div id="scroll-here"></div>
       <div class="push"></div>
       </div>
       <div class="footer">
