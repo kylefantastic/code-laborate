@@ -153,6 +153,12 @@ footer {
   font-weight: bold;
   font-family:Arial, Helvetica, sans-serif;
 }
+#search{
+  text-align: center;
+  font-weight: bold;
+  font-family:Arial, Helvetica, sans-serif;
+
+}
 #org-sign-up-form{
   width: 80%;
   margin: auto;
