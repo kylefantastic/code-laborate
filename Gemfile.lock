@@ -51,11 +51,6 @@ GEM
       rack (>= 1.0.0)
       rack-test (>= 0.5.4)
       xpath (~> 2.0)
-    carrierwave (0.10.0)
-      activemodel (>= 3.2.0)
-      activesupport (>= 3.2.0)
-      json (>= 1.7)
-      mime-types (>= 1.16)
     childprocess (0.5.9)
       ffi (~> 1.0, >= 1.0.11)
     chromedriver-helper (1.0.0)
@@ -117,11 +112,7 @@ GEM
     mail (2.6.3)
       mime-types (>= 1.16, < 3)
     mime-types (2.99)
-
-    mini_magick (4.3.6)
-
     mimemagic (0.3.0)
-
     mini_portile2 (2.0.0)
     minitest (5.8.3)
     multi_json (1.11.2)
@@ -255,7 +246,6 @@ DEPENDENCIES
   awesome_print
   byebug
   capybara
-  carrierwave
   chromedriver-helper
   coffee-rails (~> 4.1.0)
   database_cleaner
@@ -266,7 +256,6 @@ DEPENDENCIES
   hirb
   jbuilder (~> 2.0)
   jquery-rails
-  mini_magick
   omniauth-facebook
   paperclip (~> 4.3)
   pg
