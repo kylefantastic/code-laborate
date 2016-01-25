@@ -16,8 +16,8 @@
           <% else %>
             <%= render partial: "/bookmarks/unbookmark", :locals => {project: project} %>
           <% end %>
-          <img src="http://placehold.it/64x64" />
-    <!--  <%= image_tag @project.project_image.url(:thumb), :class =>"media-object" %> -->
+          <!-- <img src="http://placehold.it/64x64" /> -->
+          <%= image_tag project.project_image.url(:thumb), :class =>"media-object" %> -->
       </div>
   <div class="media-body">
     <h4 class="media-heading"><span class="project-list-vision">Vision</span> <%= project.vision %> </h4>
