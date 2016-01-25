@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 
 # Specify Ruby version
-ruby '2.0.0'
+ruby '2.2.2'
 
 gem 'rails', '4.2.4'
 gem 'pg'
