@@ -35,8 +35,8 @@
      <%= image_tag project.project_image.url(:thumb), :class =>"media-object" %>
       </div>
   <div class="media-body">
-    <h4 class="media-heading"><span class="project-list-vision">Vision</span> <%= project.vision %> </h4>
-      <p><span class="project-title"><%= link_to project.title, project %></span>, for <%= link_to project.organization.name, project.organization.website_url %></p>
+      <h4><span class="project-title"><%= link_to project.title, project %></span>, for <%= link_to project.organization.name, project.organization.website_url %></h4>
+    <p class="media-heading"><span class="project-list-vision">Vision</span> <%= project.vision %> </p>
   </div></li>
    <% end %>
       <%else%>
