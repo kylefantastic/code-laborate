@@ -28,6 +28,20 @@
   color: red;
 }
 
+.right{
+  width: 40%;
+  display: inline-block;
+  float: left;
+}
+.left-one{
+  width: 48%;
+  display: inline-block;
+  float: left;
+}
+#block{
+  clear:both;
+}
+
 .blue {
   color: #fff;
   background-color: #337ab7;
