@@ -250,6 +250,11 @@ footer {
   background-color:#f0f0f5;
   margin-bottom: 3%;
 }
+#test{
+  height: auto;
+  color: red;
+  overflow-y:hidden
+}
 .edit-developer-div{
   width: 80%;
   margin: auto;
