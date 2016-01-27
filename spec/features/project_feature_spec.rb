@@ -13,7 +13,7 @@ describe 'Project feature testing:', :type => :feature, js: true do
     before :each do
       seed_categories
       org_user_login
-      @organization = Organization.create(name:"Fishy", website_url:"www.google.com", description:"I like saving fish")
+      @organization = Organization.create!(name:"Fishy", website_url:"www.google.com", description:"I like saving fish")
       new_org
     end
     scenario 'a user can click the create projects button' do
@@ -31,7 +31,7 @@ describe 'Project feature testing:', :type => :feature, js: true do
     before :each do
       seed_categories
       org_user_login
-      @organization = Organization.create(name:"Fishy", website_url:"www.google.com", description:"I like saving fish")
+      @organization = Organization.create!(name:"Fishy", website_url:"www.google.com", description:"I like saving fish")
     end
 
     scenario 'a user can delete a project' do
