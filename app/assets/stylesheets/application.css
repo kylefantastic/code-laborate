@@ -52,12 +52,6 @@
   border: 30px #eee solid
 }
 
-/*.carousel-fade .carousel-inner > .item {
-  -webkit-transition-property: opacity .2s;
-  -moz-transition-property: opacity .2s;
-  -o-transition-property: opacity .2s;
-  transition-property: opacity .2s;
-}*/
 .jumbotron .container {
   /*margin-left: 2em !important;*/
   /*margin-right: 2em !important;*/
@@ -311,13 +305,13 @@ footer {
   font-weight: bold;
   font-family:Arial, Helvetica, sans-serif;
 }
-#abandon-project{
+#abandon-project#get-project-edit#delete-project#complete-projecet{
   display: inline-block;
   float:right;
   bottom: 0;
   margin: .5%;
 }
-#get-project-edit{
+/*#get-project-edit{
   display: inline-block;
   float:right;
   bottom: 0;
@@ -334,7 +328,7 @@ footer {
   float:right;
   bottom: 0;
   margin: .5%;
-}
+}*/
 #search-form{
 float:right;
 }
