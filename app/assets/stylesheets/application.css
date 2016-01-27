@@ -189,10 +189,17 @@ footer {
   margin: auto;
   border: solid 2px #4d0019;
   padding: 2%;
-  background-color:#f0f0f5
-
+  background-color:#f0f0f5;
+  border-radius: 1%;
 }
-
+#edit_project_form{
+  width: 80%;
+  margin: auto;
+  border: solid 2px #4d0019;
+  padding: 2%;
+  background-color:#f0f0f5;
+  border-radius: 1%;
+}
 .media.projects-list{
   margin-bottom: 40px;
 }
@@ -300,16 +307,22 @@ footer {
   font-weight: bold;
   font-family:Arial, Helvetica, sans-serif;
 }
+.edit-project-header{
+  text-align: center;
+  font-weight: bold;
+  font-family:Arial, Helvetica, sans-serif;
+}
 .chosen{
   text-align: center;
   font-weight: bold;
   font-family:Arial, Helvetica, sans-serif;
 }
-#abandon-project#get-project-edit#delete-project#complete-projecet{
+#abandon-project#get-project-edit#delete-project#complete-project{
   display: inline-block;
   float:right;
   bottom: 0;
   margin: .5%;
+
 }
 /*#get-project-edit{
   display: inline-block;
