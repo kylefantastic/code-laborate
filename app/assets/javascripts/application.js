@@ -34,6 +34,7 @@ $(document).ready(function() {
   agreementAlertOrg()
 
 });
+
 function signUp(){
   $(".sign-up").click(function(e){
     $("html,body").animate({ scrollTop: $('.jumbotron').height() }, "slow");

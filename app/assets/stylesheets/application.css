@@ -252,8 +252,7 @@ footer {
 }
 #test{
   height: auto;
-  color: red;
-  overflow-y:hidden
+  overflow-y:hidden;
 }
 .edit-developer-div{
   width: 80%;
