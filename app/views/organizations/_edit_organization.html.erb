@@ -1,4 +1,7 @@
-  <div id="update_org_form">
+<%= render template: "layouts/other" %>
+      <div id="update_org_form">
+        <h1>Update Up Your Organization</h1>
+
     <%= form_for :organization, url: organizations_path, html: {id:"edit-org-form", role: "form"} do |f| %>
       <% if @organization.errors.any? %>
         <div id="error_explanation">
@@ -8,28 +11,32 @@
           </h3>
         </div>
       <% end %>
-
       <div class="form-group">
-        <p>
           <%= f.label :name, "Organization Name" %>
-          <%= error_show(@organization, :name) %>
-          <%= f.text_field :name, class: "form-control" %>
-        </p>
-
-        <p>
+            <%= error_show(@organization, :name) %>
+            <%= f.text_field :name, class: "form-control" %>
           <%= f.label :website_url, "Website" %>
-          <%= error_show(@organization, :website_url) %>
-          <%= f.text_field :website_url, class: "form-control" %>
-        </p>
+            <%= error_show(@organization, :website_url) %>
+            <%= f.text_field :website_url, class: "form-control" %>
+        <%= f.label :description,"Mission/Description" %>
+            <%= error_show(@organization, :description) %>
+            <%= f.text_area :description,  class: "form-control" %>
 
-        <p>
-          <%= f.label :description %><br>
-          <%= error_show(@organization, :description) %>
-          <%= f.text_area :description, placeholder: "Add your mission or description here", class: "form-control" %>
-        </p>
-        <%= button_to "Update Account", organization_path(@organization), :class => "button update-org", class: "btn btn-default", :method => :put %>
-        <%= hidden_field(:organization, :id) %>
-    </div>
-    <% end %>
+          <!-- refactor Currently not updatable -->
+          <%= f.label :logo %><br>
+          <%= error_show(@organization, :logo) %>
+          <%= f.file_field :logo, as: :file %><br>
+              <%= hidden_field(:organization, :id) %>
+        <%= f.submit "Update organization", class: "btn btn-default button update-org" %>
+
+      </div>
   </div>
+    <% end %>
+    </body>
+             <div class="footer">
+         <footer>
+            <h1>&lt;&#47;code&gt;</h1>
+</footer>
+  </html>
+
 

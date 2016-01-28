@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160112181325) do
+ActiveRecord::Schema.define(version: 20160114002607) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -23,12 +23,36 @@ ActiveRecord::Schema.define(version: 20160112181325) do
     t.datetime "updated_at",   null: false
   end
 
+  create_table "categories", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "category_projects", force: :cascade do |t|
+    t.integer  "project_id"
+    t.integer  "category_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
   create_table "organizations", force: :cascade do |t|
     t.string   "name"
     t.string   "website_url"
     t.text     "description"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
+    t.string   "logo_file_name"
+    t.string   "logo_content_type"
+    t.integer  "logo_file_size"
+    t.datetime "logo_updated_at"
+  end
+
+  create_table "project_images", force: :cascade do |t|
+    t.string   "name"
+    t.string   "file"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "projects", force: :cascade do |t|
@@ -37,15 +61,19 @@ ActiveRecord::Schema.define(version: 20160112181325) do
     t.text     "need"
     t.text     "description"
     t.text     "benefit"
-    t.boolean  "confirmed?",      default: false
+    t.boolean  "confirmed?",                 default: false
     t.string   "contact_name"
     t.string   "contact_email"
     t.string   "contact_phone"
     t.date     "deadline"
     t.integer  "developer_id"
     t.integer  "organization_id"
-    t.datetime "created_at",                      null: false
-    t.datetime "updated_at",                      null: false
+    t.datetime "created_at",                                 null: false
+    t.datetime "updated_at",                                 null: false
+    t.string   "project_image_file_name"
+    t.string   "project_image_content_type"
+    t.integer  "project_image_file_size"
+    t.datetime "project_image_updated_at"
   end
 
   create_table "users", force: :cascade do |t|

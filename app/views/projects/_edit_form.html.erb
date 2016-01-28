@@ -1,3 +1,4 @@
+<%= render template: "layouts/other" %>
 <%= form_for :project, url: projects_path, html: {id: "project-edit-form", role: "form"} do |f| %>
   <%= hidden_field(:project, :id) %>
       <% if @project.errors.any? %>
@@ -8,7 +9,7 @@
           </h3>
         </div>
       <% end %>
-    <div class="form-group">
+    <div class="form-group edit-project-form">
       <p>
         <%= f.label :title, "Project Title" %>
         <%= error_show(@project, :title) %>
@@ -43,6 +44,22 @@
         <div>Who will benefit from implementation of this project</div>
       </p>
 
+<!-- Dropdown categories here -->
+      <div><%= f.label :category,"Category" %></div>
+      <ul>
+        <% @categories.each do |category| %>
+            <li>
+            <% #if @project.categories.include?(category) %>
+              <%#= check_box_tag "category[#{category.name}]", 'yes', true %>
+            <%# else %>
+              <%= check_box_tag "category[#{category.name}]" %>
+            <%# end %>
+
+          <%= label_tag("category[#{category.name}]", "#{category.name}") %></li>
+        <% end %>
+        <!-- <li><%#= check_box_tag (:category), 'yes', true %></li> -->
+      </ul>
+
       <p>
         <%= f.label :contact_name,"Contact name" %><br>
         <%= error_show(@project, :contact_name) %>
@@ -52,13 +69,19 @@
       <p>
         <%= f.label :contact_email,"Contact email" %><br>
         <%= error_show(@project, :contact_email) %>
-        <%= f.text_field :contact_email, class: "form-control" %>
+        <%= f.email_field :contact_email, class: "form-control" %>
       </p>
       <p>
 
         <%= f.label :contact_phone,"Contact phone number" %><br>
         <%= error_show(@project, :contact_phone) %>
         <%= f.text_field :contact_phone, class: "form-control" %>
+      </p>
+
+      <!-- refactor This is currently not editable. -->
+      <p>
+        <%= f.label :project_image, "Project Image" %><br>
+        <%= f.file_field :project_image, as: :file %>
       </p>
 
       <p>
@@ -69,5 +92,6 @@
       <p>
         <%= f.submit "Update project", id: "submit-project-update", class: "btn btn-default" %>
       </p>
-    <div class="form-group">
     <% end %>
+    <div class="form-group">
+      <!-- refactor what is this? -->
