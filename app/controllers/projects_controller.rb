@@ -1,10 +1,11 @@
 class ProjectsController < ApplicationController
+
   layout false, only: [:index , :show, :new, :edit]
-  def index
+ 
+  def index 
     @project = Project.new #Do we need this?
     @projects = Project.all
     @organizations = Organization.all
-    # debugger
     if current_user && !current_user.org_affiliate
       seek
     end
