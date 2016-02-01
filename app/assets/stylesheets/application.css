@@ -322,14 +322,14 @@ footer {
   font-weight: bold;
   font-family:Arial, Helvetica, sans-serif;
 }
-#abandon-project#get-project-edit#delete-project#complete-project{
+#abandon-project{
   display: inline-block;
   float:right;
   bottom: 0;
   margin: .5%;
 
 }
-/*#get-project-edit{
+#get-project-edit{
   display: inline-block;
   float:right;
   bottom: 0;
@@ -346,7 +346,7 @@ footer {
   float:right;
   bottom: 0;
   margin: .5%;
-}*/
+}
 #search-form{
 float:right;
 }
