@@ -4,27 +4,26 @@
     <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
   </head>
   <body>
-   <!-- <div class="welcome-email"> --> 
    <div style="background-color:#f0f0f5; padding:4%;">
-   <div style="background-color:white; border:solid 2px #4d0019; margin:5%; padding:5%; font-color:black">
-    <h2 style="text-align:center; font-style:15%">Welcome to &lt;Code&gt;laborate 
+   <div style="background-color:white; border:solid 2px #4d0019; margin:5%; padding:5%;">
+    <h1 style="text-align:center; color:#4d0019">Welcome to &lt;Code&gt;laborate, 
       <%if @user.org_affiliate %>
        <%= @user.first_name %>!
       <% else %>
        <%= @user.first_name %>!
       <% end %>          
-    </h2>
-    <p style="font-size:14px; font-color:#4d0019">  
+    </h1>
+    <p style="font-size:14px;color:black;">  
        A place to provide an active link between organizations and beginning programmers to build useful, meaningful technical tools.
     </p>
-    <p style="font-size:14px; font-color:black">
+    <p style="font-size:14px;color:black;">
       You have successfully signed up to code-laborate.herokuapp.com,
-      your username is: <%= @user.email %>.
+      your username is: <%= @user.email %>.<br>
       To login to the site, just follow this link: <%= @url %>.
     </p>
-    <p style="font-size:14px; font-color:black">Thanks for joining and have a great day!</p>
-    <h3 style="">  &lt;Code&gt;laborate Team </h3>
-    <p style="font-size:10px; font-size:black">Guidelines and Agreements: Please be aware that it is up to organizations and developers to communicate about the proposed projects, needs, and expectations. There is no guarantee that projects will get chosen.If your project is chosen, it is the responsibility of both parties to communicate about needs and expectations.Be aware that there are no guarantees of a finished product and no guarantee that an organization will choose to utilize a finished product.The code for any project that is adopted by an organization should be available to the developer(s). </p>
+    <p style="font-size:14px; color:black;">Thanks for joining and have a great day!</p>
+    <h3 style="color:#4d0019;">  &lt;Code&gt;laborate Team </h3>
+    <p style="font-size:10px; color:black; border:solid 1 px gray">Guidelines and Agreements: Please be aware that it is up to organizations and developers to communicate about the proposed projects, needs, and expectations. There is no guarantee that projects will get chosen.If your project is chosen, it is the responsibility of both parties to communicate about needs and expectations.Be aware that there are no guarantees of a finished product and no guarantee that an organization will choose to utilize a finished product.The code for any project that is adopted by an organization should be available to the developer(s). </p>
   </div>
   </div>  
   </body>
