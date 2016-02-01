@@ -19,8 +19,6 @@ gem 'omniauth-facebook'
 gem 'figaro'
 gem 'remotipart', '~> 1.2'
 gem 'paperclip', "~> 4.3"
-gem 'carrierwave'
-
 
 
 group :development, :test do
