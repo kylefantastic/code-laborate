@@ -22,6 +22,7 @@ gem 'paperclip', "~> 4.3"
 gem 'carrierwave'
 
 
+
 group :development, :test do
   # gem 'pry-debugger'
   gem 'database_cleaner'
