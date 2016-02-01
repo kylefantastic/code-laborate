@@ -97,6 +97,14 @@ class ProjectsController < ApplicationController
       if params[:search]
         @projects = Project.search(params[:search]).order("created_at DESC")
         @organizations = Organization.search(params[:search]).order("created_at DESC")
+        @cat_projects = []
+        Project.all.each do |project|
+          project.categories.each do |category|
+            if category.name == params[:search]
+              @cat_projects << project
+            end
+          end
+        end
         render template: "projects/_search_results"
       else
         @projects = Project.order("created_at DESC")
