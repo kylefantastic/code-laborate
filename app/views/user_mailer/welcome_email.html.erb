@@ -5,9 +5,9 @@
   </head>
   <body>
    <!-- <div class="welcome-email"> --> 
-   <div style="background-color:#f0f0f5; padding:3%;">
+   <div style="background-color:#f0f0f5; padding:4%;">
    <div style="background-color:white; border:solid 2px #4d0019; margin:5%; padding:5%;">
-    <h3 style="text-align:center">Welcome to Code-Laborate
+    <h3 style="text-align:center; font-style:15%">Welcome to &lt;Code&gt;laborate 
       <%if @user.org_affiliate %>
        <%= @user.first_name %>!
       <% else %>
@@ -16,13 +16,13 @@
     </h3>
     <p style="font-size:14px">  
       You have successfully signed up to code-laborate.herokuapp.com,
-      your username is: <%= @user.email %>.
+      your username is: <%= @user.email %>. A place to provide an active link between organizations and beginning programmers to build useful, meaningful technical tools.
     </p>
     <p>
       To login to the site, just follow this link: <%= @url %>.
     </p>
     <p>Thanks for joining and have a great day!</p>
-    <h4 style="color:blue;">  &lt;code&gt;laborate Team </h4>
+    <h4 style="color:blue;">  &lt;Code&gt;laborate Team </h4>
     <p>Terms & Guidlines: </p>
   </div>
   </div>  
