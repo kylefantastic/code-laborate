@@ -1,4 +1,4 @@
-class Users::RegistrationsController < Devise::RegistrationsController
+class RegistrationsController < Devise::RegistrationsController
 
     def index
     end
