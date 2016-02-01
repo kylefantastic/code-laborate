@@ -1,10 +1,9 @@
 class ProjectsController < ApplicationController
   layout false, only: [:index , :show, :new, :edit]
   def index
-    @project = Project.new #Do we need this?
+    @project = Project.new 
     @projects = Project.all
     @organizations = Organization.all
-    # debugger
     if current_user && !current_user.org_affiliate
       seek
     end
@@ -54,7 +53,6 @@ class ProjectsController < ApplicationController
         UserMailer.dev_project(@project,@user).deliver_later
       end
         if params[:category]
-
           @project_category_names = params[:category].keys
           @project.categories = []
           @project_category_names.each do |name|

@@ -4,13 +4,22 @@
     <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
   </head>
   <body>
-    <h1>Hi, <%= @project.contact_name %></h1>
-    <p>
-      Your project <%= @project.title %> has been picked up.<br>
+  <div style="background-color:#f0f0f5; padding:4%;">
+  <div style="background-color:white; border:solid 2px #4d0019; margin:3%; padding:3%;">
+  <h1 style="text-align:center; color:#4d0019">
+    &lt;Code&gt;laborate
+  </h1>
+    <p style="font-size:14px; color:black">
+    Hi, <%= @project.contact_name %>
+  </h1>
+    <p style="font-size:14px; color:black">
+      Congrats your project <%= @project.title %> has been selected! Per the agreement with us, you need to contact the developer's infomation below to move on with the project
     </p>
-    <p>Please confirm with <%= @user.first_name %>, <%= @user.email %>
-
-    <p>Thanks for joining and have a great day!</p>
-    <p> Code Laborate Team</p>
+    <p style="font-size:14px; color:black">Please confirm with <%= @user.first_name %>, <%= @user.email %>  and set up a meeting. 
+    </p>
+    <p style="font-size:14px; color:black">Thanks for using our site and have a great day!</p>
+    <h2 style="color:#4d0019;">  &lt;Code&gt;laborate Team </h2>
+  </div>
+  </div>  
   </body>
 </html>

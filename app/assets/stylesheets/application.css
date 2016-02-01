@@ -28,6 +28,20 @@
   color: red;
 }
 
+.right{
+  width: 40%;
+  display: inline-block;
+  float: left;
+}
+.left-one{
+  width: 48%;
+  display: inline-block;
+  float: left;
+}
+#block{
+  clear:both;
+}
+
 .blue {
   color: #fff;
   background-color: #337ab7;
@@ -38,12 +52,6 @@
   border: 30px #eee solid
 }
 
-/*.carousel-fade .carousel-inner > .item {
-  -webkit-transition-property: opacity .2s;
-  -moz-transition-property: opacity .2s;
-  -o-transition-property: opacity .2s;
-  transition-property: opacity .2s;
-}*/
 .jumbotron .container {
   /*margin-left: 2em !important;*/
   /*margin-right: 2em !important;*/
@@ -181,10 +189,17 @@ footer {
   margin: auto;
   border: solid 2px #4d0019;
   padding: 2%;
-  background-color:#f0f0f5
-
+  background-color:#f0f0f5;
+  border-radius: 1%;
 }
-
+#edit_project_form{
+  width: 80%;
+  margin: auto;
+  border: solid 2px #4d0019;
+  padding: 2%;
+  background-color:#f0f0f5;
+  border-radius: 1%;
+}
 .media.projects-list{
   margin-bottom: 40px;
 }
@@ -232,7 +247,12 @@ footer {
   margin: auto;
   border: solid 2px #4d0019;
   padding: 1.5%;
-  background-color:#f0f0f5
+  background-color:#f0f0f5;
+  margin-bottom: 3%;
+}
+#test{
+  height: auto;
+  overflow-y:hidden;
 }
 .edit-developer-div{
   width: 80%;
@@ -292,6 +312,11 @@ footer {
   font-weight: bold;
   font-family:Arial, Helvetica, sans-serif;
 }
+.edit-project-header{
+  text-align: center;
+  font-weight: bold;
+  font-family:Arial, Helvetica, sans-serif;
+}
 .chosen{
   text-align: center;
   font-weight: bold;
@@ -302,6 +327,7 @@ footer {
   float:right;
   bottom: 0;
   margin: .5%;
+
 }
 #get-project-edit{
   display: inline-block;
@@ -337,6 +363,7 @@ float:right;
 #past-projects-head{
   color: white;
 }
+
 
 
 
