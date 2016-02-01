@@ -4,8 +4,15 @@
     <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
   </head>
   <body>
-    <h1>Welcome to example.com, <%= @user.first_name %></h1>
-    <p>
+   <!-- <div class="welcome-email"> --> 
+   <div style="background-color:light-grey; font-family:Verdana;font-size:12px">
+    <h3>Welcome to Code-Laborate, 
+      <%if @user.org_affiliate %>
+       <%= @user.first_name %>
+      <% else %>
+       <%= @user.first_name %>
+      <% end %>          
+    </h3>  
       You have successfully signed up to code-laborate.herokuapp.com,
       your username is: <%= @user.email %>.<br>
     </p>
@@ -13,5 +20,8 @@
       To login to the site, just follow this link: <%= @url %>.
     </p>
     <p>Thanks for joining and have a great day!</p>
+    <h4 style="color:blue;">  &lt;code&gt;laborate Team </h4>
+  </div>  
   </body>
 </html>
+
