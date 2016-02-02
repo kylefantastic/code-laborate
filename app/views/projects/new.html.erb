@@ -1,105 +1,131 @@
 
-<%= render template: "layouts/other" %>
+<%=render template: "layouts/other" %>
 
-  <div id="new_project_form">
-<h2 class="new-project-header">Add A New Project</h2>
-    <%= form_for :project, url: projects_path do |f| %>
-    <div class="form-group">
-      <% if @project.errors.any? %>
-        <div id="error_explanation">
-          <p>
-            <%= pluralize(@project.errors.count, "error") %> prohibited
-            this project from being saved:
-          </p>
-        </div>
-      <% end %>
+    <div id="new_project_form">
+        <h2 class="new-project-header">Add A New Project</h2>
+        <%=form_for :project, url: projects_path do |f| %>
+            <div class="form-group">
+                <% if @project.errors.any? %>
+                    <div id="error_explanation">
+                        <p>
+                            <%=p luralize(@project.errors.count, "error") %> prohibited this project from being saved:
+                        </p>
+                    </div>
+                    <% end %>
 
-    <div class="form-group">
-      <p>
-        <div class="required"><%= f.label :title, "Project Title" %></div>
-        <%= error_show(@project, :title) %>
-        <%= f.text_field :title, class: "form-control" %>
-      </p>
+                        <div class="form-group">
+                            <p>
+                                <div class="required">
+                                    <%=f.label :title, "Project Title" %>
+                                </div>
+                                <%=error_show(@project, :title) %>
+                                    <%=f.text_field :title, class: "form-control" %>
+                            </p>
 
-      <p>
-        <div class="required"><%= f.label :vision, "Vision" %></div>
-        <%= error_show(@project, :vision) %>
-        <%= f.text_area :vision, placeholder:"Add vision", class: "form-control" %>
-        <span id="helpBlock" class="help-block">A sentence about your organizations goal for this project</span>
-      </p>
+                            <p>
+                                <div class="required">
+                                    <%=f.label :vision, "Vision" %>
+                                </div>
+                                <%=error_show(@project, :vision) %>
+                                    <%=f.text_area :vision, placeholder: "Add vision", class: "form-control" %>
+                                        <span id="helpBlock" class="help-block">A sentence about your organizations goal for this project</span>
+                            </p>
 
-      <p>
-        <div class="required"><%= f.label :need, "Need" %></div>
-        <%= error_show(@project, :need) %>
-        <%= f.text_area :need, placeholder: "Add Need", class: "form-control" %>
+                            <p>
+                                <div class="required">
+                                    <%=f.label :need, "Need" %>
+                                </div>
+                                <%=error_show(@project, :need) %>
+                                    <%=f .text_area :need, placeholder: "Add Need", class: "form-control" %>
 
-        <span id="helpBlock" class="help-block">What need will this project address</span>
+                                        <span id="helpBlock" class="help-block">What need will this project address</span>
 
-      </p>
-      <p>
-        <div class="required"><%= f.label :description, "Description" %></div>
-        <%= error_show(@project, :description) %>
-        <%= f.text_area :description, placeholder: "Add Description", class: "form-control" %>
+                            </p>
+                            <p>
+                                <div class="required">
+                                    <%=f.label :description, "Description" %>
+                                </div>
+                                <%=error_show(@project, :description) %>
+                                    <%=f.text_area :description, placeholder: "Add Description", class: "form-control" %>
 
-        <span id="helpBlock" class="help-block">Describe proposed project details here.  Include what you want a user to do
+                                        <span id="helpBlock" class="help-block">Describe proposed project details here.  Include what you want a user to do
           and what functionality you need.  Include any computer languages, if any, required for your project.
         </span>
-      </p>
-      <p>
-        <div class="required"><%= f.label :benefit,"Benefit" %></div>
-        <%= error_show(@project, :benefit) %>
-        <%= f.text_area :benefit, placeholder: "Add Benefit", class: "form-control" %>
+                            </p>
+                            <p>
+                                <div class="required">
+                                    <%=f.label :benefit, "Benefit" %>
+                                </div>
+                                <%=error_show(@project, :benefit) %>
+                                    <%=f.text_area :benefit, placeholder: "Add Benefit", class: "form-control" %>
 
-        <span id="helpBlock" class="help-block">Who will benefit from implementation of this project</span>
-      </p>
+                                        <span id="helpBlock" class="help-block">Who will benefit from implementation of this project</span>
+                            </p>
 
-<!-- Dropdown categories here -->
-    <div><%= f.label :category,"Category" %></div>
+                            <!-- Dropdown categories here -->
+                            <div>
+                                <%=f.label :category, "Category" %>
+                            </div>
 
-    <ul>
-      <% @categories.each do |category| %>
-        <li id="check-box"><%= check_box_tag "category[#{category.name}]" %>
-        <%= label_tag("category[#{category.name}]", "#{category.name}") %></li>
-      <% end %>
-    </ul>
+                            <ul>
+                                <% @categories.each do |category| %>
+                                    <li id="check-box">
+                                        <%=check_box_tag "category[#{category.name}]" %>
+                                            <%=label_tag( "category[#{category.name}]", "#{category.name}") %>
+                                    </li>
+                                    <% end %>
+                            </ul>
 
-      <p>
-        <div class="required"><%= f.label :contact_name,"Contact name" %></div>
-        <%= error_show(@project, :contact_name) %>
-        <%= f.text_field :contact_name, class: "form-control" %>
-      </p>
+                            <p>
+                                <div class="required">
+                                    <%=f.label :contact_name, "Contact name" %>
+                                </div>
+                                <%=error_show(@project, :contact_name) %>
+                                    <%=f .text_field :contact_name, class: "form-control" %>
+                            </p>
 
-      <p>
-        <div class="required"><%= f.label :contact_email,"Contact email" %></div>
-        <%= error_show(@project, :contact_email) %>
-        <%= f.email_field :contact_email, class: "form-control" %>
-      </p>
-      <p>
+                            <p>
+                                <div class="required">
+                                    <%=f.label :contact_email, "Contact email" %>
+                                </div>
+                                <%=error_show(@project, :contact_email) %>
+                                    <%=f.email_field :contact_email, class: "form-control" %>
+                            </p>
+                            <p>
 
-        <div class="required">
+                                <div class="required">
 
-          <%= f.label :contact_phone,"Contact phone number" %></div>
-          <div class="phone_number">
-            <%= f.text_field :contact_phone, class: "form-control" %>
-            <%= error_show(@project, :contact_phone) %>
-          </div>
-      </p>
+                                    <%=f.label :contact_phone, "Contact phone number" %>
+                                </div>
+                                <div class="phone_number">
+                                    <%=f.text_field :contact_phone, class: "form-control" %>
+                                        <%=error_show(@project, :contact_phone) %>
+                                </div>
+                            </p>
 
-      <p>
-        <!-- For Paperclip -->
-        <%= f.label :project_image, "Project Image" %><br>
-        <%= f.file_field :project_image, as: :file %>
-      </p>
+                            <p>
+                                <!-- For Paperclip -->
+                                <%=f.label :project_image, "Project Image" %>
+                                    <br>
+                                    <%=f.file_field :project_image, as: :file %>
+                            </p>
 
-      <p>
-        <%= f.label :deadline,"Deadline" %>
-        <%= f.date_field :deadline%>
-      </p>
-      <%= f.hidden_field :organization_id, :value=> current_user.organization_id, class: "form-control" %>
-      </div>
-      <p>
-        <%= f.submit class: "btn btn-default", id:"add-project-btn"%>
-      </p>
+                            <p>
+                                <%=f.label :deadline, "Deadline" %>
+                                    <%=f.date_field :deadline%>
+                            </p>
+                            <%=f.hidden_field :organization_id, :value=> current_user.organization_id, class: "form-control" %>   
+                        <p>
+                            <%=f.submit id:"add-project-btn", class: "btn btn-default"%>
+                        </p>
+
+                      </div>  
+            </div>
+            <% end %>
     </div>
-    <% end %>
-  </div>
+    <div class="push"></div>
+    <div class="footer">
+        <footer>
+            <h1 id="footer-code">&lt;&#47;code&gt;</h1>
+        </footer>
+    </div>
