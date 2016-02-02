@@ -41,7 +41,7 @@ function signUp(){
 })
 }
 function registerForm(){
-  $('#dev').click(function() {
+  $('#dev-signup-button').click(function() {
     $('#devform').show();
     // $('#panel-dev').css('background-color','blue')
     $('.mission').css('border','solid 2px blue')
@@ -49,7 +49,7 @@ function registerForm(){
     $("html,body").animate({ scrollTop: $('.jumbotron').height() }, "slow");
     $('#orgform').hide();
   })
-  $('#org').click(function() {
+  $('#org-signup-button').click(function() {
     $('#orgform').show();
     $('.mission').css('border','solid 1px gray')
     $('.purpose').css('border','solid 2px orange')
