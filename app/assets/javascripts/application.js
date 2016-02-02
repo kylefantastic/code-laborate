@@ -43,7 +43,8 @@ function signUp(){
 function registerForm(){
   $('#dev-signup-button').click(function() {
     $('#devform').show();
-    // $('#panel-dev').css('background-color','blue')
+    $('#dev-signup-button').css('border','solid 2px blue')
+    $('#org-signup-button').css('border','solid 1px gray')
     $('.mission').css('border','solid 2px blue')
     $('.purpose').css('border','solid 1px gray')
     $("html,body").animate({ scrollTop: $('.jumbotron').height() }, "slow");
@@ -51,11 +52,10 @@ function registerForm(){
   })
   $('#org-signup-button').click(function() {
     $('#orgform').show();
+    $('#dev-signup-button').css('border','solid 1px gray')
+    $('#org-signup-button').css('border','solid 2px orange')
     $('.mission').css('border','solid 1px gray')
     $('.purpose').css('border','solid 2px orange')
-
-    // $('#orgform').css('border-color','blue')
-    // $(this).css('color','black');
     $("html,body").animate({ scrollTop: $('.jumbotron').height() }, "slow");
     $('#devform').hide();
   })
