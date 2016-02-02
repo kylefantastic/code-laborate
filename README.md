@@ -25,7 +25,7 @@ Code-laborate is an application written for and by coding bootcamp students.  It
 ##Licensing:
 MIT License- Please see the file called LICENSE.
 
-##To run locally via the commandline:
+##To run locally via the command line:
 
 1. git clone https://github.com/kylefantastic/codellaborate.git
 2. cd codellaborate
@@ -35,7 +35,7 @@ MIT License- Please see the file called LICENSE.
 6. rails server
 7. http://localhost:3000/
 
-##To run tests via commandline:
+##To run tests via command line:
 1. bundle install
 2. rspec
 
