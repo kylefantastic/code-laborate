@@ -239,6 +239,7 @@ footer {
   padding: 2%;
   background-color:#f0f0f5;
   border-radius: 1%;
+  overflow: hidden;
 }
 #edit_project_form{
   width: 80%;
@@ -279,10 +280,8 @@ footer {
 }
 
 #add-project-btn{
-  display: inline-block;
-  float:right;
-  margin: .5%;
-  color: red;
+  margin: 1%;
+  float: right;
 }
 #sign-in-form{
   width: 50%;
