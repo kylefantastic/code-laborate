@@ -30,6 +30,7 @@ class UsersController < ApplicationController
       email
       public_profile_url
       bootcamp
+      avatar
     )
     params.require(:user).permit(user_permitted)
   end
