@@ -3,7 +3,7 @@
   <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: {class: 'sign-up-form'}) do |f| %>
 
     <%= @errors %>
-    <div class="panel panel-default mission">
+    <div class="panel panel-default" id="dev-registration">
     <div class="panel-heading" id="dbc">
       <h3 class="panel-title" id="panel-dev"><button type="button" id="dev">Sign Up As Developer</button></h3>
     </div>
@@ -12,7 +12,7 @@
     </div>
 
   </div>
-  <div class="panel panel-default purpose">
+  <div class="panel panel-default" id="org-registration">
     <div class="panel-heading">
       <h3 class="panel-title" id="panel-dev" ><button type="button" id="org">Sign Up As Organization</button></h3>
     </div>
