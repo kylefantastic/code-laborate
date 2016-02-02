@@ -37,7 +37,8 @@ MIT License- Please see the file called LICENSE.
 
 ##To run tests via command line:
 1. bundle install
-2. rspec
+2. rails generate rspec:install
+3. rspec
 
 
 
