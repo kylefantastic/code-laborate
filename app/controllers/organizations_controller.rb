@@ -8,7 +8,6 @@ class OrganizationsController < ApplicationController
   end
 
   def create
-    p params
     @user= User.find_by(id:current_user.id)
     @organization = Organization.new(org_params)
     if @organization.save

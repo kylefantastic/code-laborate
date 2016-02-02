@@ -67,18 +67,18 @@
                </div>
              <div class="clearFloat">
                <% if current_user.organization == @organization %>
-               <%= button_to "Update Project", edit_project_path(@project), :class => "button", class: "btn btn-default", :id => "get-project-edit", :method => :get  %>
-               <%= button_to "Delete Project", project_path(@project), :class => "button", class: "btn btn-default", :id=>"delete-project", :method => :delete  %>
+               <%= button_to "Update Project", edit_project_path(@project), class: "btn btn-default", :id => "get-project-edit", :method => :get  %>
+               <%= button_to "Delete Project", project_path(@project), class: "btn btn-default", :id=>"delete-project", :method => :delete  %>
                <% end %>
                <% if !current_user.org_affiliate && current_user.current_project == nil && !@project.confirmed? %>
-               <%= button_to "Choose Project", project_path(@project), :class => "button", class: "btn btn-default", id: "choose-project", :method => :put %>
+               <%= button_to "Choose Project", project_path(@project), class: "btn btn-default", id: "choose-project", :method => :put %>
                <% end %>
                <% if !current_user.org_affiliate && current_user.current_project == @project %>
                <h3 class="chosen">
                You have chosen this project
                <h3>
-               <%= button_to "Complete", project_path(@project), :class => "button", class: "btn btn-default", id: "complete-project", :method => :put %>
-               <%= button_to "Abandon Project", project_path(@project), :class => "button", class: "btn btn-default", id: "abandon-project", :method => :put %>
+               <%= button_to "Complete", project_path(@project), class: "btn btn-default", id: "complete-project", :method => :put %>
+               <%= button_to "Abandon Project", project_path(@project), class: "btn btn-default", id: "abandon-project", :method => :put %>
                <% end %>
                <%= hidden_field(:project, :id) %>
                <input type="hidden" name="current_user[id]" id="current_user_id" value="<%= current_user.id %>">
