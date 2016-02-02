@@ -9,9 +9,6 @@
   border: solid 2px orange;
   padding: 2%;
 }
-#panel-dev{
-  color: black !important;
-}
 
 .field_with_errors input{
   border: 1px solid red;
@@ -26,6 +23,33 @@
 
 .error_message {
   color: red;
+}
+#panel-body-organization{
+  background-color: #4d0019;
+  color: gray;
+  text-align: center;
+}
+#organization-profile-header{
+  font-weight: bolder;
+  font-size: 20px;
+}
+#panel-body-projects{
+  background-color: #4d0019;
+  color: gray;
+  text-align: center;
+}
+#projects-profile-header{
+  font-weight: bolder;
+  font-size: 20px;
+}
+#panel-body-developer{
+  background-color: #4d0019;
+  color: gray;
+  text-align: center;
+}
+#developer-profile-header{
+  font-weight: bolder;
+  font-size: 20px;
 }
 
 .right{
@@ -104,34 +128,56 @@ footer {
    content:"*";
    color:red;
 }
-.mission{
+
+#mission{
   margin: auto;
   width: 40%;
-  border-radius: 20px;
-  float: left !important;
+  border-radius: 15px;
+  float: left;
   margin-left: 8%;
+  overflow: hidden;
 }
-.purpose{
+#purpose{
   margin: auto;
   width: 40%;
   border-radius: 20px;
-  margin-bottom: 25%;
-  float: right !important;
+  float: right;
   margin-right: 8%;
+  overflow: hidden;
 }
-.panel-title{
+#title-info{
   text-align: center;
   font-weight: bold;
-  color: white !important;
+  color: white;
   font-family:Arial, Helvetica, sans-serif;
 }
-.panel-heading{
-  background-color: #4d0019  !important;
+#header-info{
+  background-color: #4d0019;
   opacity: 0.8
 }
-#panel-body-dev{
-  background-color:#f0f0f5
+#dev-registration{
+  margin: auto;
+  width: 40%;
+  border-radius: 20px;
+  float: left;
+  margin-left: 8%;
+  overflow: hidden;
 }
+#org-registration{
+  margin: auto;
+  width: 40%;
+  border-radius: 20px;
+  float: left;
+  margin-left: 8%;
+  overflow: hidden;
+}
+#dev-panel-heading{
+  background-color: #4d0019;
+}
+#org-panel-heading{
+  background-color: #4d0019;
+}
+
 .footer{
   clear:both;
   height: 8%;
@@ -148,16 +194,18 @@ footer {
   clear:both;
   width: 84%;
   border-radius: 5px;
+  margin-top: 1%;
   margin-bottom: 5%;
-  float: left !important;
+  float: left; 
   margin-left: 8%;
 }
 #orgform{
   clear:both;
   width: 84%;
   border-radius: 5px;
+  margin-top: 1%;
   margin-bottom: 5%;
-  float: left !important;
+  float: left;
   margin-left: 8%;
 }
 .org-sign-up{
@@ -191,6 +239,7 @@ footer {
   padding: 2%;
   background-color:#f0f0f5;
   border-radius: 1%;
+  overflow: hidden;
 }
 #edit_project_form{
   width: 80%;
@@ -231,7 +280,8 @@ footer {
 }
 
 #add-project-btn{
-  float:right;
+  margin: 1%;
+  float: right;
 }
 #sign-in-form{
   width: 50%;
