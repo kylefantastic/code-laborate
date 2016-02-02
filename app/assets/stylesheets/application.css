@@ -231,7 +231,10 @@ footer {
 }
 
 #add-project-btn{
+  display: inline-block;
   float:right;
+  margin: .5%;
+  color: red;
 }
 #sign-in-form{
   width: 50%;
