@@ -1,18 +1,17 @@
 class OrganizationsController < ApplicationController
-  # before_action :authenticate_user!
+
   before_action :authorize_user, only: [:new, :show, :update, :destroy]
-  layout false, only: [:show,:update]
+  layout false, only: [:show, :update]
 
   def new
     @organization = Organization.new
   end
 
   def create
-    p params
-    @user= User.find_by(id:current_user.id)
+    @user= User.find_by(id: current_user.id)
     @organization = Organization.new(org_params)
     if @organization.save
-        @user.update!(organization_id:@organization.id)
+        @user.update!(organization_id: @organization.id)
         redirect_to organization_path(@organization)
     else
       render :new
@@ -51,7 +50,7 @@ class OrganizationsController < ApplicationController
     end
 
     def authorize_user
-      @user = User.find_by(id:current_user.id)
+      @user = User.find_by(id: current_user.id)
       unless @user.id == current_user.id
         redirect_to root_path
       end
