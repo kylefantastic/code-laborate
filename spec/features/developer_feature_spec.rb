@@ -160,6 +160,7 @@ describe 'Developer feature testing:', :type => :feature, js: true do
     end
   end
 end
+
 # scenario 'the developer can change their password' do
 #   fill_in 'password', with: 'betterpassword'
 #   fill_in 'confirm password', with: 'betterpassword'
