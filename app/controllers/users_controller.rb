@@ -1,4 +1,4 @@
-class UsersController < ApplicationController
+ class UsersController < ApplicationController
   layout false, only: [:show]
   def show
     @user = current_user
