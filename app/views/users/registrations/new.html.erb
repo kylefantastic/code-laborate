@@ -28,19 +28,24 @@
     </div>
     <div class="field">
       <div class="required"><%= f.label :last_name %></div>
-      <%= f.text_field :last_name, autofocus: true,class: "form-control" %>
+      <%= f.text_field :last_name, class: "form-control" %>
     </div>
     <div class="field">
       <div class="required"><%= f.label :email %></div>
-      <%= f.email_field :email, autofocus: true,class: "form-control" %>
+      <%= f.email_field :email, class: "form-control" %>
     </div>
     <div class="field">
       <%= f.label :public_profile_url, "Website or Github url" %><br />
-      <%= f.text_field :public_profile_url, autofocus: true,class: "form-control"%>
+      <%= f.text_field :public_profile_url, class: "form-control"%>
     </div>
     <div class="field">
       <%= f.label :bootcamp %><br />
-      <%= f.text_field :bootcamp, autofocus: true,class: "form-control" %>
+      <%= f.text_field :bootcamp, class: "form-control" %>
+    </div>
+
+    <div>
+      <%= f.label :avatar, "Avatar Image" %><br>
+      <%= f.file_field :avatar, as: :file %>
     </div>
 
     <div class="field">
@@ -76,16 +81,17 @@
       </div>
       <div class="field">
        <div class="required"><%= f.label :last_name %></div>
-        <%= f.text_field :last_name, autofocus: true ,class: "form-control"%>
+        <%= f.text_field :last_name, class: "form-control"%>
       </div>
       <div class="field">
         <div class="required"><%= f.label :email %></div>
-        <%= f.email_field :email, autofocus: true,class: "form-control" %>
+        <%= f.email_field :email, class: "form-control" %>
       </div>
       <div class="field">
         <%= f.label :public_profile_url %><br />
-        <%= f.text_field :public_profile_url, autofocus: true,class: "form-control" %>
+        <%= f.text_field :public_profile_url, class: "form-control" %>
       </div>
+
 
       <div class="field">
        <div class="required"><%= f.label :password %></div>

@@ -1,34 +1,37 @@
 class RegistrationsController < Devise::RegistrationsController
 
-  def create
-    @user = User.new(user_params)
-    if @user.save
-      sign_in @user
-      UserMailer.welcome_email(@user).deliver_later
-      if @user.org_affiliate
-        redirect_to new_organization_path
-      else
-        redirect_to projects_path
-      end
-    else
-      p @errors = @user.errors.messages
-      redirect_to new_user_registration_path
+    def index
     end
-  end
 
-  private
+    def create
+      @user = User.new(user_params)
+      if @user.save
+        sign_in @user
+        if @user.org_affiliate
+          redirect_to new_organization_path
+        else
+          redirect_to projects_path
+        end
+      else
+        p @errors = @user.errors.messages
+        redirect_to new_user_registration_path
+      end
+    end
 
-  def user_params
-    user_permitted = %i(
-      first_name
-      last_name
-      email
-      password
-      org_affiliate
-      password_confirmation
-      public_profile_url
-      bootcamp
-    )
-    params.require(:user).permit(user_permitted)
-  end
+    private
+
+    def user_params
+      user_permitted = %i(
+        first_name
+        last_name
+        email
+        password
+        org_affiliate
+        password_confirmation
+        public_profile_url
+        bootcamp
+        avatar
+      )
+      params.require(:user).permit(user_permitted)
+    end
 end

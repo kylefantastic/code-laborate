@@ -1,4 +1,4 @@
-class UsersController < ApplicationController
+ class UsersController < ApplicationController
   layout false, only: [:show]
   def show
     @user = current_user
@@ -30,6 +30,7 @@ class UsersController < ApplicationController
       email
       public_profile_url
       bootcamp
+      avatar
     )
     params.require(:user).permit(user_permitted)
   end
