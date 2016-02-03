@@ -13,9 +13,8 @@ describe 'Developer feature testing:', :type => :feature, js: true do
       scenario 'a user can sign up' do
         visit(root_path)
         click_link ('Sign up')
-        wait_for_ajax
+        find("#dev-signup-button")
         click_button('Sign Up As Developer')
-        wait_for_ajax
         fill_in 'First name', :with => 'Kim'
         fill_in 'Last name', :with => 'Doe'
         fill_in 'Email', :with => 'user@user.com'
@@ -23,9 +22,8 @@ describe 'Developer feature testing:', :type => :feature, js: true do
         fill_in 'Password confirmation', :with => 'password'
         find(:css, '#agree').set(true)
         click_button 'Sign up'
-        wait_for_ajax
-
-        expect(page).to have_content('Logout')
+        find("#projects-container")
+        expect(find("#projects-container")).to have_text("Projects")
       end
     end
   end
