@@ -100,7 +100,7 @@ class ProjectsController < ApplicationController
         @cat_projects = []
         Project.all.each do |project|
           project.categories.each do |category|
-            if category.name == params[:search]
+            if category.name.downcase == params[:search].downcase
               @cat_projects << project
             end
           end

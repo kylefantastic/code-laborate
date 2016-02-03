@@ -17,7 +17,7 @@ class Project < ActiveRecord::Base
   # validates_with AttachmentSizeValidator, attributes: :project_image, less_than: 1.megabytes
 
   def self.search(query)
-    where("description like ? or title like ?" , "%#{query}%", "%#{query}%")
+    where("description like ? or title like ?".downcase, "%#{query}%".downcase, "%#{query}%".downcase)
   end
 
   def validatePhoneNumber
