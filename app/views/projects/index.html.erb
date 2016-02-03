@@ -36,7 +36,7 @@
                   <%= render partial: "/bookmarks/unbookmark", :locals => {project: project} %>
                 <% end %>
                 <!-- <img src="http://placehold.it/64x64" /> -->
-                <%= image_tag project.project_image.url(:thumb), :class =>"media-object" %>
+                <%= image_tag project.project_image.url(:thumb), :class =>"media-object profile-image" %>
               </div>
               <div class="media-body">
               <h4><span class="project-title"><%= link_to project.title, project %></span>, for <%= link_to project.organization.name, project.organization.website_url %></h4>
