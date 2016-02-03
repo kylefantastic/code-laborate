@@ -140,7 +140,7 @@ footer {
 #purpose{
   margin: auto;
   width: 40%;
-  border-radius: 20px;
+  border-radius: 15px;
   float: right;
   margin-right: 8%;
   overflow: hidden;
@@ -158,7 +158,7 @@ footer {
 #dev-registration{
   margin: auto;
   width: 40%;
-  border-radius: 20px;
+  border-radius: 15px;
   float: left;
   margin-left: 8%;
   overflow: hidden;
@@ -166,7 +166,7 @@ footer {
 #org-registration{
   margin: auto;
   width: 40%;
-  border-radius: 20px;
+  border-radius: 15px;
   float: left;
   margin-left: 8%;
   overflow: hidden;
@@ -189,6 +189,7 @@ footer {
   margin-top: auto;
   margin-bottom: auto;
   color: white;
+  padding-right: 10%;
 }
 #devform{
   clear:both;
@@ -270,13 +271,19 @@ footer {
 }
 
 .projects-list .media-left {
+  min-width: 137px;
+  vertical-align: top;
 }
-
+.media-object.profile-image{
+  display: inline-block;
+}
 .fa-bookmark-o {
-  position: absolute;
+  vertical-align: top;
+
 }
 .fa-bookmark{
-  position: absolute;
+  vertical-align: top;
+
 }
 
 #add-project-btn{
