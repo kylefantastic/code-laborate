@@ -70,6 +70,7 @@
                <%= button_to "Update Project", edit_project_path(@project), :class => "button", class: "btn btn-default", :id => "get-project-edit", :method => :get  %>
                <%= button_to "Delete Project", project_path(@project), :class => "button", class: "btn btn-default", :id=>"delete-project", :method => :delete  %>
                <% end %>
+               <!-- confirmation of selection of project -->
                <% if !current_user.org_affiliate && current_user.current_project == nil && !@project.confirmed? %>
                <%= button_to "Choose Project", project_path(@project), :class => "button", class: "btn btn-default", id: "choose-project", :method => :put %>
                <% end %>

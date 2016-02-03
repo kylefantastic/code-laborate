@@ -32,8 +32,9 @@ MIT License- Please see the file called LICENSE.
 3. bundle install
 4. rake db:create
 5. rake db:migrate
-6. rails server
-7. http://localhost:3000/
+6. rake db:seed
+7. rails server
+8. http://localhost:3000/
 
 ##To run tests via command line:
 1. bundle install

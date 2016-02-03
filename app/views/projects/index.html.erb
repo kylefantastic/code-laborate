@@ -3,6 +3,8 @@
   <div class="col-sm-12">
     <h1 id="projects-page">Projects</h1><br>
     <nav>
+       
+      <!-- search bar -->
        <% if current_user %>
           <% if !current_user.org_affiliate %>
              <div>
@@ -19,6 +21,7 @@
        <% end %>
     </nav>
   
+    <!-- Lists all projects- visible to developer-users -->
     <ul class="media-list" id="projects">
       <li id='user<%=current_user.id%>'></li>
         <% if !current_user.org_affiliate %>
