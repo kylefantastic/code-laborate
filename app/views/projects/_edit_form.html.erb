@@ -45,20 +45,19 @@
         <div>Who will benefit from implementation of this project</div>
       </p>
 
-<!-- Dropdown categories here -->
+<!-- Checkbox categories below -->
       <div><%= f.label :category,"Category" %></div>
       <ul>
         <% @categories.each do |category| %>
             <li>
-            <% #if @project.categories.include?(category) %>
-              <%#= check_box_tag "category[#{category.name}]", 'yes', true %>
-            <%# else %>
-              <%= check_box_tag "category[#{category.name}]" %>
-            <%# end %>
+            <% if @project.categories.include?(category) %>
+              <%= check_box_tag "category[#{category.name}]", "category[#{category.name}]", true %>
+            <% else %>
+              <%= check_box_tag "category[#{category.name}]"%>
+            <% end %>
 
           <%= label_tag("category[#{category.name}]", "#{category.name}") %></li>
         <% end %>
-        <!-- <li><%#= check_box_tag (:category), 'yes', true %></li> -->
       </ul>
 
       <p>
@@ -94,5 +93,5 @@
         <%= f.submit "Update project", id: "submit-project-update", class: "btn btn-default" %>
       </p>
     <% end %>
-    <div class="form-group">
-      <!-- refactor what is this? -->
+    </div>
+    

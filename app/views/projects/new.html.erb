@@ -27,8 +27,8 @@
                                     <%=f.label :vision, "Vision" %>
                                 </div>
                                 <%=error_show(@project, :vision) %>
-                                    <%=f.text_area :vision, placeholder: "Add vision", class: "form-control" %>
-                                        <span id="helpBlock" class="help-block">A sentence about your organizations goal for this project</span>
+                                <%=f.text_area :vision, placeholder: "Add vision", class: "form-control" %>
+                                    <span id="helpBlock" class="help-block">A sentence about your organizations goal for this project</span>
                             </p>
 
                             <p>
@@ -36,9 +36,9 @@
                                     <%=f.label :need, "Need" %>
                                 </div>
                                 <%=error_show(@project, :need) %>
-                                    <%=f .text_area :need, placeholder: "Add Need", class: "form-control" %>
+                                <%=f .text_area :need, placeholder: "Add Need", class: "form-control" %>
 
-                                        <span id="helpBlock" class="help-block">What need will this project address</span>
+                                    <span id="helpBlock" class="help-block">What need will this project address</span>
 
                             </p>
                             <p>
@@ -46,23 +46,22 @@
                                     <%=f.label :description, "Description" %>
                                 </div>
                                 <%=error_show(@project, :description) %>
-                                    <%=f.text_area :description, placeholder: "Add Description", class: "form-control" %>
+                                <%=f.text_area :description, placeholder: "Add Description", class: "form-control" %>
 
-                                        <span id="helpBlock" class="help-block">Describe proposed project details here.  Include what you want a user to do
-          and what functionality you need.  Include any computer languages, if any, required for your project.
-        </span>
+                                    <span id="helpBlock" class="help-block">Describe proposed project details here.  Include what you want a user to do and what functionality you need.  Include any computer languages, if any, required for your project.
+                                   </span>
                             </p>
                             <p>
                                 <div class="required">
                                     <%=f.label :benefit, "Benefit" %>
                                 </div>
                                 <%=error_show(@project, :benefit) %>
-                                    <%=f.text_area :benefit, placeholder: "Add Benefit", class: "form-control" %>
+                                <%=f.text_area :benefit, placeholder: "Add Benefit", class: "form-control" %>
 
-                                        <span id="helpBlock" class="help-block">Who will benefit from implementation of this project</span>
+                                    <span id="helpBlock" class="help-block">Who will benefit from implementation of this project</span>
                             </p>
 
-                            <!-- Dropdown categories here -->
+                            <!-- Checkbox categories -->
                             <div>
                                 <%=f.label :category, "Category" %>
                             </div>
