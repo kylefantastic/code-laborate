@@ -64,7 +64,7 @@ class ProjectsController < ApplicationController
         end
         render template: "projects/_show_project", :layout => false
     else
-      render template: "projects/_edit_form"
+      render template: "projects/_edit_form", :layout => false
     end
   end
 
