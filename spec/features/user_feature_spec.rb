@@ -64,39 +64,36 @@ describe 'feature testing', :type => :feature, js: true do
       org_user_login
       new_org
       add_project
-      wait_for_ajax
       click_link "Profile"
-      wait_for_ajax
       expect(page).to have_content('Rooted in Community')
     end
   end
+
+  feature 'user delete' do
+    scenario 'can delete their account by deleting organization' do
+      org_user_login
+      new_org
+      click_button 'Delete Account'
+      expect(page).to have_content("Welcome!")
+    end
+  end
+
 end
 
-  # feature 'user delete' do
-  #   xscenario 'can delete their account by deleting organization' do
-  #     org_user_login
-  #     new_org
-  #     click_button 'Delete Account'
-  #     expect(page).to have_content("Welcome!")
-  #   end
-  #   # Commented out because I am not sure how to have the user interact with the popup windows
-  # end
-# feature 'registration' do
-#   context 'as an organization representative' do
-#     scenario 'a user can sign up' do
-#       visit(root_path)
-#       click_link ('Sign up')
-#       click_button('Sign Up As Organization')
-#       wait_for_ajax
-#       fill_in 'First name', :with => 'Danielle'
-#       fill_in 'Last name', :with => 'Cameron'
-#       fill_in 'Email', :with => 'dc@user.com'
-#       fill_in 'Password', :with => 'password'
-#       fill_in 'Password confirmation', :with => 'password'
-#       find(:css, '#org-agree').set(true)
-#       click_button 'Sign up'
-#       wait_for_ajax
-#       expect(page).to have_content('Sign Up Your Organization')
-#     end
-#   end
-# end
+feature 'registration' do
+  context 'as an organization representative' do
+    scenario 'a user can sign up' do
+      visit(root_path)
+      click_link ('Sign up')
+      click_button('Sign Up As Organization')
+      fill_in 'First name', :with => 'Danielle'
+      fill_in 'Last name', :with => 'Cameron'
+      fill_in 'Email', :with => 'dc@user.com'
+      fill_in 'Password', :with => 'password'
+      fill_in 'Password confirmation', :with => 'password'
+      find(:css, '#org-agree').set(true)
+      click_button 'Sign up'
+      expect(page).to have_content('Sign Up Your Organization')
+    end
+  end
+end
