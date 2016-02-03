@@ -271,13 +271,19 @@ footer {
 }
 
 .projects-list .media-left {
+  min-width: 137px;
+  vertical-align: top;
 }
-
+.media-object.profile-image{
+  display: inline-block;
+}
 .fa-bookmark-o {
-  position: absolute;
+  vertical-align: top;
+
 }
 .fa-bookmark{
-  position: absolute;
+  vertical-align: top;
+
 }
 
 #add-project-btn{
