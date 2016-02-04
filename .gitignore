@@ -9,3 +9,7 @@
 
 # Ignore uploaded images
 /public/system/**
+
+.DS_Store
+.byebug_history
+

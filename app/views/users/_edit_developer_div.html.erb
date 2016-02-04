@@ -8,11 +8,11 @@
           <%= f.label :last_name, "Last Name" %>
             <%= f.text_field :last_name, class: "form-control" %>
         <%= f.label :email %>
-            <%= f.text_area :email, class: "form-control" %>
+            <%= f.text_field :email, class: "form-control" %>
           <%= f.label :public_profile_url %>
-            <%= f.text_area :public_profile_url, class: "form-control" %>
+            <%= f.text_field :public_profile_url, class: "form-control" %>
           <%= f.label :bootcamp %>
-            <%= f.text_area :bootcamp, class: "form-control" %><br>
+            <%= f.text_field :bootcamp, class: "form-control" %><br>
         <div class="actions"><%= f.submit "Update", class: "update-developer-profile" %></div>
         <%= link_to "Change your password", edit_user_registration_path %>
     </div>

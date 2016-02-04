@@ -9,7 +9,6 @@ class BookmarksController < ApplicationController
   end
 
   def destroy
-    p params
     project_id = params[:bookmark][:project_id].to_i
     developer_id = params[:bookmark][:developer_id].to_i
     bookmark = Bookmark.find_by(project_id: project_id, developer_id: developer_id)

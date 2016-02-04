@@ -1,4 +1,4 @@
-class Users::RegistrationsController < Devise::RegistrationsController
+class RegistrationsController < Devise::RegistrationsController
 
     def index
     end
@@ -30,6 +30,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
         password_confirmation
         public_profile_url
         bootcamp
+        avatar
       )
       params.require(:user).permit(user_permitted)
     end
