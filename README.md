@@ -27,8 +27,8 @@ MIT License- Please see the file called LICENSE.
 
 ##To run locally via the command line:
 
-1. git clone https://github.com/kylefantastic/codellaborate.git
-2. cd codellaborate
+1. git clone https://github.com/kylefantastic/code-laborate.git
+2. cd code-laborate
 3. bundle install
 4. rake db:create
 5. rake db:migrate
