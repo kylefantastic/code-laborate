@@ -1,5 +1,7 @@
 class ProjectsController < ApplicationController
+  
   layout false, only: [:index , :show, :new, :edit]
+  
   def index
     @project = Project.new 
     @projects = Project.all
@@ -50,7 +52,7 @@ class ProjectsController < ApplicationController
     @user = current_user
     if @project.update(project_params)
       if @project.developer_id
-        UserMailer.dev_project(@project,@user).deliver_later
+        UserMailer.dev_project(@project, @user).deliver_later
       end
         if params[:category]
           @project_category_names = params[:category].keys
@@ -62,7 +64,7 @@ class ProjectsController < ApplicationController
         end
         render template: "projects/_show_project", :layout => false
     else
-      p 'in else, need error'
+      render template: "projects/_edit_form", :layout => false
     end
   end
 
@@ -72,6 +74,26 @@ class ProjectsController < ApplicationController
     @organization = Organization.find(@project.organization_id)
     redirect_to organization_path(@organization)
   end
+
+    def seek
+      if params[:search]
+        @projects = Project.search(params[:search]).order("created_at DESC")
+        @organizations = Organization.search(params[:search]).order("created_at DESC")
+        @cat_projects = []
+        Project.all.each do |project|
+          project.categories.each do |category|
+            if category.name == params[:search]
+              @cat_projects << project
+            end
+          end
+        end
+        render template: "projects/_search_results"
+      else
+        @projects = Project.order("created_at DESC")
+      end
+    end
+
+private
 
   def project_params
       project_permitted = %i(
@@ -91,22 +113,5 @@ class ProjectsController < ApplicationController
       params.require(:project).permit(project_permitted)
     end
 
-    def seek
-      if params[:search]
-        @projects = Project.search(params[:search]).order("created_at DESC")
-        @organizations = Organization.search(params[:search]).order("created_at DESC")
-        @cat_projects = []
-        Project.all.each do |project|
-          project.categories.each do |category|
-            if category.name == params[:search]
-              @cat_projects << project
-            end
-          end
-        end
-        render template: "projects/_search_results"
-      else
-        @projects = Project.order("created_at DESC")
-      end
-    end
 
 end
