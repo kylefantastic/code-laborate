@@ -8,7 +8,7 @@ class OrganizationsController < ApplicationController
   end
 
   def create
-    @user= User.find_by(id: current_user.id)
+    @user= User.find_by(id:current_user.id)
     @organization = Organization.new(org_params)
     if @organization.save
         @user.update!(organization_id: @organization.id)

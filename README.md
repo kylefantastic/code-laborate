@@ -20,7 +20,7 @@ Code-laborate is an application written for and by coding bootcamp students.  It
 * Kim Allen
 * Danielle Cameron
 * Kyle Smith
-* Mark Jansen
+* Mark Janzer
 
 ##Licensing:
 MIT License- Please see the file called LICENSE.

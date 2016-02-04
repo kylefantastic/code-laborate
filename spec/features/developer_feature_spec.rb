@@ -13,9 +13,8 @@ describe 'Developer feature testing:', :type => :feature, js: true do
       scenario 'a user can sign up' do
         visit(root_path)
         click_link ('Sign up')
-        wait_for_ajax
+        find("#dev-signup-button")
         click_button('Sign Up As Developer')
-        wait_for_ajax
         fill_in 'First name', :with => 'Kim'
         fill_in 'Last name', :with => 'Doe'
         fill_in 'Email', :with => 'user@user.com'
@@ -23,9 +22,8 @@ describe 'Developer feature testing:', :type => :feature, js: true do
         fill_in 'Password confirmation', :with => 'password'
         find(:css, '#agree').set(true)
         click_button 'Sign up'
-        wait_for_ajax
-
-        expect(page).to have_content('Logout')
+        find("#projects-container")
+        expect(find("#projects-container")).to have_text("Projects")
       end
     end
   end
@@ -39,19 +37,19 @@ describe 'Developer feature testing:', :type => :feature, js: true do
       click_link("Logout")
       re_login
       click_link("Projects")
-      # sleep(1)
     end
 
     context 'When viewing the projects page' do
       scenario 'a developer can see an unordered list that should contain projects' do
-        # Do not remove this sleep(.05), without it the test breaks
-        sleep(0.5)
-        expect(page.html).to have_css("ul")
+        find("#projects-container")
+        expect(page.html).to have_css("#projects-container")
       end
       scenario 'a developer can see the title of the project' do
+        find("#projects-container")
         expect(page).to have_content "Toolshed"
       end
       scenario 'a developer sees a profile button' do
+        find("#projects-container")
         expect(page).to have_link("Profile")
       end
     end
@@ -84,15 +82,28 @@ describe 'Developer feature testing:', :type => :feature, js: true do
       end
       scenario 'a developer can choose the project' do
         click_button("Choose Project")
-        expect(page).to have_content "You have chosen this project"
+        expect(page).to have_text "You have chosen this project"
+      end
+      scenario 'a developer can complete a project' do
+        click_button("Choose Project")
+        find("#complete-project")
+        click_button("Complete")
+        find("#choose-project")
+        expect(page).to have_button("Choose Project")
+      end
+      scenario 'a developer can abandon a project' do
+        click_button("Choose Project")
+        find("#abandon-project")
+        click_button("Abandon Project")
+        find("#choose-project")
+        expect(page).to have_button("Choose Project")
       end
       scenario 'a developer cannot choose the project if they have already chosen a different project' do
         click_button("Choose Project")
-        wait_for_ajax
+        find("#abandon-project")
         click_link("Projects")
-        wait_for_ajax
+        find("#projects-container")
         click_link("Toolshed")
-        wait_for_ajax
         expect(page).to have_no_content("Choose Project")
       end
     end
@@ -106,21 +117,27 @@ describe 'Developer feature testing:', :type => :feature, js: true do
     end
     context 'When viewing the profile page' do
       scenario 'a developer can see their first name' do
-        expect(page).to have_content "New"
+        find(".developer-profile")
+        expect(page).to have_text "New"
       end
       scenario 'a developer can see their last name' do
-        expect(page).to have_content "Person"
+        find(".developer-profile")
+        expect(page).to have_text "Person"
       end
       scenario 'a developer can see their public profile url' do
-        expect(page).to have_content "public.com"
+        find(".developer-profile")
+        expect(page).to have_text "public.com"
       end
       scenario 'a developer can see their bootcamp' do
-        expect(page).to have_content "DBC"
+        find(".developer-profile")
+        expect(page).to have_text "DBC"
       end
       scenario 'a developer can see their email' do
-        expect(page).to have_content "user@user.com"
+        find(".developer-profile")
+        expect(page).to have_text "user@user.com"
       end
       scenario 'a developer can click an edit button' do
+        find(".developer-profile")
         expect(page).to have_button("Edit Account")
       end
     end
@@ -157,34 +174,16 @@ describe 'Developer feature testing:', :type => :feature, js: true do
         click_button 'Update'
         expect(page).to have_content "another@one.com"
       end
+      scenario 'the developer can change their password' do
+        click_link("Change your password")
+        fill_in 'Current password', with: 'password'
+        fill_in 'Password', with: 'betterpassword'
+        fill_in 'Password confirmation', with: 'betterpassword'
+        click_button("Update")
+        find(".alert-success")
+        expect(find(".alert-success")).to have_text("Your account has been updated successfully.")
+      end
     end
   end
 end
 
-# scenario 'the developer can change their password' do
-#   fill_in 'password', with: 'betterpassword'
-#   fill_in 'confirm password', with: 'betterpassword'
-#   click_button 'Update'
-#   click_button 'Logout'
-#   user_login
-#   expect(page).to have_content("Invalid password")
-# end
-
-# scenario 'a developer can complete a project' do
-#   click_button("Choose Project")
-#   wait_for_ajax
-#   sleep(0.2)
-#   click_button("Complete")
-#   wait_for_ajax
-#   sleep(0.2)
-#   expect(page).to have_button("Choose Project")
-# end
-# scenario 'a developer can abandon a project' do
-#   click_button("Choose Project")
-#   wait_for_ajax
-#   sleep(0.2)
-#   click_button("Abandon Project")
-#   wait_for_ajax
-#   sleep(0.2)
-#   expect(page).to have_button("Choose Project")
-# end
