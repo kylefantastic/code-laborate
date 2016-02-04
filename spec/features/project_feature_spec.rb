@@ -36,7 +36,6 @@ describe 'Project feature testing:', :type => :feature, js: true do
     scenario "if a user doesn't fill out all forms it will show 8 error messages" do
       visit(new_project_path)
       click_button 'Save Project'
-      wait_for_ajax
       expect(page).to have_content("8 errors prohibited this project from being saved:")
     end
   end

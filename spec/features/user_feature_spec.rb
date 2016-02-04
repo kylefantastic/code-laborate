@@ -4,7 +4,7 @@ Capybara.register_driver :selenium do |app|
   Capybara::Selenium::Driver.new(app, :browser => :chrome)
 end
 
-describe 'feature testing', :type => :feature, js: true do
+describe 'User feature testing', :type => :feature, js: true do
   include LoginHelpers
   include FillInHelpers
   feature 'the home page' do
@@ -30,6 +30,20 @@ describe 'feature testing', :type => :feature, js: true do
   end
 
   feature 'organization sign-up' do
+    scenario 'a organization representative can sign up' do
+      visit(root_path)
+      click_link ('Sign up')
+      find("#org-signup-button")
+      click_button('Sign Up As Organization')
+      fill_in 'First name', :with => 'Danielle'
+      fill_in 'Last name', :with => 'Cameron'
+      fill_in 'Email', :with => 'dc@user.com'
+      fill_in 'Password', :with => 'password'
+      fill_in 'Password confirmation', :with => 'password'
+      click_button 'Sign up'
+      expect(page).to have_content('Sign Up Your Organization')
+    end
+
     scenario 'a user can see an organization form' do
       org_user_login
       visit(new_organization_path)
@@ -41,59 +55,23 @@ describe 'feature testing', :type => :feature, js: true do
       new_org
       expect(page).to have_content('Rooted in Community')
     end
-
-    scenario 'if user doesnt enter all fields error message is raised' do
-      org_user_login
-      visit(new_organization_path)
-      click_button 'Save Organization'
-      expect(page).to have_content('2 errors prohibited this project from being saved:')
-    end
-
-     scenario 'if user doesnt fill out the Organization Name error message is raise' do
-      org_user_login
-      visit(new_organization_path)
-      fill_in 'Website', :with => 'www.rootedincommunity.org'
-      fill_in 'Description', :with => 'cool@user.com'
-      click_button 'Save Organization'
-      expect(page).to have_content('1 error prohibited this project from being saved:')
-    end
   end
 
   feature 'logged in' do
     scenario 'a user can link to their profile from the projects page' do
       org_user_login
+      find(".alert-success")
       new_org
+      find(".org-partial")
       add_project
+      find(".project-profile")
       click_link "Profile"
+      find(".org-partial")
       expect(page).to have_content('Rooted in Community')
     end
   end
 
-  feature 'user delete' do
-    scenario 'can delete their account by deleting organization' do
-      org_user_login
-      new_org
-      click_button 'Delete Account'
-      expect(page).to have_content("Welcome!")
-    end
-  end
-
 end
 
-feature 'registration' do
-  context 'as an organization representative' do
-    scenario 'a user can sign up' do
-      visit(root_path)
-      click_link ('Sign up')
-      click_button('Sign Up As Organization')
-      fill_in 'First name', :with => 'Danielle'
-      fill_in 'Last name', :with => 'Cameron'
-      fill_in 'Email', :with => 'dc@user.com'
-      fill_in 'Password', :with => 'password'
-      fill_in 'Password confirmation', :with => 'password'
-      find(:css, '#org-agree').set(true)
-      click_button 'Sign up'
-      expect(page).to have_content('Sign Up Your Organization')
-    end
-  end
-end
+
+
