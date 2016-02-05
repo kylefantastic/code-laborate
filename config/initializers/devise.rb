@@ -15,7 +15,7 @@ Devise.setup do |config|
   config.mailer_sender = 'codelaboratesf@gmail.com'
 
   require 'devise/orm/active_record'
-  config.omniauth :facebook,  ENV["FACEBOOK_APP_ID"] , ENV["FACEBOOK_APP_SECRET"], callback_url: "http://code-laborate.herokuapp.com/users/auth/facebook/callback"
+  config.omniauth :facebook,  ENV["FACEBOOK_APP_ID"] , ENV["FACEBOOK_APP_SECRET"], callback_url: "https://code-laborate.herokuapp.com/users/auth/facebook/callback"
   # Configure which keys are used when authenticating a user. The default is
   # just :email. You can configure it to use [:username, :subdomain], so for
   # authenticating a user, both parameters are required. Remember that those
