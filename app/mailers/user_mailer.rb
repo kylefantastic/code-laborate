@@ -11,4 +11,5 @@ class UserMailer < ApplicationMailer
     @url = "http://localhost:3000/projects/#{@project.id}"
     mail(to: @project.contact_email, subject: "Your project was selected")
   end
+  
 end
