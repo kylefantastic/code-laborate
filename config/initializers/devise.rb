@@ -14,15 +14,8 @@ Devise.setup do |config|
   # with default "from" parameter.
   config.mailer_sender = 'codelaboratesf@gmail.com'
 
-  # Configure the class responsible to send e-mails.
-  # config.mailer = 'Devise::Mailer'
-
-  # ==> ORM configuration
-  # Load and configure the ORM. Supports :active_record (default) and
-  # :mongoid (bson_ext recommended) by default. Other ORMs may be
-  # available as additional gems.
   require 'devise/orm/active_record'
-  config.omniauth :facebook,  ENV["FACEBOOK_APP_ID"] , ENV["FACEBOOK_APP_SECRET"], callback_url: "http://localhost:3000/users/auth/facebook/callback"
+  config.omniauth :facebook,  ENV["FACEBOOK_APP_ID"] , ENV["FACEBOOK_APP_SECRET"], callback_url: "https://code-laborate.herokuapp.com/users/auth/facebook/callback"
   # Configure which keys are used when authenticating a user. The default is
   # just :email. You can configure it to use [:username, :subdomain], so for
   # authenticating a user, both parameters are required. Remember that those

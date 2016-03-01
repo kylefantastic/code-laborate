@@ -20,7 +20,7 @@
             <%= f.text_field :website_url, class: "form-control" %>
         <%= f.label :description,"Mission/Description" %>
             <%= error_show(@organization, :description) %>
-            <%= f.text_area :description,  class: "form-control" %>
+            <%= f.text_area :description,  class: "form-control", id:"test" %>
 
           <!-- refactor Currently not updatable -->
           <%= f.label :logo %><br>
@@ -33,10 +33,12 @@
   </div>
     <% end %>
     </body>
-             <div class="footer">
+ <div class="push"></div>
+      <div class="footer">
          <footer>
-            <h1>&lt;&#47;code&gt;</h1>
-</footer>
+            <h1 id="footer-code">&lt;&#47;code&gt;</h1>
+         </footer>
+      </div>
   </html>
 
 

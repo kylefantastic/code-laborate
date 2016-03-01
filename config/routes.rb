@@ -8,8 +8,9 @@ Rails.application.routes.draw do
   # You can have the root of your site routed with "root"
 
   devise_for :users, controllers: { :registrations => "registrations" , :omniauth_callbacks => "callbacks"} do
-  delete 'sign_out', :to => 'devise/sessions#destroy', :as => :destroy_user_session
-end
+    delete 'sign_out', :to => 'devise/sessions#destroy', :as => :destroy_user_session
+  end
+
   root 'home#index'
   resources :bookmarks
   resources :users

@@ -1,38 +1,43 @@
 <%= render template: "layouts/other" %>
-<div id='projects-container'>
-  <% if @projects.any? || @organizations.any? %>
+<div id='projects-container' class="container">
+  <div class="col-sm-12">
+  <% if @projects.any? || @organizations.any? || @cat_projects.any? %>
     <% if @projects.any? %>
       <h4 id="search">Your search was found in the title or description of these projects</h4>
-      <ul class="media-list" id="projects">
-  <li id='user<%=current_user.id%>'></li>
-    <% if !current_user.org_affiliate %>
-      <% @projects.each do |project| %>
-          <li class="media projects-list">
-    <div class="media-left">
-          <% project.id %>
-          <% bookmark = Bookmark.find_by(project_id: project.id, developer_id: current_user.id) %>
-          <% if bookmark %>
-            <%= render partial: "/bookmarks/bookmark_selected", locals: {project: project, bookmark: bookmark} %>
-          <% else %>
-            <%= render partial: "/bookmarks/unbookmark", :locals => {project: project} %>
+   <ul class="media-list" id="projects">
+      <li id='user<%=current_user.id%>'></li>
+        <% if !current_user.org_affiliate %>
+          <% @projects.each do |project| %>
+            <li class="media projects-list">
+              <div class="media-left">
+                <% project.id %>
+                <% bookmark = Bookmark.find_by(project_id: project.id, developer_id: current_user.id) %>
+                <% if bookmark %>
+                  <%= render partial: "/bookmarks/bookmark_selected", locals: {project: project, bookmark: bookmark} %>
+                <% else %>
+                  <%= render partial: "/bookmarks/unbookmark", :locals => {project: project} %>
+                <% end %>
+                <!-- <img src="http://placehold.it/64x64" /> -->
+                <%= image_tag project.project_image.url(:thumb), :class =>"media-object profile-image" %>
+              </div>
+              <div class="media-body">
+              <h4><span class="project-title"><%= link_to project.title, project %></span>, for <%= link_to project.organization.name, project.organization.website_url %></h4>
+              <p class="media-heading"><span class="project-list-vision">Vision</span> <%= project.vision %> </p>
+              </div>
+            </li>
           <% end %>
-          <!-- <img src="http://placehold.it/64x64" /> -->
-          <%= image_tag project.project_image.url(:thumb), :class =>"media-object" %> -->
-      </div>
-  <div class="media-body">
-    <h4 class="media-heading"><span class="project-list-vision">Vision</span> <%= project.vision %> </h4>
-      <p><span class="project-title"><%= link_to project.title, project %></span>, for <%= link_to project.organization.name, project.organization.website_url %></p>
-  </div></li>
-   <% end %>
-      <%else%>
-        <% @project %>
+        <%else%>
+            <% @project %>
+        <% end %>
+    </ul>
     <% end %>
-</div>
-</div>
-</ul>
-</div>
-</div>
-      
+    <% if @cat_projects.any? %>
+      <h4>Your search was found in the category name of these projects</h4>
+      <% @cat_projects.each do |project| %>
+        <div class="project_list">
+          <li><%= link_to project.title, project %></li>
+        </div>
+      <% end %>
     <% end %>
     <% if @organizations.any? %>
       <h4>Your search was found in the organization name of these projects</h4>
@@ -49,5 +54,12 @@
     <% else %>
       <h2>Your search was not found in any projects :(</h2>
   <% end %>
+ </div> 
 </div>
+  <div class="push"></div>
+      <div class="footer">
+         <footer>
+            <h1 id="footer-code">&lt;&#47;code&gt;</h1>
+         </footer>
+      </div>
 

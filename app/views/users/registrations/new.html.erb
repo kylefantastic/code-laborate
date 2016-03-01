@@ -3,18 +3,18 @@
   <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: {class: 'sign-up-form'}) do |f| %>
 
     <%= @errors %>
-    <div class="panel panel-default mission">
-    <div class="panel-heading" id="dbc">
-      <h3 class="panel-title" id="panel-dev"><button type="button" id="dev">Sign Up As Developer</button></h3>
+    <div class="panel panel-default" id="dev-registration">
+    <div class="panel-heading" id="dev-panel-heading">
+      <h3 class="panel-title text-center" id="panel-dev"><button type="button" id="dev-signup-button">Sign Up As Developer</button></h3>
     </div>
     <div class="panel-body">
       For coding bootcamp students and graduates looking for a meaningful coding project to showcase their skills and help out an organization.
     </div>
 
   </div>
-  <div class="panel panel-default purpose">
-    <div class="panel-heading">
-      <h3 class="panel-title" id="panel-dev" ><button type="button" id="org">Sign Up As Organization</button></h3>
+  <div class="panel panel-default" id="org-registration">
+    <div class="panel-heading" id="org-panel-heading">
+      <h3 class="panel-title text-center" id="panel-org" ><button type="button" id="org-signup-button">Sign Up As Organization</button></h3>
     </div>
     <div class="panel-body">
       For non-profits, schools, and activists in need of customized technical tools to support their cause.
@@ -28,19 +28,24 @@
     </div>
     <div class="field">
       <div class="required"><%= f.label :last_name %></div>
-      <%= f.text_field :last_name, autofocus: true,class: "form-control" %>
+      <%= f.text_field :last_name, class: "form-control" %>
     </div>
     <div class="field">
       <div class="required"><%= f.label :email %></div>
-      <%= f.email_field :email, autofocus: true,class: "form-control" %>
+      <%= f.email_field :email, class: "form-control" %>
     </div>
     <div class="field">
       <%= f.label :public_profile_url, "Website or Github url" %><br />
-      <%= f.text_field :public_profile_url, autofocus: true,class: "form-control"%>
+      <%= f.text_field :public_profile_url, class: "form-control"%>
     </div>
     <div class="field">
       <%= f.label :bootcamp %><br />
-      <%= f.text_field :bootcamp, autofocus: true,class: "form-control" %>
+      <%= f.text_field :bootcamp, class: "form-control" %>
+    </div>
+
+    <div>
+      <%= f.label :avatar, "Avatar Image" %><br>
+      <%= f.file_field :avatar, as: :file %>
     </div>
 
     <div class="field">
@@ -76,16 +81,17 @@
       </div>
       <div class="field">
        <div class="required"><%= f.label :last_name %></div>
-        <%= f.text_field :last_name, autofocus: true ,class: "form-control"%>
+        <%= f.text_field :last_name, class: "form-control"%>
       </div>
       <div class="field">
         <div class="required"><%= f.label :email %></div>
-        <%= f.email_field :email, autofocus: true,class: "form-control" %>
+        <%= f.email_field :email, class: "form-control" %>
       </div>
       <div class="field">
         <%= f.label :public_profile_url %><br />
-        <%= f.text_field :public_profile_url, autofocus: true,class: "form-control" %>
+        <%= f.text_field :public_profile_url, class: "form-control" %>
       </div>
+
 
       <div class="field">
        <div class="required"><%= f.label :password %></div>

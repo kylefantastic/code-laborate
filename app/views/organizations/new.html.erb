@@ -1,16 +1,10 @@
 
-<html>
-<head></head>
-<body>
-  <div id="new_org_form" >
-    <%= form_for :organization, url: organizations_path, html: {id: 'new_org'} do |f| %>
-
-
 <script type="text/javascript">
 $(document).ready(function(){
    $('html,body').animate({scrollTop: $('.jumbotron').height()}, "slow")
-   });
+});
 </script>
+
 <h1 class="org-sign-up">Sign Up Your Organization</h1>
 <div id="new_org_form" >
    <%= form_for :organization, url: organizations_path do |f| %>
@@ -28,32 +22,34 @@ $(document).ready(function(){
       </div>
       <%= error_show(@organization, :name) %>
       <%= f.text_field :name, class: "form-control" %>
-      <!-- removed class="required" -->
+
       <div>
          <%= f.label :website_url, "Website" %>
       </div>
       <% error_show(@organization, :website_url) %>
-      <!-- Removed , value: "http://" it was breaking tests -->
       <%= f.text_field :website_url, class: "form-control" %>
+
+
       <div class="required">
          <%= f.label :description, "Mission/Description" %>
       </div>
       <%= error_show(@organization, :description) %>
       <%= f.text_area :description, class: "form-control" %>
 
+      <div>
+         <%= f.label :logo, "Organization Logo" %><br>
+         <%= f.file_field :logo, as: :file %>
+      </div>
+
       <input type="checkbox" name="checkbox" value="check" id="org-agree" /> I have read and agree to <a href='#' class='agreement-alert'>Guidelines and Expectations</a>
 
-      <%= f.label :logo %><br>
-      <%= error_show(@organization, :logo) %>
-      <%= f.file_field :logo, as: :file %><br>
 
-      <div>
-      <% end %>
       <%= f.submit %>
-      </div>
+      <% end %>
    </div>
-   <% end %>
-
 </div>
+
+
+
 
 
