@@ -36,7 +36,7 @@ Project.create(
     contact_email: 'mwilth@email.email',
     contact_phone: '555-555-5555',
     deadline: '',
-    organization_id: 2
+    organization_id: 18
 )
 # What data should we put for the picture?
 
@@ -50,7 +50,7 @@ Project.create(
     contact_email: "rootedincommunity@email.email",
     contact_phone: "555-555-5555",
     deadline: '',
-    organization_id: 1
+    organization_id: 19
 )
 
 Project.create(
@@ -63,7 +63,7 @@ Project.create(
     contact_email: '',
     contact_phone: '',
     deadline: '',
-    organization_id: 5
+    organization_id: 20
 )
 
 
@@ -77,7 +77,7 @@ Project.create(
     contact_email: "",
     contact_phone: "",
     deadline: "",
-    organization_id: 3
+    organization_id: 21
 )
 
 Project.create(
@@ -90,7 +90,7 @@ Project.create(
     contact_email: "",
     contact_phone: "",
     deadline: "",
-    organization_id: 4
+    organization_id: 22
 )
 
 Project.create(
@@ -103,7 +103,7 @@ Project.create(
     contact_email: "",
     contact_phone: "",
     deadline: "",
-    organization_id: 6
+    organization_id: 23
 )
 
 Project.create(
@@ -116,7 +116,7 @@ Project.create(
     contact_email: "",
     contact_phone: "",
     deadline: "",
-    organization_id: 7
+    organization_id: 24
 )
 
 # Categories
