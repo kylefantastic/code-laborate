@@ -2,7 +2,7 @@
 #Code-laborate
 
 ##What is it?
-Code-laborate is an application written for and by coding bootcamp students.  It allows organizations to register and login and post proposals for technical project.  Coding bootcamp students can login and register to browse projects and connect with the organization's projects.
+Code-laborate is an application written for and by coding bootcamp students.  It allows organizations to register, login and post proposals for technical projects.  Coding bootcamp students can login and register to browse projects and connect with the organization's projects.
 
 ##Technologies:
 * Ruby
