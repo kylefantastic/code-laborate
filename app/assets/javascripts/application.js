@@ -146,10 +146,7 @@ function editProjectInfo(){
       data: projectInfo
     })
     request.done(function(response){
-      console.log(response)
-      console.log(response.search('<div class="footer">'))
       var here = response.search('<div class="footer">')
-      console.log(response.slice(0, here))
       var x = response.slice(0, here)
       $('#project-container').html(x)
 
@@ -162,7 +159,6 @@ function chooseProject(){
     event.preventDefault();
     var projectID = $("#project_id").val()
     var currentUserID = $("#current_user_id").val()
-    console.log({project: { id: projectID, developer_id: "" } })
     var request = $.ajax({
       url: "/projects/" + projectID,
       type: "PUT",
@@ -210,16 +206,11 @@ function abandonProject(){
 
 function bookmarkProject(){
   $('#projects-container').on('click', '.fa-bookmark-o', function(e){
-    console.log("HI MARK")
     e.preventDefault();
     var projectId = $(this).attr('id')
-    console.log(projectId)
     projectId = projectId.match(/\d+/).join()
-    console.log(projectId)
     var userId = $(this).parent().parent().parent().children().first().attr('id')
-    console.log(userId)
     userId = userId.match(/\d+/).join()
-    console.log(userId)
 
     var data = {bookmark: {project_id: projectId, developer_id: userId}}
 
@@ -229,7 +220,6 @@ function bookmarkProject(){
       data: data
     })
     request.done(function(response){
-      console.log(response)
       var newBookmark = $.parseHTML(response)
       var bookmarkID = $(newBookmark).attr('id')
       $('#' + bookmarkID).replaceWith(newBookmark)
@@ -294,7 +284,6 @@ function agreementConfirmOrg(){
 function agreementAlert(){
   $('#sign-up-container').on('click', '.agreement-alert', function(e){
     e.preventDefault();
-    console.log("agreement")
     alert("Guidelines and Agreements\n \n Please be aware that it is up to organizations and developers to communicate about the proposed projects, needs, and expectations.\n There is no guarantee that projects will get chosen.\n  If your project is chosen, it is the responsibility of both parties to communicate about needs and expectations.\n  Be aware that there are no guarantees of a finished product and no guarantee that an organization will choose to utilize a finished product.\n The code for any project that is adopted by an organization should be available to the developer(s).")
   })
 }
@@ -302,7 +291,6 @@ function agreementAlert(){
 function agreementAlertOrg(){
   $('#new_org').on('click', '.agreement-alert', function(e){
     e.preventDefault();
-    console.log("agreement")
     alert("Guidelines and Agreements\n \n Please be aware that it is up to organizations and developers to communicate about the proposed projects, needs, and expectations.\n There is no guarantee that projects will get chosen.\n  If your project is chosen, it is the responsibility of both parties to communicate about needs and expectations.\n  Be aware that there are no guarantees of a finished product and no guarantee that an organization will choose to utilize a finished product.\n The code for any project that is adopted by an organization should be available to the developer(s).")
   })
 }
